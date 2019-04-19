@@ -1,3 +1,10 @@
 import './test';
+import './content';
 import './text';
 import './input';
+import './icon';
+import './button';
+import './error';
+import './modal';
+import './space';
+import './screens';
