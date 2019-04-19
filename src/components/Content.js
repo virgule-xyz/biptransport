@@ -11,10 +11,11 @@ import {
   Right,
   Body,
 } from 'native-base';
+import CTitle from './Title';
 
 import { LOGO } from '@medias';
 
-const CContent = ({ children, fullscreen, center }) => {
+const CContent = ({ children, fullscreen, center, title }) => {
   const onPressBackHome = () => {};
   const { width, height } = Dimensions.get('window');
 
@@ -53,6 +54,7 @@ const CContent = ({ children, fullscreen, center }) => {
           }
         }
       >
+        {title && <CTitle>{title}</CTitle>}
         {children}
       </Content>
     </Container>
@@ -60,11 +62,13 @@ const CContent = ({ children, fullscreen, center }) => {
 };
 
 CContent.propTypes = {
+  title: PropTypes.string,
   fullscreen: PropTypes.bool,
   center: PropTypes.bool,
 };
 
 CContent.defaultProps = {
+  title: null,
   fullscreen: true,
   center: false,
 };

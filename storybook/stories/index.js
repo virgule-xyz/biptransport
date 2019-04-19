@@ -8,3 +8,4 @@ import './error';
 import './modal';
 import './space';
 import './screens';
+import './barcodescanner';

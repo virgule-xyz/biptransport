@@ -2,6 +2,10 @@
 import React from 'react';
 import { H1 } from 'native-base';
 
-const CTitle = ({ children, ...props }) => <H1 {...props}>{children}</H1>;
+const CTitle = ({ children, ...props }) => (
+  <H1 {...props} style={{ fontWeight: 'bold' }}>
+    {children.toUpperCase()}
+  </H1>
+);
 
 export default CTitle;
