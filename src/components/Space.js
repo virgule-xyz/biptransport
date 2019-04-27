@@ -1,10 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
-const BASE_HEIGHT = 20;
+export const SPACE_HEIGHT = 20;
 
-const CSpace = ({ n }) => <View style={{ height: n * BASE_HEIGHT, flex: 1 }} />;
+const CSpace = ({ n }) => (
+  <View
+    style={{
+      width: '100%',
+      height: n * SPACE_HEIGHT,
+      flex: 1,
+    }}
+  >
+    <Text> </Text>
+  </View>
+);
 
 CSpace.propTypes = {
   n: PropTypes.number,

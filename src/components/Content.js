@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, Dimensions } from 'react-native';
+import { CSpace } from '@components';
+import { View, Image, Dimensions } from 'react-native';
 import {
   Container,
   Content,
@@ -46,15 +47,20 @@ const CContent = ({ children, fullscreen, center, title }) => {
       )}
       <Content
         padder
-        contentContainerStyle={
+        contentContainerStyle={[
           center && {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-          }
-        }
+          },
+        ]}
       >
-        {title && <CTitle>{title}</CTitle>}
+        {title && (
+          <>
+            <CTitle>{title}</CTitle>
+            <CSpace />
+          </>
+        )}
         {children}
       </Content>
     </Container>

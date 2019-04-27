@@ -7,13 +7,21 @@ import { CButton, CSpace } from '@components';
 
 const RAPPORT = 4 / 5;
 
-const CBarCodeReader = ({ verificator, onSuccess, onError }) => {
+const CBarCodeReader = ({ verificator, onSuccess, onError, hide }) => {
   const { width } = Dimensions.get('window');
 
-  const [showInput, setShowInput] = useState(false);
+  const [showBarcodeInput, setShowBarcodeInput] = useState(false);
   const [barcode, setBarcode] = useState('');
+  const [stopCamera, setStopCamera] = useState(false);
 
+  // should stop the camera to allow alert display
+  useEffect(() => {
+    setStopCamera(hide);
+  });
+
+  // stop the camera, check if barcode read is valuable and then run according functions
   const onBarCodeRead = ({ barcodes }) => {
+    setStopCamera(true);
     verificator(barcodes)
       .then(value => {
         if (onSuccess) {
@@ -23,59 +31,77 @@ const CBarCodeReader = ({ verificator, onSuccess, onError }) => {
       })
       .catch(value => {
         if (onError) {
+          setBarcode('');
           onError(value);
         }
       });
   };
 
+  // press the button that display the bar code input
   const onPressManual = () => {
-    setShowInput(true);
+    setStopCamera(true);
+    setShowBarcodeInput(true);
   };
 
+  // cancel and close the input barcode manual window
   const onPressCancelManual = () => {
+    setStopCamera(false);
+    setShowBarcodeInput(false);
     setBarcode('');
-    setShowInput(false);
   };
 
+  // press the ok button after entering a manual code
   const onPressValidateManual = () => {
-    const barcoderead = barcode;
-    setBarcode('');
-    setShowInput(false);
-    onBarCodeRead({ barcodes: barcoderead });
+    setStopCamera(true);
+    setShowBarcodeInput(false);
+    setTimeout(() => {
+      const barcoderead = barcode;
+      setBarcode('');
+      onBarCodeRead({ barcodes: barcoderead });
+    }, 500);
   };
 
+  // on type event to get the code entered
   const onChangeCode = text => {
     setBarcode(text);
   };
 
   return (
-    <View
-      style={{
-        position: 'relative',
-        flex: 0,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <RNCamera
-        captureAudio={false}
-        style={{ width: width * RAPPORT, height: width * RAPPORT }}
-        type={RNCamera.Constants.Type.back}
-        onBarCodeRead={onBarCodeRead}
-      />
-      <CSpace />
-      <CButton
-        icon="pencil"
-        block
-        light
-        label="Saisir manuellement..."
-        onPress={onPressManual}
-      />
-      <Dialog.Container visible={showInput}>
+    <>
+      <View
+        style={{
+          flex: 0,
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+        }}
+      >
+        <RNCamera
+          captureAudio={false}
+          style={[
+            stopCamera && { display: 'none' },
+            { width: width * RAPPORT, height: width * RAPPORT },
+          ]}
+          type={RNCamera.Constants.Type.back}
+          onBarCodeRead={onBarCodeRead}
+          enabled={false}
+        />
+        <View
+          style={[
+            {
+              width: width * RAPPORT,
+              height: width * RAPPORT,
+              backgroundColor: 'grey',
+              display: 'none',
+            },
+            stopCamera && { display: 'flex' },
+          ]}
+        />
+        <CSpace />
+        <CButton icon="search" block light label="Saisir manuellement..." onPress={onPressManual} />
+      </View>
+      <Dialog.Container visible={showBarcodeInput}>
         <Dialog.Title>Saisie manuelle</Dialog.Title>
-        <Dialog.Description>
-          Saisissez manuellement un code puis validez.
-        </Dialog.Description>
+        <Dialog.Description>Saisissez manuellement un code puis validez.</Dialog.Description>
         <Dialog.Input numberOfLines={1} onChangeText={onChangeCode} />
         <Dialog.Button label="Annuler" onPress={onPressCancelManual} />
         <Dialog.Button
@@ -85,7 +111,7 @@ const CBarCodeReader = ({ verificator, onSuccess, onError }) => {
           onPress={onPressValidateManual}
         />
       </Dialog.Container>
-    </View>
+    </>
   );
 };
 
@@ -93,6 +119,7 @@ CBarCodeReader.propTypes = {
   verificator: PropTypes.func.isRequired,
   onSuccess: PropTypes.func.isRequired,
   onError: PropTypes.func.isRequired,
+  hide: PropTypes.bool.isRequired,
 };
 
 export default CBarCodeReader;

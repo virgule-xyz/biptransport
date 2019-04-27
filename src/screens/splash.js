@@ -7,12 +7,14 @@ const ScreenSplash = () => {
     alert('continue');
   };
 
+  const title = `Application BIP-LIV ${version}`;
+
   return (
     <CContent fullscreen center>
       <CSpace />
-      <CTitle>Application BIP-LIV {version}</CTitle>
+      <CTitle>{title}</CTitle>
       <CSpace />
-      <CButton block label="Continuer" />
+      <CButton block label="Continuer" onPress={onPressContinue} />
       <CSpace />
     </CContent>
   );

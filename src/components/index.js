@@ -9,3 +9,5 @@ export { default as CModal } from './Modal';
 export { default as CSpace } from './Space';
 export { default as CContent } from './Content';
 export { default as CBarCodeReader } from './BarCodeReader';
+
+export const DEFAULT_FONT_SIZE = 15;
