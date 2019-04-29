@@ -1,24 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CSpace } from '@components';
-import { View, Image, Dimensions } from 'react-native';
-import {
-  Container,
-  Content,
-  Header,
-  Title,
-  Button,
-  Left,
-  Right,
-  Body,
-} from 'native-base';
-import CTitle from './Title';
+import { Image, Dimensions } from 'react-native';
+import { Container, Content, Header, Title, Button, Left, Right, Body } from 'native-base';
+import CTitle from './title';
 
 import { LOGO } from '@medias';
 
+/**
+ * The main screen with a header (full or mini), the content and a title. Eventually centered.
+ */
 const CContent = ({ children, fullscreen, center, title }) => {
   const onPressBackHome = () => {};
-  const { width, height } = Dimensions.get('window');
+  const { width } = Dimensions.get('window');
 
   return (
     <Container>

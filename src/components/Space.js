@@ -4,6 +4,9 @@ import { View, Text } from 'react-native';
 
 export const SPACE_HEIGHT = 20;
 
+/**
+ * Add a space bewtween components by 'n' SPACE_HEIGHT
+ */
 const CSpace = ({ n }) => (
   <View
     style={{

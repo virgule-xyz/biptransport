@@ -1,13 +1,13 @@
-export { default as CText } from './Text';
-export { default as CTitle } from './Title';
-export { default as CInput } from './Input';
-export { default as CIcon } from './Icon';
-export { default as CImage } from './Image';
-export { default as CButton } from './Button';
-export { default as CError } from './Error';
-export { default as CModal } from './Modal';
-export { default as CSpace } from './Space';
-export { default as CContent } from './Content';
-export { default as CBarCodeReader } from './BarCodeReader';
+export { default as CText } from './text';
+export { default as CTitle } from './title';
+export { default as CInput } from './input';
+export { default as CIcon } from './icon';
+export { default as CImage } from './image';
+export { default as CButton } from './button';
+export { default as CError } from './error';
+export { default as CModal } from './modal';
+export { default as CSpace } from './space';
+export { default as CContent } from './content';
+export { default as CBarCodeReader } from './barcodereader';
 
 export const DEFAULT_FONT_SIZE = 15;

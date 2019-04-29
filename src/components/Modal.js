@@ -4,8 +4,17 @@ import PropTypes from 'prop-types';
 import { Button, Grid, Row, Col } from 'native-base';
 import { Overlay } from 'react-native-elements';
 
+/**
+ * Allow to display a modal window by setting show to true/false
+ * Add some callback for onCancel, onContinue and onClose
+ * If callback are provided then corresponding buttons are also displayed
+ */
 const CModal = ({ children, onCancel, onContinue, onClose, show }) => {
   const [isVisible, setIsVisible] = useState(show);
+
+  useEffect(() => {
+    setIsVisible(show);
+  }, [show]);
 
   const onPressCancel = () => {
     onCancel();
@@ -18,10 +27,6 @@ const CModal = ({ children, onCancel, onContinue, onClose, show }) => {
   const onPressClose = () => {
     onClose();
   };
-
-  useEffect(() => {
-    setIsVisible(show);
-  });
 
   return (
     <Overlay
@@ -44,18 +49,14 @@ const CModal = ({ children, onCancel, onContinue, onClose, show }) => {
           {onContinue && (
             <Col style={{ marginHorizontal: 7 }}>
               <Button block primary onPress={onPressContinue}>
-                <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>
-                  Continuer
-                </Text>
+                <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>Continuer</Text>
               </Button>
             </Col>
           )}
           {!onCancel && !onContinue && (
             <Col style={{ justifyContent: 'center', alignItems: 'center' }}>
               <Button block primary onPress={onPressClose}>
-                <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>
-                  Fermer
-                </Text>
+                <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>Fermer</Text>
               </Button>
             </Col>
           )}

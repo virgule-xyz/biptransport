@@ -1,8 +1,12 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Item, Input, Label, Icon } from 'native-base';
 
+/**
+ * Wrap a Native Base input with a label and eventualy an icon by is name.
+ * Provide the onChange to get the text entered
+ * Flag success or error to display corresponding state
+ */
 const CInput = ({ label, success, error, iconName, onChange }) => {
   let anIcon = null;
   if (success) {

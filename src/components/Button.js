@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Text, Icon } from 'native-base';
-import { ICON_TYPE, ICON_COLOR } from './Icon';
+import { ICON_TYPE, ICON_COLOR } from './icon';
 
+/**
+ * Just a wrapper around a Native Base button
+ */
 const CButton = ({ label, icon, ...props }) => (
   <Button iconLeft {...props}>
     {icon && <Icon name={icon} type={ICON_TYPE} color={ICON_COLOR} />}

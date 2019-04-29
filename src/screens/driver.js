@@ -1,67 +1,86 @@
-import React, { useState } from 'react';
-import { CContent, CButton, CBarCodeReader } from '@components';
+import React, { useState, useContext, useEffect } from 'react';
+import { CContent, CBarCodeReader } from '@components';
+import { DriverContext } from '@contexts';
 import Dialog from 'react-native-dialog';
 
+/**
+ * Should display a barcode reader to get driver infos
+ * Display an Dialog Input to validate driver GMS
+ */
 const ScreenDriver = () => {
+  // manage the driver context
+  const driverContext = useContext(DriverContext);
+  // manage dialog gsm
   const [showGSMInput, setShowGSMInput] = useState(false);
-  const [gsmNumber, setGSMNumber] = useState('');
-  const [hideBarCodeRead,setHideBarCodeReader]=useState(false);
+  // manage gsm number entered
+  const [tempGsmNumber, setTempGsmNumber] = useState(driverContext.gsmNumber);
+  // manage hiding the barcode
+  const [hideBarCodeRead, setHideBarCodeReader] = useState(false);
 
-  const onPressContinue = () => {
-    alert('continue');
+  const onBarCodeSuccess = () => {
+    setShowGSMInput(true);
+    // setHideBarCodeReader(false);
   };
 
-  const verificator = code => new Promise(resolve => resolve(code));
-
-  const onSuccess = () => {
-    setHideBarCodeReader(true);
-    setTimeout(() => {
-      setShowGSMInput(true);
-    }, 500);
-  };
-
-  const onError = () => {
+  const onBarCodeError = value => {
+    // FIXME: barcodereader still disabled
     setHideBarCodeReader(false);
-    // console.warn('error is ', error);;
-    // setShowGSMInput(false);
+    // eslint-disable-next-line no-undef
+    alert(value);
   };
 
-  const onChangeInputGSM = text => setGSMNumber(text);
+  const onChangeInputGSM = text => setTempGsmNumber(text);
 
   const onPressValidateGSM = () => {
-    setHideBarCodeReader(true);
+    driverContext.setGSMNumber(tempGsmNumber);
     setShowGSMInput(false);
-    setTimeout(() => {
-      alert(gsmNumber);
-    }, 500);
+    // setHideBarCodeReader(false);
+    // eslint-disable-next-line no-undef
+    alert('Navigate');
+    // FIXME: navigate to driver screen
   };
 
   const onPressCancelInputGSM = () => {
     setShowGSMInput(false);
-    setHideBarCodeReader(false);
-    setGSMNumber('');
+    // setHideBarCodeReader(false);
+    setTempGsmNumber('');
   };
 
   return (
-    <>
-      <CContent title="Code de tournée" fullscreen>
-        <CBarCodeReader verificator={verificator} onSuccess={onSuccess} onError={onError} hide={hideBarCodeRead} />
-      </CContent>
-      <Dialog.Container visible={showGSMInput}>
-        <Dialog.Title>Votre numéro</Dialog.Title>
-        <Dialog.Description>
-          Veuillez confirmer votre numéro de portable afin d'être joint par votre superviseur.
-        </Dialog.Description>
-        <Dialog.Input numberOfLines={1} onChangeText={onChangeInputGSM} />
-        <Dialog.Button label="Annuler" onPress={onPressCancelInputGSM} />
-        <Dialog.Button
-          bold
-          disabled={gsmNumber.length < 6}
-          label="Valider"
-          onPress={onPressValidateGSM}
-        />
-      </Dialog.Container>
-    </>
+    <DriverContext.Consumer>
+      {({ gsmNumber, firstname, lastname, getDriverDatas }) => (
+        <>
+          <CContent title="Code de tournée" fullscreen>
+            <CBarCodeReader
+              verificator={getDriverDatas}
+              onSuccess={onBarCodeSuccess}
+              onError={onBarCodeError}
+              hide={hideBarCodeRead}
+            />
+          </CContent>
+          <Dialog.Container visible={showGSMInput}>
+            <Dialog.Title>
+              {firstname} {lastname}
+            </Dialog.Title>
+            <Dialog.Description>
+              Veuillez confirmer votre numéro de portable afin d'être joint par votre superviseur.
+            </Dialog.Description>
+            <Dialog.Input
+              defaultValue={gsmNumber}
+              numberOfLines={1}
+              onChangeText={onChangeInputGSM}
+            />
+            <Dialog.Button label="Annuler" onPress={onPressCancelInputGSM} />
+            <Dialog.Button
+              bold
+              disabled={gsmNumber.length < 6}
+              label="Valider"
+              onPress={onPressValidateGSM}
+            />
+          </Dialog.Container>
+        </>
+      )}
+    </DriverContext.Consumer>
   );
 };
 

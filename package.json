@@ -2,7 +2,7 @@
   "name": "biptransport",
   "displayName": "biptransport",
   "bundleID": "fr.biptransport.app1",
-  "version": "1.0.0",
+  "version": "0.2.14",
   "private": true,
   "story": true,
   "env": "prod",
@@ -89,6 +89,9 @@
     }
   },
   "pretty": "prettier --semi false --print-width 100 --single-quote --trailing-comma all --write",
+  "eslintIgnore": [
+    "storybook/**"
+  ],
   "jest": {
     "cacheDirectory": "./cache",
     "collectCoverageFrom": [

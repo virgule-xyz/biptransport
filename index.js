@@ -1,3 +1,4 @@
+
 /**
  * @format
  */
@@ -6,14 +7,17 @@ import { AppRegistry } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { getStorybookUI, configure } from '@storybook/react-native';
 import './storybook/rn-addons';
-import App from './src/App';
+// import App from './src/app';
 import { story, version, name as appName } from './package.json';
 
 console.warn(`** ${appName} version ${version}`);
 
+// eslint-disable-next-line import/no-mutable-exports
 let TheApp = null;
+
 if (story) {
   configure(() => {
+    // eslint-disable-next-line global-require
     require('./storybook/stories');
   }, module);
   const StorybookUI = getStorybookUI({});
@@ -32,7 +36,7 @@ if (story) {
   );
   TheApp = createAppContainer(StorybookStack);
 } else {
-  TheApp = App;
+  // TheApp = App;
 }
 
 AppRegistry.registerComponent(appName, () => TheApp);

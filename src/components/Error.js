@@ -3,6 +3,9 @@ import { View } from 'react-native';
 import { Text } from 'native-base';
 import { CIcon } from '@components';
 
+/**
+ * A wrapper for error display in red
+ */
 const CError = ({ children }) => (
   <View
     style={{

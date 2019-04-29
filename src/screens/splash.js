@@ -2,8 +2,13 @@ import React from 'react';
 import { CContent, CSpace, CTitle, CButton } from '@components';
 import { version } from '../../package.json';
 
+/**
+ * Splash screen with app title and version
+ */
 const ScreenSplash = () => {
   const onPressContinue = () => {
+    // FIXME: navigate to the driver screen
+    // eslint-disable-next-line no-undef
     alert('continue');
   };
 

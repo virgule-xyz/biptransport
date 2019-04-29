@@ -7,6 +7,10 @@ import { CButton, CSpace } from '@components';
 
 const RAPPORT = 4 / 5;
 
+/**
+ * Scan for a barcode, the verificator take the barcode and returns a promise with a returned value in onSuccess or an error in onError if the barcode is wrong
+ * hide the camera for some display errors
+ */
 const CBarCodeReader = ({ verificator, onSuccess, onError, hide }) => {
   const { width } = Dimensions.get('window');
 
@@ -17,7 +21,7 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide }) => {
   // should stop the camera to allow alert display
   useEffect(() => {
     setStopCamera(hide);
-  });
+  }, [hide]);
 
   // stop the camera, check if barcode read is valuable and then run according functions
   const onBarCodeRead = ({ barcodes }) => {
