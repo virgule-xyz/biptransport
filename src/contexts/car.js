@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { checkBarcode } from '@webservices';
 
 /**
  * Expliquer ce que fait le contexte et comment utiliser les states
@@ -20,25 +21,7 @@ const CarContextProvider = ({ children }) => {
 
   // Call the API to get the car linked to this codebar
   const myGetCarDatas = codebar => {
-    return new Promise((resolve, reject) => {
-      if (codebar === '123456') {
-        setCarContextState(prevState => {
-          // FIXME: Use the API with the mapper from the API to this interface
-          const newState = {
-            ...prevState,
-            brand: 'Renault',
-            model: 'Zoé',
-            license: 'EB085TN',
-            comment: '',
-          };
-          return newState;
-        });
-        resolve();
-      } else {
-        // eslint-disable-next-line prefer-promise-reject-errors
-        reject('Mauvais code');
-      }
-    });
+    return checkBarcode({ codebar, ws: 'car', setContextState: setCarContextState });
   };
 
   return (

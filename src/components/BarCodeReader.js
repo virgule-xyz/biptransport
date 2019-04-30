@@ -20,16 +20,16 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide }) => {
 
   // should stop the camera to allow alert display
   useEffect(() => {
-    setStopCamera(hide);
-  }, [hide]);
+    setStopCamera(hide || showBarcodeInput);
+  }, [hide, showBarcodeInput]);
 
   // stop the camera, check if barcode read is valuable and then run according functions
   const onBarCodeRead = ({ barcodes }) => {
-    setStopCamera(true);
     verificator(barcodes)
       .then(value => {
         if (onSuccess) {
           setBarcode('');
+          setStopCamera(true);
           onSuccess(value);
         }
       })
@@ -43,20 +43,17 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide }) => {
 
   // press the button that display the bar code input
   const onPressManual = () => {
-    setStopCamera(true);
     setShowBarcodeInput(true);
   };
 
   // cancel and close the input barcode manual window
   const onPressCancelManual = () => {
-    setStopCamera(false);
     setShowBarcodeInput(false);
     setBarcode('');
   };
 
   // press the ok button after entering a manual code
   const onPressValidateManual = () => {
-    setStopCamera(true);
     setShowBarcodeInput(false);
     setTimeout(() => {
       const barcoderead = barcode;

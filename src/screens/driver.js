@@ -15,34 +15,48 @@ const ScreenDriver = () => {
   // manage gsm number entered
   const [tempGsmNumber, setTempGsmNumber] = useState(driverContext.gsmNumber);
   // manage hiding the barcode
-  const [hideBarCodeRead, setHideBarCodeReader] = useState(false);
+  const [hideBarCodeReader, setHideBarCodeReader] = useState(false);
+
+  useEffect(() => {
+    if (tempGsmNumber.length === 0 && driverContext.gsmNumber.length > 0) {
+      setTempGsmNumber(driverContext.gsmNumber);
+    }
+    setHideBarCodeReader(showGSMInput);
+  });
 
   const onBarCodeSuccess = () => {
-    setShowGSMInput(true);
-    // setHideBarCodeReader(false);
+    setTimeout(() => {
+      setShowGSMInput(true);
+    }, 500);
   };
 
   const onBarCodeError = value => {
-    // FIXME: barcodereader still disabled
-    setHideBarCodeReader(false);
-    // eslint-disable-next-line no-undef
-    alert(value);
+    setTimeout(() => {
+      // eslint-disable-next-line no-undef
+      alert(value);
+    }, 500);
   };
 
   const onChangeInputGSM = text => setTempGsmNumber(text);
 
   const onPressValidateGSM = () => {
-    driverContext.setGSMNumber(tempGsmNumber);
-    setShowGSMInput(false);
-    // setHideBarCodeReader(false);
-    // eslint-disable-next-line no-undef
-    alert('Navigate');
-    // FIXME: navigate to driver screen
+    driverContext
+      .setGSMNumber(tempGsmNumber)
+      .then(() => {
+        setShowGSMInput(false);
+        setHideBarCodeReader(true);
+        setTimeout(() => {
+          // FIXME: navigate to driver screen
+        }, 500);
+      })
+      .catch(() => {
+        // eslint-disable-next-line no-undef
+        alert('Impossible de sauvegarder votre numéro...');
+      });
   };
 
   const onPressCancelInputGSM = () => {
     setShowGSMInput(false);
-    // setHideBarCodeReader(false);
     setTempGsmNumber('');
   };
 
@@ -55,7 +69,7 @@ const ScreenDriver = () => {
               verificator={getDriverDatas}
               onSuccess={onBarCodeSuccess}
               onError={onBarCodeError}
-              hide={hideBarCodeRead}
+              hide={hideBarCodeReader}
             />
           </CContent>
           <Dialog.Container visible={showGSMInput}>
@@ -63,7 +77,8 @@ const ScreenDriver = () => {
               {firstname} {lastname}
             </Dialog.Title>
             <Dialog.Description>
-              Veuillez confirmer votre numéro de portable afin d'être joint par votre superviseur.
+              Veuillez confirmer votre numéro de portable ({tempGsmNumber}) afin d'être joint par
+              votre superviseur.
             </Dialog.Description>
             <Dialog.Input
               defaultValue={gsmNumber}
@@ -73,7 +88,7 @@ const ScreenDriver = () => {
             <Dialog.Button label="Annuler" onPress={onPressCancelInputGSM} />
             <Dialog.Button
               bold
-              disabled={gsmNumber.length < 6}
+              disabled={tempGsmNumber.length < 10}
               label="Valider"
               onPress={onPressValidateGSM}
             />
