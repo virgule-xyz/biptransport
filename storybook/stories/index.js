@@ -6,5 +6,6 @@ import './button';
 import './error';
 import './modal';
 import './space';
+import './spinner';
 import './screens';
 import './barcodescanner';

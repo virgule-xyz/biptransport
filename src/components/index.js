@@ -7,6 +7,7 @@ export { default as CButton } from './button';
 export { default as CError } from './error';
 export { default as CModal } from './modal';
 export { default as CSpace } from './space';
+export { default as CSpinner } from './spinner';
 export { default as CContent } from './content';
 export { default as CBarCodeReader } from './barcodereader';
 
