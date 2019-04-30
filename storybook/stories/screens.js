@@ -4,7 +4,7 @@ import ScreenSplash from '@screens/splash';
 import ScreenDriver from '@screens/driver';
 import ScreenCar from '@screens/car';
 import ScreenManagers from '@screens/managers';
-import { CarContextProvider, DriverContextProvider } from '@contexts';
+import { CarContextProvider, DriverContextProvider, ManagersContextProvider } from '@contexts';
 
 storiesOf('Screens', module)
   .add('Splash', () => <ScreenSplash />)
@@ -18,4 +18,8 @@ storiesOf('Screens', module)
       <ScreenCar />
     </CarContextProvider>
   ))
-  .add('Managers', () => <ScreenManagers />);
+  .add('Managers', () => (
+    <ManagersContextProvider>
+      <ScreenManagers />
+    </ManagersContextProvider>
+  ));
