@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react-native';
 import ScreenSplash from '@screens/splash';
 import ScreenDriver from '@screens/driver';
 import ScreenCar from '@screens/car';
+import ScreenManagers from '@screens/managers';
 import { CarContextProvider, DriverContextProvider } from '@contexts';
 
 storiesOf('Screens', module)
@@ -16,4 +17,5 @@ storiesOf('Screens', module)
     <CarContextProvider>
       <ScreenCar />
     </CarContextProvider>
-  ));
+  ))
+  .add('Managers', () => <ScreenManagers />);
