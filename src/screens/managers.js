@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import { CSpace, CContent, CButton, CSpinner } from '@components';
 import { ManagersContext } from '@contexts';
 
@@ -7,17 +8,24 @@ import { ManagersContext } from '@contexts';
  */
 const ScreenManagers = () => {
   const onPressManager = manager => {
-    console.warn('Do something on manager', manager);
+    // FIXME: do domehting with it
   };
 
+  const onPressBackHome = () => {
+    // FIXME: goto to home
+    // FIXME: make a global function
+  };
+
+  // FIXME: Add a waiting on CContent to display proper waiting spinner and a prop for the condition to fullfil
+
   return (
-    <CContent title="Vos responsables" fullscreen>
+    <CContent title="Vos responsables" fullscreen pressBackHome={onPressBackHome}>
       <ManagersContext.Consumer>
         {({ managers }) => (
           <>
             {managers.length > 0 &&
-              managers.map(manager => (
-                <>
+              managers.map((manager, index) => (
+                <View key={`${manager.name}${index}`}>
                   <CButton
                     light
                     full
@@ -25,7 +33,7 @@ const ScreenManagers = () => {
                     onPress={() => onPressManager(manager)}
                   />
                   <CSpace n={0.1} />
-                </>
+                </View>
               ))}
             {managers.length === 0 && (
               <>

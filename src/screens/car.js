@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
+import { Alert } from 'react-native';
 import { CSpace, CContent, CText, CBarCodeReader, DEFAULT_FONT_SIZE } from '@components';
 import { CarContext } from '@contexts';
 import Dialog from 'react-native-dialog';
@@ -7,8 +8,6 @@ import Dialog from 'react-native-dialog';
  * Should display a barcode reader to get car infos displayed in a dialog input
  */
 const ScreenCar = () => {
-  // manage the car context
-  const carContext = useContext(CarContext);
   // manage the dialog input
   const [showCarConfirm, setShowCarConfirm] = useState(false);
   // manage the bar code reader
@@ -24,8 +23,11 @@ const ScreenCar = () => {
 
   // vehicle barcode is not suitable
   const onError = () => {
+    Alert.alert("Ce véhicule n'existe pas...");
     setHideBarCodeReader(false);
-    setShowCarConfirm(false);
+    setTimeout(() => {
+      setShowCarConfirm(false);
+    }, 500);
   };
 
   // Confirm that the car is the one driver will use
@@ -33,8 +35,7 @@ const ScreenCar = () => {
     setHideBarCodeReader(true);
     setShowCarConfirm(false);
     setTimeout(() => {
-      // eslint-disable-next-line no-undef
-      alert('continue');
+      // FIXME: go to next screen
     }, 500);
   };
 
@@ -44,14 +45,18 @@ const ScreenCar = () => {
     setHideBarCodeReader(false);
   };
 
+  // speed return to home
+  const onPressBackHome = () => {
+    // FIXME:
+  };
+
   return (
     <CarContext.Consumer>
       {({ brand, model, license, comment, getCarDatas }) => (
         <>
-          <CContent title="Code de véhicule" fullscreen>
+          <CContent title="Code de véhicule" fullscreen pressBackHome={onPressBackHome}>
             <CText style={{ textAlign: 'center', fontSize: (DEFAULT_FONT_SIZE * 3) / 4 }}>
-              {`Scannez le code barre du véhicule
-que vous utiliserez pour votre tournée.`}
+              {`Scannez le code barre du véhicule\nque vous utiliserez pour votre tournée.`}
             </CText>
             <CSpace />
             <CBarCodeReader
@@ -65,7 +70,7 @@ que vous utiliserez pour votre tournée.`}
             <Dialog.Title>Votre véhicule</Dialog.Title>
             <Dialog.Description>
               {`${brand} ${model} ${license}
-${comment ? comment : 'Aucun problème à signaler'}`}
+${comment || 'Aucun problème à signaler'}`}
             </Dialog.Description>
             <Dialog.Button label="Autre véhicule" onPress={onPressCancelCarConfirm} />
             <Dialog.Button bold label="Continuer" onPress={onPressCarConfirm} />

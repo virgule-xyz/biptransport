@@ -1,21 +1,24 @@
 import React from 'react';
+import { Alert } from 'react-native';
 import { CContent, CSpace, CTitle, CButton } from '@components';
-import { version } from '../../package.json';
+import { splashname, version } from '../../package.json';
 
 /**
  * Splash screen with app title and version
  */
 const ScreenSplash = () => {
+  // FIXME: navigate to the driver screen
   const onPressContinue = () => {
-    // FIXME: navigate to the driver screen
-    // eslint-disable-next-line no-undef
-    alert('continue');
+    Alert.alert('continue');
   };
 
-  const title = `Application BIP-LIV ${version}`;
+  // Do nothing
+  const onPressBackHome = () => {};
+
+  const title = `${splashname}\n${version}`;
 
   return (
-    <CContent fullscreen center>
+    <CContent fullscreen center pressBackHome={onPressBackHome}>
       <CSpace />
       <CTitle>{title}</CTitle>
       <CSpace />

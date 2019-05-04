@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Alert } from 'react-native';
 import { CContent, CBarCodeReader } from '@components';
 import { DriverContext } from '@contexts';
 import Dialog from 'react-native-dialog';
@@ -17,6 +18,7 @@ const ScreenDriver = () => {
   // manage hiding the barcode
   const [hideBarCodeReader, setHideBarCodeReader] = useState(false);
 
+  // manage modals show/hide
   useEffect(() => {
     if (tempGsmNumber.length === 0 && driverContext.gsmNumber.length > 0) {
       setTempGsmNumber(driverContext.gsmNumber);
@@ -24,21 +26,25 @@ const ScreenDriver = () => {
     setHideBarCodeReader(showGSMInput);
   });
 
+  // if successfully read a bar code then display GSM modal
+  // need to timed for display... probably due to setState
   const onBarCodeSuccess = () => {
     setTimeout(() => {
       setShowGSMInput(true);
     }, 500);
   };
 
+  // if error on read show it
   const onBarCodeError = value => {
     setTimeout(() => {
-      // eslint-disable-next-line no-undef
-      alert(value);
+      Alert.alert(value);
     }, 500);
   };
 
+  // input get the text entered for future usage
   const onChangeInputGSM = text => setTempGsmNumber(text);
 
+  // Ok change the GSM in the DB
   const onPressValidateGSM = () => {
     driverContext
       .setGSMNumber(tempGsmNumber)
@@ -50,8 +56,7 @@ const ScreenDriver = () => {
         }, 500);
       })
       .catch(() => {
-        // eslint-disable-next-line no-undef
-        alert('Impossible de sauvegarder votre numéro...');
+        Alert.alert('Impossible de sauvegarder votre numéro...');
       });
   };
 
@@ -60,11 +65,14 @@ const ScreenDriver = () => {
     setTempGsmNumber('');
   };
 
+  // Do nothing
+  const onPressBackHome = () => {};
+
   return (
     <DriverContext.Consumer>
       {({ gsmNumber, firstname, lastname, getDriverDatas }) => (
         <>
-          <CContent title="Code de tournée" fullscreen>
+          <CContent title="Code de tournée" fullscreen pressBackHome={onPressBackHome}>
             <CBarCodeReader
               verificator={getDriverDatas}
               onSuccess={onBarCodeSuccess}
@@ -73,12 +81,9 @@ const ScreenDriver = () => {
             />
           </CContent>
           <Dialog.Container visible={showGSMInput}>
-            <Dialog.Title>
-              {firstname} {lastname}
-            </Dialog.Title>
+            <Dialog.Title>{`${firstname} ${lastname}`}</Dialog.Title>
             <Dialog.Description>
-              Veuillez confirmer votre numéro de portable ({tempGsmNumber}) afin d'être joint par
-              votre superviseur.
+              {`Veuillez confirmer votre numéro de portable ({tempGsmNumber}) afin d'être joint par votre superviseur.`}
             </Dialog.Description>
             <Dialog.Input
               defaultValue={gsmNumber}

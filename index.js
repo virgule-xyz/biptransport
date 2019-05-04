@@ -1,4 +1,3 @@
-
 /**
  * @format
  */
@@ -7,7 +6,7 @@ import { AppRegistry } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { getStorybookUI, configure } from '@storybook/react-native';
 import './storybook/rn-addons';
-// import App from './src/app';
+import App from './src/app';
 import { story, version, name as appName } from './package.json';
 
 console.warn(`** ${appName} version ${version}`);
@@ -36,7 +35,7 @@ if (story) {
   );
   TheApp = createAppContainer(StorybookStack);
 } else {
-  // TheApp = App;
+  TheApp = App;
 }
 
 AppRegistry.registerComponent(appName, () => TheApp);

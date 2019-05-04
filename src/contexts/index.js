@@ -6,3 +6,6 @@ export { defaultCarState, CarContextProvider } from './car';
 
 export { default as ManagersContext } from './manager';
 export { defaultManagersState, ManagersContextProvider } from './manager';
+
+export { default as WaypointContext } from './waypoint';
+export { defaultWaypointState, WaypointContextProvider } from './waypoint';
