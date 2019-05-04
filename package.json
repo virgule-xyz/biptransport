@@ -22,7 +22,8 @@
     "storybook": "rnstl; open 'http://localhost:7007'; storybook start",
     "prestorybook": "rnstl",
     "test": "jest --verbose --coverage",
-    "testwatch": "jest --verbose --watch",
+    "test:update": "jest --verbose --watch --coverage --updateSnapshot",
+    "test:watch": "jest --verbose --watch",
     "coverage": "open ./coverage/lcov-report/index.html",
     "e2ebuild": "detox build -c ios.sim.debug",
     "e2e": "detox test -c ios.sim.debug"
@@ -80,10 +81,7 @@
   "config": {
     "react-native-storybook-loader": {
       "searchDir": [
-        "./src/screens",
-        "./src/wafymobilekit/api",
-        "./src/wafymobilekit/components",
-        "./src/wafymobilekit/modules"
+        "./src/screens"
       ],
       "pattern": "**/*.stories.js",
       "outputFile": "./storybook/storyLoader.js"

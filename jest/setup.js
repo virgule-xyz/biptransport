@@ -1,22 +1,16 @@
-// import { configure } from 'enzyme';
-// import Adapter from 'enzyme-adapter-react-16';
-
-// configure({ adapter: new Adapter() });
-
-// // setup-tests.js
-
-import { Animated } from 'react-native';
+import { Animated, NativeModules, PixelRatio } from 'react-native';
 import 'jest';
+// import 'jest-enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme from 'enzyme';
 
-// /**
-//  * Set up DOM in node.js environment for Enzyme to mount to
-//  */
-// const { JSDOM } = require('jsdom');
+/**
+ * Set up DOM in node.js environment for Enzyme to mount to
+ */
+const { JSDOM } = require('jsdom');
 
-// const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
-// const { window } = jsdom;
+const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
+const { window } = jsdom;
 
 function copyProps(src, target) {
   Object.defineProperties(target, {
@@ -25,12 +19,12 @@ function copyProps(src, target) {
   });
 }
 
-// global.window = window;
-// global.document = window.document;
-// global.navigator = {
-//   userAgent: 'node.js',
-// };
-// copyProps(window, global);
+global.window = window;
+global.document = window.document;
+global.navigator = {
+  userAgent: 'node.js',
+};
+copyProps(window, global);
 
 /**
  * Set up Enzyme to mount to DOM, simulate events,
@@ -64,4 +58,10 @@ global.navigator.geolocation = mockGeolocation;
 Animated.timing = () => ({
   // I'm mocking the Animated.timing here
   start: () => jest.fn(),
+});
+
+jest.mock('Platform', () => {
+  const Platform = require.requireActual('Platform');
+  Platform.OS = 'ios';
+  return Platform;
 });
