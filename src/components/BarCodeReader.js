@@ -11,7 +11,7 @@ const RAPPORT = 4 / 5;
  * Scan for a barcode, the verificator take the barcode and returns a promise with a returned value in onSuccess or an error in onError if the barcode is wrong
  * hide the camera for some display errors
  */
-const CBarCodeReader = ({ verificator, onSuccess, onError, hide }) => {
+const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
   const { width } = Dimensions.get('window');
 
   const [showBarcodeInput, setShowBarcodeInput] = useState(false);
@@ -75,8 +75,10 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide }) => {
           alignItems: 'center',
           justifyContent: 'flex-start',
         }}
+        testID={testID}
       >
         <RNCamera
+          testID={`${testID}_RNCAMERA`}
           captureAudio={false}
           style={[
             stopCamera && { display: 'none' },
@@ -98,18 +100,35 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide }) => {
           ]}
         />
         <CSpace />
-        <CButton icon="search" block light label="Saisir manuellement..." onPress={onPressManual} />
+        <CButton
+          testID={`${testID}_MANUAL_BUTTON`}
+          icon="search"
+          block
+          light
+          label="Saisir manuellement..."
+          onPress={onPressManual}
+        />
       </View>
-      <Dialog.Container visible={showBarcodeInput}>
+      <Dialog.Container visible={showBarcodeInput} testID={`${testID}_MANUAL_DIALOG`}>
         <Dialog.Title>Saisie manuelle</Dialog.Title>
         <Dialog.Description>Saisissez manuellement un code puis validez.</Dialog.Description>
-        <Dialog.Input numberOfLines={1} onChangeText={onChangeCode} />
-        <Dialog.Button label="Annuler" onPress={onPressCancelManual} />
+        <Dialog.Input
+          numberOfLines={1}
+          onChangeText={onChangeCode}
+          testID={`${testID}_MANUAL_DIALOG_INPUT`}
+        />
+        <Dialog.Button
+          label="Annuler"
+          onPress={onPressCancelManual}
+          testID={`${testID}_MANUAL_DIALOG_CANCEL`}
+        />
+
         <Dialog.Button
           bold
           disabled={barcode.length <= 2}
           label="Valider"
           onPress={onPressValidateManual}
+          testID={`${testID}_MANUAL_DIALOG_OK`}
         />
       </Dialog.Container>
     </>

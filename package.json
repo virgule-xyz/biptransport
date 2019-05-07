@@ -3,7 +3,7 @@
   "displayName": "biptransport",
   "splashname": "Application BIP-LIV",
   "bundleID": "fr.biptransport.app1",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "story": true,
   "env": "test",
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "clean": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
+    "clean": "watchman watch-del-all; rm -rf /tmp/haste-map-react-native-packager-*; rm -rf /tmp/metro-bundler-cache-*; node node_modules/react-native/local-cli/cli.js start --reset-cache",
     "iphone": "react-native run-ios --simulator='iPhone 6'",
     "bigphone": "react-native run-ios --simulator='iPhone X'",
     "android": "adb reverse tcp:8081 tcp:8081; react-native run-android",
@@ -25,8 +25,9 @@
     "test:update": "jest --verbose --watch --coverage --updateSnapshot",
     "test:watch": "jest --verbose --watch",
     "coverage": "open ./coverage/lcov-report/index.html",
-    "e2ebuild": "detox build -c ios.sim.debug",
-    "e2e": "detox test -c ios.sim.debug"
+    "e2e": "detox test -c ios.sim.debug",
+    "e2e:retest": "detox test -reuse -c ios.sim.debug",
+    "e2e:build": "detox build -c ios.sim.debug"
   },
   "dependencies": {
     "@react-native-community/blur": "^3.3.1",
@@ -34,7 +35,7 @@
     "core-js": "2.6.5",
     "native-base": "2.12.1",
     "react": "16.8.3",
-    "react-native": "0.59.4",
+    "react-native": "^0.59.6",
     "react-native-camera": "2.4.0",
     "react-native-dialog": "^5.6.0",
     "react-native-elements": "1.1.0",
@@ -54,12 +55,13 @@
     "@storybook/addon-links": "^5.0.10",
     "@storybook/addons": "^5.0.10",
     "@storybook/react": "4.1.6",
-    "@storybook/react-native": "4.1.6",
+    "@storybook/react-native": "^4.1.18",
     "babel-core": "6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "24.7.1",
     "babel-loader": "7.1.5",
     "babel-runtime": "6.26.0",
+    "detox": "^12.6.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "enzyme-to-json": "^3.3.5",
@@ -149,16 +151,17 @@
   "detox": {
     "configurations": {
       "ios.sim.debug": {
-        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/wafyscan.app",
-        "build": "xcodebuild -project ios/wafyscan.xcodeproj -scheme wafyscan -configuration Debug -derivedDataPath ios/build -destination 'platform=iOS Simulator,name=iPhone X,OS=11.0.1'",
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/biptransport.app",
+        "build": "xcodebuild -project ios/biptransport.xcodeproj -scheme biptransport -configuration Debug -derivedDataPath ios/build -destination 'platform=iOS Simulator,name=iPhone X,OS=12.2'",
         "type": "ios.simulator",
+        "id": "7DC6485A-63F0-4932-9404-9FDBE7836EDB",
         "name": "iPhone X"
       },
-      "ios.sim.release": {
-        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/wafyscan.app",
-        "build": "xcodebuild -project ios/wafyscan.xcodeproj -scheme wafyscan -configuration Release -derivedDataPath ios/build",
-        "type": "ios",
-        "name": "iPhone de Pierre PC. Canthelou"
+      "android.emu.debug": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd android; ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug; cd -",
+        "type": "android.emulator",
+        "name": "Nexus_5X_API_26"
       }
     },
     "runner-config": "e2e/config.json",

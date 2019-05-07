@@ -4,6 +4,8 @@ import { CSpace, CContent, CText, CBarCodeReader, DEFAULT_FONT_SIZE } from '@com
 import { CarContext } from '@contexts';
 import Dialog from 'react-native-dialog';
 
+console.disableYellowBox = true;
+
 /**
  * Should display a barcode reader to get car infos displayed in a dialog input
  */

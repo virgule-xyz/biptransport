@@ -15,6 +15,8 @@ import {
 } from '@components';
 import { WaypointContext } from '@contexts';
 
+console.disableYellowBox = true;
+
 /**
  * L'écran affiche les données du point de passage ainsi que les boutons d'action liés
  */

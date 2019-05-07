@@ -26,6 +26,7 @@ const CBigHeader = ({ pressBackHome }) => {
         paddingHorizontal: 0,
         paddingVertical: 0,
       }}
+      testID="ID_BIGHEADER"
     >
       <Body
         style={{

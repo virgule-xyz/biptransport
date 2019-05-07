@@ -3,6 +3,8 @@ import { Alert } from 'react-native';
 import { CContent, CSpace, CTitle, CButton } from '@components';
 import { splashname, version } from '../../package.json';
 
+console.disableYellowBox = true;
+
 /**
  * Splash screen with app title and version
  */
@@ -22,7 +24,7 @@ const ScreenSplash = () => {
       <CSpace />
       <CTitle>{title}</CTitle>
       <CSpace />
-      <CButton block label="Continuer" onPress={onPressContinue} />
+      <CButton testID="ID_CONTINUE" block label="Continuer" onPress={onPressContinue} />
       <CSpace />
     </CContent>
   );

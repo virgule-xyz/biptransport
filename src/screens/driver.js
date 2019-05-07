@@ -4,6 +4,8 @@ import { CContent, CBarCodeReader } from '@components';
 import { DriverContext } from '@contexts';
 import Dialog from 'react-native-dialog';
 
+console.disableYellowBox = true;
+
 /**
  * Should display a barcode reader to get driver infos
  * Display an Dialog Input to validate driver GMS
@@ -74,28 +76,35 @@ const ScreenDriver = () => {
         <>
           <CContent title="Code de tournée" fullscreen pressBackHome={onPressBackHome}>
             <CBarCodeReader
+              testID="ID_BARCODE"
               verificator={getDriverDatas}
               onSuccess={onBarCodeSuccess}
               onError={onBarCodeError}
               hide={hideBarCodeReader}
             />
           </CContent>
-          <Dialog.Container visible={showGSMInput}>
+          <Dialog.Container visible={showGSMInput} testID="ID_GSMCONFIRM">
             <Dialog.Title>{`${firstname} ${lastname}`}</Dialog.Title>
             <Dialog.Description>
               {`Veuillez confirmer votre numéro de portable ({tempGsmNumber}) afin d'être joint par votre superviseur.`}
             </Dialog.Description>
             <Dialog.Input
+              testID="ID_GSMCONFIRM_INPUT"
               defaultValue={gsmNumber}
               numberOfLines={1}
               onChangeText={onChangeInputGSM}
             />
-            <Dialog.Button label="Annuler" onPress={onPressCancelInputGSM} />
+            <Dialog.Button
+              label="Annuler"
+              onPress={onPressCancelInputGSM}
+              testID="ID_GSMCONFIRM_CANCEL"
+            />
             <Dialog.Button
               bold
               disabled={tempGsmNumber.length < 10}
               label="Valider"
               onPress={onPressValidateGSM}
+              testID="ID_GSMCONFIRM_OK"
             />
           </Dialog.Container>
         </>
