@@ -4,8 +4,6 @@ import { CContent, CBarCodeReader } from '@components';
 import { DriverContext } from '@contexts';
 import Dialog from 'react-native-dialog';
 
-// console.disableYellowBox = true;
-
 /**
  * Should display a barcode reader to get driver infos
  * Display an Dialog Input to validate driver GMS

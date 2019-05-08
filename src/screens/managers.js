@@ -3,8 +3,6 @@ import { View } from 'react-native';
 import { CSpace, CContent, CButton, CSpinner } from '@components';
 import { ManagersContext } from '@contexts';
 
-// console.disableYellowBox = true;
-
 /**
  * Le header et une liste de boutons permettant de joindre un manager
  */

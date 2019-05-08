@@ -2,8 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { CContent, CBarCodeReader } from '@components';
 
-// console.disableYellowBox = true;
-
 const verificator = barcodes => {
   return new Promise((resolve, reject) => {
     resolve(barcodes);
