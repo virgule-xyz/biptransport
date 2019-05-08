@@ -37,7 +37,7 @@ const CModal = ({ children, onCancel, onContinue, onClose, show }) => {
       fullscreen
     >
       <Grid>
-        <Row>{children}</Row>
+        <Row style={{ flexDirection: 'column' }}>{children}</Row>
         <Row style={{ height: 50, flex: 0 }}>
           {onCancel && (
             <Col style={{ marginHorizontal: 7 }}>

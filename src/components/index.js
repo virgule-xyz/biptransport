@@ -18,6 +18,7 @@ export { default as CTitle } from './title';
 export { default as CWaypointAddress } from './wpaddress';
 export { default as CWaypointButtons } from './wpbuttons';
 export { default as CWaypointCounters } from './wpcounters';
+export { default as CWaypointOtherPassage } from './wpotherpassage';
 
 export const DEFAULT_FONT_SIZE = 15;
 export const COLORS = {
@@ -32,4 +33,6 @@ export const COLORS = {
   JYVAIS: '#2196f3',
   AIE: '#ff9800',
   ARRIVE: '#8bc34a',
+  ROW_EVEN: '#2196f3',
+  ROW_PAIR: '#f0f0f0',
 };
