@@ -3,7 +3,7 @@ import { Alert } from 'react-native';
 import { CContent, CSpace, CTitle, CButton } from '@components';
 import { splashname, version } from '../../package.json';
 
-console.disableYellowBox = true;
+// console.disableYellowBox = true;
 
 /**
  * Splash screen with app title and version

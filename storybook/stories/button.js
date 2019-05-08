@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { CButton } from '@components';
 
-console.disableYellowBox = true;
+// console.disableYellowBox = true;
 
 storiesOf('Button', module).add('CButton', () => (
   <>

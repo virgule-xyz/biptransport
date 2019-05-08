@@ -8,7 +8,7 @@ import {
 } from '@contexts';
 import { ScreenWaypointDashboard } from '@screens';
 
-console.disableYellowBox = true;
+// console.disableYellowBox = true;
 
 type Props = {};
 export default class App extends Component<Props> {

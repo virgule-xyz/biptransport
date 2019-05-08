@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, ScrollView } from 'react-native';
 import {
   CButton,
@@ -21,13 +21,18 @@ console.disableYellowBox = true;
  * L'écran affiche les données du point de passage ainsi que les boutons d'action liés
  */
 const ScreenWaypointDashboard = () => {
+  // Waypoint contexts to exploits
+  const waypointContext = useContext(WaypointContext);
+
   // FIXME: all the datas should come from the context even the driver's one. Test to include the drvier and car context in the waypoint context
   const onPressArrived = () => {};
 
   const onPressRescueButton = () => {};
   const onPressCallManagers = () => {};
   const onPressBackHome = () => {};
-  const onPressTravel = () => {};
+  const onPressTravel = () => {
+    waypointContext.openMapScreen();
+  };
   const onPressGalery = () => {};
   const onPressBroken = () => {};
   const onPressOtherWaypoint = () => {};
@@ -51,7 +56,7 @@ const ScreenWaypointDashboard = () => {
               <CSpinner />
             </>
           )}
-          {waypointIndex > 0 && (
+          {waypointIndex >= 0 && (
             <CContent
               stretch
               numero="T-04"
