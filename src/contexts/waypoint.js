@@ -19,31 +19,21 @@ const defaultWaypointState = {
 const WaypointContext = React.createContext(defaultWaypointState);
 
 const WaypointContextProvider = ({ children }) => {
+  // The whole and full collection of waypoints
   const [waypointCollectionState, setWaypointCollectionState] = useState(() => {
     const WAYPOINTS = require('./waypoints.json');
     return WAYPOINTS.commandes;
   });
-  const [waypointContextState, setWaypointContextState] = useState(defaultWaypointState);
-  // const [waypointContextState, setWaypointContextState] = useState(() => {
-  //   setTimeout(() => {
-  //     setWaypointContextState({
-  //       waypointIndex: '1',
-  //       waypointCard: '24',
-  //       waypointName: `Laboratoire Premier
-  //   Centre dentaire Choisy`,
-  //       waypointAddress: `5 rue de l'église
-  //   94600 Choisy le roi`,
-  //       waypointShippingCount: '3',
-  //       waypointPickupCount: '1',
-  //       waypointAccessDescription: `Voluptatem pariatur sed. Ipsa eos illo corporis harum sit cupiditate ut.`,
-  //       waypointId: '2',
-  //       waypointGpsCoords: { long: 2.4075876, lat: 48.7660259 },
-  //       waypointCollection: WAYPOINTS.commandes,
-  //     });
-  //   }, 1000);
-  //   return defaultWaypointState;
-  // });
 
+  // The whole and full collection of waypoints FOR LIST
+  const [waypointListState, setWaypointListState] = useState([]);
+
+  // The only current waypoint
+  const [waypointContextState, setWaypointContextState] = useState(defaultWaypointState);
+
+  /**
+   * Open the map screen/app with desired location
+   */
   const openMapScreen = () => {
     const params = {
       zoom: 20,
@@ -58,6 +48,10 @@ const WaypointContextProvider = ({ children }) => {
     openMap(params);
   };
 
+  /**
+   * Get a waypoint from the collection by index
+   * @param {{number}} index index of the element
+   */
   const selectWaypointByIndex = index => {
     const command = waypointCollectionState[index];
 
@@ -77,13 +71,29 @@ const WaypointContextProvider = ({ children }) => {
     });
   };
 
+  // get the first element of collection and format list items
   useEffect(() => {
     if (waypointCollectionState.length > 0)
       selectWaypointByIndex(Math.floor(Math.random() * waypointCollectionState.length));
+    setWaypointListState(
+      waypointCollectionState.map((item, index) => {
+        return {
+          key: index,
+          id: item.id,
+          name: item.pnt_nom,
+          city: `${item.pnt_cp} ${item.pnt_ville}`,
+          ord: item.ord_nom,
+        };
+      }),
+    );
   }, [waypointCollectionState]);
 
+  /**
+   * Select a waypoint by id
+   * @param {{number}} id // id of waypoint to select
+   */
   const selectWaypointById = id => {
-    const index = waypointContextState.waypointCollection.findIndex(item => item.id === id);
+    const index = waypointCollectionState.findIndex(item => item.id === id);
     selectWaypointByIndex(index);
   };
 
@@ -111,6 +121,8 @@ const WaypointContextProvider = ({ children }) => {
         waypointAccessDescription,
         waypointId,
         waypointGpsCoords,
+        waypointCollectionState,
+        waypointListState,
         openMapScreen,
         selectWaypointById,
       }}

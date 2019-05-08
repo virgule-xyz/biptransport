@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, ScrollView } from 'react-native';
 import {
   CButton,
@@ -14,6 +14,7 @@ import {
   CWaypointCounters,
 } from '@components';
 import { WaypointContext } from '@contexts';
+import ScreenWaypointCollection from './wpcollection';
 
 /**
  * L'écran affiche les données du point de passage ainsi que les boutons d'action liés
@@ -21,6 +22,9 @@ import { WaypointContext } from '@contexts';
 const ScreenWaypointDashboard = () => {
   // Waypoint contexts to exploits
   const waypointContext = useContext(WaypointContext);
+
+  // Manage the Wapoint Collection modal
+  const [showCollectionState, setShowCollectionState] = useState(false);
 
   // FIXME: all the datas should come from the context even the driver's one. Test to include the drvier and car context in the waypoint context
   const onPressArrived = () => {};
@@ -33,7 +37,16 @@ const ScreenWaypointDashboard = () => {
   };
   const onPressGalery = () => {};
   const onPressBroken = () => {};
-  const onPressOtherWaypoint = () => {};
+  const onPressOtherWaypoint = () => {
+    setShowCollectionState(true);
+  };
+  const onCloseScreenWaypointCollection = () => {
+    setShowCollectionState(false);
+  };
+  const onSelectOtherWaypoint = id => {
+    waypointContext.selectWaypointById(id);
+    setShowCollectionState(false);
+  };
 
   return (
     <WaypointContext.Consumer>
@@ -46,6 +59,9 @@ const ScreenWaypointDashboard = () => {
         waypointPickupCount,
         waypointAccessDescription,
         waypointId,
+        waypointCollectionState,
+        waypointListState,
+        selectWaypointById,
       }) => (
         <>
           {waypointIndex < 0 && (
@@ -107,6 +123,12 @@ const ScreenWaypointDashboard = () => {
               </View>
             </CContent>
           )}
+          <ScreenWaypointCollection
+            show={showCollectionState}
+            datas={waypointListState}
+            onClose={onCloseScreenWaypointCollection}
+            onSelectWaypoint={onSelectOtherWaypoint}
+          />
         </>
       )}
     </WaypointContext.Consumer>
