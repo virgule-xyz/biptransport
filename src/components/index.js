@@ -5,6 +5,7 @@ export { default as CButton } from './button';
 export { default as CRescueButton } from './rescuebutton';
 export { default as CContent } from './content';
 export { default as CError } from './error';
+export { default as CGreyBox } from './greybox';
 export { default as CIcon } from './icon';
 export { default as CImage } from './image';
 export { default as CInput } from './input';

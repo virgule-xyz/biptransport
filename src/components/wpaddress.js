@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import { CText, COLORS, DEFAULT_FONT_SIZE } from '@components';
 import PropTypes from 'prop-types';
 
@@ -7,7 +8,7 @@ import PropTypes from 'prop-types';
  */
 const CWaypointAddress = ({ name, address }) => {
   return (
-    <>
+    <View>
       <CText
         uppercase
         style={{
@@ -30,7 +31,7 @@ const CWaypointAddress = ({ name, address }) => {
       >
         {address}
       </CText>
-    </>
+    </View>
   );
 };
 

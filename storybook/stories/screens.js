@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { storiesOf } from '@storybook/react-native';
 import ScreenSplash from '@screens/splash';
 import ScreenDriver from '@screens/driver';
@@ -6,6 +6,7 @@ import ScreenCar from '@screens/car';
 import ScreenManagers from '@screens/managers';
 import ScreenWaypointDashboard from '@screens/wpdashboard';
 import ScreenWaypointCollection from '@screens/wpcollection';
+import ScreenWaypointGalery from '@screens/wpgalery';
 import {
   CarContextProvider,
   DriverContextProvider,
@@ -57,6 +58,34 @@ const ModalScreenWaypointCollection = () => {
   );
 };
 
+const ModalScreenWaypointGalery = () => {
+  const [showState, setShowState] = useState(true);
+  const [dataCollectionState, setDataCollectionState] = useState(() => {
+    const read = require('../../src/webservices/commands.json');
+    console.warn('READ', read);
+    return read;
+  });
+  const [pictureCollectionState, setPictureCollectionState] = useState([]);
+
+  useEffect(() => {
+    if (dataCollectionState && dataCollectionState.commandes) {
+      setPictureCollectionState(
+        dataCollectionState.commandes.filter(item => item.id === '129042')[0].pnt_pj,
+      );
+    }
+  }, [dataCollectionState]);
+
+  return (
+    <ScreenWaypointGalery
+      show={showState}
+      datas={pictureCollectionState}
+      onClose={() => {
+        setShowState(false);
+      }}
+    />
+  );
+};
+
 storiesOf('Screens', module)
   .add('Splash', () => <ScreenSplash />)
   .add('Driver', () => (
@@ -79,4 +108,5 @@ storiesOf('Screens', module)
       <ScreenWaypointDashboard />
     </WaypointContextProvider>
   ))
-  .add('Waypoint Collection', () => <ModalScreenWaypointCollection />);
+  .add('Waypoint Collection', () => <ModalScreenWaypointCollection />)
+  .add('Waypoint Galery', () => <ModalScreenWaypointGalery />);

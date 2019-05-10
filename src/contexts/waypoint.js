@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import openMap from 'react-native-open-maps';
 
@@ -21,7 +23,7 @@ const WaypointContext = React.createContext(defaultWaypointState);
 const WaypointContextProvider = ({ children }) => {
   // The whole and full collection of waypoints
   const [waypointCollectionState, setWaypointCollectionState] = useState(() => {
-    const WAYPOINTS = require('./waypoints.json');
+    const WAYPOINTS = require('../webservices/commands.json');
     return WAYPOINTS.commandes;
   });
 
