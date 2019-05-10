@@ -15,6 +15,7 @@ import {
 } from '@components';
 import { WaypointContext } from '@contexts';
 import ScreenWaypointCollection from './wpcollection';
+import ScreenWaypointGalery from './wpgalery';
 
 /**
  * L'écran affiche les données du point de passage ainsi que les boutons d'action liés
@@ -26,6 +27,9 @@ const ScreenWaypointDashboard = () => {
   // Manage the Wapoint Collection modal
   const [showCollectionState, setShowCollectionState] = useState(false);
 
+  // Manage the Wapoint Galery modal
+  const [showGaleryState, setShowGaleryState] = useState(false);
+
   // FIXME: all the datas should come from the context even the driver's one. Test to include the drvier and car context in the waypoint context
   const onPressArrived = () => {};
 
@@ -35,13 +39,18 @@ const ScreenWaypointDashboard = () => {
   const onPressTravel = () => {
     waypointContext.openMapScreen();
   };
-  const onPressGalery = () => {};
+  const onPressGalery = () => {
+    setShowGaleryState(true);
+  };
   const onPressBroken = () => {};
   const onPressOtherWaypoint = () => {
     setShowCollectionState(true);
   };
   const onCloseScreenWaypointCollection = () => {
     setShowCollectionState(false);
+  };
+  const onCloseScreenWaypointGalery = () => {
+    setShowGaleryState(false);
   };
   const onSelectOtherWaypoint = id => {
     waypointContext.selectWaypointById(id);
@@ -58,10 +67,8 @@ const ScreenWaypointDashboard = () => {
         waypointShippingCount,
         waypointPickupCount,
         waypointAccessDescription,
-        waypointId,
-        waypointCollectionState,
         waypointListState,
-        selectWaypointById,
+        waypointPictureCollection,
       }) => (
         <>
           {waypointIndex < 0 && (
@@ -108,6 +115,7 @@ const ScreenWaypointDashboard = () => {
               <View style={{ flex: 0 }}>
                 <CSpace />
                 <CWaypointButtons
+                  pictureCard={waypointPictureCollection.length}
                   onPressTravel={onPressTravel}
                   onPressGalery={onPressGalery}
                   onPressBroken={onPressBroken}
@@ -128,6 +136,13 @@ const ScreenWaypointDashboard = () => {
             datas={waypointListState}
             onClose={onCloseScreenWaypointCollection}
             onSelectWaypoint={onSelectOtherWaypoint}
+          />
+          <ScreenWaypointGalery
+            show={showGaleryState}
+            datas={waypointPictureCollection}
+            name={waypointName}
+            address={waypointAddress}
+            onClose={onCloseScreenWaypointGalery}
           />
         </>
       )}

@@ -16,6 +16,7 @@ const defaultWaypointState = {
   waypointAccessDescription: '',
   waypointId: -1,
   waypointGpsCoords: { long: 0, lat: 0 },
+  waypointPictureCollection: [],
 };
 
 const WaypointContext = React.createContext(defaultWaypointState);
@@ -70,6 +71,7 @@ const WaypointContextProvider = ({ children }) => {
         long: command.pnt_lng,
         lat: command.pnt_lat,
       },
+      waypointPictureCollection: command.pnt_pj,
     });
   };
 
@@ -109,6 +111,7 @@ const WaypointContextProvider = ({ children }) => {
     waypointAccessDescription,
     waypointId,
     waypointGpsCoords,
+    waypointPictureCollection,
   } = waypointContextState;
 
   return (
@@ -123,6 +126,7 @@ const WaypointContextProvider = ({ children }) => {
         waypointAccessDescription,
         waypointId,
         waypointGpsCoords,
+        waypointPictureCollection,
         waypointCollectionState,
         waypointListState,
         openMapScreen,

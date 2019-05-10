@@ -6,13 +6,13 @@ import { CButton, COLORS } from '@components';
 /**
  * Un bouton carré avec une icone
  */
-const CSquareButton = ({ label = '', icon = null, color = '#fff', size = 10, onPress }) => (
+const CSquareButton = ({ label = '', icon = null, color = '#fff', size = 10, ...props }) => (
   <CButton
     small
-    onPress={onPress}
     icon={icon}
     label={label}
     style={{ width: size, height: size, backgroundColor: color }}
+    {...props}
   />
 );
 
@@ -26,7 +26,13 @@ CSquareButton.propTypes = {
 /**
  * Quatre boutons pour les actions du point de passage
  */
-const CWaypointButtons = ({ onPressTravel, onPressGalery, onPressBroken, onPressArrived }) => {
+const CWaypointButtons = ({
+  pictureCard,
+  onPressTravel,
+  onPressGalery,
+  onPressBroken,
+  onPressArrived,
+}) => {
   const { width } = Dimensions.get('window');
   const buttonWidth = (width / 4) * 0.8;
 
@@ -40,11 +46,12 @@ const CWaypointButtons = ({ onPressTravel, onPressGalery, onPressBroken, onPress
         onPress={onPressTravel}
       />
       <CSquareButton
-        label="Photos"
+        label={`${pictureCard}`}
         icon="image"
         color={COLORS.PHOTOS}
         size={buttonWidth}
         onPress={onPressGalery}
+        disabled={pictureCard === 0}
       />
       <CSquareButton
         label="Aïe"
@@ -65,6 +72,7 @@ const CWaypointButtons = ({ onPressTravel, onPressGalery, onPressBroken, onPress
 };
 
 CWaypointButtons.propTypes = {
+  pictureCard: PropTypes.number.isRequired,
   onPressTravel: PropTypes.func.isRequired,
   onPressGalery: PropTypes.func.isRequired,
   onPressBroken: PropTypes.func.isRequired,

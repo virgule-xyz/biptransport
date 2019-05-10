@@ -23,17 +23,16 @@ import {
 /**
  * Show the pictures of the waypoint, how to get there and other infos
  */
-const ScreenWaypointGalery = ({ show, datas, onClose }) => {
+const ScreenWaypointGalery = ({ show, datas, name, address, onClose }) => {
   console.warn('DATAS', datas);
 
   const { height } = Dimensions.get('window');
 
   return (
     <CModal onClose={onClose} show={show}>
-      <CTitle numberOfLines={1}>Sunt rerum voluptatum dignissimos nobis odio.</CTitle>
       <CSpace />
       <CGreyBox style={{ flex: 0 }}>
-        <CWaypointAddress name="Un nom" address="une adresse" />
+        <CWaypointAddress name={name} address={address} />
       </CGreyBox>
       <ScrollView maximumZoomScale={5}>
         <Grid>
@@ -60,6 +59,8 @@ const ScreenWaypointGalery = ({ show, datas, onClose }) => {
 ScreenWaypointGalery.propTypes = {
   show: PropTypes.bool.isRequired,
   datas: PropTypes.arrayOf(AttachmentShape).isRequired,
+  name: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 

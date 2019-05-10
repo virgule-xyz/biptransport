@@ -21,6 +21,10 @@ const CButton = ({ label, icon, small, style, ...props }) => (
         textAlign: 'center',
         overflow: 'hidden',
       },
+      props.disabled && {
+        opacity: 0.5,
+        backgroundColor: '#e0e0e0',
+      },
     ]}
   >
     {icon && (
