@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StatusBar } from 'react-native';
 import AppNavigator from './navigator';
+import { CarContextProvider, DriverContextProvider } from '@contexts';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,10 +11,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <View testID="SafeAreaView" style={{ flex: 1, backgroundColor: '#fff' }}>
-        <StatusBar hidden />
-        <AppNavigator />
-      </View>
+      <DriverContextProvider>
+        <CarContextProvider>
+          <View testID="SafeAreaView" style={{ flex: 1, backgroundColor: '#fff' }}>
+            <StatusBar hidden />
+            <AppNavigator />
+          </View>
+        </CarContextProvider>
+      </DriverContextProvider>
     );
   }
 }

@@ -1,15 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
-import { checkBarcode } from '@webservices';
+import { getIdentVehicle } from '@webservices';
 
 /**
  * Expliquer ce que fait le contexte et comment utiliser les states
  */
 const defaultCarState = {
-  brand: '',
-  model: '',
-  license: '',
-  comment: '',
+  id: '',
+  immat: '',
+  alert: '',
   getCarDatas: codebar => new Promise(reject => reject(codebar)),
 };
 
@@ -18,21 +17,30 @@ const CarContext = React.createContext(defaultCarState);
 const CarContextProvider = ({ children }) => {
   const [carContextState, setCarContextState] = useState(defaultCarState);
 
-  const { brand, model, license, comment } = carContextState;
+  const { id, immat, alert } = carContextState;
 
   // Call the API to get the car linked to this codebar
-  const myGetCarDatas = codebar => {
-    return checkBarcode({ codebar, ws: 'car', setContextState: setCarContextState });
-  };
+  const getCarDatas = codebar =>
+    new Promise((resolve, reject) => {
+      getIdentVehicle(codebar)
+        .then(value => {
+          setCarContextState({
+            id: value.vehicule_id,
+            immat: value.vehicule_immat,
+            alert: value.vehicule_alerte,
+          });
+          resolve(value);
+        })
+        .catch(err => reject(err));
+    });
 
   return (
     <CarContext.Provider
       value={{
-        brand,
-        model,
-        license,
-        comment,
-        getCarDatas: myGetCarDatas,
+        id,
+        immat,
+        alert,
+        getCarDatas,
       }}
     >
       {children}

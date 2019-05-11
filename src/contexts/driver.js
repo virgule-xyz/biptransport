@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import { checkBarcode, setGsmNumber } from '@webservices';
+import { setGsmNumber, getIdentTour } from '@webservices';
 
 /**
- * Expliquer ce que fait le contexte et comment utiliser les states
+ * Expliquer ce que fait le contexte et comment utiliser les states, TEST avec BT00249316
  */
 const defaultDriverState = {
-  gsmNumber: '',
-  code: '',
-  firstname: '',
-  lastname: '',
-  setGSMNumber: () => {},
-  getDriverDatas: codebar => new Promise(reject => reject(codebar)),
+  slip: { id: '', code: '', date: '' },
+  driver: { id: '', firstname: '', lastname: '', gsm: '' },
 };
 
 const DriverContext = React.createContext(defaultDriverState);
@@ -20,35 +16,44 @@ const DriverContextProvider = ({ children }) => {
   const [driverContextState, setDriverContextState] = useState(defaultDriverState);
 
   // just set the GSM number
-  const mySetGsmNumber = number => {
+  const setGSMNumber = number => {
     return new Promise((resolve, reject) => {
-      setGsmNumber({ code: driverContextState.code, gsmNumber: number })
-        .then(() => {
-          setDriverContextState(prevState => ({ ...prevState, gsmNumber: number }));
-          resolve();
-        })
-        .catch(() => {
-          reject();
-        });
+      resolve();
     });
   };
 
   // Call the API to get the driver linked to this codebar
-  const myGetDriverDatas = codebar => {
-    return checkBarcode({ codebar, ws: 'driver', setContextState: setDriverContextState });
-  };
+  const getDriverDatas = codebar =>
+    new Promise((resolve, reject) => {
+      getIdentTour(codebar)
+        .then(values => {
+          setDriverContextState({
+            slip: {
+              id: values.bordereau_id,
+              code: values.bordereau_code,
+              date: values.bordereau_Date,
+            },
+            driver: {
+              id: values.chauffeur_id,
+              firstname: values.chauffeur_prenom,
+              lastname: values.chauffeur_nom,
+              gsm: values.chauffeur_portable,
+            },
+          });
+          resolve(values);
+        })
+        .catch(err => reject(err));
+    });
 
-  const { gsmNumber, code, firstname, lastname } = driverContextState;
+  const { slip, driver } = driverContextState;
 
   return (
     <DriverContext.Provider
       value={{
-        gsmNumber,
-        code,
-        firstname,
-        lastname,
-        setGSMNumber: mySetGsmNumber,
-        getDriverDatas: myGetDriverDatas,
+        slip,
+        driver,
+        setGSMNumber,
+        getDriverDatas,
       }}
     >
       {children}

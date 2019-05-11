@@ -9,6 +9,7 @@ import Dialog from 'react-native-dialog';
 
 /**
  * Should display a barcode reader to get car infos displayed in a dialog input
+ * For tests use code V0000017
  */
 const ScreenCar = ({ navigation }) => {
   // manage the dialog input
@@ -17,18 +18,19 @@ const ScreenCar = ({ navigation }) => {
   const [hideBarCodeRead, setHideBarCodeReader] = useState(false);
 
   // vehicle barcode is suitable for a car
-  const onSuccess = () => {
-    setHideBarCodeReader(true);
+  const onBarCodeSuccess = value => {
     setTimeout(() => {
+      setHideBarCodeReader(true);
       setShowCarConfirm(true);
     }, 500);
   };
 
   // vehicle barcode is not suitable
-  const onError = () => {
-    Alert.alert("Ce véhicule n'existe pas...");
-    setHideBarCodeReader(false);
+  const onBarCodeError = value => {
     setTimeout(() => {
+      if (value.error) Alert.alert(value.error);
+      else Alert.alert("Ce véhicule n'existe pas...");
+      setHideBarCodeReader(false);
       setShowCarConfirm(false);
     }, 500);
   };
@@ -55,7 +57,7 @@ const ScreenCar = ({ navigation }) => {
 
   return (
     <CarContext.Consumer>
-      {({ brand, model, license, comment, getCarDatas }) => (
+      {({ id, immat, alert, getCarDatas }) => (
         <>
           <CContent title="Code de véhicule" fullscreen pressBackHome={onPressBackHome}>
             <CText style={{ textAlign: 'center', fontSize: (DEFAULT_FONT_SIZE * 3) / 4 }}>
@@ -64,16 +66,16 @@ const ScreenCar = ({ navigation }) => {
             <CSpace />
             <CBarCodeReader
               verificator={getCarDatas}
-              onSuccess={onSuccess}
-              onError={onError}
+              onSuccess={onBarCodeSuccess}
+              onError={onBarCodeError}
               hide={hideBarCodeRead}
             />
           </CContent>
           <Dialog.Container visible={showCarConfirm}>
             <Dialog.Title>Votre véhicule</Dialog.Title>
             <Dialog.Description>
-              {`${brand} ${model} ${license}
-${comment || 'Aucun problème à signaler'}`}
+              {`${immat}
+${alert || 'Aucun problème à signaler'}`}
             </Dialog.Description>
             <Dialog.Button label="Autre véhicule" onPress={onPressCancelCarConfirm} />
             <Dialog.Button bold label="Continuer" onPress={onPressCarConfirm} />

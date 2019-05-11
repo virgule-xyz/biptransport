@@ -9,6 +9,6 @@ export { default as ScreenWaypointGalery } from './wpgalery';
 export const NAVS = {
   start: { next: 'WaypointStack' },
   driver: { previous: 'ScreenSplash', next: 'ScreenCar' },
-  car: { previous: 'WaypointStack', next: 'ScreenWaypointDashboard' },
+  car: { previous: 'ScreenDriver', next: 'ScreenWaypointDashboard' },
   wpdashboard: { previous: 'ScreenCar' },
 };
