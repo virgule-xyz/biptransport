@@ -1,14 +1,17 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Alert } from 'react-native';
+import { withNavigation } from 'react-navigation';
+
 import { CContent, CBarCodeReader } from '@components';
 import { DriverContext } from '@contexts';
+import { NAVS } from '@screens';
 import Dialog from 'react-native-dialog';
 
 /**
  * Should display a barcode reader to get driver infos
  * Display an Dialog Input to validate driver GMS
  */
-const ScreenDriver = () => {
+const ScreenDriver = ({ navigation }) => {
   // manage the driver context
   const driverContext = useContext(DriverContext);
   // manage dialog gsm
@@ -52,7 +55,7 @@ const ScreenDriver = () => {
         setShowGSMInput(false);
         setHideBarCodeReader(true);
         setTimeout(() => {
-          // FIXME: navigate to driver screen
+          navigation.navigate(NAVS.driver.next);
         }, 500);
       })
       .catch(() => {
@@ -66,7 +69,9 @@ const ScreenDriver = () => {
   };
 
   // Do nothing
-  const onPressBackHome = () => {};
+  const onPressBackHome = () => {
+    navigation.navigate(NAVS.driver.previous);
+  };
 
   return (
     <DriverContext.Consumer>
@@ -111,4 +116,4 @@ const ScreenDriver = () => {
   );
 };
 
-export default ScreenDriver;
+export default withNavigation(ScreenDriver);

@@ -1,15 +1,15 @@
 import React from 'react';
-import { Alert } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import { CContent, CSpace, CTitle, CButton } from '@components';
+import { NAVS } from '@screens';
 import { splashname, version } from '../../package.json';
 
 /**
  * Splash screen with app title and version
  */
-const ScreenSplash = () => {
-  // FIXME: navigate to the driver screen
+const ScreenSplash = ({ navigation }) => {
   const onPressContinue = () => {
-    Alert.alert('continue');
+    navigation.navigate(NAVS.start.next);
   };
 
   // Do nothing
@@ -28,4 +28,4 @@ const ScreenSplash = () => {
   );
 };
 
-export default ScreenSplash;
+export default withNavigation(ScreenSplash);

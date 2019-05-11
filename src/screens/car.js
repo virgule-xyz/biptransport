@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Alert } from 'react-native';
+import { withNavigation } from 'react-navigation';
+
 import { CSpace, CContent, CText, CBarCodeReader, DEFAULT_FONT_SIZE } from '@components';
 import { CarContext } from '@contexts';
+import { NAVS } from '@screens';
 import Dialog from 'react-native-dialog';
 
 /**
  * Should display a barcode reader to get car infos displayed in a dialog input
  */
-const ScreenCar = () => {
+const ScreenCar = ({ navigation }) => {
   // manage the dialog input
   const [showCarConfirm, setShowCarConfirm] = useState(false);
   // manage the bar code reader
@@ -35,7 +38,7 @@ const ScreenCar = () => {
     setHideBarCodeReader(true);
     setShowCarConfirm(false);
     setTimeout(() => {
-      // FIXME: go to next screen
+      navigation.navigate(NAVS.car.next);
     }, 500);
   };
 
@@ -47,7 +50,7 @@ const ScreenCar = () => {
 
   // speed return to home
   const onPressBackHome = () => {
-    // FIXME:
+    navigation.navigate(NAVS.car.previous);
   };
 
   return (
@@ -81,4 +84,4 @@ ${comment || 'Aucun problème à signaler'}`}
   );
 };
 
-export default ScreenCar;
+export default withNavigation(ScreenCar);

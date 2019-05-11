@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import {
-  CarContextProvider,
-  DriverContextProvider,
-  ManagersContextProvider,
-  WaypointContextProvider,
-} from '@contexts';
-import { ScreenWaypointDashboard } from '@screens';
+import React from 'react';
+import { View, StatusBar } from 'react-native';
+import AppNavigator from './navigator';
 
-type Props = {};
-export default class App extends Component<Props> {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.navigator = null;
+  }
+
   render() {
     return (
-      <WaypointContextProvider>
-        <ScreenWaypointDashboard />
-      </WaypointContextProvider>
+      <View testID="SafeAreaView" style={{ flex: 1, backgroundColor: '#fff' }}>
+        <StatusBar hidden />
+        <AppNavigator />
+      </View>
     );
   }
 }
+
+export default App;

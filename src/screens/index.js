@@ -5,3 +5,10 @@ export { default as ScreenManagers } from './managers';
 export { default as ScreenWaypointDashboard } from './wpdashboard';
 export { default as ScreenWaypointCollection } from './wpcollection';
 export { default as ScreenWaypointGalery } from './wpgalery';
+
+export const NAVS = {
+  start: { next: 'WaypointStack' },
+  driver: { previous: 'ScreenSplash', next: 'ScreenCar' },
+  car: { previous: 'WaypointStack', next: 'ScreenWaypointDashboard' },
+  wpdashboard: { previous: 'ScreenCar' },
+};
