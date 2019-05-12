@@ -77,8 +77,7 @@ const WaypointContextProvider = ({ children }) => {
 
   // get the first element of collection and format list items
   useEffect(() => {
-    if (waypointCollectionState.length > 0)
-      selectWaypointByIndex(Math.floor(Math.random() * waypointCollectionState.length));
+    if (waypointCollectionState.length > 0) selectWaypointByIndex(0);
     setWaypointListState(
       waypointCollectionState.map((item, index) => {
         return {

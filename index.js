@@ -14,7 +14,8 @@ console.warn(`** ${appName} version ${version}`);
 // eslint-disable-next-line import/no-mutable-exports
 let TheApp = null;
 
-if (env !== 'test') console.disableYellowBox = true;
+if (env === 'e2e') console.disableYellowBox = true;
+if (env === 'test') console.disableYellowBox = true;
 
 if (story) {
   configure(() => {

@@ -1,8 +1,21 @@
+# 0.12.1
+
+> Think about using E2E to test what's previously coded and to get the dev to the screen currently developped ?
+
+- DONE: Select the first waypoint of the list
+- DONE: All scene1 detox tests
+- CHANGE: `env` variable can be `e2e` or `test`to disable yellow box
+- ADD: `WaypointContextProvider` to App shell
+- ADD: `testID` to various components
+- ADD: `isTest` function from `@webservices`
+- FIX: `wpdashboard`is wrap in `DriverContext.Consumer` to access driver props
+- 
+
 # 0.12.0
 
 - DONE: Add the whole navigator
-- DONE: Driver read real webservice
-- DONE: Car read real webservice
+- DONE: Driver read fake webservice
+- DONE: Car read fake webservice
 - ADD: `NAVS`in `@screens` to have constantes for routes
 - ADD: Context provider (**DO NOT FORGET TO ADD THEM**) for `DriverContextProvider`
 - FIX: Navigation in `ScreenCar`and `ScreenDriver`

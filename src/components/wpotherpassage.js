@@ -14,11 +14,11 @@ import { CText, COLORS, DEFAULT_FONT_SIZE } from '@components';
 /**
  * A simple button line for the collection of waypoint
  */
-const CWaypointOtherPassage = ({ wp }) => {
+const CWaypointOtherPassage = ({ wp, ...props }) => {
   const { key, id, name, city, ord, onPress } = wp;
   const textColor = key % 2 === 1 && { color: COLORS.WHITE };
   return (
-    <TouchableOpacity key={`${key}`} onPress={() => onPress(id)}>
+    <TouchableOpacity testID={`${props.testID}_${id}`} key={`${key}`} onPress={() => onPress(id)}>
       <Grid
         style={[
           key % 2 === 1
@@ -29,13 +29,19 @@ const CWaypointOtherPassage = ({ wp }) => {
       >
         <Row>
           <Col>
-            <CText style={[textColor, { fontWeight: 'bold' }]}>{name}</CText>
+            <CText numberOfLines={2} style={[textColor, { fontWeight: 'bold' }]}>
+              {name}
+            </CText>
           </Col>
           <Col>
-            <CText style={[textColor, { textAlign: 'center' }]}>{city}</CText>
+            <CText numberOfLines={2} style={[textColor, { textAlign: 'center' }]}>
+              {city}
+            </CText>
           </Col>
           <Col>
-            <CText style={[textColor, { textAlign: 'right' }]}>{ord}</CText>
+            <CText numberOfLines={2} style={[textColor, { textAlign: 'right' }]}>
+              {ord}
+            </CText>
           </Col>
         </Row>
       </Grid>

@@ -6,9 +6,10 @@ import PropTypes from 'prop-types';
 /**
  * Affiche une ligne avec les compteurs d'objectifs de livraison et de dépôt
  */
-const CWaypointCounters = ({ shipping, pickup }) => {
+const CWaypointCounters = ({ shipping, pickup, ...props }) => {
   return (
     <View
+      testID={props.testID}
       style={{
         flex: 0,
         width: '90%',

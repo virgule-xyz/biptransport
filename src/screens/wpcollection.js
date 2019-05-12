@@ -22,14 +22,18 @@ import {
  */
 const ScreenWaypointCollection = ({ show, datas, onClose, onSelectWaypoint }) => {
   return (
-    <CModal onClose={onClose} show={show}>
+    <CModal testID="ID_WPCOLLECTION" onClose={onClose} show={show}>
       <CTitle>Autres points de passage...</CTitle>
       <CSep />
       <CSpace />
       <FlatList
+        testID="ID_WPCOLLECTION_LIST"
         data={datas}
         renderItem={({ item }) => (
-          <CWaypointOtherPassage wp={{ ...item, onPress: onSelectWaypoint }} />
+          <CWaypointOtherPassage
+            testID="ID_WPCOLLECTION_LIST_ITEM"
+            wp={{ ...item, onPress: onSelectWaypoint }}
+          />
         )}
       />
     </CModal>

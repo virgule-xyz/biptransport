@@ -5,13 +5,12 @@
  *
  */
 
-import { webservice, WS } from '@webservices';
+import { webservice, WS, isTest } from '@webservices';
 import { TOUR_SAMPLE, COMMANDS_SAMPLE, COMMANDS_SAMPLE_ERROR } from '@webservices/shapes';
-import { env } from '../../package.json';
 
 // Get the tour datas
 const getCommands = num => {
-  if (env === 'test') {
+  if (isTest()) {
     return new Promise((resolve, reject) => {
       if (num === TOUR_SAMPLE.bordereau_id) resolve(COMMANDS_SAMPLE);
       // eslint-disable-next-line prefer-promise-reject-errors

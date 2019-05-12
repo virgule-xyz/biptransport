@@ -5,13 +5,12 @@
  *
  */
 
-import { webservice, WS } from '@webservices';
+import { webservice, WS, isTest } from '@webservices';
 import { TOUR_BARCODES, TOUR_SAMPLE, TOUR_SAMPLE_ERROR } from '@webservices/shapes';
-import { env } from '../../package.json';
 
 // Get the tour datas
 const getIdentTour = num => {
-  if (env === 'test') {
+  if (isTest()) {
     return new Promise((resolve, reject) => {
       if (TOUR_BARCODES.indexOf(num) >= 0) resolve(TOUR_SAMPLE);
       // eslint-disable-next-line prefer-promise-reject-errors

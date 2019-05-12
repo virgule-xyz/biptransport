@@ -5,13 +5,12 @@
  *
  */
 
-import { webservice, WS } from '@webservices';
+import { webservice, WS, isTest } from '@webservices';
 import { VEHICLE_BARCODES, VEHICLE_SAMPLE, VEHICLE_SAMPLE_ERROR } from '@webservices/shapes';
-import { env } from '../../package.json';
 
 // Get the vehicle datas
 const getIdentVehicle = num => {
-  if (env === 'test') {
+  if (isTest()) {
     return new Promise((resolve, reject) => {
       if (VEHICLE_BARCODES.indexOf(num) >= 0) resolve(VEHICLE_SAMPLE);
       // eslint-disable-next-line prefer-promise-reject-errors

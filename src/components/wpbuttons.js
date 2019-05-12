@@ -32,13 +32,15 @@ const CWaypointButtons = ({
   onPressGalery,
   onPressBroken,
   onPressArrived,
+  ...props
 }) => {
   const { width } = Dimensions.get('window');
   const buttonWidth = (width / 4) * 0.8;
 
   return (
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} testID={props.testID}>
       <CSquareButton
+        testID={`${props.testID}_LOCATION`}
         label="J'y vais"
         icon="location"
         color={COLORS.JYVAIS}
@@ -46,6 +48,7 @@ const CWaypointButtons = ({
         onPress={onPressTravel}
       />
       <CSquareButton
+        testID={`${props.testID}_PICTURES`}
         label={`${pictureCard}`}
         icon="image"
         color={COLORS.PHOTOS}
@@ -54,6 +57,7 @@ const CWaypointButtons = ({
         disabled={pictureCard === 0}
       />
       <CSquareButton
+        testID={`${props.testID}_AIE`}
         label="Aïe"
         icon="close-o"
         color={COLORS.AIE}
@@ -61,6 +65,7 @@ const CWaypointButtons = ({
         onPress={onPressBroken}
       />
       <CSquareButton
+        testID={`${props.testID}_ARRIVED`}
         label="Arrivé !"
         icon="check"
         color={COLORS.ARRIVE}

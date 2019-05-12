@@ -65,6 +65,7 @@ const ScreenCar = ({ navigation }) => {
             </CText>
             <CSpace />
             <CBarCodeReader
+              testID="ID_CARBARCODE"
               verificator={getCarDatas}
               onSuccess={onBarCodeSuccess}
               onError={onBarCodeError}
@@ -72,13 +73,18 @@ const ScreenCar = ({ navigation }) => {
             />
           </CContent>
           <Dialog.Container visible={showCarConfirm}>
-            <Dialog.Title>Votre véhicule</Dialog.Title>
+            <Dialog.Title testID="ID_CARRESUME_TITLE">Votre véhicule</Dialog.Title>
             <Dialog.Description>
               {`${immat}
 ${alert || 'Aucun problème à signaler'}`}
             </Dialog.Description>
             <Dialog.Button label="Autre véhicule" onPress={onPressCancelCarConfirm} />
-            <Dialog.Button bold label="Continuer" onPress={onPressCarConfirm} />
+            <Dialog.Button
+              testID="ID_CARRESUME_OK"
+              bold
+              label="Continuer"
+              onPress={onPressCarConfirm}
+            />
           </Dialog.Container>
         </>
       )}

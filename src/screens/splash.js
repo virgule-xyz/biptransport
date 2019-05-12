@@ -20,7 +20,7 @@ const ScreenSplash = ({ navigation }) => {
   return (
     <CContent fullscreen center pressBackHome={onPressBackHome}>
       <CSpace />
-      <CTitle>{title}</CTitle>
+      <CTitle testID="ID_TITLE">{title}</CTitle>
       <CSpace />
       <CButton testID="ID_CONTINUE" block label="Continuer" onPress={onPressContinue} />
       <CSpace />

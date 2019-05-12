@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 /**
  * Affiche un double bloc sur l'adresse et le nom du labo/point de passage
  */
-const CWaypointAddress = ({ name, address }) => {
+const CWaypointAddress = ({ name, address, ...props }) => {
   return (
-    <View>
+    <View testID={props.testID}>
       <CText
         uppercase
         style={{

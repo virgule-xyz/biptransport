@@ -31,7 +31,7 @@ const DriverContextProvider = ({ children }) => {
             slip: {
               id: values.bordereau_id,
               code: values.bordereau_code,
-              date: values.bordereau_Date,
+              date: values.bordereau_date,
             },
             driver: {
               id: values.chauffeur_id,
