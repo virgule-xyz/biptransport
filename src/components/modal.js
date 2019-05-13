@@ -9,11 +9,11 @@ import { Overlay } from 'react-native-elements';
  * Add some callback for onCancel, onContinue and onClose
  * If callback are provided then corresponding buttons are also displayed
  */
-const CModal = ({ children, onCancel, onContinue, onClose, show, ...props }) => {
-  const [isVisible, setIsVisible] = useState(show);
+const CModal = ({ children, onCancel, onContinue, onClose, show, testID }) => {
+  const [isStateVisible, setIsStateVisible] = useState(show);
 
   useEffect(() => {
-    setIsVisible(show);
+    setIsStateVisible(show);
   }, [show]);
 
   const onPressCancel = () => {
@@ -30,34 +30,34 @@ const CModal = ({ children, onCancel, onContinue, onClose, show, ...props }) => 
 
   return (
     <Overlay
-      isVisible={isVisible}
+      isVisible={isStateVisible}
       overlayBackgroundColor="white"
       width="90%"
       height="80%"
       fullscreen
     >
       <Grid>
-        <Row testID={`${props.testID}`} style={{ flexDirection: 'column' }}>
+        <Row testID={`${testID}`} style={{ flexDirection: 'column' }}>
           {children}
         </Row>
         <Row style={{ height: 50, flex: 0 }}>
           {onCancel && (
             <Col style={{ marginHorizontal: 7 }}>
-              <Button testID={`${props.testID}_CANCEL`} block danger onPress={onPressCancel}>
+              <Button testID={`${testID}_CANCEL`} block danger onPress={onPressCancel}>
                 <Text style={{ color: '#ffffff' }}>Annuler</Text>
               </Button>
             </Col>
           )}
           {onContinue && (
             <Col style={{ marginHorizontal: 7 }}>
-              <Button testID={`${props.testID}_CONTINUE`} block primary onPress={onPressContinue}>
+              <Button testID={`${testID}_CONTINUE`} block primary onPress={onPressContinue}>
                 <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>Continuer</Text>
               </Button>
             </Col>
           )}
           {!onCancel && !onContinue && (
             <Col style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Button testID={`${props.testID}_CLOSE`} block primary onPress={onPressClose}>
+              <Button testID={`${testID}_CLOSE`} block primary onPress={onPressClose}>
                 <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>Fermer</Text>
               </Button>
             </Col>

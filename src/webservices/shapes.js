@@ -45,6 +45,13 @@ export const CommandShape = {
   cab_enl: arrayOf(BarcodeShape),
 };
 
+export const COMMANDS_SAMPLE = require('./commands.json');
+
+export const COMMANDS_SAMPLE_ERROR = {
+  err_no: '1',
+  error: 'Erreur de code de tournée',
+};
+
 // The vehicle used to make the tour
 export const VehicleShape = {
   vehicule_id: oneOfType([string, number]),

@@ -105,6 +105,7 @@ android {
         applicationId "com.biptransport"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+        missingDimensionStrategy 'react-native-camera', 'general'
         versionCode 214
         versionName "0.2.14"
     }

@@ -13,7 +13,7 @@ import {
   CWaypointAddress,
   CWaypointCounters,
 } from '@components';
-import { WaypointContext, DriverContext } from '@contexts';
+import { AppContext } from '@contexts';
 import ScreenWaypointCollection from './wpcollection';
 import ScreenWaypointGalery from './wpgalery';
 
@@ -21,8 +21,8 @@ import ScreenWaypointGalery from './wpgalery';
  * L'écran affiche les données du point de passage ainsi que les boutons d'action liés
  */
 const ScreenWaypointDashboard = () => {
-  // Waypoint contexts to exploits
-  const waypointContext = useContext(WaypointContext);
+  // Driver context to get tour id
+  const appContext = useContext(AppContext);
 
   // Manage the Wapoint Collection modal
   const [showCollectionState, setShowCollectionState] = useState(false);
@@ -30,136 +30,123 @@ const ScreenWaypointDashboard = () => {
   // Manage the Wapoint Galery modal
   const [showGaleryState, setShowGaleryState] = useState(false);
 
-  // FIXME: all the datas should come from the context even the driver's one. Test to include the drvier and car context in the waypoint context
   const onPressArrived = () => {};
 
   const onPressRescueButton = () => {};
   const onPressCallManagers = () => {};
   const onPressBackHome = () => {};
   const onPressTravel = () => {
-    waypointContext.openMapScreen();
+    appContext.openMapScreen();
   };
   const onPressGalery = () => {
-    setShowGaleryState(true);
+    setShowGaleryState(state => true);
   };
   const onPressBroken = () => {};
   const onPressOtherWaypoint = () => {
-    setShowCollectionState(true);
+    setShowCollectionState(state => true);
   };
   const onCloseScreenWaypointCollection = () => {
-    setShowCollectionState(false);
+    setShowCollectionState(state => false);
   };
   const onCloseScreenWaypointGalery = () => {
     setShowGaleryState(false);
   };
   const onSelectOtherWaypoint = id => {
-    waypointContext.selectWaypointById(id);
-    setShowCollectionState(false);
+    appContext.selectWaypointById(id);
+    setShowCollectionState(state => false);
   };
 
   return (
-    <DriverContext.Consumer>
-      {({ slip, driver }) => (
-        <WaypointContext.Consumer>
-          {({
-            waypointIndex,
-            waypointCard,
-            waypointName,
-            waypointAddress,
-            waypointShippingCount,
-            waypointPickupCount,
-            waypointAccessDescription,
-            waypointListState,
-            waypointPictureCollection,
-          }) => (
-            <>
-              {waypointIndex < 0 && (
-                <>
-                  <CSpace n={2} />
-                  <CSpinner />
-                </>
-              )}
-              {waypointIndex >= 0 && (
-                <CContent
-                  stretch
-                  numero={slip.code}
-                  dateString={slip.date}
-                  name={`${driver.lastname} ${driver.firstname}`}
-                  pressRescueButton={onPressRescueButton}
-                  pressCallManagers={onPressCallManagers}
-                  pressBackHome={onPressBackHome}
+    <AppContext.Consumer>
+      {({ slip, driver, waypoint, waypointCollection, waypointList }) => (
+        <>
+          {!waypointCollection ||
+            (waypointCollection.length < 0 && (
+              <>
+                <CSpace n={2} />
+                <CSpinner />
+              </>
+            ))}
+          {waypoint && waypointCollection && waypointCollection.length >= 0 && (
+            <CContent
+              stretch
+              numero={slip.code}
+              dateString={slip.date}
+              name={`${driver.lastname} ${driver.firstname}`}
+              pressRescueButton={onPressRescueButton}
+              pressCallManagers={onPressCallManagers}
+              pressBackHome={onPressBackHome}
+            >
+              <View style={{ flex: 1 }}>
+                <CSpace />
+                <CTitle testID="ID_WPDASHBOARD_TITLE">{`Point de passage ${waypoint.index + 1}/${
+                  waypointCollection.length
+                }`}</CTitle>
+                <CSpace />
+                <View
+                  style={{
+                    flex: 1,
+                    width: '100%',
+                    paddingVertical: '4%',
+                    paddingHorizontal: '2%',
+                    backgroundColor: COLORS.GREY,
+                  }}
                 >
-                  <View style={{ flex: 1 }}>
-                    <CSpace />
-                    <CTitle testID="ID_WPDASHBOARD_TITLE">{`Point de passage ${waypointIndex +
-                      1}/${waypointCard}`}</CTitle>
-                    <CSpace />
-                    <View
-                      style={{
-                        flex: 1,
-                        width: '100%',
-                        paddingVertical: '4%',
-                        paddingHorizontal: '2%',
-                        backgroundColor: COLORS.GREY,
-                      }}
-                    >
-                      <CWaypointAddress
-                        testID="ID_WPDASHBOARD_ADDRESS"
-                        name={waypointName}
-                        address={waypointAddress}
-                        all
-                      />
-                      <CSep />
-                      <CWaypointCounters
-                        testID="ID_WPDASHBOARD_COUNTERS"
-                        shipping={waypointShippingCount}
-                        pickup={waypointPickupCount}
-                      />
-                      <CSep />
-                      <ScrollView style={{ flex: 1 }}>
-                        <CText testID="ID_WPDASHBOARD_DESC">{waypointAccessDescription}</CText>
-                      </ScrollView>
-                    </View>
-                  </View>
-                  <View style={{ flex: 0 }}>
-                    <CSpace />
-                    <CWaypointButtons
-                      testID="ID_WPDASHBOARD_BUTTONS"
-                      pictureCard={waypointPictureCollection.length}
-                      onPressTravel={onPressTravel}
-                      onPressGalery={onPressGalery}
-                      onPressBroken={onPressBroken}
-                      onPressArrived={onPressArrived}
-                    />
-                    <CSpace />
-                    <CButton
-                      danger
-                      block
-                      testID="ID_WPDASHBOARD_OTHERWP"
-                      label="Choisir un autre point de passage"
-                      onPress={onPressOtherWaypoint}
-                    />
-                  </View>
-                </CContent>
-              )}
+                  <CWaypointAddress
+                    testID="ID_WPDASHBOARD_ADDRESS"
+                    name={waypoint.name}
+                    address={waypoint.address}
+                    all
+                  />
+                  <CSep />
+                  <CWaypointCounters
+                    testID="ID_WPDASHBOARD_COUNTERS"
+                    shipping={waypoint.shippingCount}
+                    pickup={waypoint.pickupCount}
+                  />
+                  <CSep />
+                  <ScrollView style={{ flex: 1 }}>
+                    <CText testID="ID_WPDASHBOARD_DESC">{waypoint.accessDescription}</CText>
+                  </ScrollView>
+                </View>
+              </View>
+              <View style={{ flex: 0 }}>
+                <CSpace />
+                <CWaypointButtons
+                  testID="ID_WPDASHBOARD_BUTTONS"
+                  pictureCard={waypoint.pictureCollection && waypoint.pictureCollection.length}
+                  onPressTravel={onPressTravel}
+                  onPressGalery={onPressGalery}
+                  onPressBroken={onPressBroken}
+                  onPressArrived={onPressArrived}
+                />
+                <CSpace />
+                <CButton
+                  danger
+                  block
+                  testID="ID_WPDASHBOARD_OTHERWP"
+                  label="Choisir un autre point de passage"
+                  onPress={onPressOtherWaypoint}
+                />
+              </View>
               <ScreenWaypointCollection
-                show={showCollectionState}
-                datas={waypointListState}
+                show={!!showCollectionState}
+                datas={waypointList}
                 onClose={onCloseScreenWaypointCollection}
                 onSelectWaypoint={onSelectOtherWaypoint}
               />
               <ScreenWaypointGalery
-                show={showGaleryState}
-                datas={waypointPictureCollection}
-                name={waypointName}
-                address={waypointAddress}
+                show={!!showGaleryState}
+                datas={waypoint.pictureCollection}
+                name={waypoint.name}
+                address={waypoint.address}
                 onClose={onCloseScreenWaypointGalery}
               />
-            </>
+            </CContent>
           )}
-        </WaypointContext.Consumer>
+        </>
       )}
-    </DriverContext.Consumer>
+    </AppContext.Consumer>
   );
 };
 

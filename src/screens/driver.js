@@ -3,7 +3,7 @@ import { Alert } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import { CContent, CBarCodeReader, CSpace, DEFAULT_FONT_SIZE, CText } from '@components';
-import { DriverContext } from '@contexts';
+import { AppContext } from '@contexts';
 import { NAVS } from '@screens';
 import Dialog from 'react-native-dialog';
 
@@ -14,21 +14,22 @@ import Dialog from 'react-native-dialog';
  */
 const ScreenDriver = ({ navigation }) => {
   // manage the driver context
-  const driverContext = useContext(DriverContext);
+  const appContext = useContext(AppContext);
+
   // manage dialog gsm
   const [showGSMInput, setShowGSMInput] = useState(false);
   // manage gsm number entered
-  const [tempGsmNumber, setTempGsmNumber] = useState(driverContext.driver.gsm);
+  const [tempGsmNumber, setTempGsmNumber] = useState('');
   // manage hiding the barcode
   const [hideBarCodeReader, setHideBarCodeReader] = useState(false);
 
   // manage modals show/hide
   useEffect(() => {
-    if (tempGsmNumber.length === 0 && driverContext.driver.gsm.length > 0) {
-      setTempGsmNumber(driverContext.driver.gsm);
+    if (tempGsmNumber.length === 0 && appContext.driver.gsm.length > 0) {
+      setTempGsmNumber(appContext.driver.gsm);
     }
     setHideBarCodeReader(showGSMInput);
-  }, [tempGsmNumber, driverContext]);
+  }, [tempGsmNumber, appContext]);
 
   // if successfully read a bar code then display GSM modal
   // need to timed for display... probably due to setState
@@ -54,7 +55,7 @@ const ScreenDriver = ({ navigation }) => {
 
   // Ok change the GSM in the DB
   const onPressValidateGSM = () => {
-    driverContext
+    appContext
       .setGSMNumber(tempGsmNumber)
       .then(() => {
         setShowGSMInput(false);
@@ -78,7 +79,7 @@ const ScreenDriver = ({ navigation }) => {
   };
 
   return (
-    <DriverContext.Consumer>
+    <AppContext.Consumer>
       {({ driver, getDriverDatas }) => (
         <>
           <CContent title="Code de tournée" fullscreen pressBackHome={onPressBackHome}>
@@ -94,35 +95,37 @@ const ScreenDriver = ({ navigation }) => {
               hide={hideBarCodeReader}
             />
           </CContent>
-          <Dialog.Container visible={showGSMInput} testID="ID_GSMCONFIRM">
-            <Dialog.Title>{`${driver.firstname} ${driver.lastname}`}</Dialog.Title>
-            <Dialog.Description>
-              {`Veuillez confirmer votre numéro de portable (${
-                driver.gsm
-              }) afin d'être joint par votre superviseur.`}
-            </Dialog.Description>
-            <Dialog.Input
-              testID="ID_GSMCONFIRM_INPUT"
-              defaultValue={driver.gsm}
-              numberOfLines={1}
-              onChangeText={onChangeInputGSM}
-            />
-            <Dialog.Button
-              label="Annuler"
-              onPress={onPressCancelInputGSM}
-              testID="ID_GSMCONFIRM_CANCEL"
-            />
-            <Dialog.Button
-              bold
-              disabled={tempGsmNumber.length < 10}
-              label="Valider"
-              onPress={onPressValidateGSM}
-              testID="ID_GSMCONFIRM_OK"
-            />
-          </Dialog.Container>
+          {driver && (
+            <Dialog.Container visible={showGSMInput} testID="ID_GSMCONFIRM">
+              <Dialog.Title>{`${driver.firstname} ${driver.lastname}`}</Dialog.Title>
+              <Dialog.Description>
+                {`Veuillez confirmer votre numéro de portable (${
+                  driver.gsm
+                }) afin d'être joint par votre superviseur.`}
+              </Dialog.Description>
+              <Dialog.Input
+                testID="ID_GSMCONFIRM_INPUT"
+                defaultValue={driver.gsm}
+                numberOfLines={1}
+                onChangeText={onChangeInputGSM}
+              />
+              <Dialog.Button
+                label="Annuler"
+                onPress={onPressCancelInputGSM}
+                testID="ID_GSMCONFIRM_CANCEL"
+              />
+              <Dialog.Button
+                bold
+                disabled={tempGsmNumber.length < 10}
+                label="Valider"
+                onPress={onPressValidateGSM}
+                testID="ID_GSMCONFIRM_OK"
+              />
+            </Dialog.Container>
+          )}
         </>
       )}
-    </DriverContext.Consumer>
+    </AppContext.Consumer>
   );
 };
 

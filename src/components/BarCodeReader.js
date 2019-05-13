@@ -36,7 +36,7 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
       .catch(value => {
         if (onError) {
           setBarcode('');
-          onError(value);
+          onError((value && value.message) || value);
         }
       });
   };

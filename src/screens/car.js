@@ -3,7 +3,7 @@ import { Alert } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import { CSpace, CContent, CText, CBarCodeReader, DEFAULT_FONT_SIZE } from '@components';
-import { CarContext } from '@contexts';
+import { AppContext } from '@contexts';
 import { NAVS } from '@screens';
 import Dialog from 'react-native-dialog';
 
@@ -56,8 +56,8 @@ const ScreenCar = ({ navigation }) => {
   };
 
   return (
-    <CarContext.Consumer>
-      {({ id, immat, alert, getCarDatas }) => (
+    <AppContext.Consumer>
+      {({ car, getCarDatas }) => (
         <>
           <CContent title="Code de véhicule" fullscreen pressBackHome={onPressBackHome}>
             <CText style={{ textAlign: 'center', fontSize: (DEFAULT_FONT_SIZE * 3) / 4 }}>
@@ -72,23 +72,25 @@ const ScreenCar = ({ navigation }) => {
               hide={hideBarCodeRead}
             />
           </CContent>
-          <Dialog.Container visible={showCarConfirm}>
-            <Dialog.Title testID="ID_CARRESUME_TITLE">Votre véhicule</Dialog.Title>
-            <Dialog.Description>
-              {`${immat}
-${alert || 'Aucun problème à signaler'}`}
-            </Dialog.Description>
-            <Dialog.Button label="Autre véhicule" onPress={onPressCancelCarConfirm} />
-            <Dialog.Button
-              testID="ID_CARRESUME_OK"
-              bold
-              label="Continuer"
-              onPress={onPressCarConfirm}
-            />
-          </Dialog.Container>
+          {car && (
+            <Dialog.Container visible={showCarConfirm}>
+              <Dialog.Title testID="ID_CARRESUME_TITLE">Votre véhicule</Dialog.Title>
+              <Dialog.Description>
+                {`${car.immat}
+${car.alert || 'Aucun problème à signaler'}`}
+              </Dialog.Description>
+              <Dialog.Button label="Autre véhicule" onPress={onPressCancelCarConfirm} />
+              <Dialog.Button
+                testID="ID_CARRESUME_OK"
+                bold
+                label="Continuer"
+                onPress={onPressCarConfirm}
+              />
+            </Dialog.Container>
+          )}
         </>
       )}
-    </CarContext.Consumer>
+    </AppContext.Consumer>
   );
 };
 

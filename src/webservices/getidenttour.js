@@ -4,9 +4,8 @@
  * This source code is licensed under the Copyright License Agreement
  *
  */
-
-import { webservice, WS, isTest } from '@webservices';
-import { TOUR_BARCODES, TOUR_SAMPLE, TOUR_SAMPLE_ERROR } from '@webservices/shapes';
+import { webservice, WS, isTest } from './index';
+import { TOUR_BARCODES, TOUR_SAMPLE, TOUR_SAMPLE_ERROR } from './shapes';
 
 // Get the tour datas
 const getIdentTour = num => {
@@ -17,8 +16,7 @@ const getIdentTour = num => {
       else reject(TOUR_SAMPLE_ERROR);
     });
   }
-
-  return webservice({ url: WS.TOUR, params: { key: WS.KEY, num } });
+  return webservice({ url: WS.URL.TOUR, params: { key: WS.KEY, num } });
 };
 
 export default getIdentTour;

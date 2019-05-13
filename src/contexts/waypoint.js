@@ -2,11 +2,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import openMap from 'react-native-open-maps';
+import { getCommands } from '@webservices';
 
 /**
- * ECe contexte permet de gérer l'ensemble des points de passage et les actions associéers
+ * Ce contexte permet de gérer l'ensemble des points de passage et les actions associéers
  */
 const defaultWaypointState = {
+  waypoitnTourId: -1,
   waypointIndex: -1,
   waypointCard: 0,
   waypointName: '',
@@ -21,18 +23,30 @@ const defaultWaypointState = {
 
 const WaypointContext = React.createContext(defaultWaypointState);
 
-const WaypointContextProvider = ({ children }) => {
+const WaypointContextProvider = ({ children, tourId }) => {
   // The whole and full collection of waypoints
-  const [waypointCollectionState, setWaypointCollectionState] = useState(() => {
-    const WAYPOINTS = require('../webservices/commands.json');
-    return WAYPOINTS.commandes;
-  });
+  const [waypointCollectionState, setWaypointCollectionState] = useState([]);
 
   // The whole and full collection of waypoints FOR LIST
   const [waypointListState, setWaypointListState] = useState([]);
 
   // The only current waypoint
   const [waypointContextState, setWaypointContextState] = useState(defaultWaypointState);
+
+  // The id of the tour the waypoints are linked to
+  const [waypointTourIdState, setWaypointTourIdState] = useState(tourId);
+
+  /**
+   * Get the waypoint from the server
+   */
+  const getWaypointDatas = num =>
+    new Promise((resolve, reject) => {
+      getCommands(num)
+        .then(value => {
+          resolve((value && value.commandes) || []);
+        })
+        .catch(err => reject(err));
+    });
 
   /**
    * Open the map screen/app with desired location
@@ -47,7 +61,6 @@ const WaypointContextProvider = ({ children }) => {
       params.longitude = waypointContextState.waypointGpsCoords.long;
       params.latitude = waypointContextState.waypointGpsCoords.lat;
     }
-    console.warn(params);
     openMap(params);
   };
 
@@ -57,6 +70,7 @@ const WaypointContextProvider = ({ children }) => {
    */
   const selectWaypointByIndex = index => {
     const command = waypointCollectionState[index];
+    getWaypointDatas(waypointTourIdState);
 
     setWaypointContextState({
       waypointIndex: index,
@@ -76,6 +90,17 @@ const WaypointContextProvider = ({ children }) => {
   };
 
   // get the first element of collection and format list items
+  useEffect(() => {
+    if (tourId > 0)
+      getWaypointDatas(tourId)
+        .then(value => {
+          setWaypointCollectionState(value);
+        })
+        .catch(err => {
+          alert.alert('erreur');
+        });
+  }, [tourId]);
+
   useEffect(() => {
     if (waypointCollectionState.length > 0) selectWaypointByIndex(0);
     setWaypointListState(
@@ -127,9 +152,12 @@ const WaypointContextProvider = ({ children }) => {
         waypointGpsCoords,
         waypointPictureCollection,
         waypointCollectionState,
+        waypointTourIdState,
         waypointListState,
         openMapScreen,
         selectWaypointById,
+        getWaypointDatas,
+        setWaypointTourIdState,
       }}
     >
       {children}

@@ -18,7 +18,7 @@ const getIdentVehicle = num => {
     });
   }
 
-  return webservice({ url: WS.VEHICLE, params: { key: WS.KEY, num } });
+  return webservice({ url: WS.URL.VEHICLE, params: { key: WS.KEY, num } });
 };
 
 export default getIdentVehicle;

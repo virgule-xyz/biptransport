@@ -3,10 +3,10 @@
   "displayName": "biptransport",
   "splashname": "Application BIP-LIV",
   "bundleID": "fr.biptransport.app1",
-  "version": "0.12.1",
+  "version": "0.13.0",
   "private": true,
   "story": false,
-  "env": "test",
+  "env": "dev",
   "splashtime": 1000,
   "url": "",
   "peerDependencies": {
@@ -21,8 +21,9 @@
     "android": "adb reverse tcp:8081 tcp:8081; react-native run-android",
     "storybook": "rnstl; open 'http://localhost:7007'; storybook start",
     "prestorybook": "rnstl",
-    "test": "jest --verbose --coverage",
-    "test:update": "jest --verbose --watch --coverage --updateSnapshot",
+    "test": "jest --verbose false --coverage false",
+    "test:coverage": "jest --verbose --coverage",
+    "test:update": "jest --updateSnapshot",
     "test:watch": "jest --verbose --watch",
     "coverage": "open ./coverage/lcov-report/index.html",
     "e2e": "detox test -c ios.sim.debug",
@@ -123,10 +124,13 @@
     "setupFiles": [
       "<rootDir>/jest/setup.js"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/jest/setup.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest/setup.js"
+    ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
+    "testEnvironment": "node",
     "testMatch": [
       "**/?(*.)test.js"
     ],
@@ -142,9 +146,11 @@
       "/node_modules/(?!react-native|react-clone-referenced-element|react-navigation)"
     ],
     "moduleNameMapper": {
+      "@components(.*)$": "<rootDir>/src/components$1",
+      "@contexts(.*)$": "<rootDir>/src/contexts$1",
       "@medias(.*)$": "<rootDir>/src/medias$1",
       "@screens(.*)$": "<rootDir>/src/screens$1",
-      "@utility(.*)$": "<rootDir>/src/utility$1"
+      "@webservices(.*)$": "<rootDir>/src/webservices$1"
     }
   },
   "detox": {

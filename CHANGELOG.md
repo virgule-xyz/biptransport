@@ -1,3 +1,26 @@
+# 0.14.0
+
+> **Should test when no connectivity at all**
+
+# 0.13.0
+
+> Put all the current context in one and only one context.
+>
+> Not good at all, need to find a solution
+
+- FIX: `webservice`is now a default because of import errors
+- FIX: `WS.URL`in `webservice` calls
+- FIX: when calling `axios` the result is spread in `data` and `status`
+- ADD: test on webservice
+- BREAK: `driver`screen is based on new `AppContext`
+- BREAK: `car`screen is based on new `AppContext`
+- BREAK: `wpdashboard`is based on the new context `AppContext` 
+- BREAK: `App` is now containing `AppContext`
+- ADD: older context are keep in archive
+- ADD: `AppContext` that contain all previous contexts...
+- FIX: change case of file Modal.js to modal.js with `git mv Modal.js modal.js`
+- FIX: getCommands return undefined
+
 # 0.12.1
 
 > Think about using E2E to test what's previously coded and to get the dev to the screen currently developped ?
