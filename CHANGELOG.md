@@ -1,3 +1,7 @@
+# 0.15.0
+
+- FIX: Change the way barcodes are read so the value is correct
+
 # 0.14.0
 
 > **Should test when no connectivity at all**
@@ -19,8 +23,6 @@
   }, [show]);
 
 ```
-
-
 
 # 0.13.0
 

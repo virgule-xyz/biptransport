@@ -14,6 +14,8 @@ const RAPPORT = 4 / 5;
 const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
   const { width } = Dimensions.get('window');
 
+  let isBarCodeRead = false;
+
   const [showBarcodeInput, setShowBarcodeInput] = useState(false);
   const [barcode, setBarcode] = useState('');
   const [stopCamera, setStopCamera] = useState(false);
@@ -28,21 +30,26 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
   }, [hide, showBarcodeInput]);
 
   // stop the camera, check if barcode read is valuable and then run according functions
-  const onBarCodeRead = ({ barcodes }) => {
-    verificator(barcodes)
-      .then(value => {
-        if (onSuccess) {
-          setBarcode('');
-          setStopCamera(true);
-          onSuccess(value);
-        }
-      })
-      .catch(value => {
-        if (onError) {
-          setBarcode('');
-          onError((value && value.message) || value);
-        }
-      });
+  const onBarCodeRead = event => {
+    if (!isBarCodeRead) {
+      isBarCodeRead = true;
+      verificator(event.data)
+        .then(value => {
+          if (onSuccess) {
+            setBarcode('');
+            setStopCamera(true);
+            isBarCodeRead = false;
+            onSuccess(value);
+          }
+        })
+        .catch(value => {
+          if (onError) {
+            setBarcode('');
+            isBarCodeRead = false;
+            onError((value && value.message) || value);
+          }
+        });
+    }
   };
 
   // press the button that display the bar code input
@@ -62,7 +69,7 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
     setTimeout(() => {
       const barcoderead = barcode;
       setBarcode('');
-      onBarCodeRead({ barcodes: barcoderead });
+      onBarCodeRead({ event: { data: barcoderead } });
     }, 500);
   };
 
