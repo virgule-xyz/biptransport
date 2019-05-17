@@ -163,7 +163,7 @@ const AppContextProvider = ({ children }) => {
    * On driver.slip change rebuild the collection of waypoint
    */
   useEffect(() => {
-    const doChangedSlip = async s => {
+    const useEffectAsync = async s => {
       if (s && s.id > 0) {
         const value = await getWaypointDatas(s.id);
         console.warn('getWaypointDatas', s.id);
@@ -174,28 +174,32 @@ const AppContextProvider = ({ children }) => {
       }
     };
 
-    doChangedSlip(slip);
+    useEffectAsync(slip);
   }, [slip]);
 
   /**
    * On collection change, reselct the first waypoint and rebuild the list BT00249316 V0000017
    */
   useEffect(() => {
-    if (waypointCollection && waypointCollection.length > 0) {
-      selectWaypointByIndex(0);
-      setAppContextState(state => ({
-        ...state,
-        waypointList: waypointCollection.map((item, index) => {
-          return {
-            key: index,
-            id: item.id,
-            name: item.pnt_nom,
-            city: `${item.pnt_cp} ${item.pnt_ville}`,
-            ord: item.ord_nom,
-          };
-        }),
-      }));
-    }
+    const useEffectAsync = async v => {
+      if (v && v.length > 0) {
+        selectWaypointByIndex(0);
+        setAppContextState(state => ({
+          ...state,
+          waypointList: v.map((item, index) => {
+            return {
+              key: index,
+              id: item.id,
+              name: item.pnt_nom,
+              city: `${item.pnt_cp} ${item.pnt_ville}`,
+              ord: item.ord_nom,
+            };
+          }),
+        }));
+      }
+    };
+
+    useEffectAsync(waypointCollection);
   }, [waypointCollection]);
 
   // The renderer

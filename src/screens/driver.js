@@ -25,10 +25,14 @@ const ScreenDriver = ({ navigation }) => {
 
   // manage modals show/hide
   useEffect(() => {
-    if (tempGsmNumber.length === 0 && appContext.driver.gsm.length > 0) {
-      setTempGsmNumber(appContext.driver.gsm);
-    }
-    setHideBarCodeReader(showGSMInput);
+    const useEffectAsync = async (v, c) => {
+      if (v.length === 0 && c.driver.gsm.length > 0) {
+        setTempGsmNumber(c.driver.gsm);
+      }
+      setHideBarCodeReader(showGSMInput);
+    };
+
+    useEffectAsync(tempGsmNumber, appContext);
   }, [tempGsmNumber, appContext]);
 
   // if successfully read a bar code then display GSM modal

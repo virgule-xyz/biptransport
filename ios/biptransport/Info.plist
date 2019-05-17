@@ -77,7 +77,7 @@
 		<string>Zocial.ttf</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>Prendre des photos des points d&apos;arrêts</string>
+	<string>Prendre des photos des points d'arrêts</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Pour accéder aux fonctionnalités de la caméra</string>
 </dict>

@@ -3,15 +3,15 @@
   "displayName": "biptransport",
   "splashname": "Application BIP-LIV",
   "bundleID": "fr.biptransport.app1",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "private": true,
   "story": false,
-  "env": "dev",
+  "env": "prod",
   "splashtime": 1000,
   "url": "",
   "peerDependencies": {
-    "react": "16.8.3",
-    "react-native": "0.59.4"
+    "react": "16.8.6",
+    "react-native": "0.59.8"
   },
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -31,21 +31,18 @@
     "e2e:build": "detox build -c ios.sim.debug"
   },
   "dependencies": {
-    "@react-native-community/blur": "^3.3.1",
     "axios": "0.18.0",
     "core-js": "2.6.5",
     "native-base": "2.12.1",
-    "react": "16.8.3",
-    "react-native": "^0.59.6",
+    "react": "16.8.6",
+    "react-native": "^0.59.8",
     "react-native-camera": "2.4.0",
     "react-native-dialog": "^5.6.0",
     "react-native-elements": "1.1.0",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-open-maps": "0.3.3",
-    "react-native-svg": "9.4.0",
     "react-native-vector-icons": "6.4.2",
-    "react-navigation": "^3.9.1",
-    "webpack": "4.30.0"
+    "react-navigation": "^3.9.1"
   },
   "devDependencies": {
     "@babel/core": "7.4.3",
@@ -78,7 +75,8 @@
     "prop-types": "15.7.2",
     "react-dom": "16.8.6",
     "react-native-storybook-loader": "^1.8.0",
-    "react-test-renderer": "16.8.3"
+    "react-test-renderer": "16.8.3",
+    "webpack": "4.30.0"
   },
   "config": {
     "react-native-storybook-loader": {

@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import { Alert } from 'react-native';
 import openMap from 'react-native-open-maps';
 import { getCommands } from '@webservices';
 
@@ -91,29 +92,37 @@ const WaypointContextProvider = ({ children, tourId }) => {
 
   // get the first element of collection and format list items
   useEffect(() => {
-    if (tourId > 0)
-      getWaypointDatas(tourId)
-        .then(value => {
-          setWaypointCollectionState(value);
-        })
-        .catch(err => {
-          alert.alert('erreur');
-        });
+    const useEffectAsync = async v => {
+      if (v > 0)
+        getWaypointDatas(v)
+          .then(value => {
+            setWaypointCollectionState(value);
+          })
+          .catch(err => {
+            Alert.alert('erreur');
+          });
+    };
+
+    useEffectAsync(tourId);
   }, [tourId]);
 
   useEffect(() => {
-    if (waypointCollectionState.length > 0) selectWaypointByIndex(0);
-    setWaypointListState(
-      waypointCollectionState.map((item, index) => {
-        return {
-          key: index,
-          id: item.id,
-          name: item.pnt_nom,
-          city: `${item.pnt_cp} ${item.pnt_ville}`,
-          ord: item.ord_nom,
-        };
-      }),
-    );
+    const useEffectAsync = async v => {
+      if (v.length > 0) selectWaypointByIndex(0);
+      setWaypointListState(
+        v.map((item, index) => {
+          return {
+            key: index,
+            id: item.id,
+            name: item.pnt_nom,
+            city: `${item.pnt_cp} ${item.pnt_ville}`,
+            ord: item.ord_nom,
+          };
+        }),
+      );
+    };
+
+    useEffectAsync(waypointCollectionState);
   }, [waypointCollectionState]);
 
   /**

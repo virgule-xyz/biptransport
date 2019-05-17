@@ -20,7 +20,11 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
 
   // should stop the camera to allow alert display
   useEffect(() => {
-    setStopCamera(hide || showBarcodeInput);
+    const useEffectAsync = async v => {
+      setStopCamera(v);
+    };
+
+    useEffectAsync(hide || showBarcodeInput);
   }, [hide, showBarcodeInput]);
 
   // stop the camera, check if barcode read is valuable and then run according functions

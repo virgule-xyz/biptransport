@@ -13,7 +13,11 @@ const CModal = ({ children, onCancel, onContinue, onClose, show, testID }) => {
   const [isStateVisible, setIsStateVisible] = useState(show);
 
   useEffect(() => {
-    setIsStateVisible(show);
+    const useEffectAsync = async v => {
+      setIsStateVisible(v);
+    };
+
+    useEffectAsync(show);
   }, [show]);
 
   const onPressCancel = () => {

@@ -1,12 +1,28 @@
 # 0.14.0
 
 > **Should test when no connectivity at all**
+>
+> Rescue button should just call a WS, no more
+>
+> Logo should bring to list of managers
+
+- DONE: Put in rows the address in the waypoint list and change row colors
+- FIX: All `useEffect` now should follow 
+
+```react
+  useEffect(() => {
+    const useEffectAsync = async v => {
+      setIsStateVisible(v);
+    };
+
+    useEffectAsync(show);
+  }, [show]);
+
+```
+
+
 
 # 0.13.0
-
-> Put all the current context in one and only one context.
->
-> Not good at all, need to find a solution
 
 - FIX: `webservice`is now a default because of import errors
 - FIX: `WS.URL`in `webservice` calls
@@ -22,8 +38,6 @@
 - FIX: getCommands return undefined
 
 # 0.12.1
-
-> Think about using E2E to test what's previously coded and to get the dev to the screen currently developped ?
 
 - DONE: Select the first waypoint of the list
 - DONE: All scene1 detox tests

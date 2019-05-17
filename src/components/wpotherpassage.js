@@ -9,7 +9,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'native-base';
-import { CText, COLORS, DEFAULT_FONT_SIZE } from '@components';
+import { CText, COLORS, DEFAULT_FONT_SIZE, CSep } from '@components';
 
 /**
  * A simple button line for the collection of waypoint
@@ -28,21 +28,14 @@ const CWaypointOtherPassage = ({ wp, ...props }) => {
         ]}
       >
         <Row>
-          <Col>
-            <CText numberOfLines={2} style={[textColor, { fontWeight: 'bold' }]}>
-              {name}
-            </CText>
-          </Col>
-          <Col>
-            <CText numberOfLines={2} style={[textColor, { textAlign: 'center' }]}>
-              {city}
-            </CText>
-          </Col>
-          <Col>
-            <CText numberOfLines={2} style={[textColor, { textAlign: 'right' }]}>
-              {ord}
-            </CText>
-          </Col>
+          <CText style={[textColor, { fontWeight: 'bold' }]}>{ord}</CText>
+        </Row>
+        <CSep />
+        <Row>
+          <CText style={[textColor, { fontWeight: 'bold' }]}>{city}</CText>
+        </Row>
+        <Row>
+          <CText style={textColor}>{name}</CText>
         </Row>
       </Grid>
     </TouchableOpacity>

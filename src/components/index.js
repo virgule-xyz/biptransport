@@ -34,6 +34,6 @@ export const COLORS = {
   JYVAIS: '#2196f3',
   AIE: '#ff9800',
   ARRIVE: '#8bc34a',
-  ROW_EVEN: '#2196f3',
+  ROW_EVEN: '#d0d0d0',
   ROW_PAIR: '#f0f0f0',
 };
