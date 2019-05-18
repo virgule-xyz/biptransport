@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Alert } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
-import { CContent, CBarCodeReader, CSpace, DEFAULT_FONT_SIZE, CText } from '@components';
+import { CContent, CBarCodeReader, CSpace, DEFAULT_FONT_SIZE, CText, COLORS } from '@components';
 import { AppContext } from '@contexts';
 import { NAVS } from '@screens';
 import Dialog from 'react-native-dialog';
@@ -112,6 +112,7 @@ const ScreenDriver = ({ navigation }) => {
                 defaultValue={driver.gsm}
                 numberOfLines={1}
                 onChangeText={onChangeInputGSM}
+                wrapperStyle={{ borderBottomWidth: 1, borderBottomColor: COLORS.GREY }}
               />
               <Dialog.Button
                 label="Annuler"

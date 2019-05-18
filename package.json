@@ -6,7 +6,7 @@
   "version": "0.15.0",
   "private": true,
   "story": false,
-  "env": "prod",
+  "env": "dev",
   "splashtime": 1000,
   "url": "",
   "peerDependencies": {

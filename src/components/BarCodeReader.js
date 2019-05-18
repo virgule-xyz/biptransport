@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Dialog from 'react-native-dialog';
 import { Dimensions, View } from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import { CButton, CSpace } from '@components';
+import { CButton, CSpace, CSpinner, COLORS } from '@components';
 
 const RAPPORT = 4 / 5;
 
@@ -29,36 +29,47 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
     useEffectAsync(hide || showBarcodeInput);
   }, [hide, showBarcodeInput]);
 
-  // stop the camera, check if barcode read is valuable and then run according functions
-  const onBarCodeRead = event => {
-    if (!isBarCodeRead) {
+  // Test if barcode is a good number via `verificator`
+  const testBarCode = code => {
+    if (isBarCodeRead === false) {
       isBarCodeRead = true;
-      verificator(event.data)
+      setStopCamera(true);
+      verificator(code.toUpperCase())
         .then(value => {
+          setBarcode('');
           if (onSuccess) {
-            setBarcode('');
-            setStopCamera(true);
-            isBarCodeRead = false;
             onSuccess(value);
           }
+          setStopCamera(true);
+          isBarCodeRead = false;
         })
         .catch(value => {
+          setStopCamera(false);
+          setBarcode('');
           if (onError) {
-            setBarcode('');
-            isBarCodeRead = false;
             onError((value && value.message) || value);
           }
+          isBarCodeRead = false;
         });
     }
   };
 
+  // stop the camera, check if barcode read is valuable and then run according functions
+  const onBarCodeRead = event => {
+    testBarCode(event.data);
+  };
+
   // press the button that display the bar code input
   const onPressManual = () => {
+    isBarCodeRead = true;
+    // setStopCamera(true);
     setShowBarcodeInput(true);
   };
 
   // cancel and close the input barcode manual window
   const onPressCancelManual = () => {
+    isBarCodeRead = false;
+    // setStopCamera(false);
     setShowBarcodeInput(false);
     setBarcode('');
   };
@@ -68,14 +79,18 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
     setShowBarcodeInput(false);
     setTimeout(() => {
       const barcoderead = barcode;
-      setBarcode('');
-      onBarCodeRead({ event: { data: barcoderead } });
+      testBarCode(barcoderead);
     }, 500);
   };
 
   // on type event to get the code entered
   const onChangeCode = text => {
     setBarcode(text);
+  };
+
+  // Tap outside the box
+  const reactNativeModalProps = {
+    onBackdropPress: onPressCancelManual,
   };
 
   return (
@@ -92,24 +107,49 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
           testID={`${testID}_RNCAMERA`}
           captureAudio={false}
           style={[
-            stopCamera && { display: 'none' },
-            { width: width * RAPPORT, height: width * RAPPORT },
-          ]}
-          type={RNCamera.Constants.Type.back}
-          onBarCodeRead={onBarCodeRead}
-          enabled={false}
-        />
-        <View
-          style={[
             {
               width: width * RAPPORT,
               height: width * RAPPORT,
-              backgroundColor: 'grey',
-              display: 'none',
+              flex: 0,
+              alignItems: 'center',
+              justifyContent: 'center',
             },
-            stopCamera && { display: 'flex' },
           ]}
-        />
+          type={RNCamera.Constants.Type.back}
+          onBarCodeRead={!stopCamera && onBarCodeRead}
+          enabled={!stopCamera}
+        >
+          {({ camera, status, recordAudioPermissionStatus }) => {
+            if (status !== 'READY')
+              return (
+                <View
+                  style={{
+                    width: width * RAPPORT,
+                    height: width * RAPPORT,
+                    display: 'flex',
+                  }}
+                >
+                  <CSpinner />
+                </View>
+              );
+            if (stopCamera) {
+              camera.pausePreview();
+            } else {
+              camera.resumePreview();
+            }
+            return (
+              <View
+                style={{
+                  width: (width * RAPPORT) / 2,
+                  height: (width * RAPPORT) / 2,
+                  borderWidth: 3,
+                  borderColor: stopCamera ? COLORS.JYVAIS : COLORS.DANGER,
+                  flex: 0,
+                }}
+              />
+            );
+          }}
+        </RNCamera>
         <CSpace />
         <CButton
           testID={`${testID}_MANUAL_BUTTON`}
@@ -120,12 +160,17 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
           onPress={onPressManual}
         />
       </View>
-      <Dialog.Container visible={showBarcodeInput} testID={`${testID}_MANUAL_DIALOG`}>
+      <Dialog.Container
+        visible={showBarcodeInput}
+        testID={`${testID}_MANUAL_DIALOG`}
+        {...reactNativeModalProps}
+      >
         <Dialog.Title>Saisie manuelle</Dialog.Title>
         <Dialog.Description>Saisissez manuellement un code puis validez.</Dialog.Description>
         <Dialog.Input
           numberOfLines={1}
           onChangeText={onChangeCode}
+          wrapperStyle={{ borderBottomWidth: 1, borderBottomColor: COLORS.GREY }}
           testID={`${testID}_MANUAL_DIALOG_INPUT`}
         />
         <Dialog.Button

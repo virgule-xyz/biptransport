@@ -1,6 +1,10 @@
 # 0.15.0
 
 - FIX: Change the way barcodes are read so the value is correct
+- CHANGE: the way list of waypoints display datas
+- FIX: Major crash on scanning barcodes
+- FIX: Background color of headers
+- REMOVE: Blur and SVG package
 
 # 0.14.0
 

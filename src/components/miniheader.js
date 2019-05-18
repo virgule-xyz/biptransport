@@ -18,7 +18,7 @@ import { LOGO } from '@medias';
  */
 const CMiniHeader = ({ numero, dateString, name, pressCallManagers, pressRescueButton }) => {
   return (
-    <Header style={{ height: DEFAULT_FONT_SIZE * 7 }}>
+    <Header style={{ backgroundColor: '#fff', height: DEFAULT_FONT_SIZE * 7 }}>
       <Body>
         <Grid>
           <Col style={{ justifyContent: 'center', alignItems: 'flex-start' }}>

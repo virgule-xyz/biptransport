@@ -28,11 +28,10 @@ const CWaypointOtherPassage = ({ wp, ...props }) => {
         ]}
       >
         <Row>
-          <CText style={[textColor, { fontWeight: 'bold' }]}>{ord}</CText>
+          <CText style={[textColor, { fontWeight: 'bold' }]}>Pour {ord}</CText>
         </Row>
-        <CSep />
         <Row>
-          <CText style={[textColor, { fontWeight: 'bold' }]}>{city}</CText>
+          <CText style={[textColor, { fontWeight: 'bold' }]}>à {city}</CText>
         </Row>
         <Row>
           <CText style={textColor}>{name}</CText>

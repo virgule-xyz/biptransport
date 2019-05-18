@@ -25,6 +25,7 @@ const CBigHeader = ({ pressBackHome }) => {
         height: (380 / 1024) * width,
         paddingHorizontal: 0,
         paddingVertical: 0,
+        backgroundColor: '#fff',
       }}
       testID="ID_BIGHEADER"
     >
@@ -37,6 +38,7 @@ const CBigHeader = ({ pressBackHome }) => {
           marginVertical: 0,
           justifyContent: 'center',
           alignItems: 'center',
+          backgroundColor: '#fff',
         }}
       >
         <Button transparent onPress={pressBackHome}>
