@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  */
 const CWaypointAddress = ({ name, address, ...props }) => {
   return (
-    <View testID={props.testID}>
+    <View testID={props.testID} style={{ flex: 0 }}>
       <CText
         uppercase
         style={{

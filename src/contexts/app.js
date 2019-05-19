@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
 import openMap from 'react-native-open-maps';
-import { getCommands, getIdentTour, getIdentVehicle } from '@webservices';
+import { getCommands, getIdentTour, getIdentVehicle, isTest } from '@webservices';
 
 /**
  * The whole app context
@@ -14,6 +14,7 @@ const defaultAppState = {
   slip: { id: '', code: '', date: '' },
   driver: { id: '', firstname: '', lastname: '', gsm: '' },
   waypointCollection: [],
+  conditionCollection: [],
   waypointList: [],
   waypoint: {
     index: -1,
@@ -35,7 +36,15 @@ const AppContextProvider = ({ children }) => {
   const [appContextState, setAppContextState] = useState(defaultAppState);
 
   // Car, Driver and Waypoints
-  const { car, slip, driver, waypointCollection, waypointList, waypoint } = appContextState;
+  const {
+    car,
+    slip,
+    driver,
+    conditionCollection,
+    waypointCollection,
+    waypointList,
+    waypoint,
+  } = appContextState;
 
   /**
    * Call the API to get the car linked to this codebar
@@ -102,6 +111,7 @@ const AppContextProvider = ({ children }) => {
           setAppContextState(state => ({
             ...state,
             waypointList: [],
+            conditionCollection: [{ name: 'Voie bouchée', id: 1 }, { name: 'Neige', id: 2 }],
             waypointCollection: (value && value.commandes) || [],
           }));
           resolve(value.commandes);
@@ -202,6 +212,20 @@ const AppContextProvider = ({ children }) => {
     useEffectAsync(waypointCollection);
   }, [waypointCollection]);
 
+  // Load some fake datas
+  const loadFakeContext = () => {
+    if (isTest()) {
+      getDriverDatas('BT00249316');
+      // getCarDatas('V0000017');
+      // selectWaypointByIndex(0);
+    }
+  };
+
+  // save the new bad condition and save this on webservice
+  const saveCondition = cond => {
+    Alert.alert(cond.name);
+  };
+
   // The renderer
   return (
     <AppContext.Provider
@@ -210,6 +234,7 @@ const AppContextProvider = ({ children }) => {
         slip,
         driver,
         waypointCollection,
+        conditionCollection,
         waypointList,
         waypoint,
         getCarDatas,
@@ -219,6 +244,8 @@ const AppContextProvider = ({ children }) => {
         openMapScreen,
         selectWaypointByIndex,
         selectWaypointById,
+        loadFakeContext,
+        saveCondition,
       }}
     >
       {children}

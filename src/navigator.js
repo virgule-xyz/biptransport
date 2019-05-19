@@ -1,8 +1,14 @@
 import { createSwitchNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
-import { ScreenSplash, ScreenDriver, ScreenCar, ScreenWaypointDashboard } from '@screens';
+import {
+  ScreenSplash,
+  ScreenDriver,
+  ScreenCar,
+  ScreenWaypointDashboard,
+  ScreenWaypointBadCondition,
+} from '@screens';
 
 const WaypointStack = createStackNavigator(
-  { ScreenWaypointDashboard, ScreenDriver, ScreenCar },
+  { ScreenWaypointDashboard, ScreenDriver, ScreenCar, ScreenWaypointBadCondition },
   {
     initialRouteName: 'ScreenDriver',
     headerMode: 'none',

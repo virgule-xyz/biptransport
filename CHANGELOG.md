@@ -1,10 +1,22 @@
+# 0.16.0
+
+- DONE: Add the `ScreenWaypointBadCondition` to the navigator
+- ADD: `CWaypointTemplate` is the template to use to build screens with little header
+- ADD: `loadFakeContext`is a way to load fake datas for stories
+- ADD: `ScreenWaypointBadCondition`
+- FIX: Restore storybook because of AppContext
+- FIX: Now `story===true`remove yellowBox
+- FIX: Modales are now fullsize
+- FIX: `Managers`changed to use `AppContext`
+- FIX: `ScreenWaypointDashboard`use the new template
+
 # 0.15.0
 
 - FIX: Change the way barcodes are read so the value is correct
-- CHANGE: the way list of waypoints display datas
+- FIX: the way list of waypoints display datas
 - FIX: Major crash on scanning barcodes
 - FIX: Background color of headers
-- REMOVE: Blur and SVG package
+- FIX: Blur and SVG package removed because make crash the app
 
 # 0.14.0
 

@@ -36,8 +36,8 @@ const CModal = ({ children, onCancel, onContinue, onClose, show, testID }) => {
     <Overlay
       isVisible={isStateVisible}
       overlayBackgroundColor="white"
-      width="90%"
-      height="80%"
+      width="100%"
+      height="100%"
       fullscreen
     >
       <Grid>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { CSpace, CContent, CButton, CSpinner } from '@components';
-import { ManagersContext } from '@contexts';
+import { AppContext } from '@contexts';
 
 /**
  * Le header et une liste de boutons permettant de joindre un manager
@@ -20,7 +20,7 @@ const ScreenManagers = () => {
 
   return (
     <CContent title="Vos responsables" fullscreen pressBackHome={onPressBackHome}>
-      <ManagersContext.Consumer>
+      <AppContext.Consumer>
         {({ managers }) => (
           <>
             {managers.length > 0 &&
@@ -43,7 +43,7 @@ const ScreenManagers = () => {
             )}
           </>
         )}
-      </ManagersContext.Consumer>
+      </AppContext.Consumer>
     </CContent>
   );
 };
