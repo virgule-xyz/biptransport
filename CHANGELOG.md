@@ -1,3 +1,11 @@
+# 0.17.0
+
+- ADD: The `ScreenWaypointBadCondition` and `ScreenWaypointResume`
+- FIX: `Space`do some trouble when in between `flex:1`Views
+- ADD: function `ColorsByNumber` tha t display colors from green to red
+- ADD: `TextInput`that wrap a NativeBase Textarea
+- ADD: `CWaypointCounters`is now colorized
+
 # 0.16.0
 
 - DONE: Add the `ScreenWaypointBadCondition` to the navigator

@@ -6,7 +6,13 @@ import PropTypes from 'prop-types';
 /**
  * Affiche une ligne avec les compteurs d'objectifs de livraison et de dépôt
  */
-const CWaypointCounters = ({ shipping, pickup, ...props }) => {
+const CWaypointCounters = ({
+  shipping,
+  pickup,
+  colorShip = COLORS.RED,
+  colorPick = COLORS.RED,
+  ...props
+}) => {
   return (
     <View
       testID={props.testID}
@@ -21,29 +27,27 @@ const CWaypointCounters = ({ shipping, pickup, ...props }) => {
     >
       <View
         style={{
-          flex: 0,
+          flex: 1,
           flexDirection: 'row',
           justifyContent: 'flex-start',
           alignItems: 'center',
           width: '40%',
-          height: '100%',
         }}
       >
         <CText>Livraisons</CText>
-        <CBadge color={COLORS.RED}>{shipping}</CBadge>
+        <CBadge color={colorShip}>{shipping}</CBadge>
       </View>
       <View
         style={{
-          flex: 0,
+          flex: 1,
           flexDirection: 'row',
           justifyContent: 'flex-end',
           alignItems: 'center',
           width: '40%',
-          height: '100%',
         }}
       >
         <CText>Enlèvements</CText>
-        <CBadge color={COLORS.RED}>{pickup}</CBadge>
+        <CBadge color={colorPick}>{pickup}</CBadge>
       </View>
     </View>
   );
@@ -52,6 +56,13 @@ const CWaypointCounters = ({ shipping, pickup, ...props }) => {
 CWaypointCounters.propTypes = {
   shipping: PropTypes.string.isRequired,
   pickup: PropTypes.string.isRequired,
+  colorShip: PropTypes.string.isRequired,
+  colorPick: PropTypes.string.isRequired,
 };
+
+// CWaypointCounters.defaultProps = {
+//   colorShip: '',
+//   colorPick: '',
+// };
 
 export default CWaypointCounters;

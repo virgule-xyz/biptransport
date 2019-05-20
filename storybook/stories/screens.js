@@ -8,6 +8,7 @@ import ScreenWaypointDashboard from '@screens/wpdashboard';
 import ScreenWaypointCollection from '@screens/wpcollection';
 import ScreenWaypointGalery from '@screens/wpgalery';
 import ScreenWaypointBadCondition from '@screens/wpbadcondition';
+import ScreenWaypointResume from '@screens/wpresume';
 import { AppContextProvider } from '@contexts';
 
 const ModalScreenWaypointCollection = () => {
@@ -114,8 +115,12 @@ storiesOf('Screens', module)
       <ModalScreenWaypointGalery />
     </AppContextProvider>
   ))
-  .add('Waypoint COnditions', () => (
+  .add('Waypoint Conditions', () => (
     <AppContextProvider>
       <ScreenWaypointBadCondition />
+    </AppContextProvider>
+  )).add('Waypoint End And Resume', () => (
+    <AppContextProvider>
+      <ScreenWaypointResume />
     </AppContextProvider>
   ));

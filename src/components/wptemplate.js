@@ -40,16 +40,15 @@ const CWaypointTemplate = ({ children, greyContent = null }) => {
               pressCallManagers={onPressCallManagers}
               pressBackHome={onPressBackHome}
             >
-              <View style={{ flex: greyContent ? 1 : 0 }}>
-                <CSpace />
+              <View style={{ flex: greyContent ? 1 : 0, height: '100%' }}>
                 <CTitle testID="ID_WPDASHBOARD_TITLE">{`Point de passage ${waypoint.index + 1}/${
                   waypointCollection.length
                 }`}</CTitle>
-                <CSpace />
                 <View
                   style={{
                     flex: greyContent ? 1 : 0,
                     width: '100%',
+                    height: '100%',
                     paddingVertical: '4%',
                     paddingHorizontal: '2%',
                     backgroundColor: COLORS.GREY,

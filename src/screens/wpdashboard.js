@@ -19,6 +19,7 @@ import {
 import { AppContext } from '@contexts';
 import ScreenWaypointCollection from './wpcollection';
 import ScreenWaypointGalery from './wpgalery';
+import { NAVS } from './index';
 
 /**
  * L'écran affiche les données du point de passage ainsi que les boutons d'action liés
@@ -41,7 +42,7 @@ const ScreenWaypointDashboard = ({ navigation }) => {
     setShowGaleryState(state => true);
   };
   const onPressBroken = () => {
-    navigation.navigate('ScreenWaypointBadCondition');
+    navigation.navigate(NAVS.wpbadcondition.current);
   };
   const onPressOtherWaypoint = () => {
     setShowCollectionState(state => true);

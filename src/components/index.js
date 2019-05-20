@@ -15,6 +15,7 @@ export { default as CSep } from './sep';
 export { default as CSpace } from './space';
 export { default as CSpinner } from './spinner';
 export { default as CText } from './text';
+export { default as CTextInput } from './textinput';
 export { default as CTitle } from './title';
 export { default as CWaypointAddress } from './wpaddress';
 export { default as CWaypointButtons } from './wpbuttons';
@@ -27,8 +28,10 @@ export const DEFAULT_FONT_SIZE = 15;
 export const COLORS = {
   WHITE: '#ffffff',
   BLACK: '#333333',
+  GREEN: '#8bc34a',
   YELLOW: '#ffdd33',
   DANGER: '#e33',
+  ORANGE: '#e93',
   RED: '#e33',
   SEP: '#999999',
   GREY: '#f0f0f0',
@@ -38,4 +41,12 @@ export const COLORS = {
   ARRIVE: '#8bc34a',
   ROW_EVEN: '#d0d0d0',
   ROW_PAIR: '#f0f0f0',
+};
+
+export const ColorsByNumber = num => {
+  if (num > 5) return COLORS.RED;
+  if (num > 3) return COLORS.ORANGE;
+  if (num > 0) return COLORS.YELLOW;
+  if (num === 0) return COLORS.GREEN;
+  return COLORS.RED;
 };
