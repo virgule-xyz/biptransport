@@ -6,77 +6,11 @@
  */
 
 import React, { useState, useContext, useEffect } from 'react';
-import { View, ScrollView, Alert } from 'react-native';
-import { Grid, Row, Col } from 'native-base';
+import { View, ScrollView, Alert, Dimensions } from 'react-native';
 
-import { CButton, CSpace, CWaypointTemplate, CError, CCamera } from '@components';
+import { CButton, CSpace, CWaypointTemplate, CError, CCamera, CImage } from '@components';
 import { AppContext } from '@contexts';
 import { splashname } from '../../package.json';
-
-// Step one is to choose the reason not to go to the waypoint
-const CStep1 = ({ conditionCollection, onPressCondition }) => (
-  <>
-    <CError>Impossible d'arriver sur ce point, merci d'indiquer la raison...</CError>
-    <CSpace />
-    <ScrollView>
-      {conditionCollection.map(cond => (
-        <>
-          <CButton
-            block
-            warning
-            label={cond.name}
-            onPress={() => {
-              onPressCondition(cond);
-            }}
-          />
-          <CSpace n={0.1} />
-        </>
-      ))}
-      <CSpace n={2} />
-    </ScrollView>
-  </>
-);
-
-// Step two take the picture
-const CStep2 = ({ conditionState, onPressChangeCondition }) => (
-  <View style={{ flex: 0, alignItems: 'center' }}>
-    <CError style={{ textAlign: 'center' }}>
-      Passage non traité pour raison de "{conditionState.name}" : prenez une photo du problème...
-    </CError>
-    <CSpace />
-    <CCamera />
-    <CSpace />
-    <CButton block icon="undo" label="Changer de raison..." onPress={onPressChangeCondition} />
-  </View>
-);
-
-// Step 3 ios to confirm the picture
-const CStep3 = ({ conditionState, onPressTakeAnotherPicture, onPressValidatePicture }) => (
-  <>
-    <CError style={{ textAlign: 'center' }}>
-      Passage non traité pour raison de "{conditionState.name}" : confirmez la photo...
-    </CError>
-    <CSpace n={0.5} />
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-      <CButton
-        small
-        style={{ width: '45%' }}
-        icon="undo"
-        danger
-        label="Reprendre la photo"
-        onPress={onPressTakeAnotherPicture}
-      />
-      <CButton
-        small
-        style={{ width: '45%' }}
-        icon="check"
-        label="Confirmer"
-        onPress={onPressValidatePicture}
-      />
-    </View>
-    <CSpace />
-  </>
-);
 
 /**
  * L'écran affiche les données du point de passage ainsi que les boutons d'action liés
@@ -85,18 +19,116 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   // Driver context to get tour id
   const appContext = useContext(AppContext);
 
+  // Dimensions of screen
+  const [screenSizeState, setScreenSizeState] = useState({ width: 0, height: 0 });
+
   // show the camera to take a picture
   const [showCameraState, setShowCameraState] = useState(false);
 
   // show the picture just taken
   const [showPictureTakenState, setShowPictureTakenState] = useState(false);
 
+  // the picture data
+  const [base64PictureState, setBase64PictureState] = useState(null);
+
   // le locale selected condition
   const [conditionState, setConditionState] = useState(null);
 
   useEffect(() => {
     appContext.loadFakeContext();
+    const { width, height } = Dimensions.get('window');
+    setScreenSizeState({ width, height });
   }, []);
+
+  // Step one is to choose the reason not to go to the waypoint
+  const CStep1 = ({ conditionCollection, onPressCondition }) => (
+    <>
+      <CError>Impossible d'arriver sur ce point, merci d'indiquer la raison...</CError>
+      <CSpace />
+      <ScrollView>
+        {conditionCollection.map(cond => (
+          <>
+            <CButton
+              block
+              warning
+              label={cond.name}
+              onPress={() => {
+                onPressCondition(cond);
+              }}
+            />
+            <CSpace n={0.1} />
+          </>
+        ))}
+        <CSpace n={2} />
+      </ScrollView>
+    </>
+  );
+
+  // Step two take the picture
+  const onTakePicture = picture => {
+    setBase64PictureState(picture);
+    setShowCameraState(false);
+    setShowPictureTakenState(true);
+  };
+
+  const CStep2 = ({ conditionState, onPressChangeCondition }) => (
+    <View style={{ flex: 0, alignItems: 'center' }}>
+      <CError style={{ textAlign: 'center' }}>
+        Passage non traité pour raison de "{conditionState.name}" : prenez une photo du problème...
+      </CError>
+      <CSpace />
+      <CCamera onTakePicture={onTakePicture} />
+      <CSpace />
+      <CButton block icon="undo" label="Changer de raison..." onPress={onPressChangeCondition} />
+    </View>
+  );
+
+  // Step 3 ios to confirm the picture
+  const CStep3 = ({ conditionState, onPressTakeAnotherPicture, onPressValidatePicture }) => (
+    <>
+      <CError style={{ textAlign: 'center' }}>
+        Passage non traité pour raison de "{conditionState.name}" : confirmez la photo...
+      </CError>
+      <CSpace n={0.5} />
+      {base64PictureState && (
+        <View
+          style={{
+            flex: 0,
+            width: '100%',
+            height: 240,
+            backgroundColor: 'black',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <CImage
+            image={`data:image/png;base64,${base64PictureState}`}
+            width={screenSizeState.width * 0.9}
+            height={240}
+          />
+        </View>
+      )}
+      <CSpace n={0.5} />
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <CButton
+          small
+          style={{ width: '45%' }}
+          icon="undo"
+          danger
+          label="Reprendre la photo"
+          onPress={onPressTakeAnotherPicture}
+        />
+        <CButton
+          small
+          style={{ width: '45%' }}
+          icon="check"
+          label="Confirmer"
+          onPress={onPressValidatePicture}
+        />
+      </View>
+      <CSpace />
+    </>
+  );
 
   const onPressQuitScreen = () => {
     Alert.alert(
@@ -149,7 +181,13 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
     );
   };
 
-  const onPressValidatePicture = () => {};
+  const onPressValidatePicture = () => {
+    appContext.storeClue({
+      condition: conditionState,
+      picture: base64PictureState,
+    });
+    navigation.navigate('ScreenWaypointResume');
+  };
 
   return (
     <AppContext.Consumer>

@@ -6,38 +6,46 @@ Véhicule :			V0000017
 
 # TODO
 
-> - Code the "Take a picture" and save the picture for later use in a send pool
-> - Code buttons to take another picture or confirm the impossibility to go away
 > - Code the scanner of barcode of waypoints with multiple barcodes
 > - Code passage to "ARRIVE!"
 > - Logo should bring to list of managers
->
 > - ***HOWTO: Call a manager ?***
 > - ***Re-Read the WS to see what's changed => In paw***
-> - Rescue button should just call a WS, no more
->
+>- Rescue button should just call a WS, no more
 > - Should test when no connectivity at all
 > - Fill conditions with what's read on WS
->
 > - Save all the datas of the way point even the commentary at the end taping on "next waypoint"
+>- Write a new commentary on a waypoint and save it in the clues/dates
 
 # DONE
 
-## 0.18.0
+## 0.19.0
 
-FIX: Add a prop to disable or enable input box for scanner
+- DONE: Code buttons to take another picture or confirm the impossibility to go away
 
-FIX: Great modifications on `CWaypointTemplate`because of flex layout
+- DONE: Code the "Take a picture" and save the picture for later use in a send pool
 
-DONE: Code passage to "AÏE"
+- FIX: `resizeMode`in the CImage component
 
-DONE: Create the `CCamera`component to take pictures...
+- DONE: Start of the `clues` array in the app context to conatin all what's to be sent to the server
 
-DONE: Create the `CInfo` component
+- ## 0.18.0
 
-DONE: Create the `ScreenWaypointScanArrival`.
 
-## 0.17.0
+- FIX: Add a prop to disable or enable input box for scanner
+
+- FIX: Great modifications on `CWaypointTemplate`because of flex layout
+
+- DONE: Code passage to "AÏE"
+
+- DONE: Create the `CCamera`component to take pictures...
+
+- DONE: Create the `CInfo` component
+
+- DONE: Create the `ScreenWaypointScanArrival`.
+
+- ## 0.17.0
+
 
 - ADD: The `ScreenWaypointBadCondition` and `ScreenWaypointResume`
 - ADD: function `ColorsByNumber` tha t display colors from green to red

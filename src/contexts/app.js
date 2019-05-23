@@ -13,6 +13,7 @@ const defaultAppState = {
   car: { id: '', immat: '', alert: '' },
   slip: { id: '', code: '', date: '' },
   driver: { id: '', firstname: '', lastname: '', gsm: '' },
+  clues: [],
   waypointCollection: [],
   conditionCollection: [],
   waypointList: [],
@@ -40,6 +41,7 @@ const AppContextProvider = ({ children }) => {
     car,
     slip,
     driver,
+    clues,
     conditionCollection,
     waypointCollection,
     waypointList,
@@ -226,6 +228,12 @@ const AppContextProvider = ({ children }) => {
     Alert.alert(cond.name);
   };
 
+  // store in local storage some datas that should be sent away
+  const storeClue = ({ condition, picture }) => {
+    console.warn('condition', condition);
+    console.warn('picture', picture);
+  };
+
   // The renderer
   return (
     <AppContext.Provider
@@ -237,6 +245,7 @@ const AppContextProvider = ({ children }) => {
         conditionCollection,
         waypointList,
         waypoint,
+        clues,
         getCarDatas,
         setGSMNumber,
         getDriverDatas,
@@ -246,6 +255,7 @@ const AppContextProvider = ({ children }) => {
         selectWaypointById,
         loadFakeContext,
         saveCondition,
+        storeClue,
       }}
     >
       {children}

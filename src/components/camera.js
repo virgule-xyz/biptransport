@@ -1,20 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Dimensions, View, TouchableOpacity } from 'react-native';
 import { Icon } from 'native-base';
 import { RNCamera } from 'react-native-camera';
-import { CButton, CSpinner, COLORS } from '@components';
-import { ICON_TYPE, ICON_COLOR } from './icon';
+import { CSpinner, COLORS } from '@components';
+import { ICON_TYPE } from './icon';
 
 const RAPPORT = 4 / 5;
 
 /**
  * Launch the camera
  */
-const CCamera = () => {
+const CCamera = ({ onTakePicture }) => {
   const { width } = Dimensions.get('window');
   const W = width * 0.9;
   const H = (width * RAPPORT * 3) / 4;
+
+  // Ok we press the UI button to take the picture
+  const onPressCameraButton = async camera => {
+    const options = { quality: 0.5, base64: true, doNotSave: true, width: 1024, exif: true };
+    const data = await camera.takePictureAsync(options);
+    onTakePicture(data.base64);
+  };
+
   return (
     <RNCamera
       captureAudio={false}
@@ -52,7 +59,7 @@ const CCamera = () => {
             <TouchableOpacity
               icon="camera"
               label=" "
-              onPress={() => {}}
+              onPress={() => onPressCameraButton(camera)}
               style={{
                 position: 'absolute',
                 bottom: 20,

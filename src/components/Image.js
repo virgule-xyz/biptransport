@@ -10,6 +10,7 @@ const CImage = ({ image, width, height }) => (
   <Image
     source={{ uri: image }}
     style={{ width, height }}
+    resizeMode="contain"
     PlaceholderContent={<ActivityIndicator />}
   />
 );
