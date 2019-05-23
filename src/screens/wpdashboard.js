@@ -5,7 +5,7 @@
  *
  */
 
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { View, ScrollView } from 'react-native';
 import {
   CButton,
@@ -58,26 +58,33 @@ const ScreenWaypointDashboard = ({ navigation }) => {
     setShowCollectionState(state => false);
   };
 
+  useEffect(() => {
+    appContext.loadFakeContext();
+  }, []);
+
   return (
     <AppContext.Consumer>
       {({ waypoint, waypointList }) => (
         <CWaypointTemplate
           greyContent={
-            <>
+            <View>
               <CSep />
+              <CText style={{ textAlign: 'center', fontWeight: 'bold' }}>A faire ici :</CText>
+              <CSpace n={0.5} />
               <CWaypointCounters
                 testID="ID_WPDASHBOARD_COUNTERS"
                 shipping={waypoint.shippingCount}
                 pickup={waypoint.pickupCount}
               />
-              <CSep />
-              <ScrollView style={{ flex: 1 }}>
-                <CText testID="ID_WPDASHBOARD_DESC">{waypoint.accessDescription}</CText>
-              </ScrollView>
-            </>
+            </View>
           }
         >
-          <View style={{ flex: 0 }}>
+          <View style={{ flex: 1 }}>
+            <CSpace />
+            <ScrollView>
+              <CText testID="ID_WPDASHBOARD_DESC">{waypoint.accessDescription}</CText>
+              <CSpace n={2} />
+            </ScrollView>
             <CSpace />
             <CWaypointButtons
               testID="ID_WPDASHBOARD_BUTTONS"

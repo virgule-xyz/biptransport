@@ -5,6 +5,7 @@ export { default as ScreenSplash } from './splash';
 export { default as ScreenWaypointBadCondition } from './wpbadcondition';
 export { default as ScreenWaypointCollection } from './wpcollection';
 export { default as ScreenWaypointDashboard } from './wpdashboard';
+export { default as ScreenWaypointScanArrival } from './wpscanarrival';
 export { default as ScreenWaypointGalery } from './wpgalery';
 export { default as ScreenWaypointResume } from './wpresume';
 
@@ -14,5 +15,6 @@ export const NAVS = {
   car: { current: 'ScreenCar', previous: 'ScreenDriver', next: 'ScreenWaypointDashboard' },
   wpdashboard: { current: 'ScreenWaypointDashboard', previous: 'ScreenCar' },
   wpbadcondition: { current: 'ScreenWaypointBadCondition' },
+  wpscanarrival: { current: 'ScreenWaypointScanArrival' },
   wpresume: { current: 'ScreenWaypointResume' },
 };

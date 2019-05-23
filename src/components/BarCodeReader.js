@@ -11,7 +11,7 @@ const RAPPORT = 4 / 5;
  * Scan for a barcode, the verificator take the barcode and returns a promise with a returned value in onSuccess or an error in onError if the barcode is wrong
  * hide the camera for some display errors
  */
-const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
+const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }) => {
   const { width } = Dimensions.get('window');
 
   let isBarCodeRead = false;
@@ -150,15 +150,19 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, testID }) => {
             );
           }}
         </RNCamera>
-        <CSpace />
-        <CButton
-          testID={`${testID}_MANUAL_BUTTON`}
-          icon="search"
-          block
-          light
-          label="Saisir manuellement..."
-          onPress={onPressManual}
-        />
+        {input && (
+          <>
+            <CSpace />
+            <CButton
+              testID={`${testID}_MANUAL_BUTTON`}
+              icon="search"
+              block
+              light
+              label="Saisir manuellement..."
+              onPress={onPressManual}
+            />
+          </>
+        )}
       </View>
       <Dialog.Container
         visible={showBarcodeInput}
@@ -196,6 +200,11 @@ CBarCodeReader.propTypes = {
   onSuccess: PropTypes.func.isRequired,
   onError: PropTypes.func.isRequired,
   hide: PropTypes.bool.isRequired,
+  input: PropTypes.bool,
+};
+
+CBarCodeReader.defaultProps = {
+  input: true,
 };
 
 export default CBarCodeReader;

@@ -40,30 +40,59 @@ const CWaypointTemplate = ({ children, greyContent = null }) => {
               pressCallManagers={onPressCallManagers}
               pressBackHome={onPressBackHome}
             >
-              <View style={{ flex: greyContent ? 1 : 0, height: '100%' }}>
-                <CTitle testID="ID_WPDASHBOARD_TITLE">{`Point de passage ${waypoint.index + 1}/${
-                  waypointCollection.length
-                }`}</CTitle>
+              {greyContent && (
                 <View
                   style={{
-                    flex: greyContent ? 1 : 0,
-                    width: '100%',
-                    height: '100%',
-                    paddingVertical: '4%',
-                    paddingHorizontal: '2%',
-                    backgroundColor: COLORS.GREY,
+                    overflow: 'hidden',
                   }}
                 >
-                  <CWaypointAddress
-                    testID="ID_WPDASHBOARD_ADDRESS"
-                    name={waypoint.name}
-                    address={waypoint.address}
-                    all
-                  />
-                  {greyContent}
+                  <CTitle testID="ID_WPDASHBOARD_TITLE">{`Point de passage ${waypoint.index + 1}/${
+                    waypointCollection.length
+                  }`}</CTitle>
+                  <View
+                    style={{
+                      width: '100%',
+                      paddingVertical: '4%',
+                      paddingHorizontal: '2%',
+                      backgroundColor: COLORS.GREY,
+                    }}
+                  >
+                    <CWaypointAddress
+                      testID="ID_WPDASHBOARD_ADDRESS"
+                      name={waypoint.name}
+                      address={waypoint.address}
+                      all
+                    />
+                    <View>{greyContent}</View>
+                  </View>
                 </View>
-              </View>
-
+              )}
+              {!greyContent && (
+                <View
+                  style={{
+                    overflow: 'hidden',
+                  }}
+                >
+                  <CTitle testID="ID_WPDASHBOARD_TITLE">{`Point de passage ${waypoint.index + 1}/${
+                    waypointCollection.length
+                  }`}</CTitle>
+                  <View
+                    style={{
+                      width: '100%',
+                      paddingVertical: '4%',
+                      paddingHorizontal: '2%',
+                      backgroundColor: COLORS.GREY,
+                    }}
+                  >
+                    <CWaypointAddress
+                      testID="ID_WPDASHBOARD_ADDRESS"
+                      name={waypoint.name}
+                      address={waypoint.address}
+                      all
+                    />
+                  </View>
+                </View>
+              )}
               {children}
             </CContent>
           )}

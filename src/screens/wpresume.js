@@ -41,6 +41,10 @@ const ScreenWaypointResume = ({ navigation }) => {
           greyContent={
             <View>
               <CSep />
+              <CText style={{ textAlign: 'center', fontWeight: 'bold' }}>
+                Ce qu'il fallait faire :
+              </CText>
+              <CSpace n={0.5} />
               <CWaypointCounters
                 testID="ID_WPDASHBOARD_COUNTERS"
                 shipping={waypoint.shippingCount}
@@ -50,6 +54,8 @@ const ScreenWaypointResume = ({ navigation }) => {
               <CText style={{ textAlign: 'center', fontWeight: 'bold' }}>
                 Résumé de votre passage :
               </CText>
+              <CSpace n={0.5} />
+
               <CWaypointCounters
                 results
                 shipping={1}
@@ -57,7 +63,6 @@ const ScreenWaypointResume = ({ navigation }) => {
                 colorShip={ColorsByNumber(waypoint.shippingCount - 1)}
                 colorPick={ColorsByNumber(-1)}
               />
-              <CSpace />
             </View>
           }
         >

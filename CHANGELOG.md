@@ -1,12 +1,51 @@
-# 0.17.0
+# NOTES
+
+Conducteur :	 BT00249316
+
+Véhicule :			V0000017
+
+# TODO
+
+> - Code the "Take a picture" and save the picture for later use in a send pool
+> - Code buttons to take another picture or confirm the impossibility to go away
+> - Code the scanner of barcode of waypoints with multiple barcodes
+> - Code passage to "ARRIVE!"
+> - Logo should bring to list of managers
+>
+> - ***HOWTO: Call a manager ?***
+> - ***Re-Read the WS to see what's changed => In paw***
+> - Rescue button should just call a WS, no more
+>
+> - Should test when no connectivity at all
+> - Fill conditions with what's read on WS
+>
+> - Save all the datas of the way point even the commentary at the end taping on "next waypoint"
+
+# DONE
+
+## 0.18.0
+
+FIX: Add a prop to disable or enable input box for scanner
+
+FIX: Great modifications on `CWaypointTemplate`because of flex layout
+
+DONE: Code passage to "AÏE"
+
+DONE: Create the `CCamera`component to take pictures...
+
+DONE: Create the `CInfo` component
+
+DONE: Create the `ScreenWaypointScanArrival`.
+
+## 0.17.0
 
 - ADD: The `ScreenWaypointBadCondition` and `ScreenWaypointResume`
-- FIX: `Space`do some trouble when in between `flex:1`Views
 - ADD: function `ColorsByNumber` tha t display colors from green to red
 - ADD: `TextInput`that wrap a NativeBase Textarea
 - ADD: `CWaypointCounters`is now colorized
+- FIX: `Space`do some trouble when in between `flex:1`Views
 
-# 0.16.0
+## 0.16.0
 
 - DONE: Add the `ScreenWaypointBadCondition` to the navigator
 - ADD: `CWaypointTemplate` is the template to use to build screens with little header
@@ -18,7 +57,7 @@
 - FIX: `Managers`changed to use `AppContext`
 - FIX: `ScreenWaypointDashboard`use the new template
 
-# 0.15.0
+## 0.15.0
 
 - FIX: Change the way barcodes are read so the value is correct
 - FIX: the way list of waypoints display datas
@@ -26,13 +65,7 @@
 - FIX: Background color of headers
 - FIX: Blur and SVG package removed because make crash the app
 
-# 0.14.0
-
-> **Should test when no connectivity at all**
->
-> Rescue button should just call a WS, no more
->
-> Logo should bring to list of managers
+## 0.14.0
 
 - DONE: Put in rows the address in the waypoint list and change row colors
 - FIX: All `useEffect` now should follow 
@@ -48,22 +81,22 @@
 
 ```
 
-# 0.13.0
+## 0.13.0
 
 - FIX: `webservice`is now a default because of import errors
 - FIX: `WS.URL`in `webservice` calls
 - FIX: when calling `axios` the result is spread in `data` and `status`
-- ADD: test on webservice
+- FIX: change case of file Modal.js to modal.js with `git mv Modal.js modal.js`
+- FIX: getCommands return undefined
 - BREAK: `driver`screen is based on new `AppContext`
 - BREAK: `car`screen is based on new `AppContext`
 - BREAK: `wpdashboard`is based on the new context `AppContext` 
 - BREAK: `App` is now containing `AppContext`
+- ADD: test on webservice
 - ADD: older context are keep in archive
 - ADD: `AppContext` that contain all previous contexts...
-- FIX: change case of file Modal.js to modal.js with `git mv Modal.js modal.js`
-- FIX: getCommands return undefined
 
-# 0.12.1
+## 0.12.1
 
 - DONE: Select the first waypoint of the list
 - DONE: All scene1 detox tests
@@ -72,9 +105,8 @@
 - ADD: `testID` to various components
 - ADD: `isTest` function from `@webservices`
 - FIX: `wpdashboard`is wrap in `DriverContext.Consumer` to access driver props
-- 
 
-# 0.12.0
+## 0.12.0
 
 - DONE: Add the whole navigator
 - DONE: Driver read fake webservice
@@ -88,7 +120,7 @@
 - FIX: Driver screen to reflect new DriverState
 - FIX: Read datas from web service in test mode
 
-# 0.11.0
+## 0.11.0
 
 - DONE: Link the new modal of pictures to the waypoint dashboard
 - ADD: A new look for disabled `CButton`
@@ -97,7 +129,7 @@
 - ADD: newly created modal to the waypoint dashboard
 - FIX: `name`and `address`property for `ScreenWaypointGalery`
 
-# 0.10.0
+## 0.10.0
 
 - DONE: Picture gallery of the waypoint
 - ADD: `ScreenWaypointGalery` to display...

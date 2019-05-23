@@ -7,7 +7,9 @@
 
 import React, { useState, useContext, useEffect } from 'react';
 import { View, ScrollView, Alert } from 'react-native';
-import { CButton, CSpace, CWaypointTemplate, CError } from '@components';
+import { Grid, Row, Col } from 'native-base';
+
+import { CButton, CSpace, CWaypointTemplate, CError, CCamera } from '@components';
 import { AppContext } from '@contexts';
 import { splashname } from '../../package.json';
 
@@ -37,14 +39,15 @@ const CStep1 = ({ conditionCollection, onPressCondition }) => (
 
 // Step two take the picture
 const CStep2 = ({ conditionState, onPressChangeCondition }) => (
-  <>
+  <View style={{ flex: 0, alignItems: 'center' }}>
     <CError style={{ textAlign: 'center' }}>
       Passage non traité pour raison de "{conditionState.name}" : prenez une photo du problème...
     </CError>
-    <CSpace n={0.5} />
-    <CButton block icon="undo" label="Changer de raison..." onPress={onPressChangeCondition} />
     <CSpace />
-  </>
+    <CCamera />
+    <CSpace />
+    <CButton block icon="undo" label="Changer de raison..." onPress={onPressChangeCondition} />
+  </View>
 );
 
 // Step 3 ios to confirm the picture
@@ -122,8 +125,8 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   };
 
   const onPressCondition = cond => {
-    setShowCameraState(false);
-    setShowPictureTakenState(true);
+    setShowCameraState(true);
+    // setShowPictureTakenState(true);
     setConditionState(cond);
   };
 
@@ -150,10 +153,10 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
 
   return (
     <AppContext.Consumer>
-      {({ conditionCollection }) => (
+      {({ waypoint, conditionCollection }) => (
         <CWaypointTemplate>
           <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}>
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 0 }}>
               <CSpace />
               {!showCameraState && !showPictureTakenState && (
                 <CStep1
