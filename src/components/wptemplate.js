@@ -5,19 +5,53 @@
  *
  */
 
-import React from 'react';
-import { View } from 'react-native';
+import React, { useContext } from 'react';
+import { View, Alert } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { CContent, CTitle, CSpace, COLORS, CSpinner, CWaypointAddress } from '@components';
 import { AppContext } from '@contexts';
+import { NAVS } from '@screens';
+import { splashname } from '../../package';
 
 /**
  * The shell of all the screen
  */
-const CWaypointTemplate = ({ children, greyContent = null }) => {
-  const onPressRescueButton = () => {};
-  const onPressCallManagers = () => {};
-  const onPressBackHome = () => {};
+const CWaypointTemplate = ({ children, navigation, greyContent = null }) => {
+  // manage the context
+  const appContext = useContext(AppContext);
+
+  const onAcceptContactManagers = () => {
+    appContext
+      .contactAllManagers()
+      .then(() => {
+        Alert.alert("Un message vient d'être envoyé à vos responsables");
+      })
+      .catch(err => {
+        Alert.alert(`Une erreur s'est produite : ${err}`);
+      });
+  };
+
+  const onPressRescueButton = () => {
+    Alert.alert(
+      splashname,
+      'Voulez-vous envoyer une alerte à vos responsables ?',
+      [
+        { text: 'Oui', onPress: onAcceptContactManagers },
+        {
+          text: 'Non',
+          style: 'cancel',
+        },
+      ],
+      { cancelable: false },
+    );
+  };
+  const onPressCallManagers = () => {
+    navigation.navigate(NAVS.managers.current);
+  };
+  const onPressBackHome = () => {
+    navigation.navigate(NAVS.wpdashboard.current);
+  };
 
   return (
     <AppContext.Consumer>
@@ -110,4 +144,4 @@ CWaypointTemplate.defaultProps = {
   greyContent: null,
 };
 
-export default CWaypointTemplate;
+export default withNavigation(CWaypointTemplate);

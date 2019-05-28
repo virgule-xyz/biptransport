@@ -13,8 +13,13 @@ export const NAVS = {
   start: { current: 'ScreenSplash', next: 'WaypointStack' },
   driver: { current: 'ScreenDriver', previous: 'ScreenSplash', next: 'ScreenCar' },
   car: { current: 'ScreenCar', previous: 'ScreenDriver', next: 'ScreenWaypointDashboard' },
+  managers: { current: 'ScreenManagers' },
   wpdashboard: { current: 'ScreenWaypointDashboard', previous: 'ScreenCar' },
-  wpbadcondition: { current: 'ScreenWaypointBadCondition' },
-  wpscanarrival: { current: 'ScreenWaypointScanArrival' },
-  wpresume: { current: 'ScreenWaypointResume' },
+  wpbadcondition: { current: 'ScreenWaypointBadCondition', next: 'ScreenWaypointResume' },
+  wpscanarrival: {
+    current: 'ScreenWaypointScanArrival',
+    previous: 'ScreenWaypointDashboard',
+    next: 'ScreenWaypointResume',
+  },
+  wpresume: { current: 'ScreenWaypointResume', next: 'ScreenEnd' },
 };

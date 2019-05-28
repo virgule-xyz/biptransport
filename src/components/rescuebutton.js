@@ -20,6 +20,7 @@ const CRescueButton = ({ onPress }) => {
 
   return (
     <TouchableOpacity
+      testID="ID_BUTTON_SOS"
       onPress={onPress}
       style={{
         backgroundColor: COLORS.DANGER,

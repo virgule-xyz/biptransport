@@ -18,6 +18,7 @@ import {
   ColorsByNumber,
 } from '@components';
 import { AppContext } from '@contexts';
+import { NAVS } from './index';
 
 /**
  * Expliquer ce qu'affiche et permet de faire l'écran
@@ -31,7 +32,16 @@ const ScreenWaypointResume = ({ navigation }) => {
   }, []);
 
   const onPressNextWaypoint = () => {
-    navigation.navigate('');
+    appContext.endWaypoint();
+    if (appContext.needToVisitAnotherWaypoint()) {
+      appContext.selectNextWaypoint(() => {
+        navigation.navigate(NAVS.wpdashboard.current);
+      });
+    } else {
+      appContext.endTour(() => {
+        navigation.navigate(NAVS.wpdashboard.next);
+      });
+    }
   };
 
   return (
@@ -70,6 +80,7 @@ const ScreenWaypointResume = ({ navigation }) => {
             <CTextInput label="Laissez un commentaire concernant ce passage :" />
           </View>
           <CButton
+            testID="ID_NEXT_WAYPOINT_BUTTON"
             onPress={onPressNextWaypoint}
             block
             icon="arrow-right"

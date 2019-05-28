@@ -34,7 +34,9 @@ const ScreenWaypointDashboard = ({ navigation }) => {
   // Manage the Wapoint Galery modal
   const [showGaleryState, setShowGaleryState] = useState(false);
 
-  const onPressArrived = () => {};
+  const onPressArrived = () => {
+    navigation.navigate(NAVS.wpscanarrival.current);
+  };
   const onPressTravel = () => {
     appContext.openMapScreen();
   };

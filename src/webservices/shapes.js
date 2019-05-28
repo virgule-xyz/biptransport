@@ -52,6 +52,16 @@ export const COMMANDS_SAMPLE_ERROR = {
   error: 'Erreur de code de tournée',
 };
 
+// In the waypoint listexport const WaypointList
+export const WaypointListShape = {
+  key: number,
+  id: number,
+  done: bool,
+  name: string,
+  city: string,
+  ord: string,
+};
+
 // The vehicle used to make the tour
 export const VehicleShape = {
   vehicule_id: oneOfType([string, number]),
@@ -90,4 +100,17 @@ export const CompleteTourShape = {
   tour: TourShape,
   vehicle: VehicleShape,
   commands: arrayOf(CommandShape),
+};
+
+export const ConditionShape = {
+  nom: string,
+  id: number,
+  photo: bool,
+};
+
+export const ClueShape = {
+  waypointid: number,
+  datetime: number,
+  condition: ConditionShape,
+  picture: string,
 };

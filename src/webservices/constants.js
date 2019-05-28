@@ -10,6 +10,7 @@ const WS = {
     TOUR: 'https://www.biptransport.com/api/ident/tournee',
     COMMANDS: 'https://www.biptransport.com/api/get/tournee',
     VEHICLE: 'https://www.biptransport.com/api/ident/vehicule',
+    SOS: 'https://www.biptransport.com/api/put/sos',
   },
 };
 

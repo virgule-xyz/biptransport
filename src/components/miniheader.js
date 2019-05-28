@@ -22,7 +22,7 @@ const CMiniHeader = ({ numero, dateString, name, pressCallManagers, pressRescueB
       <Body>
         <Grid>
           <Col style={{ justifyContent: 'center', alignItems: 'flex-start' }}>
-            <Button transparent onPress={pressCallManagers}>
+            <Button transparent onPress={pressCallManagers} testID="ID_MANAGERS_SCREEN">
               <Image source={LOGO} resizeMode="contain" style={{ flex: 1 }} />
             </Button>
           </Col>

@@ -1,23 +1,34 @@
 # NOTES
 
-Conducteur :	 BT00249316
+Conducteur :	     BT00249316
 
-Véhicule :			V0000017
+Véhicule :			    V0000017
+
+Waypoint Codes : 00002268, 00002267
 
 # TODO
 
-> - Code the scanner of barcode of waypoints with multiple barcodes
-> - Code passage to "ARRIVE!"
-> - Logo should bring to list of managers
-> - ***HOWTO: Call a manager ?***
-> - ***Re-Read the WS to see what's changed => In paw***
->- Rescue button should just call a WS, no more
 > - Should test when no connectivity at all
-> - Fill conditions with what's read on WS
 > - Save all the datas of the way point even the commentary at the end taping on "next waypoint"
->- Write a new commentary on a waypoint and save it in the clues/dates
+> - Write a new commentary on a waypoint and save it in the clues/dates
+> - Create the pool of datas that can be resend with a better connectivity and in the background...
 
 # DONE
+
+## 0.20.0
+
+- DONE: Code the scanner of barcode of waypoints with multiple barcodes
+- DONE: Test go to next waypoint since the first
+- DONE: Filter other waypionts by not done. Added the `done`flag in the waypoint collection
+- DONE: Code passage to "ARRIVE!"
+- DONE: Logo should bring to list of managers
+- DONE: Re-Read the WS to see what's changed
+- DONE: Fill conditions with what's read on WS : added `ConditionShape`and `ClueShape`
+- DONE: Rescue button should just call a WS, no more
+- DONE: Coder l'envoie d'un SMS à tous les responsables et gérer les cas d'erreurs
+- DONE: Coder l'appel téléphonique simple sur les boutons manager
+- FIX: Manager page has no back button, better in a modal ? It needs to know witch screen it comes from
+- FIX: E2E that was not running anymore
 
 ## 0.19.0
 

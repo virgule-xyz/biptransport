@@ -58,7 +58,7 @@ const CWaypointButtons = ({
       />
       <CSquareButton
         testID={`${props.testID}_AIE`}
-        label="Aïe"
+        label="Arrêté"
         icon="close-o"
         color={COLORS.AIE}
         size={buttonWidth}

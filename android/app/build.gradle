@@ -94,6 +94,14 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('/Users/pierrecanthelou/git/BIP/biptransport/biptransport.keystore')
+            keyAlias = 'key0'
+            storePassword 'password'
+            keyPassword 'password'
+        }
+    }
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     compileOptions {

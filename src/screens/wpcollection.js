@@ -28,7 +28,7 @@ const ScreenWaypointCollection = ({ show, datas, onClose, onSelectWaypoint }) =>
       <CSpace />
       <FlatList
         testID="ID_WPCOLLECTION_LIST"
-        data={datas}
+        data={datas.filter(item => !item.done)}
         renderItem={({ item }) => (
           <CWaypointOtherPassage
             testID="ID_WPCOLLECTION_LIST_ITEM"

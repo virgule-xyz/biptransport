@@ -10,7 +10,7 @@ const RAPPORT = 4 / 5;
 /**
  * Launch the camera
  */
-const CCamera = ({ onTakePicture }) => {
+const CCamera = ({ onTakePicture, testID, ...props }) => {
   const { width } = Dimensions.get('window');
   const W = width * 0.9;
   const H = (width * RAPPORT * 3) / 4;
@@ -57,6 +57,7 @@ const CCamera = ({ onTakePicture }) => {
             }}
           >
             <TouchableOpacity
+              testID={`${testID}_BUTTON`}
               icon="camera"
               label=" "
               onPress={() => onPressCameraButton(camera)}

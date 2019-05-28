@@ -46,15 +46,16 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
       <CError>Impossible d'arriver sur ce point, merci d'indiquer la raison...</CError>
       <CSpace />
       <ScrollView>
-        {conditionCollection.map(cond => (
+        {conditionCollection.map((cond, index) => (
           <>
             <CButton
               block
               warning
-              label={cond.name}
+              label={cond.nom}
               onPress={() => {
                 onPressCondition(cond);
               }}
+              testID={`ID_${index}_BUTTON`}
             />
             <CSpace n={0.1} />
           </>
@@ -74,10 +75,10 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   const CStep2 = ({ conditionState, onPressChangeCondition }) => (
     <View style={{ flex: 0, alignItems: 'center' }}>
       <CError style={{ textAlign: 'center' }}>
-        Passage non traité pour raison de "{conditionState.name}" : prenez une photo du problème...
+        Passage non traité pour raison de "{conditionState.nom}" : prenez une photo du problème...
       </CError>
       <CSpace />
-      <CCamera onTakePicture={onTakePicture} />
+      <CCamera onTakePicture={onTakePicture} testID="ID_TOUR_CAMERA" />
       <CSpace />
       <CButton block icon="undo" label="Changer de raison..." onPress={onPressChangeCondition} />
     </View>
@@ -87,7 +88,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   const CStep3 = ({ conditionState, onPressTakeAnotherPicture, onPressValidatePicture }) => (
     <>
       <CError style={{ textAlign: 'center' }}>
-        Passage non traité pour raison de "{conditionState.name}" : confirmez la photo...
+        Passage non traité pour raison de "{conditionState.nom}" : confirmez la photo...
       </CError>
       <CSpace n={0.5} />
       {base64PictureState && (
@@ -123,6 +124,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
           style={{ width: '45%' }}
           icon="check"
           label="Confirmer"
+          testID="ID_TOUR_CAMERA_CONFIRM"
           onPress={onPressValidatePicture}
         />
       </View>
@@ -157,9 +159,16 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   };
 
   const onPressCondition = cond => {
-    setShowCameraState(true);
-    // setShowPictureTakenState(true);
-    setConditionState(cond);
+    if (cond.photo) {
+      setShowCameraState(true);
+      // setShowPictureTakenState(true);
+      setConditionState(cond);
+    } else {
+      appContext.storeClue({
+        condition: conditionState,
+      });
+      navigation.navigate('ScreenWaypointResume');
+    }
   };
 
   const onPressTakeAnotherPicture = () => {
@@ -219,7 +228,14 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
 
             <View style={{ flex: 0 }}>
               <CSpace />
-              <CButton onPress={onPressQuitScreen} block danger icon="close-o" label="Annuler" />
+              <CButton
+                onPress={onPressQuitScreen}
+                block
+                danger
+                icon="close-o"
+                label="Annuler"
+                testID="ID_BADCONDITIONS_CANCEL"
+              />
             </View>
           </View>
         </CWaypointTemplate>

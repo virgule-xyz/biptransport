@@ -15,7 +15,7 @@ console.warn(`** ${appName} version ${version}`);
 let TheApp = null;
 
 if (env === 'e2e') console.disableYellowBox = true;
-if (story === true) console.disableYellowBox = true;
+if (story === true && !env === 'dev') console.disableYellowBox = true;
 
 if (story) {
   configure(() => {
