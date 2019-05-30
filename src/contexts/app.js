@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
 import openMap from 'react-native-open-maps';
-import { getCommands, getIdentTour, getIdentVehicle, isStory, putSos } from '@webservices';
+import { getCommands, getIdentTour, getIdentVehicle, isStory, putSos, Pool } from '@webservices';
 
 /**
  * The whole app context
@@ -19,6 +19,7 @@ const defaultAppState = {
   conditionCollection: [],
   waypointList: [],
   forceWaypointIndex: 0,
+  pool: null,
   waypoint: {
     index: -1,
     done: false,
@@ -53,6 +54,7 @@ const AppContextProvider = ({ children }) => {
     waypointCollection,
     waypointList,
     waypoint,
+    pool,
   } = appContextState;
 
   /**
@@ -355,32 +357,33 @@ const AppContextProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         car,
-        slip,
-        driver,
-        managerCollection,
-        waypointCollection,
-        conditionCollection,
-        waypointList,
-        forceWaypointIndex,
-        waypoint,
         clues,
+        conditionCollection,
+        contactAllManagers,
+        driver,
+        endTour,
+        endWaypoint,
+        forceWaypointIndex,
         getCarDatas,
-        setGSMNumber,
         getDriverDatas,
         getWaypointDatas,
-        openMapScreen,
-        selectWaypointByIndex,
-        selectWaypointById,
         loadFakeContext,
-        saveCondition,
-        storeClue,
+        managerCollection,
         needAnotherWaypointCode,
-        nextWaypointCode,
-        endWaypoint,
         needToVisitAnotherWaypoint,
+        nextWaypointCode,
+        openMapScreen,
+        pool,
+        saveCondition,
         selectNextWaypoint,
-        endTour,
-        contactAllManagers,
+        selectWaypointById,
+        selectWaypointByIndex,
+        setGSMNumber,
+        slip,
+        storeClue,
+        waypoint,
+        waypointCollection,
+        waypointList,
       }}
     >
       {children}

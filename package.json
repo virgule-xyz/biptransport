@@ -3,10 +3,10 @@
   "displayName": "biptransport",
   "splashname": "Application BIP-LIV",
   "bundleID": "fr.biptransport.app1",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "private": true,
   "story": false,
-  "env": "e2e",
+  "env": "dev",
   "splashtime": 1000,
   "url": "",
   "peerDependencies": {
@@ -31,6 +31,7 @@
     "e2e:build": "detox build -c ios.sim.debug"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.4.2",
     "axios": "0.18.0",
     "core-js": "2.6.5",
     "native-base": "2.12.1",
