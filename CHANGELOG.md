@@ -12,8 +12,21 @@ Waypoint Codes : 00002268, 00002267
 > - Save all the datas of the way point even the commentary at the end taping on "next waypoint"
 > - Write a new commentary on a waypoint and save it in the clues/dates
 > - Create the pool of datas that can be resend with a better connectivity and in the background...
+> - Revikew all exceptions and how to manage them from the groundup of a project
 
 # DONE
+
+## 0.22.0
+
+- Add `ScreenWaypointScanShipments`to get scan of packages
+- Test `ScreenWaypointScanArrival`in E2E
+- Add the managment of packages with `shippingCodes`, `shippingCodeIndex` and `needAnotherShipmentCode` plus `nextShipmentCode`.
+
+## 0.21.0
+
+- DONE: Add all the code to have persistent storage that can be flush to the server
+- DONE: The `putwaypoint.js` web service
+- FIX: import the Async Local Storage plugin
 
 ## 0.20.0
 

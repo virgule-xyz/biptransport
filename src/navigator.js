@@ -8,6 +8,7 @@ import {
   ScreenWaypointBadCondition,
   ScreenWaypointResume,
   ScreenWaypointScanArrival,
+  ScreenWaypointScanShipments,
 } from '@screens';
 
 const WaypointStack = createStackNavigator(
@@ -19,6 +20,7 @@ const WaypointStack = createStackNavigator(
     ScreenWaypointBadCondition,
     ScreenWaypointResume,
     ScreenWaypointScanArrival,
+    ScreenWaypointScanShipments,
   },
   {
     initialRouteName: 'ScreenDriver',

@@ -8,6 +8,7 @@ export { default as ScreenWaypointDashboard } from './wpdashboard';
 export { default as ScreenWaypointScanArrival } from './wpscanarrival';
 export { default as ScreenWaypointGalery } from './wpgalery';
 export { default as ScreenWaypointResume } from './wpresume';
+export { default as ScreenWaypointScanShipments } from './wpscanshipments';
 
 export const NAVS = {
   start: { current: 'ScreenSplash', next: 'WaypointStack' },
@@ -19,7 +20,9 @@ export const NAVS = {
   wpscanarrival: {
     current: 'ScreenWaypointScanArrival',
     previous: 'ScreenWaypointDashboard',
-    next: 'ScreenWaypointResume',
+    next: 'ScreenWaypointScanShipments',
   },
+  wpscanshipments: { current: 'ScreenWaypointScanShipments', next: 'ScreenWaypointScanPickups' },
+  wpscanpickups: { current: 'ScreenWaypointScanPickups', next: 'ScreenWaypointResume' },
   wpresume: { current: 'ScreenWaypointResume', next: 'ScreenEnd' },
 };

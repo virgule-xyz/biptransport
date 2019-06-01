@@ -26,6 +26,8 @@ const defaultAppState = {
     name: '',
     address: '',
     shippingCount: 0,
+    shippingCodeIndex: 0,
+    shippingCodes: [],
     pickupCount: 0,
     accessDescription: '',
     id: -1,
@@ -118,6 +120,8 @@ const AppContextProvider = ({ children }) => {
     name: command.pnt_nom,
     address: `${command.pnt_adr} ${command.pnt_cp} ${command.pnt_ville}`,
     shippingCount: command.nbr_liv,
+    shippingCodeIndex: 0,
+    shippingCodes: command.cab_liv,
     pickupCount: command.nbr_enl,
     accessDescription: command.observations,
     id: command.id,
@@ -211,9 +215,7 @@ const AppContextProvider = ({ children }) => {
   };
 
   const firstWaypointIndexNotDone = () => {
-    // if (waypointCollection.length === 0) return 0;
     const firstIndex = waypointCollection.findIndex(wp => !wp.done);
-    console.warn('FIRST INDEX', firstIndex);
     return firstIndex;
   };
 
@@ -323,6 +325,24 @@ const AppContextProvider = ({ children }) => {
     callback();
   };
 
+  // test if the current shipment barcode index is the last ?
+  const needAnotherShipmentCode = () => {
+    const { shippingCodeIndex, shippingCodes } = waypoint;
+    return shippingCodeIndex < shippingCodes.length - 1;
+  };
+
+  // the next barcode for this waypoint
+  const nextShipmentCode = callback => {
+    setAppContextState(state => ({
+      ...state,
+      waypoint: {
+        ...state.waypoint,
+        shippingCodeIndex: state.waypoint.shippingCodeIndex + 1,
+      },
+    }));
+    callback();
+  };
+
   // make a call to all managers, only managed by the backoffice
   const contactAllManagers = () => {
     return new Promise((resolve, reject) => {
@@ -369,8 +389,10 @@ const AppContextProvider = ({ children }) => {
         getWaypointDatas,
         loadFakeContext,
         managerCollection,
+        needAnotherShipmentCode,
         needAnotherWaypointCode,
         needToVisitAnotherWaypoint,
+        nextShipmentCode,
         nextWaypointCode,
         openMapScreen,
         pool,
