@@ -29,6 +29,7 @@ const defaultAppState = {
     shippingCodeIndex: 0,
     shippingCodes: [],
     pickupCount: 0,
+    pickupRealCount: 0,
     accessDescription: '',
     id: -1,
     waypointCodeIndex: 0,
@@ -123,6 +124,7 @@ const AppContextProvider = ({ children }) => {
     shippingCodeIndex: 0,
     shippingCodes: command.cab_liv,
     pickupCount: command.nbr_enl,
+    pickupRealCount: 0,
     accessDescription: command.observations,
     id: command.id,
     waypointCodeIndex: 0,
@@ -372,6 +374,17 @@ const AppContextProvider = ({ children }) => {
     });
   };
 
+  // Set the number of package to pick
+  const setPickupCount = value => {
+    setAppContextState(state => ({
+      ...state,
+      waypoint: {
+        ...state.waypoint,
+        pickupRealCount: value,
+      },
+    }));
+  };
+
   // The renderer
   return (
     <AppContext.Provider
@@ -401,6 +414,7 @@ const AppContextProvider = ({ children }) => {
         selectWaypointById,
         selectWaypointByIndex,
         setGSMNumber,
+        setPickupCount,
         slip,
         storeClue,
         waypoint,

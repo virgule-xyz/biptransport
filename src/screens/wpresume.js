@@ -68,10 +68,14 @@ const ScreenWaypointResume = ({ navigation }) => {
 
               <CWaypointCounters
                 results
-                shipping={1}
-                pickup={1}
-                colorShip={ColorsByNumber(waypoint.shippingCount - 1)}
-                colorPick={ColorsByNumber(-1)}
+                shipping={waypoint.shippingCodeIndex}
+                pickup={waypoint.pickupRealCount}
+                colorShip={ColorsByNumber(
+                  Math.abs(waypoint.shippingCount - waypoint.shippingCodeIndex),
+                )}
+                colorPick={ColorsByNumber(
+                  Math.abs(waypoint.pickupCount - waypoint.pickupRealCount),
+                )}
               />
             </View>
           }

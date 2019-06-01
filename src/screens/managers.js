@@ -38,7 +38,7 @@ const ScreenManagers = ({ navigation }) => {
   };
 
   const onPressBackHome = () => {
-    navigation.navigate(NAVS.wpdashboard.current);
+    navigation.goBack();
   };
 
   const onPressClose = () => {

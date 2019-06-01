@@ -1,20 +1,17 @@
-# NOTES
-
-Conducteur :	     BT00249316
-
-Véhicule :			    V0000017
-
-Waypoint Codes : 00002268, 00002267
-
 # TODO
 
 > - Should test when no connectivity at all
-> - Save all the datas of the way point even the commentary at the end taping on "next waypoint"
-> - Write a new commentary on a waypoint and save it in the clues/dates
-> - Create the pool of datas that can be resend with a better connectivity and in the background...
-> - Revikew all exceptions and how to manage them from the groundup of a project
+> - Save all the datas of the way point even the commentary at the end taping on "next waypoint", save the photo taken during pickups
+> - Review all exceptions and how to manage them from the groundup of a project
 
 # DONE
+
+## 0.23.0
+
+- Add `ScreenWaypointScanPickups` and `ScreenWaypointScanPickupsPhotos` to manage package pickupswith the `setPickupCount`state in the app context
+- Add the `PRIMARY`color
+- `ScreenWaypointResume`display the right numbers
+- Picture in `onPressValidatePicture` of `ScreenWaypointScanPickupsPhotos`is not saved at all in the context
 
 ## 0.22.0
 

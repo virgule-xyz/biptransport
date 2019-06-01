@@ -43,6 +43,7 @@ export const COLORS = {
   ARRIVE: '#8bc34a',
   ROW_EVEN: '#d0d0d0',
   ROW_PAIR: '#f0f0f0',
+  PRIMARY: '#007aff',
 };
 
 export const ColorsByNumber = num => {

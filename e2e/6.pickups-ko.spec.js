@@ -3,7 +3,7 @@
 import { splashname, version } from '../package.json';
 import { TOUR_SAMPLE, COMMANDS_SAMPLE, COMMANDS_SAMPLE_ERROR } from '../src/webservices/shapes';
 
-describe('Scene 3', () => {
+describe('Scene 6', () => {
   beforeAll(async function() {
     await device.launchApp({
       permissions: { camera: 'YES', photos: 'YES', microphone: 'YES' },
@@ -47,28 +47,51 @@ describe('Scene 3', () => {
     await element(by.id('ID_CARRESUME_OK')).tap();
   });
 
-  it('Should have a SOS button', async () => {
-    await waitFor(element(by.id('ID_BUTTON_SOS')))
-      .toBeVisible()
-      .withTimeout(500);
-    expect(element(by.id('ID_BUTTON_SOS'))).toBeVisible();
-    element(by.id('ID_BUTTON_SOS')).tap();
-    await waitFor(element(by.text('Voulez-vous envoyer une alerte à vos responsables ?')))
-      .toBeVisible()
-      .withTimeout(500);
-    element(by.text('Oui')).tap();
-  });
-
-  // it('Should send a SMS top all managers', async () => {
-  //   await waitFor(element(by.text("Un message vient d'être envoyé à vos responsables")))
+  // it('Should select other waypoints', async () => {
+  //   await element(by.id('ID_WPDASHBOARD_OTHERWP')).tap();
+  //   await waitFor(element(by.id('ID_WPCOLLECTION')))
   //     .toBeVisible()
   //     .withTimeout(1000);
-  //   // await expect(
-  //   //   element(by.text("Un message vient d'être envoyé à vos responsables")),
-  //   // ).toBeVisible();
-  //   // await waitFor(element(by.text('Ok')))
-  //   //   .toBeVisible()
-  //   //   .withTimeout(500);
-  //   // element(by.text('Ok')).tap();
+  //   await element(by.id('ID_WPCOLLECTION_LIST_ITEM_1483772')).tap();
+  //   await expect(element(by.text('POINT DE PASSAGE 2/41'))).toBeVisible();
   // });
+
+  it('Should display packages to pick', async () => {
+    await waitFor(element(by.id('ID_WPDASHBOARD_BUTTONS')))
+      .toBeVisible()
+      .withTimeout(500);
+    await element(by.id('ID_WPDASHBOARD_BUTTONS_ARRIVED')).tap();
+
+    await waitFor(element(by.text('Point de passage 1/41')))
+      .toBeVisible()
+      .withTimeout(500);
+    await expect(element(by.text('Scannez le code barre du point de passage...'))).toBeVisible();
+    await expect(element(by.id('ID_BARCODE_WP_MANUAL_BUTTON'))).toBeVisible();
+    await element(by.id('ID_BARCODE_WP_MANUAL_BUTTON')).tap();
+    await expect(element(by.id('ID_BARCODE_WP_MANUAL_DIALOG_INPUT'))).toBeVisible();
+    await element(by.id('ID_BARCODE_WP_MANUAL_DIALOG_INPUT')).replaceText('00002814');
+    await element(by.id('ID_BARCODE_WP_MANUAL_DIALOG_OK')).tap();
+    await expect(element(by.text('Vous devez récupérer 1 colis'))).toBeVisible();
+    await expect(element(by.text('Choisissez un nombre'))).toBeVisible();
+  });
+
+  it('Should allow to choose how many packages and an error message if wrong number', async () => {
+    await element(by.text('Choisissez un nombre')).tap();
+    await waitFor(element(by.text('Il y a 0 colis')))
+      .toBeVisible()
+      .withTimeout(500);
+    await element(by.text('Il y a 10 colis')).tap();
+    await waitFor(element(by.text('Attention, vous allez devoir prendre une photo...')))
+      .toBeVisible()
+      .withTimeout(500);
+    await element(by.id('ID_BUTTON_PICKUP_VALIDATE')).tap();
+    await waitFor(element(by.text('Prenez une photo des colis')))
+      .toBeVisible()
+      .withTimeout(500);
+    await element(by.id('ID_TOUR_CAMERA_BUTTON')).tap();
+    await waitFor(element(by.text('Confirmez la photo...')))
+      .toBeVisible()
+      .withTimeout(500);
+    element(by.id('ID_TOUR_CAMERA_CONFIRM')).tap();
+  });
 });

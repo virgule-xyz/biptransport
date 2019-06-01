@@ -3,7 +3,7 @@
 import { splashname, version } from '../package.json';
 import { TOUR_SAMPLE, COMMANDS_SAMPLE, COMMANDS_SAMPLE_ERROR } from '../src/webservices/shapes';
 
-describe('Scene 1', () => {
+describe('Scene 2', () => {
   beforeAll(async function() {
     await device.launchApp({
       permissions: { camera: 'YES', photos: 'YES', microphone: 'YES' },

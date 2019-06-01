@@ -3,7 +3,7 @@
 import { splashname, version } from '../package.json';
 import { TOUR_SAMPLE, COMMANDS_SAMPLE, COMMANDS_SAMPLE_ERROR } from '../src/webservices/shapes';
 
-describe('Scene 4', () => {
+describe('Scene 5', () => {
   beforeAll(async function() {
     await device.launchApp({
       permissions: { camera: 'YES', photos: 'YES', microphone: 'YES' },
@@ -47,22 +47,22 @@ describe('Scene 4', () => {
     await element(by.id('ID_CARRESUME_OK')).tap();
   });
 
-  it('Should select other waypoints', async () => {
-    await element(by.id('ID_WPDASHBOARD_OTHERWP')).tap();
-    await waitFor(element(by.id('ID_WPCOLLECTION')))
-      .toBeVisible()
-      .withTimeout(1000);
-    await element(by.id('ID_WPCOLLECTION_LIST_ITEM_1483772')).tap();
-    await expect(element(by.text('POINT DE PASSAGE 2/41'))).toBeVisible();
-  });
+  // it('Should select other waypoints', async () => {
+  //   await element(by.id('ID_WPDASHBOARD_OTHERWP')).tap();
+  //   await waitFor(element(by.id('ID_WPCOLLECTION')))
+  //     .toBeVisible()
+  //     .withTimeout(1000);
+  //   await element(by.id('ID_WPCOLLECTION_LIST_ITEM_1483772')).tap();
+  //   await expect(element(by.text('POINT DE PASSAGE 2/41'))).toBeVisible();
+  // });
 
-  it('Should allow to say the waypoint has been accessed', async () => {
+  it('Should display packages to pick', async () => {
     await waitFor(element(by.id('ID_WPDASHBOARD_BUTTONS')))
       .toBeVisible()
       .withTimeout(500);
     await element(by.id('ID_WPDASHBOARD_BUTTONS_ARRIVED')).tap();
 
-    await waitFor(element(by.text('Point de passage 2/41')))
+    await waitFor(element(by.text('Point de passage 1/41')))
       .toBeVisible()
       .withTimeout(500);
     await expect(element(by.text('Scannez le code barre du point de passage...'))).toBeVisible();
@@ -71,24 +71,48 @@ describe('Scene 4', () => {
     await expect(element(by.id('ID_BARCODE_WP_MANUAL_DIALOG_INPUT'))).toBeVisible();
     await element(by.id('ID_BARCODE_WP_MANUAL_DIALOG_INPUT')).replaceText('00002814');
     await element(by.id('ID_BARCODE_WP_MANUAL_DIALOG_OK')).tap();
-    await expect(element(by.text('Scannez le code barre du colis 1/2...'))).toBeVisible();
+    await expect(element(by.text('Vous devez récupérer 1 colis'))).toBeVisible();
+    await expect(element(by.text('Choisissez un nombre'))).toBeVisible();
   });
 
-  it('Should accept a barcode for a package to ship', async () => {
-    await expect(element(by.text('Scannez le code barre du colis 1/2...'))).toBeVisible();
-    await expect(element(by.id('ID_BARCODE_SHIP_MANUAL_BUTTON'))).toBeVisible();
-    await element(by.id('ID_BARCODE_SHIP_MANUAL_BUTTON')).tap();
-    await expect(element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_INPUT'))).toBeVisible();
-    await element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_INPUT')).replaceText(
-      '201483772012580281419050201002',
-    );
-    await element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_OK')).tap();
-    await expect(element(by.text('Scannez le code barre du colis 2/2...'))).toBeVisible();
-    await element(by.id('ID_BARCODE_SHIP_MANUAL_BUTTON')).tap();
-    await expect(element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_INPUT'))).toBeVisible();
-    await element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_INPUT')).replaceText(
-      '201483262014630481619050201002',
-    );
-    await element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_OK')).tap();
+  it('Should allow to choose how many packages and an error message if wrong number', async () => {
+    await element(by.text('Choisissez un nombre')).tap();
+    await waitFor(element(by.text('Il y a 0 colis')))
+      .toBeVisible()
+      .withTimeout(500);
+    await element(by.text('Il y a 0 colis')).tap();
+    await waitFor(element(by.text('Attention, vous allez devoir prendre une photo...')))
+      .toBeVisible()
+      .withTimeout(500);
   });
+
+  it('Should allow to choose how many packages and go to the resume if exact number', async () => {
+    await element(by.text('Il y a 0 colis')).tap();
+    await waitFor(element(by.text('Il y a 1 colis')))
+      .toBeVisible()
+      .withTimeout(500);
+    await element(by.text('Il y a 1 colis')).tap();
+    await element(by.id('ID_BUTTON_PICKUP_VALIDATE')).tap();
+    await waitFor(element(by.text("Ce qu'il fallait faire :")))
+      .toBeVisible()
+      .withTimeout(500);
+  });
+
+  // it('Should accept a barcode for a package to ship', async () => {
+  //   await expect(element(by.text('Scannez le code barre du colis 1/2...'))).toBeVisible();
+  //   await expect(element(by.id('ID_BARCODE_SHIP_MANUAL_BUTTON'))).toBeVisible();
+  //   await element(by.id('ID_BARCODE_SHIP_MANUAL_BUTTON')).tap();
+  //   await expect(element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_INPUT'))).toBeVisible();
+  //   await element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_INPUT')).replaceText(
+  //     '201483772012580281419050201002',
+  //   );
+  //   await element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_OK')).tap();
+  //   await expect(element(by.text('Scannez le code barre du colis 2/2...'))).toBeVisible();
+  //   await element(by.id('ID_BARCODE_SHIP_MANUAL_BUTTON')).tap();
+  //   await expect(element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_INPUT'))).toBeVisible();
+  //   await element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_INPUT')).replaceText(
+  //     '201483262014630481619050201002',
+  //   );
+  //   await element(by.id('ID_BARCODE_SHIP_MANUAL_DIALOG_OK')).tap();
+  // });
 });
