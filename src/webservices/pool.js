@@ -8,9 +8,17 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { name } from '../../package';
 
 class Pool {
+  static DATENAME = `${name}date`;
+
+  // set the last time it was used
+  timestamp = () => {
+    return AsyncStorage.setItem(Pool.DATENAME, Date.now());
+  };
+
   // save all datas in a local storage, file or other
   // return a promise
   persistDatas = collection => {
+    this.timestamp();
     return AsyncStorage.setItem(name, JSON.stringify(collection));
   };
 
@@ -164,10 +172,7 @@ class Pool {
           elt.sendCallbackId === sendCallbackId,
       );
       if (found < 0) {
-        return pool.setToSendCollection([
-          { values, sendCallbackId },
-          ...Pool.INSTANCE.toSendCollection,
-        ]);
+        return pool.setToSendCollection([{ values, sendCallbackId }, ...pool.toSendCollection]);
       }
     });
   }
@@ -177,6 +182,47 @@ class Pool {
     Pool.get()
       .then(pool => pool.setIsSendingAllowed(true))
       .catch(e => {});
+  }
+
+  // clear the whole pool
+  static async clear() {
+    try {
+      const pool = await Pool.get();
+      await pool.persistDatas(Pool.INITIAL_COLLECTION);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // read the timestamp
+  static async date() {
+    try {
+      const lastUse = await AsyncStorage.getItem(Pool.DATENAME);
+      return lastUse;
+    } catch (e) {
+      return -1;
+    }
+  }
+
+  // get the age of the pool
+  static async age() {
+    try {
+      const now = Date.now();
+      const lastUse = await Pool.date();
+      return now - lastUse;
+    } catch (e) {
+      return -1;
+    }
+  }
+
+  // 4 hour is too old
+  static async isTooOld() {
+    try {
+      return (await Pool.age()) >= 1000 * 60 * 60 * 4;
+    } catch (e) {
+      return false;
+    }
   }
 }
 

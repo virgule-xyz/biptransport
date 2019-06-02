@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Alert } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
@@ -12,6 +12,9 @@ import Dialog from 'react-native-dialog';
  * For tests use code V0000017
  */
 const ScreenCar = ({ navigation }) => {
+  // manage the context
+  const appContext = useContext(AppContext);
+
   // manage the dialog input
   const [showCarConfirm, setShowCarConfirm] = useState(false);
   // manage the bar code reader
@@ -40,6 +43,7 @@ const ScreenCar = ({ navigation }) => {
     setHideBarCodeReader(true);
     setShowCarConfirm(false);
     setTimeout(() => {
+      appContext.save();
       navigation.navigate(NAVS.car.next);
     }, 500);
   };

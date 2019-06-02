@@ -1,10 +1,8 @@
-# TODO
+## 0.24.0
 
-> - Should test when no connectivity at all
-> - Save all the datas of the way point even the commentary at the end taping on "next waypoint", save the photo taken during pickups
-> - Review all exceptions and how to manage them from the groundup of a project
-
-# DONE
+- test if pool or datas are too old. Save appContext also. Propose to load the previous car and driver if less than 4 hours...
+- `"noyellow": true`is finaly the best solution to hide yellow box and get them in some situations
+- `clear, load, save, needDriverScan, read`are the new functions to manage persistent state
 
 ## 0.23.0
 

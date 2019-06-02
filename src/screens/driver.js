@@ -59,16 +59,10 @@ const ScreenDriver = ({ navigation }) => {
 
   // Ok change the GSM in the DB
   const onPressValidateGSM = () => {
-    appContext
-      .setGSMNumber(tempGsmNumber)
-      .then(() => {
-        setShowGSMInput(false);
-        setHideBarCodeReader(true);
-        navigation.navigate(NAVS.driver.next);
-      })
-      .catch(() => {
-        Alert.alert('Impossible de sauvegarder votre numéro...');
-      });
+    setShowGSMInput(false);
+    setHideBarCodeReader(true);
+    appContext.setGSMNumber(tempGsmNumber);
+    navigation.navigate(NAVS.driver.next);
   };
 
   const onPressCancelInputGSM = () => {

@@ -3,7 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
 import openMap from 'react-native-open-maps';
+import AsyncStorage from '@react-native-community/async-storage';
 import { getCommands, getIdentTour, getIdentVehicle, isStory, putSos, Pool } from '@webservices';
+import { name } from '../../package';
 
 /**
  * The whole app context
@@ -45,6 +47,8 @@ const AppContextProvider = ({ children }) => {
   // The app access context
   const [appContextState, setAppContextState] = useState(defaultAppState);
 
+  const STORAGE_NAME = `${name}_CONTEXT`;
+
   // Car, Driver and Waypoints
   const {
     car,
@@ -59,6 +63,51 @@ const AppContextProvider = ({ children }) => {
     waypoint,
     pool,
   } = appContextState;
+
+  const read = async () => {
+    const rawValues = await AsyncStorage.getItem(STORAGE_NAME);
+    const values = JSON.parse(rawValues);
+    return values;
+  };
+
+  // test if tour and car datas are still valuable
+  const needDriverScan = async () => {
+    try {
+      const values = await read();
+      return values.datas === null || Date.now() - values.date > 1000 * 60 * 60 * 4;
+    } catch (e) {
+      return true;
+    }
+  };
+
+  // save all the datas of the current tour
+  const save = async () => {
+    const values = {
+      date: Date.now(),
+      datas: appContextState,
+    };
+
+    return AsyncStorage.setItem(STORAGE_NAME, JSON.stringify(values));
+  };
+
+  // load all the datas of the current tour
+  const load = async () => {
+    const values = await read();
+    if (values.datas) {
+      setAppContextState(state => ({ ...state, ...values.datas }));
+    }
+    Pool.flush();
+    return true;
+  };
+
+  const clear = async () => {
+    const values = {
+      date: Date.now(),
+      datas: null,
+    };
+    await AsyncStorage.setItem(STORAGE_NAME, JSON.stringify(values));
+    Pool.clear();
+  };
 
   /**
    * Call the API to get the car linked to this codebar
@@ -80,14 +129,7 @@ const AppContextProvider = ({ children }) => {
         .catch(err => reject(err));
     });
 
-  /**
-   * just set the GSM number
-   */
-  const setGSMNumber = number => {
-    return new Promise((resolve, reject) => {
-      resolve(number);
-    });
-  };
+  const saveCar = () => {};
 
   /**
    * Call the API to get the driver linked to this codebar
@@ -114,6 +156,20 @@ const AppContextProvider = ({ children }) => {
         })
         .catch(err => reject(err));
     });
+
+  /**
+   * just set the GSM number
+   */
+  const setGSMNumber = number => {
+    setAppContextState(state => ({
+      ...state,
+      driver: {
+        ...state.driver,
+        gsm: number,
+      },
+    }));
+  };
+
 
   const getWaypointFromArray = (command, index) => ({
     index,
@@ -414,8 +470,12 @@ const AppContextProvider = ({ children }) => {
         selectWaypointById,
         selectWaypointByIndex,
         setGSMNumber,
+        needDriverScan,
         setPickupCount,
         slip,
+        load,
+        save,
+        clear,
         storeClue,
         waypoint,
         waypointCollection,

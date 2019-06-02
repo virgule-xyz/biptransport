@@ -7,15 +7,14 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { getStorybookUI, configure } from '@storybook/react-native';
 import './storybook/rn-addons';
 import App from './src/app';
-import { story, version, env, name as appName } from './package.json';
+import { story, version, env, name as appName, noyellow } from './package.json';
 
 console.warn(`** ${appName} version ${version}`);
 
 // eslint-disable-next-line import/no-mutable-exports
 let TheApp = null;
 
-if (env === 'e2e') console.disableYellowBox = true;
-if (story === true && !env === 'dev') console.disableYellowBox = true;
+if (noyellow) console.disableYellowBox = true;
 
 if (story) {
   configure(() => {
