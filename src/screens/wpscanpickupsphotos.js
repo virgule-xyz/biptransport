@@ -144,6 +144,7 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
     //   condition: conditionState,
     //   picture: base64PictureState,
     // });
+    appContext.storePickupPicture(base64PictureState);
     navigation.navigate(NAVS.wpscanpickupsphotos.next);
   };
 

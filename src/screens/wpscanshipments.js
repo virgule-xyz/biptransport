@@ -29,9 +29,10 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   const onVerificator = num => {
     return new Promise((resolve, reject) => {
       setHideBarCodeReaderState(true);
-      if (appContext.waypoint.shippingCodes[appContext.waypoint.shippingCodeIndex] === num)
+      if (appContext.waypoint.shippingCodes[appContext.waypoint.shippingCodeIndex] === num) {
+        appContext.saveCurrentWaypointCode(num);
         resolve(num);
-      else {
+      } else {
         reject({ err: '', message: '' });
       }
     });

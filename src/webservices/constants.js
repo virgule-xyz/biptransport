@@ -11,6 +11,7 @@ const WS = {
     COMMANDS: 'https://www.biptransport.com/api/get/tournee',
     VEHICLE: 'https://www.biptransport.com/api/ident/vehicule',
     SOS: 'https://www.biptransport.com/api/put/sos',
+    PASSAGE: 'https://www.biptransport.com/api/put/passage',
   },
 };
 

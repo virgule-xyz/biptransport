@@ -37,7 +37,6 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
   const onVerificator = num => {
     return new Promise((resolve, reject) => {
       setHideBarCodeReaderState(true);
-
       if (appContext.waypoint.waypointCodes[appContext.waypoint.waypointCodeIndex] === num) {
         resolve(num);
       } else {

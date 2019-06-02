@@ -26,11 +26,27 @@ const putWaypoint = ({
 }) => {
   if (isTest()) {
     return new Promise((resolve, reject) => {
+      console.warn({
+        num,
+        bordereau_id,
+        chauffeur_id,
+        vehicule_id,
+        dt1,
+        dt2,
+        lat,
+        lng,
+        erreur,
+        nb_liv,
+        nb_enl,
+        cb_liv,
+        cb_enl,
+        observations,
+      });
       resolve();
     });
   }
   return webservice({
-    url: WS.URL.SOS,
+    url: WS.URL.PASSAGE,
     params: {
       key: WS.KEY,
       num,

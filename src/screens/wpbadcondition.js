@@ -103,7 +103,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
           }}
         >
           <CImage
-            image={`data:image/png;base64,${base64PictureState}`}
+            image={`data:image/jpg;base64,${base64PictureState}`}
             width={screenSizeState.width * 0.9}
             height={240}
           />

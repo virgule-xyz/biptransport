@@ -4,7 +4,15 @@ import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
 import openMap from 'react-native-open-maps';
 import AsyncStorage from '@react-native-community/async-storage';
-import { getCommands, getIdentTour, getIdentVehicle, isStory, putSos, Pool } from '@webservices';
+import {
+  getCommands,
+  getIdentTour,
+  getIdentVehicle,
+  isStory,
+  putSos,
+  putWaypoint,
+  Pool,
+} from '@webservices';
 import { name } from '../../package';
 
 /**
@@ -13,33 +21,39 @@ import { name } from '../../package';
  */
 const defaultAppState = {
   car: { id: '', immat: '', alert: '' },
-  slip: { id: '', code: '', date: '' },
-  driver: { id: '', firstname: '', lastname: '', gsm: '' },
-  managerCollection: [],
   clues: [],
-  waypointCollection: [],
   conditionCollection: [],
-  waypointList: [],
+  driver: { id: '', firstname: '', lastname: '', gsm: '' },
   forceWaypointIndex: 0,
-  pool: null,
   loadFromStorage: false,
+  managerCollection: [],
+  pool: null,
+  slip: { id: '', code: '', date: '' },
+  waypointCollection: [],
+  waypointList: [],
   waypoint: {
-    index: -1,
-    done: false,
-    name: '',
+    accessDescription: '',
     address: '',
-    shippingCount: 0,
+    arrivedAt: 0,
+    comment: '',
+    done: false,
+    error: { code: 0, picture: '' },
+    finishedAt: 0,
+    gpsCoords: { long: 0, lat: 0 },
+    id: -1,
+    index: -1,
+    name: '',
+    pickupCount: 0,
+    pickupPicture: '',
+    pickupRealCount: 0,
+    pictureCollection: [],
+    realGpsCoord: { long: 0, lat: 0 },
     shippingCodeIndex: 0,
     shippingCodes: [],
-    pickupCount: 0,
-    pickupRealCount: 0,
-    accessDescription: '',
-    id: -1,
+    shippingCount: 0,
+    shippingRealCodes: [],
     waypointCodeIndex: 0,
     waypointCodes: [],
-    gpsCoords: { long: 0, lat: 0 },
-    pictureCollection: [],
-    comment: '',
   },
 };
 
@@ -54,17 +68,17 @@ const AppContextProvider = ({ children }) => {
   // Car, Driver and Waypoints
   const {
     car,
-    slip,
-    driver,
     clues,
-    forceWaypointIndex,
-    managerCollection,
     conditionCollection,
+    driver,
+    forceWaypointIndex,
+    loadFromStorage,
+    managerCollection,
+    pool,
+    slip,
+    waypoint,
     waypointCollection,
     waypointList,
-    waypoint,
-    pool,
-    loadFromStorage,
   } = appContextState;
 
   const read = async () => {
@@ -94,25 +108,31 @@ const AppContextProvider = ({ children }) => {
   };
 
   const getWaypointFromArray = (command, index) => ({
-    index,
-    done: command.done,
-    name: command.pnt_nom,
-    address: `${command.pnt_adr} ${command.pnt_cp} ${command.pnt_ville}`,
-    shippingCount: command.nbr_liv,
-    shippingCodeIndex: 0,
-    shippingCodes: command.cab_liv,
-    pickupCount: command.nbr_enl,
-    pickupRealCount: 0,
     accessDescription: command.observations,
-    id: command.id,
-    waypointCodeIndex: 0,
-    waypointCodes: command.cab_pnt,
+    address: `${command.pnt_adr} ${command.pnt_cp} ${command.pnt_ville}`,
+    arrivedAt: 0,
+    comment: '',
+    done: command.done,
+    error: { code: 0, picture: '' },
+    finishedAt: 0,
     gpsCoords: {
       long: command.pnt_lng,
       lat: command.pnt_lat,
     },
+    id: command.id,
+    index,
+    name: command.pnt_nom,
+    pickupCount: command.nbr_enl,
+    pickupPicture: '',
+    pickupRealCount: 0,
     pictureCollection: command.pnt_pj,
-    comment: '',
+    realGpsCoord: { long: 0, lat: 0 },
+    shippingCodeIndex: 0,
+    shippingCodes: command.cab_liv,
+    shippingCount: command.nbr_liv,
+    shippingRealCodes: [],
+    waypointCodeIndex: 0,
+    waypointCodes: command.cab_pnt,
   });
 
   const getWaypointList = values => {
@@ -282,6 +302,55 @@ const AppContextProvider = ({ children }) => {
     selectWaypointByIndex(index);
   };
 
+  // send the waypoint datas to the server
+  const sendWaypointToServer = wp => {
+    const values = {
+      num: slip.code,
+      bordereau_id: slip.id,
+      chauffeur_id: driver.id,
+      vehicule_id: car.id,
+      dt1: wp.arrivedAt,
+      dt2: wp.finishedAt,
+      lat: wp.realGpsCoord.lat,
+      lng: wp.realGpsCoord.long,
+      erreur: wp.error.code,
+      erreur_photo: wp.error.picture,
+      nb_liv: wp.shippingRealCodes.length,
+      nb_enl: wp.pickupRealCount,
+      cb_liv: wp.shippingRealCodes,
+      cb_enl: [''],
+      cb_enl_photo: wp.pickupPicture,
+      observations: wp.comment,
+    };
+    putWaypoint(values);
+  };
+
+  // start a new waypoint
+  const startNewWaypoint = async () => {
+    await navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        setAppContextState(state => ({
+          ...state,
+          waypoint: {
+            ...state.waypoint,
+            arrivedAt: Date.now(),
+            realGpsCoord: { long: coords.longitude, lat: coords.latitude },
+          },
+        }));
+        return true;
+      },
+      err => {
+        return false;
+      },
+      {
+        enableHighAccuracy: true,
+        maximumAge: 30 * 1000,
+        timeout: 5 * 60 * 1000,
+      },
+    );
+  };
+
+  // Mark the waypoint has ended and send it to server
   const endWaypoint = comment => {
     setAppContextState(state => {
       const newWaypointCollection = [...state.waypointCollection];
@@ -289,8 +358,11 @@ const AppContextProvider = ({ children }) => {
       const newWaypoint = {
         ...state.waypoint,
         comment,
+        finishedAt: Date.now(),
         done: true,
       };
+
+      sendWaypointToServer(newWaypoint);
 
       const newOne = {
         ...state,
@@ -381,8 +453,13 @@ const AppContextProvider = ({ children }) => {
 
   // store in local storage some datas that should be sent away
   const storeClue = async ({ condition, picture }) => {
-    console.warn('condition', condition);
-    return true;
+    setAppContextState(state => ({
+      ...state,
+      waypoint: {
+        ...state.waypoint,
+        error: { code: condition.id, picture },
+      },
+    }));
   };
 
   // test if the current waypoint barcode index is the last ?
@@ -401,6 +478,16 @@ const AppContextProvider = ({ children }) => {
       },
     }));
     callback();
+  };
+
+  const saveCurrentWaypointCode = num => {
+    setAppContextState(state => ({
+      ...state,
+      waypoint: {
+        ...state.waypoint,
+        shippingRealCodes: [...state.waypoint.shippingRealCodes, num],
+      },
+    }));
   };
 
   // test if the current shipment barcode index is the last ?
@@ -461,6 +548,17 @@ const AppContextProvider = ({ children }) => {
     }));
   };
 
+  // Set picture of the pickup
+  const storePickupPicture = value => {
+    setAppContextState(state => ({
+      ...state,
+      waypoint: {
+        ...state.waypoint,
+        pickupPicture: value,
+      },
+    }));
+  };
+
   // The renderer
   return (
     <AppContext.Provider
@@ -468,37 +566,41 @@ const AppContextProvider = ({ children }) => {
         car,
         clues,
         conditionCollection,
-        contactAllManagers,
         driver,
+        forceWaypointIndex,
+        loadFromStorage,
+        managerCollection,
+        pool,
+        slip,
+        waypoint,
+        waypointCollection,
+        waypointList,
+        clear,
+        contactAllManagers,
         endTour,
         endWaypoint,
-        forceWaypointIndex,
         getCarDatas,
         getDriverDatas,
         getWaypointDatas,
+        load,
         loadFakeContext,
-        managerCollection,
         needAnotherShipmentCode,
         needAnotherWaypointCode,
+        needDriverScan,
         needToVisitAnotherWaypoint,
         nextShipmentCode,
         nextWaypointCode,
         openMapScreen,
-        pool,
+        save,
+        saveCurrentWaypointCode,
         selectNextWaypoint,
         selectWaypointById,
         selectWaypointByIndex,
         setGSMNumber,
-        needDriverScan,
         setPickupCount,
-        slip,
-        load,
-        save,
-        clear,
+        startNewWaypoint,
         storeClue,
-        waypoint,
-        waypointCollection,
-        waypointList,
+        storePickupPicture,
       }}
     >
       {children}

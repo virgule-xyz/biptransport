@@ -74,10 +74,10 @@ const ScreenWaypointResume = ({ navigation }) => {
 
               <CWaypointCounters
                 results
-                shipping={waypoint.shippingCodeIndex}
+                shipping={waypoint.shippingRealCodes.length}
                 pickup={waypoint.pickupRealCount || 0}
                 colorShip={ColorsByNumber(
-                  Math.abs(waypoint.shippingCount - waypoint.shippingCodeIndex),
+                  Math.abs(waypoint.shippingCount - waypoint.shippingRealCodes.length),
                 )}
                 colorPick={ColorsByNumber(
                   Math.abs(waypoint.pickupCount - waypoint.pickupRealCount),

@@ -1,3 +1,10 @@
+## 0.25.0
+
+- Add member variable not present, usefull for the `put_passage` webservice
+- Add the `sendWaypointToServer`function
+- Add start and end time of waypoint's visit
+- fix the `putWaypoint`function
+
 ## 0.24.0
 
 - test if pool or datas are too old. Save appContext also. Propose to load the previous car and driver if less than 4 hours...
