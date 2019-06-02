@@ -17,7 +17,7 @@ import { splashname } from '../../package';
 /**
  * The shell of all the screen
  */
-const CWaypointTemplate = ({ children, navigation, greyContent = null }) => {
+const CWaypointTemplate = ({ children, navigation, small = false, greyContent = null }) => {
   // manage the context
   const appContext = useContext(AppContext);
 
@@ -92,6 +92,7 @@ const CWaypointTemplate = ({ children, navigation, greyContent = null }) => {
                     }}
                   >
                     <CWaypointAddress
+                      small={small}
                       testID="ID_WPDASHBOARD_ADDRESS"
                       name={waypoint.name}
                       address={waypoint.address}
@@ -119,6 +120,7 @@ const CWaypointTemplate = ({ children, navigation, greyContent = null }) => {
                     }}
                   >
                     <CWaypointAddress
+                      small={small}
                       testID="ID_WPDASHBOARD_ADDRESS"
                       name={waypoint.name}
                       address={waypoint.address}

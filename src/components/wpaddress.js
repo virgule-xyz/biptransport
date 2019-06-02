@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 /**
  * Affiche un double bloc sur l'adresse et le nom du labo/point de passage
  */
-const CWaypointAddress = ({ name, address, ...props }) => {
+const CWaypointAddress = ({ small, name, address, ...props }) => {
   return (
     <View testID={props.testID} style={{ flex: 0 }}>
       <CText
@@ -16,11 +16,26 @@ const CWaypointAddress = ({ name, address, ...props }) => {
           textAlign: 'center',
           fontSize: DEFAULT_FONT_SIZE * 1,
           fontWeight: 'bold',
-          marginBottom: '2%',
+          marginBottom: !small && '2%',
         }}
+        numberOfLines={small ? 2 : 9}
+        ellipsisMode="tail"
       >
         {name}
       </CText>
+      {small && (
+        <CText
+          style={{
+            color: COLORS.BLACK,
+            textAlign: 'center',
+            fontSize: DEFAULT_FONT_SIZE * 1,
+            fontWeight: 'bold',
+            marginBottom: '2%',
+          }}
+        >
+          ...
+        </CText>
+      )}
       <CText
         uppercase
         style={{
@@ -28,6 +43,8 @@ const CWaypointAddress = ({ name, address, ...props }) => {
           textAlign: 'center',
           fontSize: DEFAULT_FONT_SIZE * 0.8,
         }}
+        numberOfLines={1}
+        ellipsisMode="tail"
       >
         {address}
       </CText>
@@ -36,8 +53,13 @@ const CWaypointAddress = ({ name, address, ...props }) => {
 };
 
 CWaypointAddress.propTypes = {
+  small: PropTypes.bool,
   name: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
+};
+
+CWaypointAddress.defaultProps = {
+  small: false,
 };
 
 export default CWaypointAddress;

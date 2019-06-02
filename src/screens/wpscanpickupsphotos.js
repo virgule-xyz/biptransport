@@ -151,7 +151,7 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
   return (
     <AppContext.Consumer>
       {({ waypoint, conditionCollection }) => (
-        <CWaypointTemplate>
+        <CWaypointTemplate small>
           <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}>
             <View style={{ flex: 0 }}>
               <CSpace />

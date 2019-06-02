@@ -60,6 +60,7 @@ const ScreenWaypointScanPickups = ({ navigation }) => {
     <AppContext.Consumer>
       {({ waypoint }) => (
         <CWaypointTemplate
+          small
           greyContent={
             <View>
               <CSep />

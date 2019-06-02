@@ -65,6 +65,7 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
     <AppContext.Consumer>
       {({ waypoint }) => (
         <CWaypointTemplate
+          small
           greyContent={
             <View>
               <CSep />
