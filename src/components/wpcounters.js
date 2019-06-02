@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 const CWaypointCounters = ({
   shipping,
   pickup,
-  colorShip = COLORS.RED,
-  colorPick = COLORS.RED,
+  colorShip = COLORS.PRIMARY,
+  colorPick = COLORS.PRIMARY,
   ...props
 }) => {
   return (
@@ -54,8 +54,8 @@ const CWaypointCounters = ({
 };
 
 CWaypointCounters.propTypes = {
-  shipping: PropTypes.string.isRequired,
-  pickup: PropTypes.string.isRequired,
+  shipping: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  pickup: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   colorShip: PropTypes.string.isRequired,
   colorPick: PropTypes.string.isRequired,
 };

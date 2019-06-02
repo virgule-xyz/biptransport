@@ -16,7 +16,6 @@ import {
   CWaypointOtherPassage,
   WaypointOtherPassageShape,
 } from '@components';
-
 /**
  * List all waypoints of the driver, should be displayed as a modal
  */
@@ -28,7 +27,7 @@ const ScreenWaypointCollection = ({ show, datas, onClose, onSelectWaypoint }) =>
       <CSpace />
       <FlatList
         testID="ID_WPCOLLECTION_LIST"
-        data={datas.filter(item => !item.done)}
+        data={datas}
         renderItem={({ item }) => (
           <CWaypointOtherPassage
             testID="ID_WPCOLLECTION_LIST_ITEM"

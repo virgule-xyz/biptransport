@@ -6,7 +6,7 @@
   "version": "0.24.0",
   "private": true,
   "story": false,
-  "noyellow": true,
+  "noyellow": false,
   "env": "e2e",
   "splashtime": 1000,
   "url": "",

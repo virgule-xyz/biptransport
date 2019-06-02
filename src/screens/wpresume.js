@@ -5,7 +5,7 @@
  *
  */
 
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { View } from 'react-native';
 import {
   CWaypointTemplate,
@@ -27,12 +27,18 @@ const ScreenWaypointResume = ({ navigation }) => {
   // Driver context to get tour id
   const appContext = useContext(AppContext);
 
+  const [commentState, setCommentState] = useState('');
+
+  const onChangeComment = text => {
+    setCommentState(text);
+  };
+
   useEffect(() => {
     appContext.loadFakeContext();
   }, []);
 
-  const onPressNextWaypoint = () => {
-    appContext.endWaypoint();
+  const onPressNextWaypoint = async () => {
+    await appContext.endWaypoint(commentState);
     if (appContext.needToVisitAnotherWaypoint()) {
       appContext.selectNextWaypoint(() => {
         navigation.navigate(NAVS.wpdashboard.current);
@@ -69,7 +75,7 @@ const ScreenWaypointResume = ({ navigation }) => {
               <CWaypointCounters
                 results
                 shipping={waypoint.shippingCodeIndex}
-                pickup={waypoint.pickupRealCount}
+                pickup={waypoint.pickupRealCount || 0}
                 colorShip={ColorsByNumber(
                   Math.abs(waypoint.shippingCount - waypoint.shippingCodeIndex),
                 )}
@@ -81,7 +87,10 @@ const ScreenWaypointResume = ({ navigation }) => {
           }
         >
           <View style={{ flex: 1 }}>
-            <CTextInput label="Laissez un commentaire concernant ce passage :" />
+            <CTextInput
+              onChange={onChangeComment}
+              label="Laissez un commentaire concernant ce passage :"
+            />
           </View>
           <CButton
             testID="ID_NEXT_WAYPOINT_BUTTON"

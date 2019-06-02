@@ -158,14 +158,15 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
     setConditionState(null);
   };
 
-  const onPressCondition = cond => {
+  const onPressCondition = async cond => {
     if (cond.photo) {
       setShowCameraState(true);
       // setShowPictureTakenState(true);
       setConditionState(cond);
     } else {
-      appContext.storeClue({
-        condition: conditionState,
+      setConditionState(cond);
+      await appContext.storeClue({
+        condition: cond,
       });
       navigation.navigate('ScreenWaypointResume');
     }

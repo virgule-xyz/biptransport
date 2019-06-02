@@ -22,6 +22,7 @@ const defaultAppState = {
   waypointList: [],
   forceWaypointIndex: 0,
   pool: null,
+  loadFromStorage: false,
   waypoint: {
     index: -1,
     done: false,
@@ -38,6 +39,7 @@ const defaultAppState = {
     waypointCodes: [],
     gpsCoords: { long: 0, lat: 0 },
     pictureCollection: [],
+    comment: '',
   },
 };
 
@@ -62,6 +64,7 @@ const AppContextProvider = ({ children }) => {
     waypointList,
     waypoint,
     pool,
+    loadFromStorage,
   } = appContextState;
 
   const read = async () => {
@@ -81,20 +84,68 @@ const AppContextProvider = ({ children }) => {
   };
 
   // save all the datas of the current tour
-  const save = async () => {
+  const save = async params => {
     const values = {
       date: Date.now(),
-      datas: appContextState,
+      datas: params || appContextState,
     };
 
     return AsyncStorage.setItem(STORAGE_NAME, JSON.stringify(values));
   };
 
+  const getWaypointFromArray = (command, index) => ({
+    index,
+    done: command.done,
+    name: command.pnt_nom,
+    address: `${command.pnt_adr} ${command.pnt_cp} ${command.pnt_ville}`,
+    shippingCount: command.nbr_liv,
+    shippingCodeIndex: 0,
+    shippingCodes: command.cab_liv,
+    pickupCount: command.nbr_enl,
+    pickupRealCount: 0,
+    accessDescription: command.observations,
+    id: command.id,
+    waypointCodeIndex: 0,
+    waypointCodes: command.cab_pnt,
+    gpsCoords: {
+      long: command.pnt_lng,
+      lat: command.pnt_lat,
+    },
+    pictureCollection: command.pnt_pj,
+    comment: '',
+  });
+
+  const getWaypointList = values => {
+    const retValues = values
+      .map((item, index) => {
+        return {
+          key: index,
+          id: item.id,
+          done: item.done,
+          name: item.pnt_nom,
+          city: `${item.pnt_cp} ${item.pnt_ville}`,
+          ord: item.ord_nom,
+        };
+      })
+      .filter(item => !item.done)
+      .filter(item => item.id !== waypoint.id);
+    return retValues;
+  };
+
   // load all the datas of the current tour
   const load = async () => {
-    const values = await read();
-    if (values.datas) {
-      setAppContextState(state => ({ ...state, ...values.datas }));
+    const { datas } = await read();
+    if (datas) {
+      const firstIndex = datas.waypointCollection.findIndex(wp => !wp.done);
+      setAppContextState(state => ({
+        ...state,
+        ...datas,
+        loadFromStorage: true,
+        forceWaypointIndex: firstIndex,
+        waypointCollection: datas.waypointCollection,
+        waypointList: getWaypointList(datas.waypointCollection),
+        waypoint: getWaypointFromArray(datas.waypointCollection[firstIndex], firstIndex),
+      }));
     }
     Pool.flush();
     return true;
@@ -170,28 +221,6 @@ const AppContextProvider = ({ children }) => {
     }));
   };
 
-
-  const getWaypointFromArray = (command, index) => ({
-    index,
-    done: command.done,
-    name: command.pnt_nom,
-    address: `${command.pnt_adr} ${command.pnt_cp} ${command.pnt_ville}`,
-    shippingCount: command.nbr_liv,
-    shippingCodeIndex: 0,
-    shippingCodes: command.cab_liv,
-    pickupCount: command.nbr_enl,
-    pickupRealCount: 0,
-    accessDescription: command.observations,
-    id: command.id,
-    waypointCodeIndex: 0,
-    waypointCodes: command.cab_pnt,
-    gpsCoords: {
-      long: command.pnt_lng,
-      lat: command.pnt_lat,
-    },
-    pictureCollection: command.pnt_pj,
-  });
-
   /**
    * Get the waypoint from the server
    */
@@ -253,12 +282,13 @@ const AppContextProvider = ({ children }) => {
     selectWaypointByIndex(index);
   };
 
-  const endWaypoint = () => {
+  const endWaypoint = comment => {
     setAppContextState(state => {
       const newWaypointCollection = [...state.waypointCollection];
       newWaypointCollection[waypoint.index].done = true;
       const newWaypoint = {
         ...state.waypoint,
+        comment,
         done: true,
       };
 
@@ -267,7 +297,7 @@ const AppContextProvider = ({ children }) => {
         waypointCollection: newWaypointCollection,
         waypoint: newWaypoint,
       };
-
+      save(newOne);
       return newOne;
     });
   };
@@ -320,7 +350,8 @@ const AppContextProvider = ({ children }) => {
         }
       }
     };
-    useEffectAsync(slip);
+
+    if (!loadFromStorage) useEffectAsync(slip);
   }, [slip]);
 
   /**
@@ -331,22 +362,13 @@ const AppContextProvider = ({ children }) => {
       if (v && v.length > 0) {
         setAppContextState(state => ({
           ...state,
-          waypointList: v.map((item, index) => {
-            return {
-              key: index,
-              id: item.id,
-              done: item.done,
-              name: item.pnt_nom,
-              city: `${item.pnt_cp} ${item.pnt_ville}`,
-              ord: item.ord_nom,
-            };
-          }),
+          waypointList: getWaypointList(v),
         }));
       }
     };
 
     useEffectAsync(waypointCollection);
-  }, [waypointCollection]);
+  }, [waypointCollection, waypoint]);
 
   // Load some fake datas
   const loadFakeContext = () => {
@@ -357,13 +379,11 @@ const AppContextProvider = ({ children }) => {
     }
   };
 
-  // save the new bad condition and save this on webservice
-  const saveCondition = cond => {
-    Alert.alert(cond.name);
-  };
-
   // store in local storage some datas that should be sent away
-  const storeClue = ({ condition, picture }) => {};
+  const storeClue = async ({ condition, picture }) => {
+    console.warn('condition', condition);
+    return true;
+  };
 
   // test if the current waypoint barcode index is the last ?
   const needAnotherWaypointCode = () => {
@@ -465,7 +485,6 @@ const AppContextProvider = ({ children }) => {
         nextWaypointCode,
         openMapScreen,
         pool,
-        saveCondition,
         selectNextWaypoint,
         selectWaypointById,
         selectWaypointByIndex,

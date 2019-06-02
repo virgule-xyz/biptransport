@@ -62,6 +62,7 @@ const ScreenWaypointDashboard = ({ navigation }) => {
 
   useEffect(() => {
     appContext.loadFakeContext();
+    appContext.save();
   }, []);
 
   return (
