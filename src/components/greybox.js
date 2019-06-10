@@ -1,5 +1,5 @@
 /**
- * Copyright (c) bee2link, Inc. and its affiliates.
+ * Copyright (c) netmize, Inc. and its affiliates.
  *
  * This source code is licensed under the Copyright License Agreement
  *

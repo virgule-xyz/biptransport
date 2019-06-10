@@ -1,3 +1,12 @@
+## 0.27.0
+
+- ADD: Merge BIP with other project
+
+## 0.26.0
+
+- FIX: number of line displayed in address
+- ADD: Merge BIP with other project
+
 ## 0.25.0
 
 - Add member variable not present, usefull for the `put_passage` webservice

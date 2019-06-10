@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
+
 import React from 'react';
 import { View } from 'react-native';
 import { CText, COLORS, DEFAULT_FONT_SIZE } from '@components';

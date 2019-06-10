@@ -1,6 +1,13 @@
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Item, Input, Label, Icon } from 'native-base';
+import PropTypes from 'prop-types';
 
 /**
  * Wrap a Native Base input with a label and eventualy an icon by is name.

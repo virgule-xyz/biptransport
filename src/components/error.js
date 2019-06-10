@@ -7,27 +7,28 @@
 
 import React from 'react';
 import { View } from 'react-native';
-import { CIcon, CText, COLORS, DEFAULT_FONT_SIZE } from '@components';
+import { Text } from 'native-base';
+import { CIcon, COLORS, DEFAULT_FONT_SIZE } from '@components';
 
 /**
  * A wrapper for error display in red
  */
-const CInfo = ({ children }) => (
+const CError = ({ children }) => (
   <View
     style={{
-      backgroundColor: COLORS.YELLOW,
+      backgroundColor: COLORS.DANGER,
       flexDirection: 'row',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      color: COLORS.BLACK,
+      color: '#ffffff',
       paddingVertical: DEFAULT_FONT_SIZE / 5,
       paddingHorizontal: DEFAULT_FONT_SIZE / 2,
       marginVertical: DEFAULT_FONT_SIZE / 5,
     }}
   >
-    <CIcon name="info" />
-    <CText style={{ color: COLORS.BLACK, marginLeft: DEFAULT_FONT_SIZE }}>{children}</CText>
+    <CIcon name="error" />
+    <Text style={{ color: COLORS.WHITE, marginLeft: DEFAULT_FONT_SIZE }}>{children}</Text>
   </View>
 );
 
-export default CInfo;
+export default CError;

@@ -1,7 +1,14 @@
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ActivityIndicator } from 'react-native';
 import { Image } from 'react-native-elements';
+import PropTypes from 'prop-types';
 
 /**
  * Wrapper around an Native Base image with a loader

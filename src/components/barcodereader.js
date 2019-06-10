@@ -1,9 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import Dialog from 'react-native-dialog';
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
+
+import React, { useState, useEffect } from 'react';
 import { Dimensions, View } from 'react-native';
-import { RNCamera } from 'react-native-camera';
 import { CButton, CSpace, CSpinner, COLORS } from '@components';
+import { RNCamera } from 'react-native-camera';
+import Dialog from 'react-native-dialog';
+import PropTypes from 'prop-types';
 
 const RAPPORT = 4 / 5;
 

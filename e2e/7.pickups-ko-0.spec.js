@@ -6,7 +6,22 @@ import { TOUR_SAMPLE, COMMANDS_SAMPLE, COMMANDS_SAMPLE_ERROR } from '../src/webs
 describe('Scene 6', () => {
   beforeAll(async function() {
     await device.launchApp({
-      permissions: { camera: 'YES', photos: 'YES', microphone: 'YES' },
+      permissions: {
+        calendar: 'YES',
+        camera: 'YES',
+        contacts: 'YES',
+        health: 'YES',
+        homekit: 'YES',
+        location: 'inuse', // always|inuse|never|unset
+        medialibrary: 'YES',
+        microphone: 'YES',
+        motion: 'YES',
+        notifications: 'YES',
+        photos: 'YES',
+        reminders: 'YES',
+        siri: 'YES',
+        speech: 'YES',
+      },
     });
   });
 

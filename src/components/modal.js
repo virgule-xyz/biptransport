@@ -1,8 +1,16 @@
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
+
 import React, { useState, useEffect } from 'react';
 import { Text } from 'react-native';
-import PropTypes from 'prop-types';
 import { Button, Grid, Row, Col } from 'native-base';
+import { COLORS, DEFAULT_FONT_SIZE } from '@components';
 import { Overlay } from 'react-native-elements';
+import PropTypes from 'prop-types';
 
 /**
  * Allow to display a modal window by setting show to true/false
@@ -20,22 +28,10 @@ const CModal = ({ children, onCancel, onContinue, onClose, show, testID }) => {
     useEffectAsync(show);
   }, [show]);
 
-  const onPressCancel = () => {
-    onCancel();
-  };
-
-  const onPressContinue = () => {
-    onContinue();
-  };
-
-  const onPressClose = () => {
-    onClose();
-  };
-
   return (
     <Overlay
       isVisible={isStateVisible}
-      overlayBackgroundColor="white"
+      overlayBackgroundColor={COLORS.BACKGROUND}
       width="100%"
       height="100%"
       fullscreen
@@ -44,25 +40,25 @@ const CModal = ({ children, onCancel, onContinue, onClose, show, testID }) => {
         <Row testID={`${testID}`} style={{ flexDirection: 'column' }}>
           {children}
         </Row>
-        <Row style={{ height: 50, flex: 0 }}>
+        <Row style={{ height: DEFAULT_FONT_SIZE * 3, flex: 0 }}>
           {onCancel && (
-            <Col style={{ marginHorizontal: 7 }}>
-              <Button testID={`${testID}_CANCEL`} block danger onPress={onPressCancel}>
-                <Text style={{ color: '#ffffff' }}>Annuler</Text>
+            <Col style={{ marginHorizontal: DEFAULT_FONT_SIZE / 2 }}>
+              <Button testID={`${testID}_CANCEL`} block danger onPress={onCancel}>
+                <Text style={{ color: COLORS.BACKGROUND }}>Annuler</Text>
               </Button>
             </Col>
           )}
           {onContinue && (
-            <Col style={{ marginHorizontal: 7 }}>
-              <Button testID={`${testID}_CONTINUE`} block primary onPress={onPressContinue}>
-                <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>Continuer</Text>
+            <Col style={{ marginHorizontal: DEFAULT_FONT_SIZE / 2 }}>
+              <Button testID={`${testID}_CONTINUE`} block primary onPress={onContinue}>
+                <Text style={{ color: COLORS.BACKGROUND, fontWeight: 'bold' }}>Continuer</Text>
               </Button>
             </Col>
           )}
           {!onCancel && !onContinue && (
             <Col style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Button testID={`${testID}_CLOSE`} block primary onPress={onPressClose}>
-                <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>Fermer</Text>
+              <Button testID={`${testID}_CLOSE`} block primary onPress={onClose}>
+                <Text style={{ color: COLORS.BACKGROUND, fontWeight: 'bold' }}>Fermer</Text>
               </Button>
             </Col>
           )}

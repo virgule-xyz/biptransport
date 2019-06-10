@@ -1,12 +1,25 @@
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import { View, Dimensions } from 'react-native';
-import { CButton, COLORS } from '@components';
+import { CButton, COLORS, DEFAULT_FONT_SIZE } from '@components';
+import PropTypes from 'prop-types';
 
 /**
  * Un bouton carré avec une icone
  */
-const CSquareButton = ({ label = '', icon = null, color = '#fff', size = 10, ...props }) => (
+const CSquareButton = ({
+  label = '',
+  icon = null,
+  color = COLORS.WHITE,
+  size = DEFAULT_FONT_SIZE * 0.66,
+  ...props
+}) => (
   <CButton
     small
     icon={icon}
@@ -35,7 +48,8 @@ const CWaypointButtons = ({
   ...props
 }) => {
   const { width } = Dimensions.get('window');
-  const buttonWidth = (width / 4) * 0.8;
+  const NUMBER_OF_BUTTONS = 4;
+  const BUTTON_WIDTH = (width / NUMBER_OF_BUTTONS) * 0.8;
 
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} testID={props.testID}>
@@ -44,7 +58,7 @@ const CWaypointButtons = ({
         label="J'y vais"
         icon="location"
         color={COLORS.JYVAIS}
-        size={buttonWidth}
+        size={BUTTON_WIDTH}
         onPress={onPressTravel}
       />
       <CSquareButton
@@ -52,7 +66,7 @@ const CWaypointButtons = ({
         label={`${pictureCard}`}
         icon="image"
         color={COLORS.PHOTOS}
-        size={buttonWidth}
+        size={BUTTON_WIDTH}
         onPress={onPressGalery}
         disabled={pictureCard === 0}
       />
@@ -61,7 +75,7 @@ const CWaypointButtons = ({
         label="Arrêté"
         icon="close-o"
         color={COLORS.AIE}
-        size={buttonWidth}
+        size={BUTTON_WIDTH}
         onPress={onPressBroken}
       />
       <CSquareButton
@@ -69,7 +83,7 @@ const CWaypointButtons = ({
         label="Arrivé !"
         icon="check"
         color={COLORS.ARRIVE}
-        size={buttonWidth}
+        size={BUTTON_WIDTH}
         onPress={onPressArrived}
       />
     </View>

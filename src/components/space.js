@@ -1,8 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
 
-export const SPACE_HEIGHT = 20;
+import React from 'react';
+import { View, Text } from 'react-native';
+import { SPACE_HEIGHT } from '@components';
+import PropTypes from 'prop-types';
 
 /**
  * Add a space bewtween components by 'n' SPACE_HEIGHT

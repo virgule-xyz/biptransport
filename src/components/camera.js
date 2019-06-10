@@ -1,23 +1,44 @@
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
+
 import React from 'react';
 import { Dimensions, View, TouchableOpacity } from 'react-native';
 import { Icon } from 'native-base';
+import {
+  CSpinner,
+  COLORS,
+  ICON_TYPE,
+  PICTURE_REPORT,
+  PICTURE_WIDTH,
+  BASE_WIDTH,
+} from '@components';
 import { RNCamera } from 'react-native-camera';
-import { CSpinner, COLORS } from '@components';
-import { ICON_TYPE } from './icon';
+import PropTypes from 'prop-types';
 
-const RAPPORT = 4 / 5;
+const REPORT = 0.9;
 
 /**
  * Launch the camera
  */
 const CCamera = ({ onTakePicture, testID, ...props }) => {
   const { width } = Dimensions.get('window');
-  const W = width * 0.9;
-  const H = (width * RAPPORT * 3) / 4;
+  const SCREEN_REPORT = width / BASE_WIDTH;
+  const W = width * REPORT * SCREEN_REPORT;
+  const H = W / PICTURE_REPORT;
 
   // Ok we press the UI button to take the picture
   const onPressCameraButton = async camera => {
-    const options = { quality: 0.5, base64: true, doNotSave: true, width: 1024, exif: true };
+    const options = {
+      quality: 0.5,
+      base64: true,
+      doNotSave: true,
+      width: PICTURE_WIDTH,
+      exif: true,
+    };
     const data = await camera.takePictureAsync(options);
     onTakePicture(data.base64);
   };
@@ -63,11 +84,11 @@ const CCamera = ({ onTakePicture, testID, ...props }) => {
               onPress={() => onPressCameraButton(camera)}
               style={{
                 position: 'absolute',
-                bottom: 20,
-                right: 20,
-                width: 60,
-                height: 60,
-                borderRadius: 200,
+                bottom: 20 * SCREEN_REPORT,
+                right: 20 * SCREEN_REPORT,
+                width: 60 * SCREEN_REPORT,
+                height: 60 * SCREEN_REPORT,
+                borderRadius: 200 * SCREEN_REPORT,
                 overflow: 'hidden',
                 zIndex: 9,
               }}
@@ -108,13 +129,13 @@ const CCamera = ({ onTakePicture, testID, ...props }) => {
             />
             <View
               style={{
-                width: W - 20,
-                height: H - 20,
+                width: W - 20 * SCREEN_REPORT,
+                height: H - 20 * SCREEN_REPORT,
                 borderWidth: 1,
                 borderColor: COLORS.DANGER,
                 position: 'absolute',
-                top: 10,
-                left: 10,
+                top: 10 * SCREEN_REPORT,
+                left: 10 * SCREEN_REPORT,
               }}
             />
           </View>
@@ -124,7 +145,9 @@ const CCamera = ({ onTakePicture, testID, ...props }) => {
   );
 };
 
-// CCamera.propTypes = {};
+CCamera.propTypes = {
+  onTakePicture: PropTypes.func.isRequired,
+};
 
 // CCamera.defaultProps = {};
 

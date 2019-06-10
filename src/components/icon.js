@@ -1,9 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Icon } from 'react-native-elements';
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
 
-export const ICON_TYPE = 'EvilIcons';
-export const ICON_COLOR = '#ffffff';
+import React from 'react';
+import { Icon } from 'react-native-elements';
+import { ICON_TYPE, ICON_COLOR } from '@components';
+import PropTypes from 'prop-types';
 
 /**
  * Simple wrapper with only a name to give

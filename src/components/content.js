@@ -1,7 +1,14 @@
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
+
 import React from 'react';
-import PropTypes from 'prop-types';
-import { CSpace, CMiniHeader, CBigHeader, CTitle } from '@components';
 import { Container, Content } from 'native-base';
+import { CSpace, CMiniHeader, CBigHeader, CTitle } from '@components';
+import PropTypes from 'prop-types';
 
 /**
  * The main screen with a header (full or mini), the content and a title. Eventually centered.

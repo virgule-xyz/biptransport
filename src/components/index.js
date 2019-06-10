@@ -26,8 +26,16 @@ export { default as CWaypointOtherPassage } from './wpotherpassage';
 export { default as CWaypointTemplate } from './wptemplate';
 
 export const DEFAULT_FONT_SIZE = 15;
+export const SPACE_HEIGHT = 20;
+export const PICTURE_REPORT = 4 / 3;
+export const BASE_WIDTH = 380;
+export const LOGO_REPORT = BASE_WIDTH / 1024;
+export const PICTURE_WIDTH = 1024;
+export const ICON_TYPE = 'EvilIcons';
+export const ICON_COLOR = '#ffffff';
 
 export const COLORS = {
+  BACKGROUND: '#ffffff',
   WHITE: '#ffffff',
   BLACK: '#333333',
   GREEN: '#8bc34a',
@@ -44,6 +52,7 @@ export const COLORS = {
   ROW_EVEN: '#d0d0d0',
   ROW_PAIR: '#f0f0f0',
   PRIMARY: '#007aff',
+  SPINNER: '#3333aa',
 };
 
 export const ColorsByNumber = num => {

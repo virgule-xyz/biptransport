@@ -1,8 +1,15 @@
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import { View } from 'react-native';
-import { Textarea, Label } from 'native-base';
 import { DEFAULT_FONT_SIZE } from '@components';
+import { Textarea, Label } from 'native-base';
+import PropTypes from 'prop-types';
 
 /**
  * Wrap a Native Base input with a label for multiline text.

@@ -6,9 +6,10 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Image, Dimensions } from 'react-native';
 import { Header, Button, Body } from 'native-base';
+import { COLORS, LOGO_REPORT } from '@components';
+import PropTypes from 'prop-types';
 
 import { LOGO } from '@medias';
 
@@ -22,10 +23,10 @@ const CBigHeader = ({ pressBackHome }) => {
     <Header
       style={{
         width,
-        height: (380 / 1024) * width,
+        height: LOGO_REPORT * width,
         paddingHorizontal: 0,
         paddingVertical: 0,
-        backgroundColor: '#fff',
+        backgroundColor: COLORS.BACKGROUND,
       }}
       testID="ID_BIGHEADER"
     >
@@ -38,7 +39,7 @@ const CBigHeader = ({ pressBackHome }) => {
           marginVertical: 0,
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: '#fff',
+          backgroundColor: COLORS.BACKGROUND,
         }}
       >
         <Button transparent onPress={pressBackHome}>

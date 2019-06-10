@@ -1,7 +1,14 @@
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
+
 import React from 'react';
 import { View } from 'react-native';
-import PropTypes from 'prop-types';
 import { DEFAULT_FONT_SIZE, COLORS, CText } from '@components';
+import PropTypes from 'prop-types';
 
 /**
  * Un cercle de couleur avec un chiffre dedans

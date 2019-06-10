@@ -1,7 +1,14 @@
+/**
+ * Copyright (c) netmize, Inc. and its affiliates.
+ *
+ * This source code is licensed under the Copyright License Agreement
+ *
+ */
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button, Text, Icon } from 'native-base';
-import { ICON_TYPE, ICON_COLOR } from './icon';
+import { ICON_TYPE, ICON_COLOR, DEFAULT_FONT_SIZE } from '@components';
+import PropTypes from 'prop-types';
 
 /**
  * Just a wrapper around a Native Base button
@@ -34,7 +41,7 @@ const CButton = ({ label, icon, small, style, ...props }) => (
         color={ICON_COLOR}
         style={[
           small && {
-            fontSize: 40,
+            fontSize: 2.6 * DEFAULT_FONT_SIZE,
             marginLeft: 0,
           },
         ]}
@@ -46,7 +53,7 @@ const CButton = ({ label, icon, small, style, ...props }) => (
           small && {
             flex: 0,
             width: '100%',
-            fontSize: 9,
+            fontSize: Math.max(9, 0.6 * DEFAULT_FONT_SIZE),
             fontWeight: 'bold',
             textAlign: 'center',
           },

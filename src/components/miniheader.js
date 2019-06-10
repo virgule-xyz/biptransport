@@ -6,10 +6,10 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
-import { CText, DEFAULT_FONT_SIZE, CRescueButton } from '@components';
 import { Image } from 'react-native';
 import { Header, Button, Body, Grid, Col, Row } from 'native-base';
+import { CText, DEFAULT_FONT_SIZE, COLORS, CRescueButton } from '@components';
+import PropTypes from 'prop-types';
 
 import { LOGO } from '@medias';
 
@@ -18,7 +18,7 @@ import { LOGO } from '@medias';
  */
 const CMiniHeader = ({ numero, dateString, name, pressCallManagers, pressRescueButton }) => {
   return (
-    <Header style={{ backgroundColor: '#fff', height: DEFAULT_FONT_SIZE * 7 }}>
+    <Header style={{ backgroundColor: COLORS.BACKGROUND, height: DEFAULT_FONT_SIZE * 7 }}>
       <Body>
         <Grid>
           <Col style={{ justifyContent: 'center', alignItems: 'flex-start' }}>
