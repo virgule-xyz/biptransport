@@ -6,8 +6,8 @@
   "version": "0.27.0",
   "private": true,
   "story": false,
-  "noyellow": true,
-  "env": "e2e",
+  "noyellow": false,
+  "env": "dev",
   "splashtime": 1000,
   "url": "",
   "peerDependencies": {
@@ -36,6 +36,7 @@
     "axios": "0.18.0",
     "core-js": "2.6.5",
     "native-base": "2.12.1",
+    "qs": "^6.7.0",
     "react": "16.8.6",
     "react-native": "^0.59.8",
     "react-native-camera": "2.4.0",

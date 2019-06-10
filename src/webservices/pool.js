@@ -11,15 +11,15 @@ class Pool {
   static DATENAME = `${name}date`;
 
   // set the last time it was used
-  timestamp = () => {
-    return AsyncStorage.setItem(Pool.DATENAME, Date.now());
+  timestamp = async () => {
+    await AsyncStorage.setItem(Pool.DATENAME, Date.now());
   };
 
   // save all datas in a local storage, file or other
   // return a promise
-  persistDatas = collection => {
+  persistDatas = async collection => {
     this.timestamp();
-    return AsyncStorage.setItem(name, JSON.stringify(collection));
+    await AsyncStorage.setItem(name, JSON.stringify(collection));
   };
 
   // persist datas on add or remove of toSendCollection
@@ -34,7 +34,9 @@ class Pool {
     return new Promise((resolve, reject) => {
       AsyncStorage.getItem(name)
         .then(d => {
-          resolve(JSON.parse(d));
+          const buffer = JSON.parse(d);
+          console.warn('BUFFER IS', buffer.length);
+          resolve(buffer);
         })
         .catch(e => reject(e));
     });
@@ -64,7 +66,8 @@ class Pool {
                 reject(new Error(ret));
               }
             })
-            .catch(() => {
+            .catch(e => {
+              console.warn(e);
               reject(false);
             });
         }
@@ -95,15 +98,23 @@ class Pool {
       if (value) {
         this.sendFirstElementOfCollection()
           .then(() => {
+            console.warn('ELEMENT SENT');
             this.removeFirstElementOfCollection()
               .then(() => {
+                console.warn('TRY ANOTHER');
                 return this.setIsSendingAllowed(true);
               })
               .catch(e => {
+                console.warn(e);
                 resolve();
               });
           })
           .catch(e => {
+            this.isSendingAllowed = false;
+            setTimeout(() => {
+              console.warn('RETRY TO SEND', e);
+              return this.setIsSendingAllowed(true);
+            }, 10000);
             resolve();
           });
       }
@@ -164,8 +175,9 @@ class Pool {
   }
 
   // add one component to the pool and try to send it
-  static add(values, sendCallbackId) {
-    Pool.get().then(pool => {
+  static async add(values, sendCallbackId) {
+    try {
+      const pool = await Pool.get();
       const found = pool.toSendCollection.findIndex(
         elt =>
           JSON.stringify(elt.values) === JSON.stringify(values) &&
@@ -174,14 +186,22 @@ class Pool {
       if (found < 0) {
         return pool.setToSendCollection([{ values, sendCallbackId }, ...pool.toSendCollection]);
       }
-    });
+      return pool.toSendCollection;
+    } catch (e) {
+      console.warn(e);
+      return false;
+    }
   }
 
   // start sending datas on server
-  static flush() {
-    Pool.get()
-      .then(pool => pool.setIsSendingAllowed(true))
-      .catch(e => {});
+  static async flush() {
+    try {
+      const pool = await Pool.get();
+      return pool.setIsSendingAllowed(true);
+    } catch (e) {
+      console.warn('END', e);
+      return false;
+    }
   }
 
   // clear the whole pool
@@ -191,6 +211,7 @@ class Pool {
       await pool.persistDatas(Pool.INITIAL_COLLECTION);
       return true;
     } catch (e) {
+      console.warn(e);
       return false;
     }
   }
@@ -201,6 +222,7 @@ class Pool {
       const lastUse = await AsyncStorage.getItem(Pool.DATENAME);
       return lastUse;
     } catch (e) {
+      console.warn(e);
       return -1;
     }
   }
@@ -212,6 +234,7 @@ class Pool {
       const lastUse = await Pool.date();
       return now - lastUse;
     } catch (e) {
+      console.warn(e);
       return -1;
     }
   }
@@ -221,6 +244,7 @@ class Pool {
     try {
       return (await Pool.age()) >= 1000 * 60 * 60 * 4;
     } catch (e) {
+      console.warn(e);
       return false;
     }
   }

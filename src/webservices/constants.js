@@ -12,6 +12,7 @@ const WS = {
     VEHICLE: 'https://www.biptransport.com/api/ident/vehicule',
     SOS: 'https://www.biptransport.com/api/put/sos',
     PASSAGE: 'https://www.biptransport.com/api/put/passage',
+    GSM: 'https://www.biptransport.com/api/put/tel-chauffeur',
   },
 };
 

@@ -46,6 +46,7 @@ const putWaypoint = ({
     });
   }
   return webservice({
+    postit: true,
     url: WS.URL.PASSAGE,
     params: {
       key: WS.KEY,

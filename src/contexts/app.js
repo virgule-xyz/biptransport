@@ -11,6 +11,7 @@ import {
   isStory,
   putSos,
   putWaypoint,
+  putGsmNumber,
   Pool,
 } from '@webservices';
 import { name } from '../../package';
@@ -27,7 +28,6 @@ const defaultAppState = {
   forceWaypointIndex: 0,
   loadFromStorage: false,
   managerCollection: [],
-  pool: null,
   slip: { id: '', code: '', date: '' },
   waypointCollection: [],
   waypointList: [],
@@ -65,6 +65,12 @@ const AppContextProvider = ({ children }) => {
 
   const STORAGE_NAME = `${name}_CONTEXT`;
 
+  Pool.configSenders({
+    putwaypoint: values => {
+      return putWaypoint(values);
+    },
+  });
+
   // Car, Driver and Waypoints
   const {
     car,
@@ -74,7 +80,6 @@ const AppContextProvider = ({ children }) => {
     forceWaypointIndex,
     loadFromStorage,
     managerCollection,
-    pool,
     slip,
     waypoint,
     waypointCollection,
@@ -231,14 +236,24 @@ const AppContextProvider = ({ children }) => {
   /**
    * just set the GSM number
    */
-  const setGSMNumber = number => {
-    setAppContextState(state => ({
-      ...state,
-      driver: {
-        ...state.driver,
-        gsm: number,
-      },
-    }));
+  const setGSMNumber = async number => {
+    try {
+      debugger;
+      await putGsmNumber({
+        chauffeur_id: driver.id,
+        num_tel: number,
+      });
+      setAppContextState(state => ({
+        ...state,
+        driver: {
+          ...state.driver,
+          gsm: number,
+        },
+      }));
+    } catch (err) {
+      debugger;
+      console.warn('setGSMNumber', err);
+    }
   };
 
   /**
@@ -305,7 +320,7 @@ const AppContextProvider = ({ children }) => {
   // send the waypoint datas to the server
   const sendWaypointToServer = wp => {
     const values = {
-      num: slip.code,
+      num: wp.id,
       bordereau_id: slip.id,
       chauffeur_id: driver.id,
       vehicule_id: car.id,
@@ -322,7 +337,11 @@ const AppContextProvider = ({ children }) => {
       cb_enl_photo: wp.pickupPicture,
       observations: wp.comment,
     };
-    putWaypoint(values);
+
+    Pool.add(values, 'putwaypoint');
+    setTimeout(() => {
+      Pool.flush();
+    }, 500);
   };
 
   // start a new waypoint
@@ -398,6 +417,7 @@ const AppContextProvider = ({ children }) => {
 
   // all the waypoint are done so close the day
   const endTour = callback => {
+    // TODO:
     callback();
   };
 
@@ -570,7 +590,6 @@ const AppContextProvider = ({ children }) => {
         forceWaypointIndex,
         loadFromStorage,
         managerCollection,
-        pool,
         slip,
         waypoint,
         waypointCollection,
