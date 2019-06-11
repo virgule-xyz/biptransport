@@ -14,7 +14,6 @@ const putGsmNumber = ({ chauffeur_id, num_tel }) => {
       resolve();
     });
   }
-  debugger;
   const params = { key: WS.KEY, chauffeur_id, num_tel };
   return webservice({
     postit: true,

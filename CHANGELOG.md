@@ -1,6 +1,8 @@
-0.28.0
+## 0.29.0
 
-Regarder les nouveautés des web services en ligne
+- FIX: array of real codes
+
+## 0.28.0
 
 Finaliser l'enregistrement des données
 

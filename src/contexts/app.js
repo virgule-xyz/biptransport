@@ -51,7 +51,7 @@ const defaultAppState = {
     shippingCodeIndex: 0,
     shippingCodes: [],
     shippingCount: 0,
-    shippingRealCodes: [],
+    shippingRealCodes: [''],
     waypointCodeIndex: 0,
     waypointCodes: [],
   },
@@ -135,7 +135,7 @@ const AppContextProvider = ({ children }) => {
     shippingCodeIndex: 0,
     shippingCodes: command.cab_liv,
     shippingCount: command.nbr_liv,
-    shippingRealCodes: [],
+    shippingRealCodes: [''],
     waypointCodeIndex: 0,
     waypointCodes: command.cab_pnt,
   });
@@ -238,7 +238,6 @@ const AppContextProvider = ({ children }) => {
    */
   const setGSMNumber = async number => {
     try {
-      debugger;
       await putGsmNumber({
         chauffeur_id: driver.id,
         num_tel: number,
@@ -251,7 +250,6 @@ const AppContextProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      debugger;
       console.warn('setGSMNumber', err);
     }
   };
@@ -318,7 +316,7 @@ const AppContextProvider = ({ children }) => {
   };
 
   // send the waypoint datas to the server
-  const sendWaypointToServer = wp => {
+  const sendWaypointToServer = async wp => {
     const values = {
       num: wp.id,
       bordereau_id: slip.id,
@@ -337,11 +335,11 @@ const AppContextProvider = ({ children }) => {
       cb_enl_photo: wp.pickupPicture,
       observations: wp.comment,
     };
-
-    Pool.add(values, 'putwaypoint');
-    setTimeout(() => {
-      Pool.flush();
-    }, 500);
+    await putWaypoint(values);
+    // Pool.add(values, 'putwaypoint');
+    // setTimeout(() => {
+    //   Pool.flush();
+    // }, 500);
   };
 
   // start a new waypoint

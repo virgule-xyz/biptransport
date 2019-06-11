@@ -207,7 +207,6 @@ class ApplicationContextProvider extends Component {
   /*
 const putThisPictureOnServer = picture =>
       new Promise((resolve, reject) => {
-        debugger;
         RNFetchBlob.fetch(
           'POST',
           AcciMoto.URL.upload,
