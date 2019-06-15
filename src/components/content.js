@@ -28,23 +28,35 @@ const CContent = ({
   pressBackHome,
 }) => {
   let ccStyle = null;
+  ccStyle = {
+    flex: 1,
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
+  };
+
   if (center)
     ccStyle = {
       flex: 1,
+      height: '100%',
       justifyContent: 'center',
       alignItems: 'center',
+      backgroundColor: 'yellow',
     };
   if (top)
     ccStyle = {
       flex: 1,
+      height: '100%',
       justifyContent: 'center',
       alignItems: 'flex-start',
+      backgroundColor: 'red',
     };
   if (stretch)
     ccStyle = {
       flex: 1,
-      height: '100%',
       justifyContent: 'space-between',
+      backgroundColor: 'grey',
     };
 
   return (
@@ -59,7 +71,7 @@ const CContent = ({
         />
       )}
       {fullscreen && <CBigHeader pressBackHome={pressBackHome} />}
-      <Content padder contentContainerStyle={ccStyle}>
+      <Content padder contentContainerStyle={ccStyle} style={{ flex: 1 }}>
         {title && (
           <>
             <CTitle>{title}</CTitle>

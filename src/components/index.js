@@ -33,6 +33,8 @@ export const LOGO_REPORT = BASE_WIDTH / 1024;
 export const PICTURE_WIDTH = 1024;
 export const ICON_TYPE = 'EvilIcons';
 export const ICON_COLOR = '#ffffff';
+export const RESCUE_PADDING = DEFAULT_FONT_SIZE / 5;
+export const RESCUE_BUTTON_SIZE = Math.ceil(DEFAULT_FONT_SIZE * 2.3);
 
 export const COLORS = {
   BACKGROUND: '#ffffff',

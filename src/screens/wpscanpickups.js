@@ -61,9 +61,9 @@ const ScreenWaypointScanPickups = ({ navigation }) => {
       {({ waypoint }) => (
         <CWaypointTemplate
           small
+          noAddress
           greyContent={
             <View>
-              <CSep />
               <CInfo>Vous devez récupérer {waypoint.pickupCount} colis</CInfo>
             </View>
           }

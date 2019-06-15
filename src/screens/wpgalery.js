@@ -30,10 +30,10 @@ const ScreenWaypointGalery = ({ show, datas, name, address, onClose }) => {
 
   return (
     <CModal onClose={onClose} show={show}>
-      <CSpace />
+      {/* <CSpace />
       <CGreyBox style={{ flex: 0 }}>
         <CWaypointAddress name={name} address={address} />
-      </CGreyBox>
+      </CGreyBox> */}
       <ScrollView maximumZoomScale={5}>
         <Grid>
           {datas.map(pict => (

@@ -11,15 +11,26 @@ class Pool {
   static DATENAME = `${name}date`;
 
   // set the last time it was used
-  timestamp = async () => {
-    await AsyncStorage.setItem(Pool.DATENAME, Date.now());
+  timestamp = () => {
+    return new Promise((resolve, reject) => {
+      AsyncStorage.setItem(Pool.DATENAME, Date.now())
+        .then(() => resolve())
+        .catch(err => reject(err));
+    });
   };
 
   // save all datas in a local storage, file or other
   // return a promise
-  persistDatas = async collection => {
-    this.timestamp();
-    await AsyncStorage.setItem(name, JSON.stringify(collection));
+  persistDatas = collection => {
+    return new Promise((resolve, reject) => {
+      this.timestamp()
+        .then(() => {
+          AsyncStorage.setItem(name, JSON.stringify(collection)).then(() => resolve());
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
   };
 
   // persist datas on add or remove of toSendCollection
@@ -35,10 +46,9 @@ class Pool {
       AsyncStorage.getItem(name)
         .then(d => {
           const buffer = JSON.parse(d);
-          console.warn('BUFFER IS', buffer.length);
           resolve(buffer);
         })
-        .catch(e => reject(e));
+        .catch(err => reject(err));
     });
   };
 
@@ -66,12 +76,12 @@ class Pool {
                 reject(new Error(ret));
               }
             })
-            .catch(e => {
-              console.warn(e);
-              reject(false);
+            .catch(err => {
+              console.warn(err);
+              reject(err);
             });
         }
-      } else reject(false);
+      } else reject(new Error('Queue vide'));
     });
   };
 
@@ -175,78 +185,49 @@ class Pool {
   }
 
   // add one component to the pool and try to send it
-  static async add(values, sendCallbackId) {
-    try {
-      const pool = await Pool.get();
-      const found = pool.toSendCollection.findIndex(
-        elt =>
-          JSON.stringify(elt.values) === JSON.stringify(values) &&
-          elt.sendCallbackId === sendCallbackId,
-      );
-      if (found < 0) {
-        return pool.setToSendCollection([{ values, sendCallbackId }, ...pool.toSendCollection]);
-      }
-      return pool.toSendCollection;
-    } catch (e) {
-      console.warn(e);
-      return false;
-    }
+  static add(values, sendCallbackId) {
+    return new Promise((resolve, reject) => {
+      Pool.get()
+        .then(pool => {
+          const found = pool.toSendCollection.findIndex(
+            elt =>
+              JSON.stringify(elt.values) === JSON.stringify(values) &&
+              elt.sendCallbackId === sendCallbackId,
+          );
+          if (found < 0) {
+            pool.setToSendCollection([{ values, sendCallbackId }, ...pool.toSendCollection]);
+          }
+          resolve(pool.toSendCollection);
+        })
+        .catch(err => reject(err));
+    });
   }
 
   // start sending datas on server
-  static async flush() {
-    try {
-      const pool = await Pool.get();
-      return pool.setIsSendingAllowed(true);
-    } catch (e) {
-      console.warn('END', e);
-      return false;
-    }
+  static flush() {
+    return new Promise((resolve, reject) => {
+      Pool.get()
+        .then(pool => {
+          pool.setIsSendingAllowed(true);
+          resolve(true);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
   }
 
   // clear the whole pool
-  static async clear() {
-    try {
-      const pool = await Pool.get();
-      await pool.persistDatas(Pool.INITIAL_COLLECTION);
-      return true;
-    } catch (e) {
-      console.warn(e);
-      return false;
-    }
-  }
-
-  // read the timestamp
-  static async date() {
-    try {
-      const lastUse = await AsyncStorage.getItem(Pool.DATENAME);
-      return lastUse;
-    } catch (e) {
-      console.warn(e);
-      return -1;
-    }
-  }
-
-  // get the age of the pool
-  static async age() {
-    try {
-      const now = Date.now();
-      const lastUse = await Pool.date();
-      return now - lastUse;
-    } catch (e) {
-      console.warn(e);
-      return -1;
-    }
-  }
-
-  // 4 hour is too old
-  static async isTooOld() {
-    try {
-      return (await Pool.age()) >= 1000 * 60 * 60 * 4;
-    } catch (e) {
-      console.warn(e);
-      return false;
-    }
+  static clear() {
+    return new Promise((resolve, reject) => {
+      Pool.get()
+        .then(pool => {
+          pool.persistDatas(Pool.INITIAL_COLLECTION).then(() => {
+            resolve(Pool.INITIAL_COLLECTION);
+          });
+        })
+        .catch(err => reject(err));
+    });
   }
 }
 

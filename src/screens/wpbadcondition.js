@@ -158,17 +158,23 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
     setConditionState(null);
   };
 
-  const onPressCondition = async cond => {
+  const onPressCondition = cond => {
     if (cond.photo) {
       setShowCameraState(true);
       // setShowPictureTakenState(true);
       setConditionState(cond);
     } else {
       setConditionState(cond);
-      await appContext.storeClue({
-        condition: cond,
-      });
-      navigation.navigate('ScreenWaypointResume');
+      appContext
+        .storeClue({
+          condition: cond,
+        })
+        .then(() => {
+          navigation.navigate('ScreenWaypointResume');
+        })
+        .catch(err => {
+          Alert.alert(err.message);
+        });
     }
   };
 
@@ -202,7 +208,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   return (
     <AppContext.Consumer>
       {({ waypoint, conditionCollection }) => (
-        <CWaypointTemplate small>
+        <CWaypointTemplate small noAddress>
           <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}>
             <View style={{ flex: 0 }}>
               <CSpace />

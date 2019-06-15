@@ -1,6 +1,7 @@
 ## 0.29.0
 
 - FIX: array of real codes
+- Sign code with netmize password
 
 ## 0.28.0
 

@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
  * Affiche un double bloc sur l'adresse et le nom du labo/point de passage
  */
 const CWaypointAddress = ({ small, name, address, ...props }) => {
+  const marginBottom = !small && '2%';
   return (
     <View testID={props.testID} style={{ flex: 0 }}>
       <CText
@@ -23,7 +24,7 @@ const CWaypointAddress = ({ small, name, address, ...props }) => {
           textAlign: 'center',
           fontSize: DEFAULT_FONT_SIZE * 1,
           fontWeight: 'bold',
-          marginBottom: !small && '2%',
+          marginBottom: '2%',
         }}
         numberOfLines={small ? 2 : 9}
         ellipsisMode="tail"

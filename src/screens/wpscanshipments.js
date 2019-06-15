@@ -66,9 +66,9 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
       {({ waypoint }) => (
         <CWaypointTemplate
           small
+          noAddress
           greyContent={
             <View>
-              <CSep />
               <CInfo>
                 Scannez le code barre du colis
                 {waypoint.shippingCodes.length > 1 &&

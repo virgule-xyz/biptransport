@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
 import openMap from 'react-native-open-maps';
+import Geolocation from 'react-native-geolocation-service';
 import AsyncStorage from '@react-native-community/async-storage';
 import {
   getCommands,
@@ -86,24 +87,35 @@ const AppContextProvider = ({ children }) => {
     waypointList,
   } = appContextState;
 
-  const read = async () => {
-    const rawValues = await AsyncStorage.getItem(STORAGE_NAME);
-    const values = JSON.parse(rawValues);
-    return values;
+  const read = () => {
+    return new Promise((resolve, reject) => {
+      AsyncStorage.getItem(STORAGE_NAME)
+        .then(rawValues => {
+          const values = JSON.parse(rawValues);
+          resolve(values);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
   };
 
   // test if tour and car datas are still valuable
-  const needDriverScan = async () => {
-    try {
-      const values = await read();
-      return values.datas === null || Date.now() - values.date > 1000 * 60 * 60 * 4;
-    } catch (e) {
-      return true;
-    }
+  const needDriverScan = () => {
+    return new Promise((resolve, reject) => {
+      read()
+        .then(values => {
+          if (values.datas === null || Date.now() - values.date > 1000 * 60 * 60 * 4) resolve(true);
+          else resolve(false);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
   };
 
   // save all the datas of the current tour
-  const save = async params => {
+  const save = params => {
     const values = {
       date: Date.now(),
       datas: params || appContextState,
@@ -112,6 +124,7 @@ const AppContextProvider = ({ children }) => {
     return AsyncStorage.setItem(STORAGE_NAME, JSON.stringify(values));
   };
 
+  // build waypoint from an array
   const getWaypointFromArray = (command, index) => ({
     accessDescription: command.observations,
     address: `${command.pnt_adr} ${command.pnt_cp} ${command.pnt_ville}`,
@@ -158,31 +171,47 @@ const AppContextProvider = ({ children }) => {
   };
 
   // load all the datas of the current tour
-  const load = async () => {
-    const { datas } = await read();
-    if (datas) {
-      const firstIndex = datas.waypointCollection.findIndex(wp => !wp.done);
-      setAppContextState(state => ({
-        ...state,
-        ...datas,
-        loadFromStorage: true,
-        forceWaypointIndex: firstIndex,
-        waypointCollection: datas.waypointCollection,
-        waypointList: getWaypointList(datas.waypointCollection),
-        waypoint: getWaypointFromArray(datas.waypointCollection[firstIndex], firstIndex),
-      }));
-    }
-    Pool.flush();
-    return true;
+  const load = () => {
+    return new Promise((resolve, reject) => {
+      read()
+        .then(datas => {
+          if (datas && datas.waypointCollection) {
+            const firstIndex = datas.waypointCollection.findIndex(wp => !wp.done);
+            setAppContextState(state => ({
+              ...state,
+              ...datas,
+              loadFromStorage: true,
+              forceWaypointIndex: firstIndex,
+              waypointCollection: datas.waypointCollection,
+              waypointList: getWaypointList(datas.waypointCollection),
+              waypoint: getWaypointFromArray(datas.waypointCollection[firstIndex], firstIndex),
+            }));
+            Pool.flush();
+            resolve(true);
+          }
+          resolve(false);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
   };
 
-  const clear = async () => {
-    const values = {
-      date: Date.now(),
-      datas: null,
-    };
-    await AsyncStorage.setItem(STORAGE_NAME, JSON.stringify(values));
-    Pool.clear();
+  const clear = () => {
+    return new Promise((resolve, reject) => {
+      const values = {
+        date: Date.now(),
+        datas: null,
+      };
+      AsyncStorage.setItem(STORAGE_NAME, JSON.stringify(values))
+        .then(() => {
+          Pool.clear();
+          resolve(true);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
   };
 
   /**
@@ -205,7 +234,7 @@ const AppContextProvider = ({ children }) => {
         .catch(err => reject(err));
     });
 
-  const saveCar = () => {};
+  // const saveCar = () => {};
 
   /**
    * Call the API to get the driver linked to this codebar
@@ -236,22 +265,23 @@ const AppContextProvider = ({ children }) => {
   /**
    * just set the GSM number
    */
-  const setGSMNumber = async number => {
-    try {
-      await putGsmNumber({
-        chauffeur_id: driver.id,
-        num_tel: number,
+  const setGSMNumber = number => {
+    putGsmNumber({
+      chauffeur_id: driver.id,
+      num_tel: number,
+    })
+      .then(() => {
+        setAppContextState(state => ({
+          ...state,
+          driver: {
+            ...state.driver,
+            gsm: number,
+          },
+        }));
+      })
+      .catch(err => {
+        console.warn('setGSMNumber', err);
       });
-      setAppContextState(state => ({
-        ...state,
-        driver: {
-          ...state.driver,
-          gsm: number,
-        },
-      }));
-    } catch (err) {
-      console.warn('setGSMNumber', err);
-    }
   };
 
   /**
@@ -316,7 +346,7 @@ const AppContextProvider = ({ children }) => {
   };
 
   // send the waypoint datas to the server
-  const sendWaypointToServer = async wp => {
+  const sendWaypointToServer = wp => {
     const values = {
       num: wp.id,
       bordereau_id: slip.id,
@@ -327,15 +357,18 @@ const AppContextProvider = ({ children }) => {
       lat: wp.realGpsCoord.lat,
       lng: wp.realGpsCoord.long,
       erreur: wp.error.code,
-      erreur_photo: wp.error.picture,
       nb_liv: wp.shippingRealCodes.length,
       nb_enl: wp.pickupRealCount,
       cb_liv: wp.shippingRealCodes,
       cb_enl: [''],
-      cb_enl_photo: wp.pickupPicture,
+      photo_condition: wp.error.picture,
+      photo_blocage: '',
+      photo_enlevement: wp.pickupPicture,
       observations: wp.comment,
     };
-    await putWaypoint(values);
+
+    return putWaypoint(values);
+
     // Pool.add(values, 'putwaypoint');
     // setTimeout(() => {
     //   Pool.flush();
@@ -343,51 +376,68 @@ const AppContextProvider = ({ children }) => {
   };
 
   // start a new waypoint
-  const startNewWaypoint = async () => {
-    await navigator.geolocation.getCurrentPosition(
-      ({ coords }) => {
-        setAppContextState(state => ({
-          ...state,
-          waypoint: {
-            ...state.waypoint,
-            arrivedAt: Date.now(),
-            realGpsCoord: { long: coords.longitude, lat: coords.latitude },
-          },
-        }));
-        return true;
-      },
-      err => {
-        return false;
-      },
-      {
-        enableHighAccuracy: true,
-        maximumAge: 30 * 1000,
-        timeout: 5 * 60 * 1000,
-      },
-    );
+  const startNewWaypoint = () => {
+    return new Promise((resolve, reject) => {
+      Geolocation.getCurrentPosition(
+        ({ coords }) => {
+          setAppContextState(state => ({
+            ...state,
+            waypoint: {
+              ...state.waypoint,
+              arrivedAt: Date.now(),
+              realGpsCoord: { long: coords.longitude, lat: coords.latitude },
+            },
+          }));
+          resolve(true);
+        },
+        err => {
+          setAppContextState(state => ({
+            ...state,
+            waypoint: {
+              ...state.waypoint,
+              arrivedAt: Date.now(),
+              realGpsCoord: { long: 0, lat: 0 },
+            },
+          }));
+          return true;
+        },
+        {
+          enableHighAccuracy: true,
+          maximumAge: 30 * 1000,
+          timeout: 5 * 60 * 1000,
+        },
+      );
+    });
   };
 
   // Mark the waypoint has ended and send it to server
   const endWaypoint = comment => {
-    setAppContextState(state => {
-      const newWaypointCollection = [...state.waypointCollection];
-      newWaypointCollection[waypoint.index].done = true;
-      const newWaypoint = {
-        ...state.waypoint,
-        comment,
-        finishedAt: Date.now(),
-        done: true,
-      };
-
-      sendWaypointToServer(newWaypoint);
-
-      const newOne = {
-        ...state,
-        waypointCollection: newWaypointCollection,
-        waypoint: newWaypoint,
-      };
-      save(newOne);
-      return newOne;
+    return new Promise((resolve, reject) => {
+      setAppContextState(state => {
+        const newWaypointCollection = [...state.waypointCollection];
+        newWaypointCollection[waypoint.index].done = true;
+        const newWaypoint = {
+          ...state.waypoint,
+          comment,
+          finishedAt: Date.now(),
+          done: true,
+        };
+        sendWaypointToServer(newWaypoint)
+          .then(ret => {
+            console.warn('RET', ret);
+            const newOne = {
+              ...state,
+              waypointCollection: newWaypointCollection,
+              waypoint: newWaypoint,
+            };
+            save(newOne);
+            resolve(newOne);
+          })
+          .catch(err => {
+            console.warn('ERR', err);
+            reject(err);
+          });
+      });
     });
   };
 
@@ -424,20 +474,25 @@ const AppContextProvider = ({ children }) => {
    */
   useEffect(() => {
     const useEffectAsync = async s => {
-      if (s && s.id > 0) {
-        const value = await getWaypointDatas(s.id);
-        if (value) {
-          setAppContextState(state => {
-            return {
-              ...state,
-              waypointCollection: value,
-              waypoint:
-                state.waypointCollection.length === 0
-                  ? getWaypointFromArray(value[0], 0)
-                  : getWaypointFromArray(value[forceWaypointIndex], forceWaypointIndex),
-            };
-          });
+      try {
+        if (s && s.id > 0) {
+          const value = await getWaypointDatas(s.id);
+          if (value) {
+            setAppContextState(state => {
+              return {
+                ...state,
+                waypointCollection: value,
+                waypoint:
+                  state.waypointCollection.length === 0
+                    ? getWaypointFromArray(value[0], 0)
+                    : getWaypointFromArray(value[forceWaypointIndex], forceWaypointIndex),
+              };
+            });
+          }
         }
+      } catch (err) {
+        console.warn(err);
+        Alert.alert('Impossible de construire la tournée !');
       }
     };
 
@@ -449,11 +504,16 @@ const AppContextProvider = ({ children }) => {
    */
   useEffect(() => {
     const useEffectAsync = async v => {
-      if (v && v.length > 0) {
-        setAppContextState(state => ({
-          ...state,
-          waypointList: getWaypointList(v),
-        }));
+      try {
+        if (v && v.length > 0) {
+          setAppContextState(state => ({
+            ...state,
+            waypointList: getWaypointList(v),
+          }));
+        }
+      } catch (err) {
+        console.warn(err);
+        Alert.alert('Impossible de reconstruire la tournée !');
       }
     };
 
@@ -470,7 +530,7 @@ const AppContextProvider = ({ children }) => {
   };
 
   // store in local storage some datas that should be sent away
-  const storeClue = async ({ condition, picture }) => {
+  const storeClue = ({ condition, picture }) => {
     setAppContextState(state => ({
       ...state,
       waypoint: {
@@ -529,7 +589,7 @@ const AppContextProvider = ({ children }) => {
   // make a call to all managers, only managed by the backoffice
   const contactAllManagers = () => {
     return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
+      Geolocation.getCurrentPosition(
         ({ coords }) => {
           putSos({
             bordereau_id: slip.id,
@@ -549,7 +609,7 @@ const AppContextProvider = ({ children }) => {
         {
           enableHighAccuracy: true,
           maximumAge: 30 * 1000,
-          timeout: 5 * 60 * 1000,
+          timeout: 5000,
         },
       );
     });

@@ -74,9 +74,9 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
       {({ waypoint }) => (
         <CWaypointTemplate
           small
+          noAddress
           greyContent={
             <View>
-              <CSep />
               <CInfo>
                 Scannez le code barre{` `}
                 {waypoint.waypointCodes.length > 1 &&

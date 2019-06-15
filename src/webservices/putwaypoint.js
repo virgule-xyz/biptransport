@@ -23,6 +23,9 @@ const putWaypoint = ({
   cb_liv,
   cb_enl,
   observations,
+  photo_condition,
+  photo_blocage,
+  photo_enlevement,
 }) => {
   if (isTest()) {
     return new Promise((resolve, reject) => {
@@ -48,6 +51,9 @@ const putWaypoint = ({
       cb_liv,
       cb_enl,
       observations,
+      photo_condition,
+      photo_blocage,
+      photo_enlevement,
     },
   });
 };

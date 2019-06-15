@@ -17,7 +17,13 @@ import { splashname } from '../../package';
 /**
  * The shell of all the screen
  */
-const CWaypointTemplate = ({ children, navigation, small = false, greyContent = null }) => {
+const CWaypointTemplate = ({
+  children,
+  navigation,
+  small = false,
+  greyContent = null,
+  noAddress = false,
+}) => {
   // manage the context
   const appContext = useContext(AppContext);
 
@@ -28,7 +34,7 @@ const CWaypointTemplate = ({ children, navigation, small = false, greyContent = 
         Alert.alert("Un message vient d'être envoyé à vos responsables");
       })
       .catch(err => {
-        Alert.alert(`Une erreur s'est produite : ${err}`);
+        Alert.alert(`Une erreur s'est produite : ${err.message}`);
       });
   };
 
@@ -91,13 +97,15 @@ const CWaypointTemplate = ({ children, navigation, small = false, greyContent = 
                       backgroundColor: COLORS.GREY,
                     }}
                   >
-                    <CWaypointAddress
-                      small={small}
-                      testID="ID_WPDASHBOARD_ADDRESS"
-                      name={waypoint.name}
-                      address={waypoint.address}
-                      all
-                    />
+                    {!noAddress && (
+                      <CWaypointAddress
+                        small={small}
+                        testID="ID_WPDASHBOARD_ADDRESS"
+                        name={waypoint.name}
+                        address={waypoint.address}
+                        all
+                      />
+                    )}
                     <View>{greyContent}</View>
                   </View>
                 </View>
@@ -111,22 +119,24 @@ const CWaypointTemplate = ({ children, navigation, small = false, greyContent = 
                   <CTitle testID="ID_WPDASHBOARD_TITLE">{`Point de passage ${waypoint.index + 1}/${
                     waypointCollection.length
                   }`}</CTitle>
-                  <View
-                    style={{
-                      width: '100%',
-                      paddingVertical: '4%',
-                      paddingHorizontal: '2%',
-                      backgroundColor: COLORS.GREY,
-                    }}
-                  >
-                    <CWaypointAddress
-                      small={small}
-                      testID="ID_WPDASHBOARD_ADDRESS"
-                      name={waypoint.name}
-                      address={waypoint.address}
-                      all
-                    />
-                  </View>
+                  {!noAddress && (
+                    <View
+                      style={{
+                        width: '100%',
+                        paddingVertical: '4%',
+                        paddingHorizontal: '2%',
+                        backgroundColor: COLORS.GREY,
+                      }}
+                    >
+                      <CWaypointAddress
+                        small={small}
+                        testID="ID_WPDASHBOARD_ADDRESS"
+                        name={waypoint.name}
+                        address={waypoint.address}
+                        all
+                      />
+                    </View>
+                  )}
                 </View>
               )}
               {children}

@@ -15,32 +15,38 @@ const ScreenSplash = ({ navigation }) => {
   const appContext = useContext(AppContext);
 
   // test if it is needed to load the previous context
-  const onPressContinue = async () => {
-    const needScans = await appContext.needDriverScan();
-    if (needScans) navigation.navigate(NAVS.start.next);
-    else {
-      Alert.alert(
-        'BIP Transport',
-        'Reprendre votre tournée ?',
-        [
-          {
-            text: 'Oui',
-            onPress: async () => {
-              await appContext.load();
-              navigation.navigate(NAVS.wpdashboard.current);
-            },
-          },
-          {
-            text: 'Non',
-            onPress: async () => {
-              await appContext.clear();
-              navigation.navigate(NAVS.start.next);
-            },
-          },
-        ],
-        { cancelable: false },
-      );
-    }
+  const onPressContinue = () => {
+    appContext
+      .needDriverScan()
+      .then(needScans => {
+        if (needScans) navigation.navigate(NAVS.start.next);
+        else {
+          Alert.alert(
+            'BIP Transport',
+            'Reprendre votre tournée ?',
+            [
+              {
+                text: 'Oui',
+                onPress: async () => {
+                  await appContext.load();
+                  navigation.navigate(NAVS.wpdashboard.current);
+                },
+              },
+              {
+                text: 'Non',
+                onPress: async () => {
+                  await appContext.clear();
+                  navigation.navigate(NAVS.start.next);
+                },
+              },
+            ],
+            { cancelable: false },
+          );
+        }
+      })
+      .catch(err => {
+        Alert.alert(err.message);
+      });
   };
 
   // Do nothing

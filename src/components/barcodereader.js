@@ -6,7 +6,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Dimensions, View } from 'react-native';
+import { Dimensions, View, ScrollView } from 'react-native';
 import { CButton, CSpace, CSpinner, COLORS } from '@components';
 import { RNCamera } from 'react-native-camera';
 import Dialog from 'react-native-dialog';
@@ -105,6 +105,7 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
       <View
         style={{
           flex: 0,
+          overflow: 'hidden',
           alignItems: 'center',
           justifyContent: 'flex-start',
         }}

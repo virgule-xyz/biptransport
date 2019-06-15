@@ -108,9 +108,22 @@ export const ConditionShape = {
   photo: bool,
 };
 
-export const ClueShape = {
-  waypointid: number,
-  datetime: number,
-  condition: ConditionShape,
-  picture: string,
+export const PassageShape = {
+  num: number,
+  bordereau_id: oneOfType([string, number]),
+  chauffeur_id: oneOfType([string, number]),
+  vehicule_id: oneOfType([string, number]),
+  dt1: number,
+  dt2: number,
+  lat: number,
+  lng: number,
+  erreur: number,
+  nb_liv: number,
+  nb_enl: number,
+  cb_liv: arrayOf(BarcodeShape),
+  cb_enl: arrayOf(BarcodeShape),
+  observations: string,
+  photo_condition: string,
+  photo_blocage: string,
+  photo_enlevement: string,
 };

@@ -44,12 +44,14 @@ const CCamera = ({ onTakePicture, testID, ...props }) => {
   };
 
   return (
+    <View>
     <RNCamera
       captureAudio={false}
       style={[
         {
           height: H,
           width: W,
+          overflow: 'hidden',
           flex: 0,
           alignItems: 'center',
           justifyContent: 'center',
@@ -141,7 +143,7 @@ const CCamera = ({ onTakePicture, testID, ...props }) => {
           </View>
         );
       }}
-    </RNCamera>
+    </RNCamera></View>
   );
 };
 
