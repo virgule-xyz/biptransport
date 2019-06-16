@@ -45,7 +45,8 @@ const ScreenSplash = ({ navigation }) => {
         }
       })
       .catch(err => {
-        Alert.alert(err.message);
+        appContext.clear();
+        navigation.navigate(NAVS.start.next);
       });
   };
 

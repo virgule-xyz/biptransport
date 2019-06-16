@@ -33,7 +33,7 @@ const CContent = ({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
+    backgroundColor: 'white',
   };
 
   if (center)
@@ -42,7 +42,7 @@ const CContent = ({
       height: '100%',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'yellow',
+      backgroundColor: 'white',
     };
   if (top)
     ccStyle = {
@@ -50,13 +50,13 @@ const CContent = ({
       height: '100%',
       justifyContent: 'center',
       alignItems: 'flex-start',
-      backgroundColor: 'red',
+      backgroundColor: 'white',
     };
   if (stretch)
     ccStyle = {
       flex: 1,
       justifyContent: 'space-between',
-      backgroundColor: 'grey',
+      backgroundColor: 'white',
     };
 
   return (

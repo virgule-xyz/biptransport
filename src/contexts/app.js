@@ -92,7 +92,8 @@ const AppContextProvider = ({ children }) => {
       AsyncStorage.getItem(STORAGE_NAME)
         .then(rawValues => {
           const values = JSON.parse(rawValues);
-          resolve(values);
+          if (values && values.datas) resolve(values.datas);
+          else reject(new Error('Pas de données !'));
         })
         .catch(err => {
           reject(err);
@@ -105,6 +106,7 @@ const AppContextProvider = ({ children }) => {
     return new Promise((resolve, reject) => {
       read()
         .then(values => {
+          if (!values) resolve(true);
           if (values.datas === null || Date.now() - values.date > 1000 * 60 * 60 * 4) resolve(true);
           else resolve(false);
         })
@@ -192,7 +194,7 @@ const AppContextProvider = ({ children }) => {
           resolve(false);
         })
         .catch(err => {
-          reject(err);
+          resolve(false);
         });
     });
   };
@@ -531,13 +533,16 @@ const AppContextProvider = ({ children }) => {
 
   // store in local storage some datas that should be sent away
   const storeClue = ({ condition, picture }) => {
-    setAppContextState(state => ({
-      ...state,
-      waypoint: {
-        ...state.waypoint,
-        error: { code: condition.id, picture },
-      },
-    }));
+    return new Promise((resolve, reject) => {
+      setAppContextState(state => ({
+        ...state,
+        waypoint: {
+          ...state.waypoint,
+          error: { code: condition.id, picture },
+        },
+      }));
+      resolve();
+    });
   };
 
   // test if the current waypoint barcode index is the last ?

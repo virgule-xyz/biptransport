@@ -3,7 +3,6 @@ import { Alert, View, Linking } from 'react-native';
 import { CSpace, CContent, CButton, CSpinner } from '@components';
 import { Grid, Row, Col } from 'native-base';
 import { AppContext } from '@contexts';
-import { NAVS } from '@screens';
 import { splashname } from '../../package';
 
 /**
@@ -49,34 +48,47 @@ const ScreenManagers = ({ navigation }) => {
     <CContent title="Vos responsables" fullscreen pressBackHome={onPressBackHome}>
       <AppContext.Consumer>
         {({ managerCollection }) => (
-          <Grid>
-            <Col>
-              {managerCollection.length > 0 &&
-                managerCollection.map(manager => (
-                  <View key={manager.id}>
-                    <CButton
-                      testID={`ID_MANAGER_CALL_${manager.id}`}
-                      light
-                      full
-                      label={manager.nom}
-                      onPress={() => onPressManager(manager)}
-                    />
-                    <CSpace n={0.1} />
-                  </View>
-                ))}
-              {managerCollection.length === 0 && (
-                <>
-                  <CSpace n={2} />
-                  <CSpinner />
-                </>
-              )}
-              <CSpace flex />
+          <Grid style={{ justifyContent: 'flex-end', width: '100%' }}>
+            <Col style={{ flex: 1 }}>
+              <Row
+                style={{
+                  backgroundColor: 'yellow',
+                }}
+              >
+                <Col style={{ flex: 1 }}>
+                  {managerCollection.length > 0 &&
+                    managerCollection.map(manager => (
+                      <View key={manager.id}>
+                        <CButton
+                          testID={`ID_MANAGER_CALL_${manager.id}`}
+                          light
+                          full
+                          label={manager.nom}
+                          onPress={() => onPressManager(manager)}
+                        />
+                        <CSpace n={0.1} />
+                      </View>
+                    ))}
+                  {managerCollection.length === 0 && (
+                    <>
+                      <CSpace n={2} />
+                      <CSpinner />
+                    </>
+                  )}
+                  <CSpace flex />
+                </Col>
+              </Row>
+              <Row style={{ flex: 0 }}>
+                <Col>
+                  <CButton
+                    full
+                    label="Retour"
+                    onPress={onPressClose}
+                    testID="ID_MANAGERS_CLOSE_SCREEN"
+                  />
+                </Col>
+              </Row>
             </Col>
-            <Row style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
-              <CButton label="Retour" onPress={onPressClose} testID="ID_MANAGERS_CLOSE_SCREEN">
-                Fermer
-              </CButton>
-            </Row>
           </Grid>
         )}
       </AppContext.Consumer>

@@ -1,3 +1,7 @@
+## 0.30.0
+
+- Retest E2E due to some deep changement
+
 ## 0.29.0
 
 - FIX: array of real codes
