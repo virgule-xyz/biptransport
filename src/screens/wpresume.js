@@ -96,6 +96,7 @@ const ScreenWaypointResume = ({ navigation }) => {
           >
             <View style={{ flex: 1 }}>
               <CTextInput
+                testID="ID_MAKE_COMMENT"
                 onChange={onChangeComment}
                 label="Laissez un commentaire concernant ce passage :"
               />

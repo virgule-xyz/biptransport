@@ -45,7 +45,7 @@ describe('Scene Change GSM Number', () => {
 
   it('Should display the GSM number and allow to change it', async () => {
     await expect(element(by.id('ID_GSMCONFIRM_INPUT'))).toHaveText(TOUR_SAMPLE.chauffeur_portable);
-    await element(by.id('ID_GSMCONFIRM_INPUT')).replaceText('06 46 53 76 11');
+    await element(by.id('ID_GSMCONFIRM_INPUT')).replaceText('06 46 53 76 10');
     await element(by.id('ID_GSMCONFIRM_OK')).tap();
   });
 
@@ -73,7 +73,7 @@ describe('Scene Change GSM Number', () => {
   });
 
   it('Should display the GSM number and allow to change it', async () => {
-    await expect(element(by.id('ID_GSMCONFIRM_INPUT'))).toHaveText('06 46 53 76 11');
+    await expect(element(by.id('ID_GSMCONFIRM_INPUT'))).toHaveText(TOUR_SAMPLE.chauffeur_portable);
     await element(by.id('ID_GSMCONFIRM_INPUT')).replaceText(TOUR_SAMPLE.chauffeur_portable);
     await element(by.id('ID_GSMCONFIRM_OK')).tap();
   });

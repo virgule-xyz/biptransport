@@ -36,19 +36,20 @@ const ScreenWaypointGalery = ({ show, datas, name, address, onClose }) => {
       </CGreyBox> */}
       <ScrollView maximumZoomScale={5}>
         <Grid>
-          {datas.map(pict => (
-            <Row>
-              <Col>
-                <CSep />
-                <CImage
-                  image={pict.file}
-                  width="100%"
-                  height={height * 0.33}
-                  resizeMode="contain"
-                />
-              </Col>
-            </Row>
-          ))}
+          {datas &&
+            datas.map(pict => (
+              <Row>
+                <Col>
+                  <CSep />
+                  <CImage
+                    image={pict.file}
+                    width="100%"
+                    height={height * 0.33}
+                    resizeMode="contain"
+                  />
+                </Col>
+              </Row>
+            ))}
         </Grid>
       </ScrollView>
       <CSpace />

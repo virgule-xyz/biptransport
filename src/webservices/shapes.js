@@ -21,6 +21,7 @@ export const AttachmentShape = {
 // A tour command
 export const CommandShape = {
   id: oneOfType([string, number]),
+  status: string,
   id_ord: string,
   id_pnt: oneOfType([string, number]),
   cab_pnt: arrayOf(BarcodeShape),
@@ -56,7 +57,7 @@ export const COMMANDS_SAMPLE_ERROR = {
 export const WaypointListShape = {
   key: number,
   id: number,
-  done: bool,
+  status: string,
   name: string,
   city: string,
   ord: string,

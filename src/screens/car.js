@@ -44,6 +44,7 @@ const ScreenCar = ({ navigation }) => {
     setShowCarConfirm(false);
     setTimeout(() => {
       appContext.save();
+      // TODO: appContext.selectWaypointByIndex(appContext.firstWaypointIndexNotDone());
       navigation.navigate(NAVS.car.next);
     }, 500);
   };

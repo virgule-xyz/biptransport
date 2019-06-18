@@ -50,11 +50,7 @@ const ScreenManagers = ({ navigation }) => {
         {({ managerCollection }) => (
           <Grid style={{ justifyContent: 'flex-end', width: '100%' }}>
             <Col style={{ flex: 1 }}>
-              <Row
-                style={{
-                  backgroundColor: 'yellow',
-                }}
-              >
+              <Row>
                 <Col style={{ flex: 1 }}>
                   {managerCollection.length > 0 &&
                     managerCollection.map(manager => (

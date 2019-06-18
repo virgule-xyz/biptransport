@@ -16,11 +16,11 @@ import PropTypes from 'prop-types';
  * Provide the onChange to get the text entered
  * Flag success or error to display corresponding state
  */
-const CTextInput = ({ label, onChange }) => {
+const CTextInput = ({ label, onChange, ...props }) => {
   return (
     <View style={{ padding: DEFAULT_FONT_SIZE }}>
       <Label>{label}</Label>
-      <Textarea rowSpan={5} bordered onChangeText={onChange} />
+      <Textarea rowSpan={5} bordered onChangeText={onChange} testID={props.testID} />
     </View>
   );
 };

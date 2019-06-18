@@ -12,6 +12,6 @@ import { COLORS } from '@components';
 /**
  * Just a wrapper around a Native Base spinner
  */
-const CSpinner = () => <Spinner color={COLORS.SPINNER} />;
+const CSpinner = props => <Spinner color={COLORS.SPINNER} {...props} />;
 
 export default CSpinner;

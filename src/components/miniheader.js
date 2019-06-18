@@ -17,6 +17,7 @@ import { LOGO } from '@medias';
  * Expliquer ce que fait le composant et comment utiliser les props
  */
 const CMiniHeader = ({ numero, dateString, name, pressCallManagers, pressRescueButton }) => {
+  const rescueButton = <CRescueButton onPress={pressRescueButton} />;
   return (
     <Header style={{ backgroundColor: COLORS.BACKGROUND, height: DEFAULT_FONT_SIZE * 7 }}>
       <Body>
@@ -28,9 +29,7 @@ const CMiniHeader = ({ numero, dateString, name, pressCallManagers, pressRescueB
           </Col>
           <Col>
             <Row>
-              <Col style={{ justifyContent: 'center', alignItems: 'flex-end' }}>
-                <CRescueButton onPress={pressRescueButton} />
-              </Col>
+              <Col style={{ justifyContent: 'center', alignItems: 'flex-end' }}>{rescueButton}</Col>
               <Col style={{ justifyContent: 'center', alignItems: 'flex-end' }}>
                 <CText
                   style={{
