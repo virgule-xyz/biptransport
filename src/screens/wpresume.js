@@ -15,6 +15,7 @@ import {
   CTextInput,
   CSpace,
   CButton,
+  FrontColorsByNumber,
   ColorsByNumber,
 } from '@components';
 import { AppContext } from '@contexts';
@@ -87,7 +88,13 @@ const ScreenWaypointResume = ({ navigation }) => {
                   colorShip={ColorsByNumber(
                     Math.abs(waypoint.shippingCount - waypoint.shippingRealCodes.length),
                   )}
+                  frontColorShip={FrontColorsByNumber(
+                    Math.abs(waypoint.shippingCount - waypoint.shippingRealCodes.length),
+                  )}
                   colorPick={ColorsByNumber(
+                    Math.abs(waypoint.pickupCount - waypoint.pickupRealCount),
+                  )}
+                  frontColorPick={FrontColorsByNumber(
                     Math.abs(waypoint.pickupCount - waypoint.pickupRealCount),
                   )}
                 />

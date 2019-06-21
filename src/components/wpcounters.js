@@ -11,6 +11,8 @@ const CWaypointCounters = ({
   pickup,
   colorShip = COLORS.PRIMARY,
   colorPick = COLORS.PRIMARY,
+  frontColorShip = COLORS.PRIMARY,
+  frontColorPick = COLORS.PRIMARY,
   ...props
 }) => {
   return (
@@ -35,7 +37,9 @@ const CWaypointCounters = ({
         }}
       >
         <CText>Livraisons</CText>
-        <CBadge color={colorShip}>{shipping}</CBadge>
+        <CBadge color={colorShip} front={frontColorShip}>
+          {shipping}
+        </CBadge>
       </View>
       <View
         style={{
@@ -47,7 +51,9 @@ const CWaypointCounters = ({
         }}
       >
         <CText>Enlèvements</CText>
-        <CBadge color={colorPick}>{pickup}</CBadge>
+        <CBadge color={colorPick} front={frontColorPick}>
+          {pickup}
+        </CBadge>
       </View>
     </View>
   );
@@ -58,11 +64,13 @@ CWaypointCounters.propTypes = {
   pickup: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   colorShip: PropTypes.string.isRequired,
   colorPick: PropTypes.string.isRequired,
+  frontColorShip: PropTypes.string,
+  frontColorPick: PropTypes.string,
 };
 
-// CWaypointCounters.defaultProps = {
-//   colorShip: '',
-//   colorPick: '',
-// };
+CWaypointCounters.defaultProps = {
+  frontColorShip: '#fff',
+  frontColorPick: '#fff',
+};
 
 export default CWaypointCounters;

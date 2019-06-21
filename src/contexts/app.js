@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
 import openMap from 'react-native-open-maps';
-import Geolocation from 'react-native-geolocation-service';
 import AsyncStorage from '@react-native-community/async-storage';
 import {
   getCommands,
@@ -22,6 +21,7 @@ import { name } from '../../package';
  * This context allows for the management of all crossing points and associated actions
  */
 const defaultAppState = {
+  rescueIsSearching: false,
   car: { id: '', immat: '', alert: '' },
   clues: [],
   conditionCollection: [],
@@ -37,6 +37,7 @@ const defaultAppState = {
     address: '',
     arrivedAt: 0,
     comment: '',
+    status: '0',
     done: false,
     error: { code: 0, picture: '' },
     finishedAt: 0,
@@ -52,7 +53,7 @@ const defaultAppState = {
     shippingCodeIndex: 0,
     shippingCodes: [],
     shippingCount: 0,
-    shippingRealCodes: [''],
+    shippingRealCodes: [],
     waypointCodeIndex: 0,
     waypointCodes: [],
   },
@@ -74,6 +75,7 @@ const AppContextProvider = ({ children }) => {
 
   // Car, Driver and Waypoints
   const {
+    rescueIsSearching,
     car,
     clues,
     conditionCollection,
@@ -86,6 +88,18 @@ const AppContextProvider = ({ children }) => {
     waypointCollection,
     waypointList,
   } = appContextState;
+
+  const firstWaypointIndexNotDone = origin => {
+    const from = origin || waypointCollection;
+    const firstIndex = from.findIndex(wp => wp.status === '0');
+    return firstIndex;
+  };
+
+  const firstWaypointNotDone = origin => {
+    const from = origin || waypointCollection;
+    const firstIndex = firstWaypointIndexNotDone(from);
+    return firstIndex >= 0 && from ? from[firstIndex] : from[0];
+  };
 
   const read = () => {
     return new Promise((resolve, reject) => {
@@ -133,6 +147,7 @@ const AppContextProvider = ({ children }) => {
     arrivedAt: 0,
     comment: '',
     done: command.done,
+    status: command.status,
     error: { code: 0, picture: '' },
     finishedAt: 0,
     gpsCoords: {
@@ -150,7 +165,7 @@ const AppContextProvider = ({ children }) => {
     shippingCodeIndex: 0,
     shippingCodes: command.cab_liv,
     shippingCount: command.nbr_liv,
-    shippingRealCodes: [''],
+    shippingRealCodes: [],
     waypointCodeIndex: 0,
     waypointCodes: command.cab_pnt,
   });
@@ -162,6 +177,7 @@ const AppContextProvider = ({ children }) => {
           key: index,
           id: item.id,
           done: item.done,
+          status: item.status,
           name: item.pnt_nom,
           city: `${item.pnt_cp} ${item.pnt_ville}`,
           ord: item.ord_nom,
@@ -178,7 +194,7 @@ const AppContextProvider = ({ children }) => {
       read()
         .then(datas => {
           if (datas && datas.waypointCollection) {
-            const firstIndex = datas.waypointCollection.findIndex(wp => !wp.done);
+            const firstIndex = firstWaypointIndexNotDone(datas.waypointCollection);
             setAppContextState(state => ({
               ...state,
               ...datas,
@@ -295,14 +311,14 @@ const AppContextProvider = ({ children }) => {
         .then(value => {
           setAppContextState(state => ({
             ...state,
-            forceWaypointIndex: 0,
+            forceWaypointIndex: 0, // firstWaypointIndexNotDone(value && value.commandes),
             waypointList: [],
             conditionCollection: (value && value.problemes) || [],
             tourManager: (value && value.tournee) || { nom: '', rel: '' },
             managerCollection: (value && value.responsables) || [],
             waypointCollection:
               (value && value.commandes.map(wp => ({ ...wp, done: false }))) || [],
-            waypoint: getWaypointFromArray(value.commandes[0], 0),
+            waypoint: getWaypointFromArray(value.commandes[0], 0), // firstWaypointNotDone(value && value.commandes), // getWaypointFromArray(value.commandes[firstIndex], firstIndex),
           }));
           resolve(value.commandes);
         })
@@ -349,110 +365,92 @@ const AppContextProvider = ({ children }) => {
 
   // send the waypoint datas to the server
   const sendWaypointToServer = wp => {
-    const values = {
-      num: wp.id,
-      bordereau_id: slip.id,
-      chauffeur_id: driver.id,
-      vehicule_id: car.id,
-      dt1: wp.arrivedAt,
-      dt2: wp.finishedAt,
-      lat: wp.realGpsCoord.lat,
-      lng: wp.realGpsCoord.long,
-      erreur: wp.error.code,
-      nb_liv: wp.shippingRealCodes.length,
-      nb_enl: wp.pickupRealCount,
-      cb_liv: wp.shippingRealCodes,
-      cb_enl: [''],
-      photo_condition: wp.error.picture,
-      photo_blocage: '',
-      photo_enlevement: wp.pickupPicture,
-      observations: wp.comment,
-    };
+    return new Promise((resolve, reject) => {
+      const values = {
+        num: wp.id,
+        bordereau_id: slip.id,
+        chauffeur_id: driver.id,
+        vehicule_id: car.id,
+        dt1: wp.arrivedAt,
+        dt2: wp.finishedAt,
+        lat: wp.realGpsCoord.lat,
+        lng: wp.realGpsCoord.long,
+        erreur: wp.error.code,
+        nb_liv: wp.shippingRealCodes.length,
+        nb_enl: wp.pickupRealCount,
+        cb_liv: wp.shippingRealCodes,
+        cb_enl: [''],
+        photo_condition: wp.error.picture,
+        photo_blocage: '',
+        photo_enlevement: wp.pickupPicture,
+        observations: wp.comment,
+      };
 
-    return putWaypoint(values);
-
-    // Pool.add(values, 'putwaypoint');
-    // setTimeout(() => {
-    //   Pool.flush();
-    // }, 500);
+      Pool.add(values, 'putwaypoint')
+        .then(() => {
+          putWaypoint(values);
+          setTimeout(() => {
+            Pool.flush();
+          }, 25);
+          resolve();
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
   };
 
   // start a new waypoint
   const startNewWaypoint = () => {
     return new Promise((resolve, reject) => {
-      Geolocation.getCurrentPosition(
-        ({ coords }) => {
-          setAppContextState(state => ({
-            ...state,
-            waypoint: {
-              ...state.waypoint,
-              arrivedAt: Date.now(),
-              realGpsCoord: { long: coords.longitude, lat: coords.latitude },
-            },
-          }));
-          resolve(true);
+      setAppContextState(state => ({
+        ...state,
+        waypoint: {
+          ...state.waypoint,
+          arrivedAt: Date.now(),
+          realGpsCoord: { long: 0, lat: 0 },
         },
-        err => {
-          setAppContextState(state => ({
-            ...state,
-            waypoint: {
-              ...state.waypoint,
-              arrivedAt: Date.now(),
-              realGpsCoord: { long: 0, lat: 0 },
-            },
-          }));
-          return true;
-        },
-        {
-          enableHighAccuracy: true,
-          maximumAge: 30 * 1000,
-          timeout: 5 * 60 * 1000,
-        },
-      );
+      }));
+      resolve(true);
     });
   };
 
   // Mark the waypoint has ended and send it to server
   const endWaypoint = comment => {
     return new Promise((resolve, reject) => {
-      setAppContextState(state => {
-        const newWaypointCollection = [...state.waypointCollection];
-        newWaypointCollection[waypoint.index].done = true;
-        const newWaypoint = {
-          ...state.waypoint,
-          comment,
-          finishedAt: Date.now(),
-          done: true,
-        };
-        sendWaypointToServer(newWaypoint)
-          .then(ret => {
-            console.warn('RET', ret);
-            const newOne = {
-              ...state,
-              waypointCollection: newWaypointCollection,
-              waypoint: newWaypoint,
-            };
-            save(newOne);
-            resolve(newOne);
-          })
-          .catch(err => {
-            console.warn('ERR', err);
-            reject(err);
-          });
-      });
-    });
-  };
+      const state = { ...appContextState };
+      const newWaypointCollection = [...state.waypointCollection];
+      newWaypointCollection[waypoint.index].done = true;
+      const newWaypoint = {
+        ...state.waypoint,
+        comment,
+        finishedAt: Date.now(),
+        done: true,
+      };
+      newWaypointCollection[waypoint.index].status = newWaypoint.error ? '2' : '1';
+      const newOne = {
+        ...state,
+        waypointCollection: newWaypointCollection,
+        waypoint: newWaypoint,
+      };
 
-  const firstWaypointIndexNotDone = () => {
-    const firstIndex = waypointCollection.findIndex(wp => !wp.done);
-    return firstIndex;
+      sendWaypointToServer(newWaypoint)
+        .then(ret => {
+          save(newOne);
+          setAppContextState(newOne);
+          resolve(newOne);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
   };
 
   // is there any waypoint to visit
   const needToVisitAnotherWaypoint = () => {
     if (!waypointCollection || waypointCollection.length === 0) return false;
-    const validWaypoints = waypointCollection.filter(wp => !wp.done);
-    return validWaypoints.length > 0;
+    const validWaypoints = firstWaypointIndexNotDone(waypointCollection);
+    return validWaypoints > 0;
   };
 
   // set the current waypoint to the next one
@@ -593,30 +591,27 @@ const AppContextProvider = ({ children }) => {
 
   // make a call to all managers, only managed by the backoffice
   const contactAllManagers = () => {
+    setAppContextState(state => ({ ...state, rescueIsSearching: true }));
+    const makeCallWithCoords = coords => {
+      return putSos({
+        bordereau_id: slip.id,
+        chauffeur_id: driver.id,
+        vehicule_id: car.id,
+        lat: coords ? coords.latitude : 0,
+        lng: coords ? coords.longitude : 0,
+      });
+    };
+
     return new Promise((resolve, reject) => {
-      Geolocation.getCurrentPosition(
-        ({ coords }) => {
-          putSos({
-            bordereau_id: slip.id,
-            chauffeur_id: driver.id,
-            vehicule_id: car.id,
-            lat: coords.latitude,
-            lng: coords.longitude,
-          })
-            .then(() => {
-              resolve();
-            })
-            .catch(err => reject(err));
-        },
-        err => {
-          reject(err);
-        },
-        {
-          enableHighAccuracy: true,
-          maximumAge: 30 * 1000,
-          timeout: 5000,
-        },
-      );
+      makeCallWithCoords(null)
+        .then(() => {
+          setAppContextState(state => ({ ...state, rescueIsSearching: false }));
+          resolve();
+        })
+        .catch(err2 => {
+          setAppContextState(state => ({ ...state, rescueIsSearching: false }));
+          reject(err2);
+        });
     });
   };
 
@@ -646,6 +641,7 @@ const AppContextProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        rescueIsSearching,
         car,
         clues,
         conditionCollection,
@@ -661,6 +657,7 @@ const AppContextProvider = ({ children }) => {
         contactAllManagers,
         endTour,
         endWaypoint,
+        firstWaypointIndexNotDone,
         getCarDatas,
         getDriverDatas,
         getWaypointDatas,

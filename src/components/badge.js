@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 /**
  * Un cercle de couleur avec un chiffre dedans
  */
-const CBadge = ({ color, children }) => {
+const CBadge = ({ color, front, children }) => {
   return (
     <View
       style={{
@@ -27,9 +27,7 @@ const CBadge = ({ color, children }) => {
         marginHorizontal: '2%',
       }}
     >
-      <CText
-        style={{ color: COLORS.WHITE, fontSize: (DEFAULT_FONT_SIZE * 2) / 3, fontWeight: 'bold' }}
-      >
+      <CText style={{ color: front, fontSize: (DEFAULT_FONT_SIZE * 2) / 3, fontWeight: 'bold' }}>
         {children}
       </CText>
     </View>

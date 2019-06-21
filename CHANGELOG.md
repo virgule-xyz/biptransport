@@ -1,6 +1,14 @@
+## 0.31.0
+
+- FIX: Major changes on pool
+- FIX: Colors of fonts on the resume
+- FIX: Remove geolocation and add the done status coming from database to divide waypoint done and those to be done
+
 ## 0.30.0
 
 - Retest E2E due to some deep changement
+- FIX: Call all managers
+- FIX: Rescue call
 
 ## 0.29.0
 

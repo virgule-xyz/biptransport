@@ -68,60 +68,62 @@ const ScreenWaypointDashboard = ({ navigation }) => {
 
   return (
     <AppContext.Consumer>
-      {({ waypoint, waypointList }) => (
-        <CWaypointTemplate
-          greyContent={
-            <View>
-              <CSep />
-              <CText style={{ textAlign: 'center', fontWeight: 'bold' }}>A faire ici :</CText>
-              <CSpace n={0.5} />
-              <CWaypointCounters
-                testID="ID_WPDASHBOARD_COUNTERS"
-                shipping={waypoint.shippingCount}
-                pickup={waypoint.pickupCount}
+      {({ waypoint, waypointList, waypointCollection }) => {
+        return (
+          <CWaypointTemplate
+            greyContent={
+              <View>
+                <CSep />
+                <CText style={{ textAlign: 'center', fontWeight: 'bold' }}>A faire ici :</CText>
+                <CSpace n={0.5} />
+                <CWaypointCounters
+                  testID="ID_WPDASHBOARD_COUNTERS"
+                  shipping={waypoint.shippingCount}
+                  pickup={waypoint.pickupCount}
+                />
+              </View>
+            }
+          >
+            <View style={{ flex: 1 }}>
+              <CSpace />
+              <ScrollView>
+                <CText testID="ID_WPDASHBOARD_DESC">{waypoint.accessDescription}</CText>
+                <CSpace n={2} />
+              </ScrollView>
+              <CSpace />
+              <CWaypointButtons
+                testID="ID_WPDASHBOARD_BUTTONS"
+                pictureCard={waypoint.pictureCollection && waypoint.pictureCollection.length}
+                onPressTravel={onPressTravel}
+                onPressGalery={onPressGalery}
+                onPressBroken={onPressBroken}
+                onPressArrived={onPressArrived}
+              />
+              <CSpace />
+              <CButton
+                danger
+                block
+                testID="ID_WPDASHBOARD_OTHERWP"
+                label="Choisir un autre point de passage"
+                onPress={onPressOtherWaypoint}
               />
             </View>
-          }
-        >
-          <View style={{ flex: 1 }}>
-            <CSpace />
-            <ScrollView>
-              <CText testID="ID_WPDASHBOARD_DESC">{waypoint.accessDescription}</CText>
-              <CSpace n={2} />
-            </ScrollView>
-            <CSpace />
-            <CWaypointButtons
-              testID="ID_WPDASHBOARD_BUTTONS"
-              pictureCard={waypoint.pictureCollection && waypoint.pictureCollection.length}
-              onPressTravel={onPressTravel}
-              onPressGalery={onPressGalery}
-              onPressBroken={onPressBroken}
-              onPressArrived={onPressArrived}
+            <ScreenWaypointCollection
+              show={!!showCollectionState}
+              datas={waypointList}
+              onClose={onCloseScreenWaypointCollection}
+              onSelectWaypoint={onSelectOtherWaypoint}
             />
-            <CSpace />
-            <CButton
-              danger
-              block
-              testID="ID_WPDASHBOARD_OTHERWP"
-              label="Choisir un autre point de passage"
-              onPress={onPressOtherWaypoint}
+            <ScreenWaypointGalery
+              show={!!showGaleryState}
+              datas={waypoint.pictureCollection}
+              name={waypoint.name}
+              address={waypoint.address}
+              onClose={onCloseScreenWaypointGalery}
             />
-          </View>
-          <ScreenWaypointCollection
-            show={!!showCollectionState}
-            datas={waypointList}
-            onClose={onCloseScreenWaypointCollection}
-            onSelectWaypoint={onSelectOtherWaypoint}
-          />
-          <ScreenWaypointGalery
-            show={!!showGaleryState}
-            datas={waypoint.pictureCollection}
-            name={waypoint.name}
-            address={waypoint.address}
-            onClose={onCloseScreenWaypointGalery}
-          />
-        </CWaypointTemplate>
-      )}
+          </CWaypointTemplate>
+        );
+      }}
     </AppContext.Consumer>
   );
 };

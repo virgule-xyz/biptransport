@@ -7,6 +7,9 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import { name } from '../../package';
 
+// TODO: Ne faire qu'un essai, si ça plante alors on envoie plus jusqu'à ce que le mec scan un début de passage
+// TODO: Faire des envois dans les scans de passage
+
 class Pool {
   static DATENAME = `${name}date`;
 
@@ -53,13 +56,31 @@ class Pool {
   };
 
   // use the WS of the datas to send it to the server
-  // return a promise
-  tryToSendDatas = ({ values, sendCallbackId }) => {
-    console.warn('sending -> ', values, sendCallbackId);
+  // return a promise with the values sent has return
+  tryToSendDatas = ({ values, sendCallbackId, tries = 1 }) => {
+    console.warn('sending -> ', values, sendCallbackId, tries);
     if (sendCallbackId && Pool.SENDERS && Pool.SENDERS[sendCallbackId]) {
-      return Pool.SENDERS[sendCallbackId](values);
+      return new Promise((resolve, reject) => {
+        Pool.SENDERS[sendCallbackId](values)
+          .then(ret => {
+            resolve(values);
+          })
+          .catch(err => {
+            if (tries < 3) {
+              setTimeout(() => {
+                this.tryToSendDatas({ values, sendCallbackId, tries: tries + 1 })
+                  .then(values => resolve(values))
+                  .catch(err => {
+                    reject(values);
+                  });
+              }, 5000);
+            } else {
+              reject(values);
+            }
+          });
+      });
     }
-    return new Promise(resolve => resolve(true));
+    return new Promise(reject => reject(values));
   };
 
   // send.. the first one
@@ -68,67 +89,99 @@ class Pool {
       if (this.toSendCollection.length > 0 && !this.isSending) {
         if (!this.isSending) {
           this.isSending = true;
-          this.tryToSendDatas(this.toSendCollection[0])
-            .then(ret => {
-              if (ret) {
-                resolve(true);
-              } else {
-                reject(new Error(ret));
-              }
-            })
-            .catch(err => {
-              console.warn(err);
-              reject(err);
-            });
+          const eltToSend = this.toSendCollection[0];
+          return this.tryToSendDatas(eltToSend);
         }
-      } else reject(new Error('Queue vide'));
+      } else reject(null);
     });
   };
 
   // remove... the first one
-  removeFirstElementOfCollection = () => {
+  removeFirstElementOfCollection = values => {
     return new Promise((resolve, reject) => {
-      const newCollection = [...this.toSendCollection];
-      newCollection.shift();
+      const newCollection = this.toSendCollection.filter(elt => elt.num !== values.num);
       this.isSending = false;
       this.setToSendCollection(newCollection)
         .then(() => {
           resolve(newCollection);
         })
         .catch(e => {
-          reject(e);
+          this.toSendCollection = newCollection;
+          resolve(newCollection);
         });
     });
   };
 
   // send datas on isSendingAllowed changement
-  setIsSendingAllowed = value => {
+  sendCachedData = () => {
     return new Promise((resolve, reject) => {
-      this.isSendingAllowed = value;
-      if (value) {
-        this.sendFirstElementOfCollection()
-          .then(() => {
-            console.warn('ELEMENT SENT');
-            this.removeFirstElementOfCollection()
-              .then(() => {
-                console.warn('TRY ANOTHER');
-                return this.setIsSendingAllowed(true);
-              })
-              .catch(e => {
-                console.warn(e);
-                resolve();
-              });
-          })
-          .catch(e => {
-            this.isSendingAllowed = false;
-            setTimeout(() => {
-              console.warn('RETRY TO SEND', e);
-              return this.setIsSendingAllowed(true);
-            }, 10000);
-            resolve();
-          });
+      if (this.isSendingAllowed) {
+        this.isSendingAllowed = false;
+        this.sendFirstElementOfCollection().then(values => {
+          this.removeFirstElementOfCollection(values)
+            .then(() => {
+              resolve(true);
+            })
+            .catch(() => {
+              reject(1);
+            });
+        });
+      } else {
+        reject(3);
       }
     });
+  };
+
+  changeOrderToSend = () => {
+    return new Promise((resolve, reject) => {
+      if (this.toSendCollection.length < 2) reject();
+      const first = this.toSendCollection[0];
+      const second = this.toSendCollection[1];
+      this.toSendCollection[0] = second;
+      this.toSendCollection[1] = first;
+      resolve();
+    });
+  };
+
+  makeOneFlush = () => {
+    this.isSendingAllowed = true;
+    try {
+      this.sendCachedData()
+        .then(() => {
+          debugger;
+          this.isSendingAllowed = true;
+          this.makeOneFlush();
+        })
+        .catch(err => {
+          debugger;
+          this.isSendingAllowed = false;
+          if (err === 1) this.makeOneFlush();
+          if (err === 2)
+            this.changeOrderToSend()
+              .then(() => {
+                debugger;
+                this.makeOneFlush();
+              })
+              .catch(() => {
+                debugger;
+                try {
+                  this.persistDatas(Pool.INITIAL_COLLECTION);
+                } catch (e) {}
+              });
+        });
+    } catch (e) {
+      this.changeOrderToSend()
+        .then(() => {
+          debugger;
+          this.makeOneFlush();
+        })
+        .catch(() => {
+          debugger;
+          try {
+            this.persistDatas(Pool.INITIAL_COLLECTION);
+          } catch (e) {}
+        });
+    }
   };
 
   // init the pool from the persistent storage
@@ -205,16 +258,14 @@ class Pool {
 
   // start sending datas on server
   static flush() {
-    return new Promise((resolve, reject) => {
-      Pool.get()
-        .then(pool => {
-          pool.setIsSendingAllowed(true);
-          resolve(true);
-        })
-        .catch(err => {
-          reject(err);
-        });
-    });
+    Pool.get()
+      .then(pool => {
+        debugger;
+        pool.makeOneFlush();
+      })
+      .catch(err => {
+        console.warn(err);
+      });
   }
 
   // clear the whole pool

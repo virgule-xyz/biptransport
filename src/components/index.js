@@ -64,3 +64,11 @@ export const ColorsByNumber = num => {
   if (num === 0) return COLORS.GREEN;
   return COLORS.RED;
 };
+
+export const FrontColorsByNumber = num => {
+  if (num > 5) return COLORS.WHITE;
+  if (num > 3) return COLORS.BLACK;
+  if (num > 0) return COLORS.BLACK;
+  if (num === 0) return COLORS.BLACK;
+  return COLORS.WHITE;
+};
