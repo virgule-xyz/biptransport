@@ -465,7 +465,7 @@ const AppContextProvider = ({ children }) => {
 
   // all the waypoint are done so close the day
   const endTour = callback => {
-    // TODO:
+    // TODO: What to do at the end of the day ???
     callback();
   };
 

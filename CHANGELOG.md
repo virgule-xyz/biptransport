@@ -1,3 +1,8 @@
+## 0.32.0
+
+- FIX: The pool ios now well manage
+- FIX: Webservice errors are now returned as an object
+
 ## 0.31.0
 
 - FIX: Major changes on pool

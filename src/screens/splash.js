@@ -29,7 +29,6 @@ const ScreenSplash = ({ navigation }) => {
                 text: 'Oui',
                 onPress: async () => {
                   await appContext.load();
-                  // TODO: appContext.selectWaypointById(appContext.firstWaypointIndexNotDone());
                   navigation.navigate(NAVS.wpdashboard.current);
                 },
               },

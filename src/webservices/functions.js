@@ -26,7 +26,7 @@ const webservice = ({ url, params, postit = false }) => {
         if (status === 200 && data.result === 'OK') {
           resolve(data);
         } else {
-          reject((data.error && data.error) || data);
+          reject(data);
         }
       })
       .catch(err => {

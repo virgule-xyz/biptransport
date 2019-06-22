@@ -14,25 +14,24 @@ class Pool {
   static DATENAME = `${name}date`;
 
   // set the last time it was used
-  timestamp = () => {
-    return new Promise((resolve, reject) => {
-      AsyncStorage.setItem(Pool.DATENAME, Date.now())
-        .then(() => resolve())
-        .catch(err => reject(err));
-    });
-  };
+  // timestamp = () => {
+  //   return new Promise((resolve, reject) => {
+  //     AsyncStorage.setItem(Pool.DATENAME, Date.now())
+  //       .then(() => resolve())
+  //       .catch(err => reject(err));
+  //   });
+  // };
 
   // save all datas in a local storage, file or other
   // return a promise
   persistDatas = collection => {
     return new Promise((resolve, reject) => {
-      this.timestamp()
-        .then(() => {
-          AsyncStorage.setItem(name, JSON.stringify(collection)).then(() => resolve());
-        })
-        .catch(err => {
-          reject(err);
-        });
+      try {
+        AsyncStorage.setItem(Pool.DATENAME, Date.now());
+        AsyncStorage.setItem(name, JSON.stringify(collection)).then(() => resolve(collection));
+      } catch (e) {
+        reject(e);
+      }
     });
   };
 
@@ -61,23 +60,19 @@ class Pool {
     console.warn('sending -> ', values, sendCallbackId, tries);
     if (sendCallbackId && Pool.SENDERS && Pool.SENDERS[sendCallbackId]) {
       return new Promise((resolve, reject) => {
-        Pool.SENDERS[sendCallbackId](values)
-          .then(ret => {
-            resolve(values);
-          })
-          .catch(err => {
-            if (tries < 3) {
-              setTimeout(() => {
-                this.tryToSendDatas({ values, sendCallbackId, tries: tries + 1 })
-                  .then(values => resolve(values))
-                  .catch(err => {
-                    reject(values);
-                  });
-              }, 5000);
-            } else {
-              reject(values);
-            }
-          });
+        try {
+          Pool.SENDERS[sendCallbackId](values)
+            .then(v => {
+              resolve(values);
+            })
+            .catch(err => {
+              if (err.err_no === 130) {
+                resolve(values);
+              } else reject(values);
+            });
+        } catch (e) {
+          reject(values);
+        }
       });
     }
     return new Promise(reject => reject(values));
@@ -85,27 +80,30 @@ class Pool {
 
   // send.. the first one
   sendFirstElementOfCollection = () => {
-    return new Promise((resolve, reject) => {
-      if (this.toSendCollection.length > 0 && !this.isSending) {
-        if (!this.isSending) {
-          this.isSending = true;
-          const eltToSend = this.toSendCollection[0];
-          return this.tryToSendDatas(eltToSend);
-        }
-      } else reject(null);
-    });
+    if (this.toSendCollection.length > 0 && !this.isSending) {
+      if (!this.isSending) {
+        this.isSending = true;
+        const eltToSend = this.toSendCollection[0];
+        return this.tryToSendDatas(eltToSend);
+      }
+    }
+    return new Promise(reject =>
+      reject(new Error({ code: 99, message: 'Plus aucun élément dans le cache' })),
+    );
   };
 
   // remove... the first one
   removeFirstElementOfCollection = values => {
-    return new Promise((resolve, reject) => {
-      const newCollection = this.toSendCollection.filter(elt => elt.num !== values.num);
+    return new Promise(resolve => {
+      const newCollection = values
+        ? this.toSendCollection.filter(elt => elt.values.num !== values.num)
+        : this.toSendCollection.shift();
       this.isSending = false;
       this.setToSendCollection(newCollection)
         .then(() => {
           resolve(newCollection);
         })
-        .catch(e => {
+        .catch(() => {
           this.toSendCollection = newCollection;
           resolve(newCollection);
         });
@@ -117,29 +115,23 @@ class Pool {
     return new Promise((resolve, reject) => {
       if (this.isSendingAllowed) {
         this.isSendingAllowed = false;
-        this.sendFirstElementOfCollection().then(values => {
-          this.removeFirstElementOfCollection(values)
-            .then(() => {
-              resolve(true);
-            })
-            .catch(() => {
-              reject(1);
-            });
-        });
+        this.sendFirstElementOfCollection()
+          .then(values => {
+            this.removeFirstElementOfCollection(values)
+              .then(() => {
+                resolve(true);
+              })
+              .catch(() => {
+                reject(new Error({ code: 1, message: 'Elément non supprimé du cache' }));
+              });
+          })
+          .catch(err => {
+            if (err && err.code && err.code === 99) reject(err);
+            else reject(new Error({ code: 2, message: 'Elément non envoyé à partir du cache' }));
+          });
       } else {
-        reject(3);
+        reject(new Error({ code: 3, message: 'Non autorisé à envoyer le cache' }));
       }
-    });
-  };
-
-  changeOrderToSend = () => {
-    return new Promise((resolve, reject) => {
-      if (this.toSendCollection.length < 2) reject();
-      const first = this.toSendCollection[0];
-      const second = this.toSendCollection[1];
-      this.toSendCollection[0] = second;
-      this.toSendCollection[1] = first;
-      resolve();
     });
   };
 
@@ -148,39 +140,22 @@ class Pool {
     try {
       this.sendCachedData()
         .then(() => {
-          debugger;
-          this.isSendingAllowed = true;
-          this.makeOneFlush();
+          this.isSendingAllowed = false;
+          if (this.toSendCollection.length > 0) this.makeOneFlush();
         })
         .catch(err => {
-          debugger;
           this.isSendingAllowed = false;
-          if (err === 1) this.makeOneFlush();
-          if (err === 2)
-            this.changeOrderToSend()
-              .then(() => {
-                debugger;
-                this.makeOneFlush();
-              })
-              .catch(() => {
-                debugger;
-                try {
-                  this.persistDatas(Pool.INITIAL_COLLECTION);
-                } catch (e) {}
-              });
+          if (err.code === 99) Pool.clear();
+          else if (err.code === 1 || err.code === 3) {
+            if (this.toSendCollection.length > 0) this.makeOneFlush();
+          } else if (err.code === 2) {
+            this.removeFirstElementOfCollection().then(
+              () => this.toSendCollection.length > 0 && this.makeOneFlush(),
+            );
+          }
         });
     } catch (e) {
-      this.changeOrderToSend()
-        .then(() => {
-          debugger;
-          this.makeOneFlush();
-        })
-        .catch(() => {
-          debugger;
-          try {
-            this.persistDatas(Pool.INITIAL_COLLECTION);
-          } catch (e) {}
-        });
+      // FIXME: this.persistDatas(Pool.INITIAL_COLLECTION);
     }
   };
 
@@ -204,7 +179,7 @@ class Pool {
   static INITIAL_COLLECTION = [];
 
   // private constructor
-  constructor(params) {
+  constructor() {
     this.name = name;
 
     // collection of datas
@@ -260,7 +235,6 @@ class Pool {
   static flush() {
     Pool.get()
       .then(pool => {
-        debugger;
         pool.makeOneFlush();
       })
       .catch(err => {
