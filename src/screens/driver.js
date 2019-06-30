@@ -21,7 +21,7 @@ const ScreenDriver = ({ navigation }) => {
   // manage gsm number entered
   const [tempGsmNumber, setTempGsmNumber] = useState('');
   // manage hiding the barcode
-  const [hideBarCodeReader, setHideBarCodeReader] = useState(false);
+  const [hideDriverBarCodeReader, setHideDriverBarCodeReader] = useState(false);
 
   // manage modals show/hide
   useEffect(() => {
@@ -29,17 +29,20 @@ const ScreenDriver = ({ navigation }) => {
       if (v.length === 0 && c.driver.gsm.length > 0) {
         setTempGsmNumber(c.driver.gsm);
       }
-      setHideBarCodeReader(showGSMInput);
     };
 
     useEffectAsync(tempGsmNumber, appContext);
-  }, [tempGsmNumber, appContext]);
+  }, [tempGsmNumber, appContext.driver, showGSMInput]);
+
+  useEffect(() => {
+    setHideDriverBarCodeReader(appContext.hideDriverCodeBar);
+  }, [appContext.hideDriverCodeBar]);
 
   // if successfully read a bar code then display GSM modal
   // need to timed for display... probably due to setState
   const onBarCodeSuccess = value => {
     setTimeout(() => {
-      setHideBarCodeReader(true);
+      setHideDriverBarCodeReader(true);
       setShowGSMInput(true);
     }, 500);
   };
@@ -49,7 +52,7 @@ const ScreenDriver = ({ navigation }) => {
     setTimeout(() => {
       if (value.error) Alert.alert(value.error);
       else Alert.alert(value);
-      setHideBarCodeReader(false);
+      setHideDriverBarCodeReader(false);
       setShowGSMInput(false);
     }, 500);
   };
@@ -60,25 +63,27 @@ const ScreenDriver = ({ navigation }) => {
   // Ok change the GSM in the DB
   const onPressValidateGSM = () => {
     setShowGSMInput(false);
-    setHideBarCodeReader(true);
+    setHideDriverBarCodeReader(true);
+    appContext.setHideDriverBarCodeReader(true);
     appContext.setGSMNumber(tempGsmNumber);
     navigation.navigate(NAVS.driver.next);
   };
 
   const onPressCancelInputGSM = () => {
     setShowGSMInput(false);
-    setHideBarCodeReader(false);
+    setHideDriverBarCodeReader(false);
     setTempGsmNumber('');
   };
 
   // Do nothing
   const onPressBackHome = () => {
+    appContext.setHideCarBarCodeReader(false);
     navigation.navigate(NAVS.driver.previous);
   };
 
   return (
     <AppContext.Consumer>
-      {({ driver, getDriverDatas }) => (
+      {({ driver, hideDriverCodeBar, getDriverDatas }) => (
         <>
           <CContent title="Code de tournée" fullscreen pressBackHome={onPressBackHome}>
             <CText style={{ textAlign: 'center', fontSize: (DEFAULT_FONT_SIZE * 3) / 4 }}>
@@ -90,7 +95,7 @@ const ScreenDriver = ({ navigation }) => {
               verificator={getDriverDatas}
               onSuccess={onBarCodeSuccess}
               onError={onBarCodeError}
-              hide={hideBarCodeReader}
+              hide={hideDriverCodeBar}
             />
           </CContent>
           {driver && (

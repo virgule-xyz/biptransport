@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Alert } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
@@ -18,12 +18,17 @@ const ScreenCar = ({ navigation }) => {
   // manage the dialog input
   const [showCarConfirm, setShowCarConfirm] = useState(false);
   // manage the bar code reader
-  const [hideBarCodeRead, setHideBarCodeReader] = useState(false);
+  const [hideCarBarCodeRead, setHideCarBarCodeReader] = useState(false);
+
+  // manage modals show/hide
+  useEffect(() => {
+    setHideCarBarCodeReader(appContext.hideCarCodeBar);
+  }, [appContext.hideCarCodeBar]);
 
   // vehicle barcode is suitable for a car
   const onBarCodeSuccess = value => {
     setTimeout(() => {
-      setHideBarCodeReader(true);
+      setHideCarBarCodeReader(true);
       setShowCarConfirm(true);
     }, 500);
   };
@@ -33,35 +38,37 @@ const ScreenCar = ({ navigation }) => {
     setTimeout(() => {
       if (value.error) Alert.alert(value.error);
       else Alert.alert("Ce véhicule n'existe pas...");
-      setHideBarCodeReader(false);
+      setHideCarBarCodeReader(false);
       setShowCarConfirm(false);
     }, 500);
   };
 
   // Confirm that the car is the one driver will use
   const onPressCarConfirm = () => {
-    setHideBarCodeReader(true);
     setShowCarConfirm(false);
-    setTimeout(() => {
-      appContext.save();
-      navigation.navigate(NAVS.car.next);
-    }, 500);
+    setHideCarBarCodeReader(true);
+    appContext.setHideCarBarCodeReader(true);
+    // setTimeout(() => {
+    appContext.save();
+    navigation.navigate(NAVS.car.next);
+    // }, 500);
   };
 
   // the driver wants another car
   const onPressCancelCarConfirm = () => {
     setShowCarConfirm(false);
-    setHideBarCodeReader(false);
+    setHideCarBarCodeReader(false);
   };
 
   // speed return to home
   const onPressBackHome = () => {
+    appContext.setHideCarBarCodeReader(false);
     navigation.navigate(NAVS.car.previous);
   };
 
   return (
     <AppContext.Consumer>
-      {({ car, getCarDatas }) => (
+      {({ car, hideCarCodeBar, getCarDatas }) => (
         <>
           <CContent title="Code de véhicule" fullscreen pressBackHome={onPressBackHome}>
             <CText style={{ textAlign: 'center', fontSize: (DEFAULT_FONT_SIZE * 3) / 4 }}>
@@ -73,7 +80,7 @@ const ScreenCar = ({ navigation }) => {
               verificator={getCarDatas}
               onSuccess={onBarCodeSuccess}
               onError={onBarCodeError}
-              hide={hideBarCodeRead}
+              hide={hideCarCodeBar}
             />
           </CContent>
           {car && (

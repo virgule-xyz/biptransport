@@ -99,7 +99,7 @@ def enableProguardInReleaseBuilds = false
 android {
     signingConfigs {
         release {
-            storeFile file('/Users/pierrecanthelou/git/BIP/biptransport/biptransport.keystore')
+            storeFile file('/Users/pierrecanthelou/git/BIP/key.jks')
             keyAlias = 'key0'
             storePassword 'password'
             keyPassword 'password'
@@ -117,8 +117,8 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         missingDimensionStrategy 'react-native-camera', 'general'
-        versionCode 214
-        versionName "0.2.14"
+        versionCode 3500
+        versionName "0.35.00"
     }
     splits {
         abi {
@@ -132,6 +132,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
@@ -150,10 +151,10 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-camera')
     implementation project(':@react-native-community_async-storage')
     implementation project(':react-native-gesture-handler')
     implementation project(':react-native-vector-icons')
-    implementation project(':react-native-camera')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules

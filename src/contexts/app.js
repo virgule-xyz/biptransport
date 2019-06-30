@@ -21,6 +21,8 @@ import { name } from '../../package';
  * This context allows for the management of all crossing points and associated actions
  */
 const defaultAppState = {
+  hideCarCodeBar: true,
+  hideDriverCodeBar: false,
   rescueIsSearching: false,
   car: { id: '', immat: '', alert: '' },
   clues: [],
@@ -75,6 +77,8 @@ const AppContextProvider = ({ children }) => {
 
   // Car, Driver and Waypoints
   const {
+    hideCarCodeBar,
+    hideDriverCodeBar,
     rescueIsSearching,
     car,
     clues,
@@ -121,7 +125,8 @@ const AppContextProvider = ({ children }) => {
       read()
         .then(values => {
           if (!values) resolve(true);
-          if (values.datas === null || Date.now() - values.date > 1000 * 60 * 60 * 4) resolve(true);
+          else if (!values.datas) resolve(true);
+          else if (Date.now() - values.date > 1000 * 60 * 60 * 4) resolve(true);
           else resolve(false);
         })
         .catch(err => {
@@ -183,7 +188,7 @@ const AppContextProvider = ({ children }) => {
           ord: item.ord_nom,
         };
       })
-      .filter(item => !item.done)
+      .filter(item => !(item.done || item.status !== '0'))
       .filter(item => item.id !== waypoint.id);
     return retValues;
   };
@@ -194,15 +199,18 @@ const AppContextProvider = ({ children }) => {
       read()
         .then(datas => {
           if (datas && datas.waypointCollection) {
-            const firstIndex = firstWaypointIndexNotDone(datas.waypointCollection);
+            const wpcoll = datas.waypointCollection.filter(
+              item => !(item.done || item.status !== '0'),
+            );
+            const firstIndex = firstWaypointIndexNotDone(wpcoll);
             setAppContextState(state => ({
               ...state,
-              ...datas,
+              ...wpcoll,
               loadFromStorage: true,
               forceWaypointIndex: firstIndex,
-              waypointCollection: datas.waypointCollection,
-              waypointList: getWaypointList(datas.waypointCollection),
-              waypoint: getWaypointFromArray(datas.waypointCollection[firstIndex], firstIndex),
+              waypointCollection: wpcoll,
+              waypointList: getWaypointList(wpcoll),
+              waypoint: getWaypointFromArray(wpcoll[firstIndex], firstIndex),
             }));
             Pool.flush();
             resolve(true);
@@ -309,6 +317,13 @@ const AppContextProvider = ({ children }) => {
     new Promise((resolve, reject) => {
       getCommands(num)
         .then(value => {
+          const wpcoll =
+            (value &&
+              value.commandes
+                .filter(item => !(item.done || item.status !== '0'))
+                .map(wp => ({ ...wp, done: false }))) ||
+            [];
+          // :(value && value.commandes.map(wp => ({ ...wp, done: false }))) || [],
           setAppContextState(state => ({
             ...state,
             forceWaypointIndex: 0, // firstWaypointIndexNotDone(value && value.commandes),
@@ -316,11 +331,10 @@ const AppContextProvider = ({ children }) => {
             conditionCollection: (value && value.problemes) || [],
             tourManager: (value && value.tournee) || { nom: '', rel: '' },
             managerCollection: (value && value.responsables) || [],
-            waypointCollection:
-              (value && value.commandes.map(wp => ({ ...wp, done: false }))) || [],
-            waypoint: getWaypointFromArray(value.commandes[0], 0), // firstWaypointNotDone(value && value.commandes), // getWaypointFromArray(value.commandes[firstIndex], firstIndex),
+            waypointCollection: wpcoll,
+            waypoint: getWaypointFromArray(wpcoll[0], 0), // firstWaypointNotDone(value && value.commandes), // getWaypointFromArray(value.commandes[firstIndex], firstIndex),
           }));
-          resolve(value.commandes);
+          resolve(wpcoll);
         })
         .catch(err => reject(err));
     });
@@ -385,7 +399,7 @@ const AppContextProvider = ({ children }) => {
         photo_enlevement: wp.pickupPicture,
         observations: wp.comment,
       };
-
+      // FIXME: Need to debug for android !!!
       Pool.add(values, 'putwaypoint')
         .then(() => {
           putWaypoint(values);
@@ -637,10 +651,29 @@ const AppContextProvider = ({ children }) => {
     }));
   };
 
+  const setHideCarBarCodeReader = hide => {
+    console.warn('SETHIDECAR', hide);
+    setAppContextState(state => ({
+      ...state,
+      hideCarCodeBar: hide,
+    }));
+  };
+
+  const setHideDriverBarCodeReader = hide => {
+    console.warn('SETHIDEDRIVER', hide);
+    setAppContextState(state => ({
+      ...state,
+      hideDriverCodeBar: hide,
+      hideCarCodeBar: !hide,
+    }));
+  };
+
   // The renderer
   return (
     <AppContext.Provider
       value={{
+        hideCarCodeBar,
+        hideDriverCodeBar,
         rescueIsSearching,
         car,
         clues,
@@ -680,6 +713,8 @@ const AppContextProvider = ({ children }) => {
         startNewWaypoint,
         storeClue,
         storePickupPicture,
+        setHideCarBarCodeReader,
+        setHideDriverBarCodeReader,
       }}
     >
       {children}

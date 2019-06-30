@@ -19,7 +19,7 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   // manage the  context
   const appContext = useContext(AppContext);
 
-  const [hideBarCodeReaderState, setHideBarCodeReaderState] = useState(false);
+  const [hideShipBarCodeReaderState, setHideShipBarCodeReaderState] = useState(false);
 
   useEffect(() => {
     appContext.loadFakeContext();
@@ -28,7 +28,7 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   // Verify code it should be in array of waypoint codes
   const onVerificator = num => {
     return new Promise((resolve, reject) => {
-      setHideBarCodeReaderState(true);
+      setHideShipBarCodeReaderState(true);
       if (appContext.waypoint.shippingCodes[appContext.waypoint.shippingCodeIndex] === num) {
         appContext.saveCurrentWaypointCode(num);
         resolve(num);
@@ -41,20 +41,23 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   // if ok and if another code to scan then show again the codebarreader or go to next step
   const onSuccess = () => {
     if (appContext.needAnotherShipmentCode()) {
-      setTimeout(() => appContext.nextShipmentCode(() => setHideBarCodeReaderState(false)), 1000);
+      setTimeout(
+        () => appContext.nextShipmentCode(() => setHideShipBarCodeReaderState(false)),
+        1000,
+      );
     } else {
-      setHideBarCodeReaderState(false);
+      setHideShipBarCodeReaderState(false);
       navigation.navigate(NAVS.wpscanshipments.next);
     }
   };
 
   const onError = () => {
     Alert.alert('Le code ne correspond pas à un colis...');
-    setHideBarCodeReaderState(false);
+    setHideShipBarCodeReaderState(false);
   };
 
   const onPressManager = () => {
-    setHideBarCodeReaderState(true);
+    setHideShipBarCodeReaderState(true);
   };
 
   // const onPressCancel = () => {
@@ -85,7 +88,7 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
             verificator={onVerificator}
             onSuccess={onSuccess}
             onError={onError}
-            hide={hideBarCodeReaderState}
+            hide={hideShipBarCodeReaderState}
           />
           <CSpace />
           <Grid>

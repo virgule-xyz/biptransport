@@ -1,3 +1,10 @@
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+
+
+## 0.35.0
+
+- FIX: The main bug using this fucking camera and barcode reader...
+
 ## 0.32.0
 
 - FIX: The pool ios now well manage
@@ -174,7 +181,7 @@ const webservice = ({ url, params, postit = false }) => {
 ## 0.14.0
 
 - DONE: Put in rows the address in the waypoint list and change row colors
-- FIX: All `useEffect` now should follow 
+- FIX: All `useEffect` now should follow
 
 ```react
   useEffect(() => {
@@ -196,7 +203,7 @@ const webservice = ({ url, params, postit = false }) => {
 - FIX: getCommands return undefined
 - BREAK: `driver`screen is based on new `AppContext`
 - BREAK: `car`screen is based on new `AppContext`
-- BREAK: `wpdashboard`is based on the new context `AppContext` 
+- BREAK: `wpdashboard`is based on the new context `AppContext`
 - BREAK: `App` is now containing `AppContext`
 - ADD: test on webservice
 - ADD: older context are keep in archive

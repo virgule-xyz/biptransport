@@ -27,16 +27,17 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
   // manage the driver context
   const appContext = useContext(AppContext);
 
-  const [hideBarCodeReaderState, setHideBarCodeReaderState] = useState(false);
+  const [hideArrivalBarCodeReaderState, setHideArrivalBarCodeReaderState] = useState(false);
 
   useEffect(() => {
     appContext.loadFakeContext();
   }, []);
 
+
   // Verify code it should be in array of waypoint codes
   const onVerificator = num => {
     return new Promise((resolve, reject) => {
-      setHideBarCodeReaderState(true);
+      setHideArrivalBarCodeReaderState(true);
       if (appContext.waypoint.waypointCodes[appContext.waypoint.waypointCodeIndex] === num) {
         resolve(num);
       } else {
@@ -48,9 +49,9 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
   // if ok and if another code to scan then show again the codebarreader or go to next step
   const onSuccess = () => {
     if (appContext.needAnotherWaypointCode()) {
-      setTimeout(() => appContext.nextWaypointCode(() => setHideBarCodeReaderState(false)), 1000);
+      setTimeout(() => appContext.nextWaypointCode(() => setHideArrivalBarCodeReaderState(false)), 1000);
     } else {
-      setHideBarCodeReaderState(false);
+      setHideArrivalBarCodeReaderState(false);
       if (appContext.waypoint.shippingCount > 0) navigation.navigate(NAVS.wpscanshipments.current);
       else navigation.navigate(NAVS.wpscanpickups.current);
     }
@@ -58,11 +59,11 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
 
   const onError = () => {
     Alert.alert('Le code ne correspond pas au point...');
-    setHideBarCodeReaderState(false);
+    setHideArrivalBarCodeReaderState(false);
   };
 
   const onPressManager = () => {
-    setHideBarCodeReaderState(true);
+    setHideArrivalBarCodeReaderState(true);
   };
 
   const onPressCancel = () => {
@@ -93,7 +94,7 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
             verificator={onVerificator}
             onSuccess={onSuccess}
             onError={onError}
-            hide={hideBarCodeReaderState}
+            hide={hideArrivalBarCodeReaderState}
           />
           <CSpace />
           <Grid>

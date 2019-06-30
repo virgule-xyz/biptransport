@@ -63,7 +63,7 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
 
   // stop the camera, check if barcode read is valuable and then run according functions
   const onBarCodeRead = event => {
-    testBarCode(event.data);
+    testBarCode(event.barcodes[0].data);
   };
 
   // press the button that display the bar code input
@@ -111,53 +111,67 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
         }}
         testID={testID}
       >
-        <RNCamera
-          testID={`${testID}_RNCAMERA`}
-          captureAudio={false}
-          style={[
-            {
-              width: width * RAPPORT,
-              height: width * RAPPORT,
-              flex: 0,
-              alignItems: 'center',
-              justifyContent: 'center',
-            },
-          ]}
-          type={RNCamera.Constants.Type.back}
-          onBarCodeRead={!stopCamera && onBarCodeRead}
-          enabled={!stopCamera}
-        >
-          {({ camera, status, recordAudioPermissionStatus }) => {
-            if (status !== 'READY')
+        {!hide && (
+          <RNCamera
+            testID={`${testID}_RNCAMERA`}
+            captureAudio={false}
+            style={[
+              {
+                width: width * RAPPORT,
+                height: width * RAPPORT,
+                flex: 0,
+                alignItems: 'center',
+                justifyContent: 'center',
+              },
+            ]}
+            type={RNCamera.Constants.Type.back}
+            onGoogleVisionBarcodesDetected={onBarCodeRead}
+            flashMode={RNCamera.Constants.FlashMode.off}
+            androidCameraPermissionOptions={{
+              title: 'Permission to use camera',
+              message: 'We need your permission to use your camera',
+              buttonPositive: 'Ok',
+              buttonNegative: 'Cancel',
+            }}
+            androidRecordAudioPermissionOptions={{
+              title: 'Permission to use audio recording',
+              message: 'We need your permission to use your audio',
+              buttonPositive: 'Ok',
+              buttonNegative: 'Cancel',
+            }}
+          >
+            {({ camera, status }) => {
+              if (status !== 'READY')
+                return (
+                  <View
+                    style={{
+                      width: width * RAPPORT,
+                      height: width * RAPPORT,
+                      display: 'flex',
+                    }}
+                  >
+                    <CSpinner />
+                  </View>
+                );
+              if (stopCamera) {
+                camera.pausePreview();
+              } else {
+                camera.resumePreview();
+              }
               return (
                 <View
                   style={{
-                    width: width * RAPPORT,
-                    height: width * RAPPORT,
-                    display: 'flex',
+                    width: (width * RAPPORT) / 2,
+                    height: (width * RAPPORT) / 2,
+                    borderWidth: 3,
+                    borderColor: stopCamera ? COLORS.JYVAIS : COLORS.DANGER,
+                    flex: 0,
                   }}
-                >
-                  <CSpinner />
-                </View>
+                />
               );
-            if (stopCamera) {
-              camera.pausePreview();
-            } else {
-              camera.resumePreview();
-            }
-            return (
-              <View
-                style={{
-                  width: (width * RAPPORT) / 2,
-                  height: (width * RAPPORT) / 2,
-                  borderWidth: 3,
-                  borderColor: stopCamera ? COLORS.JYVAIS : COLORS.DANGER,
-                  flex: 0,
-                }}
-              />
-            );
-          }}
-        </RNCamera>
+            }}
+          </RNCamera>
+        )}
         {input && (
           <>
             <CSpace />

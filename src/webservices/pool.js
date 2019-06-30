@@ -164,11 +164,14 @@ class Pool {
     return new Promise((resolve, reject) => {
       this.unpersistDatas()
         .then(datas => {
-          this.toSendCollection = datas;
+          this.toSendCollection = datas || [];
           console.warn('ON LOAD', datas);
           resolve(datas);
         })
-        .catch(e => reject(e));
+        .catch(() => {
+          this.toSendCollection = [];
+          resolve(this.toSendCollection);
+        });
     });
   };
 
@@ -183,7 +186,7 @@ class Pool {
     this.name = name;
 
     // collection of datas
-    this.toSendCollection = Pool.INITIAL_COLLECTION;
+    this.toSendCollection = [];
 
     // are we sending datas
     this.isSending = false;
@@ -205,9 +208,13 @@ class Pool {
     return new Promise(resolve => {
       if (!Pool.INSTANCE || Pool.INSTANCE.name !== name) {
         Pool.INSTANCE = new Pool();
-        Pool.INSTANCE.init().then(() => {
-          resolve(Pool.INSTANCE);
-        });
+        Pool.INSTANCE.init()
+          .then(() => {
+            resolve(Pool.INSTANCE);
+          })
+          .catch(() => {
+            resolve(Pool.INSTANCE);
+          });
       } else resolve(Pool.INSTANCE);
     });
   }
@@ -217,12 +224,16 @@ class Pool {
     return new Promise((resolve, reject) => {
       Pool.get()
         .then(pool => {
-          const found = pool.toSendCollection.findIndex(
-            elt =>
-              JSON.stringify(elt.values) === JSON.stringify(values) &&
-              elt.sendCallbackId === sendCallbackId,
-          );
-          if (found < 0) {
+          if (pool.toSendCollection.length > 0) {
+            const found = pool.toSendCollection.findIndex(
+              elt =>
+                JSON.stringify(elt.values) === JSON.stringify(values) &&
+                elt.sendCallbackId === sendCallbackId,
+            );
+            if (found < 0) {
+              pool.setToSendCollection([{ values, sendCallbackId }, ...pool.toSendCollection]);
+            }
+          } else {
             pool.setToSendCollection([{ values, sendCallbackId }, ...pool.toSendCollection]);
           }
           resolve(pool.toSendCollection);
