@@ -49,7 +49,7 @@ const ScreenCar = ({ navigation }) => {
     setHideCarBarCodeReader(true);
     appContext.setHideCarBarCodeReader(true);
     // setTimeout(() => {
-    appContext.save();
+    // appContext.save();
     navigation.navigate(NAVS.car.next);
     // }, 500);
   };

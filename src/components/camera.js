@@ -25,6 +25,8 @@ const REPORT = 0.9;
  * Launch the camera
  */
 const CCamera = ({ onTakePicture, hide, testID, ...props }) => {
+  const [stopCamera, setStopCamera] = useState(false);
+
   const { width } = Dimensions.get('window');
   const SCREEN_REPORT = width / BASE_WIDTH;
   const W = width * REPORT * SCREEN_REPORT;

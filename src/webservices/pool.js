@@ -37,8 +37,10 @@ class Pool {
 
   // persist datas on add or remove of toSendCollection
   setToSendCollection = value => {
-    this.toSendCollection = [...value];
-    return this.persistDatas(value);
+    try {
+      this.toSendCollection = [...value];
+      return this.persistDatas(value);
+    } catch (e) {}
   };
 
   // read all the datas saved
@@ -57,7 +59,7 @@ class Pool {
   // use the WS of the datas to send it to the server
   // return a promise with the values sent has return
   tryToSendDatas = ({ values, sendCallbackId, tries = 1 }) => {
-    console.warn('sending -> ', values, sendCallbackId, tries);
+    // console.warn('sending -> ', values, sendCallbackId, tries);
     if (sendCallbackId && Pool.SENDERS && Pool.SENDERS[sendCallbackId]) {
       return new Promise((resolve, reject) => {
         try {

@@ -39,22 +39,26 @@ const ScreenWaypointResume = ({ navigation }) => {
   }, []);
 
   const onPressNextWaypoint = () => {
-    appContext
-      .endWaypoint(commentState)
-      .then(() => {
-        if (appContext.needToVisitAnotherWaypoint()) {
-          appContext.selectNextWaypoint(() => {
-            navigation.navigate(NAVS.wpdashboard.current);
-          });
-        } else {
-          appContext.endTour(() => {
-            navigation.navigate(NAVS.wpdashboard.next);
-          });
-        }
-      })
-      .catch(err => {
-        console.warn('ERR', err);
-      });
+    try {
+      appContext
+        .endWaypoint(commentState)
+        .then(() => {
+          if (appContext.needToVisitAnotherWaypoint()) {
+            appContext.selectNextWaypoint(() => {
+              navigation.navigate(NAVS.wpdashboard.current);
+            });
+          } else {
+            appContext.endTour(() => {
+              navigation.navigate(NAVS.wpdashboard.next);
+            });
+          }
+        })
+        .catch(err => {
+          console.warn('ERR', err);
+        });
+    } catch (e) {
+      console.warn(e);
+    }
   };
 
   return (

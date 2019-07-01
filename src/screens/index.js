@@ -13,7 +13,7 @@ export { default as ScreenWaypointScanPickups } from './wpscanpickups';
 export { default as ScreenWaypointScanPickupsPhotos } from './wpscanpickupsphotos';
 
 export const NAVS = {
-  start: { current: 'ScreenSplash', next: 'WaypointStack' },
+  start: { current: 'ScreenSplash', next: 'ScreenDriver' },
   driver: { current: 'ScreenDriver', previous: 'ScreenSplash', next: 'ScreenCar' },
   car: { current: 'ScreenCar', previous: 'ScreenDriver', next: 'ScreenWaypointDashboard' },
   managers: { current: 'ScreenManagers' },

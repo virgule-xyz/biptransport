@@ -15,7 +15,7 @@ const ScreenSplash = ({ navigation }) => {
   const appContext = useContext(AppContext);
 
   // test if it is needed to load the previous context
-  const onPressContinue = () => {
+  const onPressContinue = async () => {
     appContext
       .needDriverScan()
       .then(needScans => {

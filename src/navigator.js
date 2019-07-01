@@ -16,8 +16,6 @@ import {
 const WaypointStack = createStackNavigator(
   {
     ScreenWaypointDashboard,
-    ScreenDriver,
-    ScreenCar,
     ScreenManagers,
     ScreenWaypointBadCondition,
     ScreenWaypointScanArrival,
@@ -27,7 +25,7 @@ const WaypointStack = createStackNavigator(
     ScreenWaypointResume,
   },
   {
-    initialRouteName: 'ScreenDriver',
+    initialRouteName: 'ScreenWaypointDashboard',
     headerMode: 'none',
     navigationOptions: {
       header: null,
@@ -36,7 +34,7 @@ const WaypointStack = createStackNavigator(
 );
 
 const StartSwitch = createSwitchNavigator(
-  { ScreenSplash, WaypointStack },
+  { ScreenSplash, WaypointStack, ScreenDriver, ScreenCar },
   {
     initialRouteName: 'ScreenSplash',
     headerMode: 'none',

@@ -1,5 +1,10 @@
 react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
 
+## 0.36.0
+
+- FIX: The whole poll sender
+- FIX: The way to save datas
+- CHANGE: Put the two first scan reader in switch navigation
 
 ## 0.35.0
 
@@ -61,8 +66,6 @@ const webservice = ({ url, params, postit = false }) => {
 };
 
 ```
-
-
 
 - Create installr account
 - Changer the code to put GSM Number, see `web services/putgsmnumber.js`
@@ -136,21 +139,19 @@ const webservice = ({ url, params, postit = false }) => {
 
 - ## 0.18.0
 
+* FIX: Add a prop to disable or enable input box for scanner
 
-- FIX: Add a prop to disable or enable input box for scanner
+* FIX: Great modifications on `CWaypointTemplate`because of flex layout
 
-- FIX: Great modifications on `CWaypointTemplate`because of flex layout
+* DONE: Code passage to "AÏE"
 
-- DONE: Code passage to "AÏE"
+* DONE: Create the `CCamera`component to take pictures...
 
-- DONE: Create the `CCamera`component to take pictures...
+* DONE: Create the `CInfo` component
 
-- DONE: Create the `CInfo` component
+* DONE: Create the `ScreenWaypointScanArrival`.
 
-- DONE: Create the `ScreenWaypointScanArrival`.
-
-- ## 0.17.0
-
+* ## 0.17.0
 
 - ADD: The `ScreenWaypointBadCondition` and `ScreenWaypointResume`
 - ADD: function `ColorsByNumber` tha t display colors from green to red

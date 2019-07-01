@@ -109,8 +109,9 @@ const AppContextProvider = ({ children }) => {
     return new Promise((resolve, reject) => {
       AsyncStorage.getItem(STORAGE_NAME)
         .then(rawValues => {
+          debugger;
           const values = JSON.parse(rawValues);
-          if (values && values.datas) resolve(values.datas);
+          if (values && values.datas) resolve(values);
           else reject(new Error('Pas de données !'));
         })
         .catch(err => {
@@ -125,7 +126,7 @@ const AppContextProvider = ({ children }) => {
       read()
         .then(values => {
           if (!values) resolve(true);
-          else if (!values.datas) resolve(true);
+          else if (!values.date) resolve(true);
           else if (Date.now() - values.date > 1000 * 60 * 60 * 4) resolve(true);
           else resolve(false);
         })
@@ -141,6 +142,8 @@ const AppContextProvider = ({ children }) => {
       date: Date.now(),
       datas: params || appContextState,
     };
+
+    debugger;
 
     return AsyncStorage.setItem(STORAGE_NAME, JSON.stringify(values));
   };
@@ -197,7 +200,9 @@ const AppContextProvider = ({ children }) => {
   const load = () => {
     return new Promise((resolve, reject) => {
       read()
-        .then(datas => {
+        .then(rawdatas => {
+          const { date, datas } = rawdatas;
+          debugger;
           if (datas && datas.waypointCollection) {
             const wpcoll = datas.waypointCollection.filter(
               item => !(item.done || item.status !== '0'),
@@ -205,7 +210,7 @@ const AppContextProvider = ({ children }) => {
             const firstIndex = firstWaypointIndexNotDone(wpcoll);
             setAppContextState(state => ({
               ...state,
-              ...wpcoll,
+              ...datas,
               loadFromStorage: true,
               forceWaypointIndex: firstIndex,
               waypointCollection: wpcoll,
@@ -402,7 +407,7 @@ const AppContextProvider = ({ children }) => {
       // FIXME: Need to debug for android !!!
       Pool.add(values, 'putwaypoint')
         .then(() => {
-          putWaypoint(values);
+          // putWaypoint(values);
           setTimeout(() => {
             Pool.flush();
           }, 25);
@@ -416,16 +421,22 @@ const AppContextProvider = ({ children }) => {
 
   // start a new waypoint
   const startNewWaypoint = () => {
+    let currentState = null;
     return new Promise((resolve, reject) => {
-      setAppContextState(state => ({
-        ...state,
-        waypoint: {
-          ...state.waypoint,
-          arrivedAt: Date.now(),
-          realGpsCoord: { long: 0, lat: 0 },
-        },
-      }));
-      resolve(true);
+      debugger;
+      setAppContextState(state => {
+        currentState = {
+          ...state,
+          waypoint: {
+            ...state.waypoint,
+            arrivedAt: Date.now(),
+            realGpsCoord: { long: 0, lat: 0 },
+          },
+        };
+        return currentState;
+      });
+      debugger;
+      resolve(currentState);
     });
   };
 
@@ -450,6 +461,7 @@ const AppContextProvider = ({ children }) => {
 
       sendWaypointToServer(newWaypoint)
         .then(ret => {
+          debugger;
           save(newOne);
           setAppContextState(newOne);
           resolve(newOne);
