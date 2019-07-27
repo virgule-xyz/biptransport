@@ -368,10 +368,12 @@ const AppContextProvider = ({ children }) => {
   const selectWaypointByIndex = index => {
     const command = appContextState.waypointCollection[index];
     if (command) {
+      const wp = getWaypointFromArray(command, index);
+      if (wp.arrivedAt === 0) wp.arrivedAt = Date.now();
       setAppContextState(state => ({
         ...state,
         forceWaypointIndex: index,
-        waypoint: getWaypointFromArray(command, index),
+        waypoint: wp,
       }));
     }
   };
@@ -425,7 +427,6 @@ const AppContextProvider = ({ children }) => {
   const startNewWaypoint = () => {
     let currentState = null;
     return new Promise((resolve, reject) => {
-      debugger;
       setAppContextState(state => {
         currentState = {
           ...state,
@@ -437,7 +438,6 @@ const AppContextProvider = ({ children }) => {
         };
         return currentState;
       });
-      debugger;
       resolve(currentState);
     });
   };
@@ -460,10 +460,10 @@ const AppContextProvider = ({ children }) => {
         waypointCollection: newWaypointCollection,
         waypoint: newWaypoint,
       };
+      debugger;
 
       sendWaypointToServer(newWaypoint)
         .then(ret => {
-          debugger;
           save(newOne);
           setAppContextState(newOne);
           resolve(newOne);
