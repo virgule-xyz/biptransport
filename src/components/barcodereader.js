@@ -126,7 +126,7 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
             ]}
             type={RNCamera.Constants.Type.back}
             onGoogleVisionBarcodesDetected={onBarCodeRead}
-            flashMode={RNCamera.Constants.FlashMode.off}
+            flashMode={RNCamera.Constants.FlashMode.on}
             androidCameraPermissionOptions={{
               title: 'Permission to use camera',
               message: 'We need your permission to use your camera',
