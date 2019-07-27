@@ -122,7 +122,7 @@ const ScreenWaypointScanPickups = ({ navigation }) => {
             label="Valider"
             danger={errorState}
             primary={!errorState}
-            disabled={pickerValueState === PICKER_DEFAULT}
+            disabled={pickerValueState === PICKER_DEFAULT && appContext.waypoint.pickupCount > 0}
             onPress={onPressContinue}
           />
         </CWaypointTemplate>
