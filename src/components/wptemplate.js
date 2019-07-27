@@ -102,6 +102,8 @@ const CWaypointTemplate = ({
                         small={small}
                         testID="ID_WPDASHBOARD_ADDRESS"
                         name={waypoint.name}
+                        labo={waypoint.labo}
+                        client={waypoint.client}
                         address={waypoint.address}
                         all
                       />
@@ -132,6 +134,8 @@ const CWaypointTemplate = ({
                         small={small}
                         testID="ID_WPDASHBOARD_ADDRESS"
                         name={waypoint.name}
+                        labo={waypoint.labo}
+                        client={waypoint.client}
                         address={waypoint.address}
                         all
                       />

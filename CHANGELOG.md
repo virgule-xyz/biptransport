@@ -1,5 +1,10 @@
 react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
 
+## 0.37.0
+
+- FIX: Add name of labo in address
+- FIX: Add number of client in address
+
 ## 0.36.0
 
 - FIX: The whole poll sender

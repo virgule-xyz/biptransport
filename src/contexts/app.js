@@ -164,6 +164,8 @@ const AppContextProvider = ({ children }) => {
     },
     id: command.id,
     index,
+    labo: command.ord_nom,
+    client: command.id_pnt,
     name: command.pnt_nom,
     pickupCount: command.nbr_enl,
     pickupPicture: '',
