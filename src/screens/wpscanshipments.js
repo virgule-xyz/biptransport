@@ -51,8 +51,9 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
     }
   };
 
-  const onError = () => {
-    Alert.alert('Le code ne correspond pas à un colis...');
+  const onError = msg => {
+    if (msg) Alert.alert(msg);
+    else Alert.alert('Ce colis est à livrer chez un autre client..');
     setHideShipBarCodeReaderState(false);
   };
 
