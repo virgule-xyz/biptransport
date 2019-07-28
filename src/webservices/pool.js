@@ -7,20 +7,8 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import { name } from '../../package';
 
-// TODO: Ne faire qu'un essai, si ça plante alors on envoie plus jusqu'à ce que le mec scan un début de passage
-// TODO: Faire des envois dans les scans de passage
-
 class Pool {
   static DATENAME = `${name}date`;
-
-  // set the last time it was used
-  // timestamp = () => {
-  //   return new Promise((resolve, reject) => {
-  //     AsyncStorage.setItem(Pool.DATENAME, Date.now())
-  //       .then(() => resolve())
-  //       .catch(err => reject(err));
-  //   });
-  // };
 
   // save all datas in a local storage, file or other
   // return a promise
@@ -156,9 +144,7 @@ class Pool {
             );
           }
         });
-    } catch (e) {
-      // FIXME: this.persistDatas(Pool.INITIAL_COLLECTION);
-    }
+    } catch (e) {}
   };
 
   // init the pool from the persistent storage

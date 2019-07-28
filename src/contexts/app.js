@@ -408,7 +408,6 @@ const AppContextProvider = ({ children }) => {
         photo_enlevement: wp.pickupPicture,
         observations: wp.comment,
       };
-      // FIXME: Need to debug for android !!!
       Pool.add(values, 'putwaypoint')
         .then(() => {
           // putWaypoint(values);
@@ -493,7 +492,6 @@ const AppContextProvider = ({ children }) => {
 
   // all the waypoint are done so close the day
   const endTour = callback => {
-    // TODO: What to do at the end of the day ???
     callback();
   };
 

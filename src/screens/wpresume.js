@@ -49,7 +49,7 @@ const ScreenWaypointResume = ({ navigation }) => {
             });
           } else {
             appContext.endTour(() => {
-              navigation.navigate(NAVS.wpdashboard.next);
+              navigation.navigate(NAVS.wpresume.next);
             });
           }
         })

@@ -7,6 +7,7 @@ import {
   ScreenWaypointDashboard,
   ScreenWaypointBadCondition,
   ScreenWaypointResume,
+  ScreenWaypointEnd,
   ScreenWaypointScanArrival,
   ScreenWaypointScanShipments,
   ScreenWaypointScanPickups,
@@ -23,6 +24,7 @@ const WaypointStack = createStackNavigator(
     ScreenWaypointScanPickups,
     ScreenWaypointScanPickupsPhotos,
     ScreenWaypointResume,
+    ScreenWaypointEnd,
   },
   {
     initialRouteName: 'ScreenWaypointDashboard',

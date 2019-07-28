@@ -4,6 +4,11 @@ react-native bundle --platform android --dev false --entry-file index.js --bundl
 
 - FIX: Add name of labo in address
 - FIX: Add number of client in address
+- FIX: Comparison of how many packages to pick that gets you to take a photo
+- FIX: Barcode error if the package is for someone else
+- FIX: Pickups validate button is not disabled if nothing to pickup
+- FIX: Date of waypoint's starting time is now correct
+- ADD: Screen to indicate end of tour
 
 ## 0.36.0
 

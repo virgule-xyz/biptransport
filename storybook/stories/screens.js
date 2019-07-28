@@ -9,6 +9,7 @@ import ScreenWaypointCollection from '@screens/wpcollection';
 import ScreenWaypointGalery from '@screens/wpgalery';
 import ScreenWaypointBadCondition from '@screens/wpbadcondition';
 import ScreenWaypointResume from '@screens/wpresume';
+import ScreenWaypointEnd from '@screens/wpend';
 import ScreenWaypointScanArrival from '@screens/wpscanarrival';
 import ScreenWaypointScanShipments from '@screens/wpscanshipments';
 import ScreenWaypointScanPickups from '@screens/wpscanpickups';
@@ -123,9 +124,14 @@ storiesOf('Screens', module)
       <ScreenWaypointBadCondition />
     </AppContextProvider>
   ))
-  .add('Waypoint End And Resume', () => (
+  .add('Waypoint Resume', () => (
     <AppContextProvider>
       <ScreenWaypointResume />
+    </AppContextProvider>
+  ))
+  .add('Waypoint End', () => (
+    <AppContextProvider>
+      <ScreenWaypointEnd />
     </AppContextProvider>
   ))
   .add('Waypoint Scan arrival', () => (
