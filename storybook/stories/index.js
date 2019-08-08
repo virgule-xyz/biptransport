@@ -3,6 +3,7 @@ import './barcodescanner';
 import './button';
 import './content';
 import './error';
+import './geoloc';
 import './icon';
 import './input';
 import './modal';

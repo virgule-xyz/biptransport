@@ -3,6 +3,7 @@ package com.biptransport;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.github.douglasjunior.reactNativeGetLocation.ReactNativeGetLocationPackage;
 import com.github.wumke.RNExitApp.RNExitAppPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeGetLocationPackage(),
             new RNExitAppPackage(),
             new RNCameraPackage(),
             new AsyncStoragePackage(),
