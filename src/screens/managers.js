@@ -14,12 +14,12 @@ const ScreenManagers = ({ navigation }) => {
     Linking.canOpenURL(url)
       .then(supported => {
         if (!supported) {
-          Alert.alert(`Can't handle url: ${url}`);
+          Alert.alert(splashname, `Impossible d'utiliser: ${url}`);
         } else {
           return Linking.openURL(url);
         }
       })
-      .catch(err => Alert.alert(`An error occurred ${err}`));
+      .catch(err => Alert.alert(splashname, `Erreur : ${err}`));
   };
   const onPressManager = manager => {
     Alert.alert(

@@ -6,6 +6,7 @@ import { CSpace, CContent, CText, CBarCodeReader, DEFAULT_FONT_SIZE } from '@com
 import { AppContext } from '@contexts';
 import { NAVS } from '@screens';
 import Dialog from 'react-native-dialog';
+import { splashname } from '../../package.json';
 
 /**
  * Should display a barcode reader to get car infos displayed in a dialog input
@@ -34,12 +35,25 @@ const ScreenCar = ({ navigation }) => {
   };
 
   // vehicle barcode is not suitable
-  const onBarCodeError = value => {
+  const onBarCodeError = (value, cb) => {
     setTimeout(() => {
-      if (value.error) Alert.alert(value.error);
-      else Alert.alert("Ce véhicule n'existe pas...");
-      setHideCarBarCodeReader(false);
-      setShowCarConfirm(false);
+      const mesg = value.error || value;
+      Alert.alert(
+        splashname,
+        mesg,
+        [
+          {
+            text: 'Fermer',
+            style: 'cancel',
+            onPress: () => {
+              setHideCarBarCodeReader(false);
+              setShowCarConfirm(false);
+              cb && cb();
+            },
+          },
+        ],
+        { cancelable: false },
+      );
     }, 500);
   };
 

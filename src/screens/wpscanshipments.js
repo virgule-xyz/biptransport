@@ -1,5 +1,5 @@
 /**
- * Copyright (c) bee2link, Inc. and its affiliates.
+ * Copyright (c) Netmize, Inc. and its affiliates.
  *
  * This source code is licensed under the Copyright License Agreement
  *
@@ -11,6 +11,7 @@ import { Grid, Row, Col } from 'native-base';
 import { CInfo, CSpace, CBarCodeReader, CWaypointTemplate, CSep, CButton } from '@components';
 import { AppContext } from '@contexts';
 import { NAVS } from './index';
+import { splashname } from '../../package.json';
 
 /**
  * Multi scan bar codes of shipments to get
@@ -52,8 +53,8 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   };
 
   const onError = msg => {
-    if (msg) Alert.alert(msg);
-    else Alert.alert('Ce colis est à livrer chez un autre client..');
+    if (msg) Alert.alert(splashname, msg);
+    else Alert.alert(splashname, 'Ce colis est à livrer chez un autre client..');
     setHideShipBarCodeReaderState(false);
   };
 

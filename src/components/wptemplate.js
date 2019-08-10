@@ -1,5 +1,5 @@
 /**
- * Copyright (c) bee2link, Inc. and its affiliates.
+ * Copyright (c) Netmize, Inc. and its affiliates.
  *
  * This source code is licensed under the Copyright License Agreement
  *
@@ -31,10 +31,10 @@ const CWaypointTemplate = ({
     appContext
       .contactAllManagers()
       .then(() => {
-        Alert.alert("Un message vient d'être envoyé à vos responsables");
+        Alert.alert(splashname, "Un message vient d'être envoyé à vos responsables");
       })
       .catch(err => {
-        Alert.alert(`Une erreur s'est produite : ${err.message}`);
+        Alert.alert(splashname, `Une erreur s'est produite : ${err.message}`);
       });
   };
 

@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
-import openMap from 'react-native-open-maps';
 import AsyncStorage from '@react-native-community/async-storage';
 import {
   getCommands,
@@ -14,7 +13,9 @@ import {
   putGsmNumber,
   Pool,
 } from '@webservices';
-import { name } from '../../package';
+import openMap from 'react-native-open-maps';
+import GetLocation from 'react-native-get-location';
+import { splashname, name } from '../../package';
 
 /**
  * The whole app context
@@ -93,6 +94,22 @@ const AppContextProvider = ({ children }) => {
     waypointList,
   } = appContextState;
 
+  const getMyPosition = (timeout = 15000) => {
+    return new Promise((resolve, reject) => {
+      GetLocation.getCurrentPosition({
+        enableHighAccuracy: true,
+        timeout,
+      })
+        .then(location => {
+          console.warn(location);
+          resolve({ lat: location.latitude, long: location.longitude });
+        })
+        .catch(error => {
+          reject({ lat: 0, long: 0 });
+        });
+    });
+  };
+
   const firstWaypointIndexNotDone = origin => {
     const from = origin || waypointCollection;
     const firstIndex = from.findIndex(wp => wp.status === '0');
@@ -109,7 +126,6 @@ const AppContextProvider = ({ children }) => {
     return new Promise((resolve, reject) => {
       AsyncStorage.getItem(STORAGE_NAME)
         .then(rawValues => {
-          debugger;
           const values = JSON.parse(rawValues);
           if (values && values.datas) resolve(values);
           else reject(new Error('Pas de données !'));
@@ -142,9 +158,6 @@ const AppContextProvider = ({ children }) => {
       date: Date.now(),
       datas: params || appContextState,
     };
-
-    debugger;
-
     return AsyncStorage.setItem(STORAGE_NAME, JSON.stringify(values));
   };
 
@@ -389,36 +402,38 @@ const AppContextProvider = ({ children }) => {
   // send the waypoint datas to the server
   const sendWaypointToServer = wp => {
     return new Promise((resolve, reject) => {
-      const values = {
-        num: wp.id,
-        bordereau_id: slip.id,
-        chauffeur_id: driver.id,
-        vehicule_id: car.id,
-        dt1: wp.arrivedAt,
-        dt2: wp.finishedAt,
-        lat: wp.realGpsCoord.lat,
-        lng: wp.realGpsCoord.long,
-        erreur: wp.error.code,
-        nb_liv: wp.shippingRealCodes.length,
-        nb_enl: wp.pickupRealCount,
-        cb_liv: wp.shippingRealCodes,
-        cb_enl: [''],
-        photo_condition: wp.error.picture,
-        photo_blocage: '',
-        photo_enlevement: wp.pickupPicture,
-        observations: wp.comment,
-      };
-      Pool.add(values, 'putwaypoint')
-        .then(() => {
-          // putWaypoint(values);
-          setTimeout(() => {
-            Pool.flush();
-          }, 25);
-          resolve();
-        })
-        .catch(err => {
-          reject(err);
-        });
+      getMyPosition().then(coords => {
+        debugger;
+        const values = {
+          num: wp.id,
+          bordereau_id: slip.id,
+          chauffeur_id: driver.id,
+          vehicule_id: car.id,
+          dt1: wp.arrivedAt,
+          dt2: wp.finishedAt,
+          lat: coords.lat,
+          lng: coords.long,
+          erreur: wp.error.code,
+          nb_liv: wp.shippingRealCodes.length,
+          nb_enl: wp.pickupRealCount,
+          cb_liv: wp.shippingRealCodes,
+          cb_enl: [''],
+          photo_condition: wp.error.picture,
+          photo_blocage: '',
+          photo_enlevement: wp.pickupPicture,
+          observations: wp.comment,
+        };
+        Pool.add(values, 'putwaypoint')
+          .then(() => {
+            setTimeout(() => {
+              Pool.flush();
+            }, 25);
+            resolve();
+          })
+          .catch(err => {
+            reject(err);
+          });
+      });
     });
   };
 
@@ -459,7 +474,6 @@ const AppContextProvider = ({ children }) => {
         waypointCollection: newWaypointCollection,
         waypoint: newWaypoint,
       };
-      debugger;
 
       sendWaypointToServer(newWaypoint)
         .then(ret => {
@@ -517,8 +531,7 @@ const AppContextProvider = ({ children }) => {
           }
         }
       } catch (err) {
-        console.warn(err);
-        Alert.alert('Impossible de construire la tournée !');
+        Alert.alert(splashname, 'Impossible de construire la tournée !');
       }
     };
 
@@ -539,7 +552,7 @@ const AppContextProvider = ({ children }) => {
         }
       } catch (err) {
         console.warn(err);
-        Alert.alert('Impossible de reconstruire la tournée !');
+        Alert.alert(splashname, 'Impossible de reconstruire la tournée !');
       }
     };
 
@@ -618,26 +631,25 @@ const AppContextProvider = ({ children }) => {
   // make a call to all managers, only managed by the backoffice
   const contactAllManagers = () => {
     setAppContextState(state => ({ ...state, rescueIsSearching: true }));
-    const makeCallWithCoords = coords => {
-      return putSos({
-        bordereau_id: slip.id,
-        chauffeur_id: driver.id,
-        vehicule_id: car.id,
-        lat: coords ? coords.latitude : 0,
-        lng: coords ? coords.longitude : 0,
-      });
-    };
-
     return new Promise((resolve, reject) => {
-      makeCallWithCoords(null)
-        .then(() => {
-          setAppContextState(state => ({ ...state, rescueIsSearching: false }));
-          resolve();
+      getMyPosition().then(coords => {
+        debugger;
+        putSos({
+          bordereau_id: slip.id,
+          chauffeur_id: driver.id,
+          vehicule_id: car.id,
+          lat: coords.lat,
+          lng: coords.long,
         })
-        .catch(err2 => {
-          setAppContextState(state => ({ ...state, rescueIsSearching: false }));
-          reject(err2);
-        });
+          .then(() => {
+            setAppContextState(state => ({ ...state, rescueIsSearching: false }));
+            resolve();
+          })
+          .catch(err2 => {
+            setAppContextState(state => ({ ...state, rescueIsSearching: false }));
+            reject(err2);
+          });
+      });
     });
   };
 

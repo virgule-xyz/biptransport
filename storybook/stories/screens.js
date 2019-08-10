@@ -89,61 +89,61 @@ const ModalScreenWaypointGalery = () => {
 
 storiesOf('Screens', module)
   .add('Splash', () => <ScreenSplash />)
-  .add('Driver', () => (
-    <AppContextProvider>
-      <ScreenDriver />
-    </AppContextProvider>
-  ))
-  .add('Car', () => (
-    <AppContextProvider>
-      <ScreenCar />
-    </AppContextProvider>
-  ))
-  .add('Managers', () => (
-    <AppContextProvider>
-      <ScreenManagers />
-    </AppContextProvider>
-  ))
-  .add('Waypoint Dashboard', () => (
-    <AppContextProvider>
-      <ScreenWaypointDashboard />
-    </AppContextProvider>
-  ))
-  .add('Waypoint Collection', () => (
-    <AppContextProvider>
-      <ModalScreenWaypointCollection />
-    </AppContextProvider>
-  ))
-  .add('Waypoint Galery', () => (
-    <AppContextProvider>
-      <ModalScreenWaypointGalery />
-    </AppContextProvider>
-  ))
-  .add('Waypoint Conditions', () => (
-    <AppContextProvider>
-      <ScreenWaypointBadCondition />
-    </AppContextProvider>
-  ))
-  .add('Waypoint Resume', () => (
-    <AppContextProvider>
-      <ScreenWaypointResume />
-    </AppContextProvider>
-  ))
-  .add('Waypoint End', () => (
-    <AppContextProvider>
-      <ScreenWaypointEnd />
-    </AppContextProvider>
-  ))
-  .add('Waypoint Scan arrival', () => (
-    <AppContextProvider>
-      <ScreenWaypointScanArrival />
-    </AppContextProvider>
-  ))
-  .add('Waypoint Scan shipments', () => (
-    <AppContextProvider>
-      <ScreenWaypointScanShipments />
-    </AppContextProvider>
-  ))
+  // .add('Driver', () => (
+  //   <AppContextProvider>
+  //     <ScreenDriver />
+  //   </AppContextProvider>
+  // ))
+  // .add('Car', () => (
+  //   <AppContextProvider>
+  //     <ScreenCar />
+  //   </AppContextProvider>
+  // ))
+  // .add('Managers', () => (
+  //   <AppContextProvider>
+  //     <ScreenManagers />
+  //   </AppContextProvider>
+  // ))
+  // .add('Waypoint Dashboard', () => (
+  //   <AppContextProvider>
+  //     <ScreenWaypointDashboard />
+  //   </AppContextProvider>
+  // ))
+  // .add('Waypoint Collection', () => (
+  //   <AppContextProvider>
+  //     <ModalScreenWaypointCollection />
+  //   </AppContextProvider>
+  // ))
+  // .add('Waypoint Galery', () => (
+  //   <AppContextProvider>
+  //     <ModalScreenWaypointGalery />
+  //   </AppContextProvider>
+  // ))
+  // .add('Waypoint Conditions', () => (
+  //   <AppContextProvider>
+  //     <ScreenWaypointBadCondition />
+  //   </AppContextProvider>
+  // ))
+  // .add('Waypoint Resume', () => (
+  //   <AppContextProvider>
+  //     <ScreenWaypointResume />
+  //   </AppContextProvider>
+  // ))
+  // .add('Waypoint End', () => (
+  //   <AppContextProvider>
+  //     <ScreenWaypointEnd />
+  //   </AppContextProvider>
+  // ))
+  // .add('Waypoint Scan arrival', () => (
+  //   <AppContextProvider>
+  //     <ScreenWaypointScanArrival />
+  //   </AppContextProvider>
+  // ))
+  // .add('Waypoint Scan shipments', () => (
+  //   <AppContextProvider>
+  //     <ScreenWaypointScanShipments />
+  //   </AppContextProvider>
+  // ))
   .add('Waypoint Pickups', () => (
     <AppContextProvider>
       <ScreenWaypointScanPickups />

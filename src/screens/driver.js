@@ -48,12 +48,25 @@ const ScreenDriver = ({ navigation }) => {
   };
 
   // if error on read show it
-  const onBarCodeError = value => {
+  const onBarCodeError = (value, cb) => {
     setTimeout(() => {
-      if (value.error) Alert.alert(value.error);
-      else Alert.alert(value);
-      setHideDriverBarCodeReader(false);
-      setShowGSMInput(false);
+      const mesg = value.error || value;
+      Alert.alert(
+        'BIP Transport',
+        mesg,
+        [
+          {
+            text: 'Fermer',
+            style: 'cancel',
+            onPress: () => {
+              setHideDriverBarCodeReader(false);
+              setShowGSMInput(false);
+              cb && cb();
+            },
+          },
+        ],
+        { cancelable: false },
+      );
     }, 500);
   };
 

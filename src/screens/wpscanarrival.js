@@ -1,5 +1,5 @@
 /**
- * Copyright (c) bee2link, Inc. and its affiliates.
+ * Copyright (c) Netmize, Inc. and its affiliates.
  *
  * This source code is licensed under the Copyright License Agreement
  *
@@ -8,17 +8,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Alert, View } from 'react-native';
 import { Grid, Row, Col } from 'native-base';
-import {
-  CInfo,
-  CSpace,
-  CBarCodeReader,
-  CWaypointTemplate,
-  CSep,
-  CButton,
-  CWaypointCounters,
-} from '@components';
+import { CInfo, CSpace, CBarCodeReader, CWaypointTemplate, CButton } from '@components';
 import { AppContext } from '@contexts';
 import { NAVS } from './index';
+import { splashname } from '../../package.json';
 
 /**
  * Multi scan bar codes of waypoint
@@ -32,7 +25,6 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
   useEffect(() => {
     appContext.loadFakeContext();
   }, []);
-
 
   // Verify code it should be in array of waypoint codes
   const onVerificator = num => {
@@ -49,7 +41,10 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
   // if ok and if another code to scan then show again the codebarreader or go to next step
   const onSuccess = () => {
     if (appContext.needAnotherWaypointCode()) {
-      setTimeout(() => appContext.nextWaypointCode(() => setHideArrivalBarCodeReaderState(false)), 1000);
+      setTimeout(
+        () => appContext.nextWaypointCode(() => setHideArrivalBarCodeReaderState(false)),
+        1000,
+      );
     } else {
       setHideArrivalBarCodeReaderState(false);
       if (appContext.waypoint.shippingCount > 0) navigation.navigate(NAVS.wpscanshipments.current);
@@ -57,9 +52,22 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
     }
   };
 
-  const onError = () => {
-    Alert.alert('Le code ne correspond pas au point...');
-    setHideArrivalBarCodeReaderState(false);
+  const onError = (value, cb) => {
+    Alert.alert(
+      splashname,
+      'Le code ne correspond pas au point...',
+      [
+        {
+          text: 'Fermer',
+          style: 'cancel',
+          onPress: () => {
+            setHideArrivalBarCodeReaderState(false);
+            cb && cb();
+          },
+        },
+      ],
+      { cancelable: false },
+    );
   };
 
   const onPressManager = () => {

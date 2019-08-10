@@ -1,5 +1,5 @@
 /**
- * Copyright (c) bee2link, Inc. and its affiliates.
+ * Copyright (c) Netmize, Inc. and its affiliates.
  *
  * This source code is licensed under the Copyright License Agreement
  *
@@ -173,7 +173,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
           navigation.navigate('ScreenWaypointResume');
         })
         .catch(err => {
-          Alert.alert(err.message);
+          Alert.alert(splashname, err.message);
         });
     }
   };

@@ -22,7 +22,7 @@ const ScreenSplash = ({ navigation }) => {
         if (needScans) navigation.navigate(NAVS.start.next);
         else {
           Alert.alert(
-            'BIP Transport',
+            splashname,
             'Reprendre votre tournée ?',
             [
               {

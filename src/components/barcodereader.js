@@ -6,13 +6,15 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Dimensions, View, ScrollView } from 'react-native';
+import { Alert, Dimensions, View, ScrollView } from 'react-native';
 import { CButton, CSpace, CSpinner, COLORS } from '@components';
 import { RNCamera } from 'react-native-camera';
 import Dialog from 'react-native-dialog';
 import PropTypes from 'prop-types';
 
-const RAPPORT = 4 / 5;
+const WIDTH = 1;
+const RAPPORT = 1 / 2;
+const ZOOM = 0.3;
 
 /**
  * Scan for a barcode, the verificator take the barcode and returns a promise with a returned value in onSuccess or an error in onError if the barcode is wrong
@@ -38,32 +40,29 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
 
   // Test if barcode is a good number via `verificator`
   const testBarCode = code => {
-    if (isBarCodeRead === false) {
-      isBarCodeRead = true;
-      setStopCamera(true);
-      verificator(code.toUpperCase())
-        .then(value => {
-          setBarcode('');
-          if (onSuccess) {
-            onSuccess(value);
-          }
-          setStopCamera(true);
-          isBarCodeRead = false;
-        })
-        .catch(value => {
-          setStopCamera(false);
-          setBarcode('');
-          if (onError) {
-            onError((value && value.message) || value);
-          }
-          isBarCodeRead = false;
-        });
-    }
+    verificator(code.toUpperCase())
+      .then(value => {
+        setBarcode('');
+        if (onSuccess) {
+          onSuccess(value);
+        }
+      })
+      .catch(value => {
+        if (onError) {
+          onError((value && value.message) || value, () => {
+            setBarcode('');
+            isBarCodeRead = false;
+            setStopCamera(false);
+          });
+        }
+      });
   };
 
   // stop the camera, check if barcode read is valuable and then run according functions
   const onBarCodeRead = event => {
-    testBarCode(event.barcodes[0].data);
+    isBarCodeRead = true;
+    setStopCamera(true);
+    testBarCode(event.data || event.barcodes[0].data);
   };
 
   // press the button that display the bar code input
@@ -117,36 +116,27 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
             captureAudio={false}
             style={[
               {
-                width: width * RAPPORT,
-                height: width * RAPPORT,
+                width: width * WIDTH,
+                height: width * WIDTH * RAPPORT,
                 flex: 0,
                 alignItems: 'center',
                 justifyContent: 'center',
               },
             ]}
+            zoom={ZOOM}
             type={RNCamera.Constants.Type.back}
-            onGoogleVisionBarcodesDetected={onBarCodeRead}
-            flashMode={RNCamera.Constants.FlashMode.on}
-            androidCameraPermissionOptions={{
-              title: 'Permission to use camera',
-              message: 'We need your permission to use your camera',
-              buttonPositive: 'Ok',
-              buttonNegative: 'Cancel',
-            }}
-            androidRecordAudioPermissionOptions={{
-              title: 'Permission to use audio recording',
-              message: 'We need your permission to use your audio',
-              buttonPositive: 'Ok',
-              buttonNegative: 'Cancel',
-            }}
+            onGoogleVisionBarcodesDetected={stopCamera ? null : onBarCodeRead}
+            // onBarCodeRead={stopCamera ? null : onBarCodeRead}
+            flashMode={RNCamera.Constants.FlashMode.torch}
+            autoFocus={RNCamera.Constants.AutoFocus.on}
           >
             {({ camera, status }) => {
               if (status !== 'READY')
                 return (
                   <View
                     style={{
-                      width: width * RAPPORT,
-                      height: width * RAPPORT,
+                      width: width * WIDTH,
+                      height: width * WIDTH * RAPPORT,
                       display: 'flex',
                     }}
                   >
@@ -161,8 +151,8 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
               return (
                 <View
                   style={{
-                    width: (width * RAPPORT) / 2,
-                    height: (width * RAPPORT) / 2,
+                    width: width * WIDTH,
+                    height: width * WIDTH * RAPPORT,
                     borderWidth: 3,
                     borderColor: stopCamera ? COLORS.JYVAIS : COLORS.DANGER,
                     flex: 0,
