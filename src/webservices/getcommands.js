@@ -12,6 +12,7 @@ import { TOUR_SAMPLE, COMMANDS_SAMPLE, COMMANDS_SAMPLE_ERROR } from '@webservice
 const getCommands = num => {
   if (isTest()) {
     return new Promise((resolve, reject) => {
+      debugger;
       if (num === TOUR_SAMPLE.bordereau_id) resolve(COMMANDS_SAMPLE);
       // eslint-disable-next-line prefer-promise-reject-errors
       else reject(COMMANDS_SAMPLE_ERROR);

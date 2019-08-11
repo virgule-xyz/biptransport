@@ -11,6 +11,7 @@ import ScreenWaypointBadCondition from '@screens/wpbadcondition';
 import ScreenWaypointResume from '@screens/wpresume';
 import ScreenWaypointEnd from '@screens/wpend';
 import ScreenWaypointScanArrival from '@screens/wpscanarrival';
+import ScreenWaypointCannotScanArrival from '@screens/wpcannotscanarrival';
 import ScreenWaypointScanShipments from '@screens/wpscanshipments';
 import ScreenWaypointScanPickups from '@screens/wpscanpickups';
 import { AppContextProvider } from '@contexts';
@@ -89,11 +90,11 @@ const ModalScreenWaypointGalery = () => {
 
 storiesOf('Screens', module)
   .add('Splash', () => <ScreenSplash />)
-  // .add('Driver', () => (
-  //   <AppContextProvider>
-  //     <ScreenDriver />
-  //   </AppContextProvider>
-  // ))
+  .add('Driver', () => (
+    <AppContextProvider>
+      <ScreenDriver />
+    </AppContextProvider>
+  ))
   // .add('Car', () => (
   //   <AppContextProvider>
   //     <ScreenCar />
@@ -134,18 +135,23 @@ storiesOf('Screens', module)
   //     <ScreenWaypointEnd />
   //   </AppContextProvider>
   // ))
-  // .add('Waypoint Scan arrival', () => (
-  //   <AppContextProvider>
-  //     <ScreenWaypointScanArrival />
-  //   </AppContextProvider>
-  // ))
-  // .add('Waypoint Scan shipments', () => (
-  //   <AppContextProvider>
-  //     <ScreenWaypointScanShipments />
-  //   </AppContextProvider>
-  // ))
-  .add('Waypoint Pickups', () => (
+  .add('Waypoint Scan arrival', () => (
     <AppContextProvider>
-      <ScreenWaypointScanPickups />
+      <ScreenWaypointScanArrival />
+    </AppContextProvider>
+  ))
+  .add('Waypoint Cannot Scan Arrival', () => (
+    <AppContextProvider>
+      <ScreenWaypointCannotScanArrival />
     </AppContextProvider>
   ));
+// .add('Waypoint Scan shipments', () => (
+//   <AppContextProvider>
+//     <ScreenWaypointScanShipments />
+//   </AppContextProvider>
+// ))
+// .add('Waypoint Pickups', () => (
+//   <AppContextProvider>
+//     <ScreenWaypointScanPickups />
+//   </AppContextProvider>
+// ));

@@ -162,36 +162,39 @@ const AppContextProvider = ({ children }) => {
   };
 
   // build waypoint from an array
-  const getWaypointFromArray = (command, index) => ({
-    accessDescription: command.observations,
-    address: `${command.pnt_adr} ${command.pnt_cp} ${command.pnt_ville}`,
-    arrivedAt: 0,
-    comment: '',
-    done: command.done,
-    status: command.status,
-    error: { code: 0, picture: '' },
-    finishedAt: 0,
-    gpsCoords: {
-      long: command.pnt_lng,
-      lat: command.pnt_lat,
-    },
-    id: command.id,
-    index,
-    labo: command.ord_nom,
-    client: command.id_pnt,
-    name: command.pnt_nom,
-    pickupCount: command.nbr_enl,
-    pickupPicture: '',
-    pickupRealCount: 0,
-    pictureCollection: command.pnt_pj,
-    realGpsCoord: { long: 0, lat: 0 },
-    shippingCodeIndex: 0,
-    shippingCodes: command.cab_liv,
-    shippingCount: command.nbr_liv,
-    shippingRealCodes: [],
-    waypointCodeIndex: 0,
-    waypointCodes: command.cab_pnt,
-  });
+  const getWaypointFromArray = (command, index) => {
+    debugger;
+    return {
+      accessDescription: command.observations,
+      address: `${command.pnt_adr} ${command.pnt_cp} ${command.pnt_ville}`,
+      arrivedAt: 0,
+      comment: '',
+      done: command.done,
+      status: command.status,
+      error: { code: 0, picture: '' },
+      finishedAt: 0,
+      gpsCoords: {
+        long: command.pnt_lng,
+        lat: command.pnt_lat,
+      },
+      id: command.id,
+      index,
+      labo: command.ord_nom,
+      client: command.id_pnt,
+      name: command.pnt_nom,
+      pickupCount: command.nbr_enl,
+      pickupPicture: '',
+      pickupRealCount: 0,
+      pictureCollection: command.pnt_pj,
+      realGpsCoord: { long: 0, lat: 0 },
+      shippingCodeIndex: 0,
+      shippingCodes: command.cab_liv,
+      shippingCount: command.nbr_liv,
+      shippingRealCodes: [],
+      waypointCodeIndex: 0,
+      waypointCodes: command.cab_pnt,
+    };
+  };
 
   const getWaypointList = values => {
     const retValues = values
@@ -337,6 +340,7 @@ const AppContextProvider = ({ children }) => {
     new Promise((resolve, reject) => {
       getCommands(num)
         .then(value => {
+          debugger;
           const wpcoll =
             (value &&
               value.commandes
@@ -684,12 +688,17 @@ const AppContextProvider = ({ children }) => {
   };
 
   const setHideDriverBarCodeReader = hide => {
-    console.warn('SETHIDEDRIVER', hide);
     setAppContextState(state => ({
       ...state,
       hideDriverCodeBar: hide,
       hideCarCodeBar: !hide,
     }));
+  };
+
+  const sendPictureToBeUnblocked = async picture => {
+    // TODO: On travaille ici
+    return true;
+    // throw new Error('Bad');
   };
 
   // The renderer
@@ -739,6 +748,7 @@ const AppContextProvider = ({ children }) => {
         storePickupPicture,
         setHideCarBarCodeReader,
         setHideDriverBarCodeReader,
+        sendPictureToBeUnblocked,
       }}
     >
       {children}

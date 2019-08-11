@@ -25,6 +25,11 @@ export const NAVS = {
     previous: 'ScreenWaypointDashboard',
     next: 'ScreenWaypointScanShipments',
   },
+  wpcannotscanarrival: {
+    current: 'ScreenWaypointCannotScanArrival',
+    previous: 'ScreenWaypointScanArrival',
+    next: 'ScreenWaypointGetCode',
+  },
   wpscanshipments: {
     current: 'ScreenWaypointScanShipments',
     next: 'ScreenWaypointScanPickups',
