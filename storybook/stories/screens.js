@@ -12,6 +12,7 @@ import ScreenWaypointResume from '@screens/wpresume';
 import ScreenWaypointEnd from '@screens/wpend';
 import ScreenWaypointScanArrival from '@screens/wpscanarrival';
 import ScreenWaypointCannotScanArrival from '@screens/wpcannotscanarrival';
+import ScreenWaypointContactManager from '@screens/wpcontactmanager';
 import ScreenWaypointScanShipments from '@screens/wpscanshipments';
 import ScreenWaypointScanPickups from '@screens/wpscanpickups';
 import { AppContextProvider } from '@contexts';
@@ -95,16 +96,16 @@ storiesOf('Screens', module)
       <ScreenDriver />
     </AppContextProvider>
   ))
-  // .add('Car', () => (
-  //   <AppContextProvider>
-  //     <ScreenCar />
-  //   </AppContextProvider>
-  // ))
-  // .add('Managers', () => (
-  //   <AppContextProvider>
-  //     <ScreenManagers />
-  //   </AppContextProvider>
-  // ))
+  .add('Car', () => (
+    <AppContextProvider>
+      <ScreenCar />
+    </AppContextProvider>
+  ))
+  .add('Managers', () => (
+    <AppContextProvider>
+      <ScreenManagers />
+    </AppContextProvider>
+  ))
   // .add('Waypoint Dashboard', () => (
   //   <AppContextProvider>
   //     <ScreenWaypointDashboard />
@@ -143,6 +144,11 @@ storiesOf('Screens', module)
   .add('Waypoint Cannot Scan Arrival', () => (
     <AppContextProvider>
       <ScreenWaypointCannotScanArrival />
+    </AppContextProvider>
+  ))
+  .add('Waypoint Contact Manager', () => (
+    <AppContextProvider>
+      <ScreenWaypointContactManager />
     </AppContextProvider>
   ));
 // .add('Waypoint Scan shipments', () => (

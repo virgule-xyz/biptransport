@@ -16,7 +16,6 @@ import { splashname } from '../../package.json';
  * If you cannot scan an arrival you should take a picture and call your manager
  */
 const ScreenWaypointCannotScanArrival = ({ navigation }) => {
-  // manage the driver context
   const appContext = useContext(AppContext);
 
   const [hideCamera, setHideCamera] = useState(false);
@@ -39,8 +38,7 @@ const ScreenWaypointCannotScanArrival = ({ navigation }) => {
     appContext
       .sendPictureToBeUnblocked(picture)
       .then(() => {
-        // TODO: Supprimer les commentaires
-        // navigation.navigate(NAVS.wpcannotscanarrival.next);
+        navigation.navigate(NAVS.wpcannotscanarrival.next);
       })
       .catch(e => {
         Alert.alert(splashname, `Une erreur est survenue`, [
@@ -88,11 +86,16 @@ const ScreenWaypointCannotScanArrival = ({ navigation }) => {
             </View>
           }
         >
-          <View style={{ flex: 0, alignItems: 'center' }}>
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}
+          >
             <CError style={{ textAlign: 'center' }}>
               Merci de prendre une photo avant de contacter votre responsable
             </CError>
-            <CSpace />
             {(hideCamera && <CImage image={pictureTaken} width={320} height={240} />) || (
               <CCamera onTakePicture={onTakePicture} hide={hideCamera} />
             )}

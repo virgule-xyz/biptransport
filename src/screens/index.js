@@ -6,6 +6,8 @@ export { default as ScreenWaypointBadCondition } from './wpbadcondition';
 export { default as ScreenWaypointCollection } from './wpcollection';
 export { default as ScreenWaypointDashboard } from './wpdashboard';
 export { default as ScreenWaypointScanArrival } from './wpscanarrival';
+export { default as ScreenWaypointCannotScanArrival } from './wpcannotscanarrival';
+export { default as ScreenWaypointContactManager } from './wpcontactmanager';
 export { default as ScreenWaypointGalery } from './wpgalery';
 export { default as ScreenWaypointResume } from './wpresume';
 export { default as ScreenWaypointEnd } from './wpend';
@@ -28,7 +30,12 @@ export const NAVS = {
   wpcannotscanarrival: {
     current: 'ScreenWaypointCannotScanArrival',
     previous: 'ScreenWaypointScanArrival',
-    next: 'ScreenWaypointGetCode',
+    next: 'ScreenWaypointContactManager',
+  },
+  wpcontactmanager: {
+    current: 'ScreenWaypointContactManager',
+    previous: 'ScreenWaypointCannotScanArrival',
+    next: 'ScreenWaypointScanShipments',
   },
   wpscanshipments: {
     current: 'ScreenWaypointScanShipments',

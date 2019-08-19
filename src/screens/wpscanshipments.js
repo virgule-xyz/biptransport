@@ -20,8 +20,6 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   // manage the  context
   const appContext = useContext(AppContext);
 
-  const [hideShipBarCodeReaderState, setHideShipBarCodeReaderState] = useState(false);
-
   useEffect(() => {
     appContext.loadFakeContext();
   }, []);
@@ -29,7 +27,6 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   // Verify code it should be in array of waypoint codes
   const onVerificator = num => {
     return new Promise((resolve, reject) => {
-      setHideShipBarCodeReaderState(true);
       if (appContext.waypoint.shippingCodes[appContext.waypoint.shippingCodeIndex] === num) {
         appContext.saveCurrentWaypointCode(num);
         resolve(num);
@@ -42,12 +39,8 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   // if ok and if another code to scan then show again the codebarreader or go to next step
   const onSuccess = () => {
     if (appContext.needAnotherShipmentCode()) {
-      setTimeout(
-        () => appContext.nextShipmentCode(() => setHideShipBarCodeReaderState(false)),
-        1000,
-      );
+      setTimeout(() => appContext.nextShipmentCode(() => {}), 1000);
     } else {
-      setHideShipBarCodeReaderState(false);
       navigation.navigate(NAVS.wpscanshipments.next);
     }
   };
@@ -55,11 +48,10 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   const onError = msg => {
     if (msg) Alert.alert(splashname, msg);
     else Alert.alert(splashname, 'Ce colis est à livrer chez un autre client..');
-    setHideShipBarCodeReaderState(false);
   };
 
   const onPressManager = () => {
-    setHideShipBarCodeReaderState(true);
+    navigation.navigate(NAVS.managers.current);
   };
 
   // const onPressCancel = () => {
@@ -90,7 +82,6 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
             verificator={onVerificator}
             onSuccess={onSuccess}
             onError={onError}
-            hide={hideShipBarCodeReaderState}
           />
           <CSpace />
           <Grid>

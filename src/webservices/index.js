@@ -8,6 +8,7 @@ export { default as getCommands } from './getcommands';
 export { default as putGsmNumber } from './putgsmnumber';
 export { default as putSos } from './putsos';
 export { default as putWaypoint } from './putwaypoint';
+export { default as putProof } from './putproof';
 export { default as Pool } from './pool';
 export { default as WS } from './constants';
 

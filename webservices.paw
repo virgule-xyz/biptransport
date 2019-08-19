@@ -5,7 +5,7 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>FD7BDAF0-29F2-4AAD-BEB5-B4239B430E80</UUID>
-        <nextObjectID>122</nextObjectID>
+        <nextObjectID>124</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
@@ -141,7 +141,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">GET</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="order" type="int64">3</attribute>
+        <attribute name="order" type="int64">4</attribute>
         <attribute name="name" type="string">Identification</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z120"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
@@ -181,7 +181,7 @@
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
         <attribute name="body" type="string">[{"data":{"keyValues":[[["key"],["BAC4pu33XeyqaMd8Hp3HfRtuNw874k63pPS43urEM44rmMLzXbN755v5K9AGPYf8x8M76"],true],[["chauffeur_id"],[{"data":{"request":"E099334D-A8E1-483E-9431-8AAC106432C9","keyPath":["chauffeur_id"],"format":1},"identifier":"com.luckymarmot.ResponseBodyPathDynamicValue"}],true],[["num_tel"],["06 46 53 76 11"],true]]},"identifier":"com.luckymarmot.BodyFormKeyValueDynamicValue"}]</attribute>
-        <attribute name="order" type="int64">4</attribute>
+        <attribute name="order" type="int64">5</attribute>
         <attribute name="name" type="string">Numéro de téléphone</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z120"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
@@ -223,9 +223,35 @@
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Netmize</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM" idrefs="z109 z113 z107 z108 z118"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM" idrefs="z108 z118 z123 z107 z109 z113"></relationship>
         <relationship name="bodyparameters" type="0/0" destination="LMKEYVALUE"></relationship>
         <relationship name="headers" type="0/0" destination="LMKEYVALUE"></relationship>
         <relationship name="urlparameters" type="0/0" destination="LMKEYVALUE"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z123">
+        <attribute name="uuid" type="string">1DD7E5C4-8118-45F8-B222-9CBC16BC84AC</attribute>
+        <attribute name="url" type="string">https://www.biptransport.com/api/put/blocage</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">POST</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="body" type="string">[{"data":{"keyValues":[[["key"],["BAC4pu33XeyqaMd8Hp3HfRtuNw874k63pPS43urEM44rmMLzXbN755v5K9AGPYf8x8M76"],true],[["bordereau_id"],[{"data":{"request":"E099334D-A8E1-483E-9431-8AAC106432C9","keyPath":["bordereau_id"],"format":1},"identifier":"com.luckymarmot.ResponseBodyPathDynamicValue"}],true],[["chauffeur_id"],[{"data":{"request":"E099334D-A8E1-483E-9431-8AAC106432C9","keyPath":["chauffeur_id"],"format":1},"identifier":"com.luckymarmot.ResponseBodyPathDynamicValue"}],true],[["vehicule_id"],[{"data":{"request":"41E375A8-2A84-4E81-B944-461D80FD78F5","keyPath":["vehicule_id"],"format":1},"identifier":"com.luckymarmot.ResponseBodyPathDynamicValue"}],true],[["lat"],["0"],true],[["lng"],["0"],true],[["dt"],[{"data":{"format":0,"customFormat":[],"now":1,"useTSeparator":1,"isLocalTime":1,"date":1565719649.9322219,"delta":0,"useZForUTC":0},"identifier":"com.luckymarmot.TimestampDynamicValue"}],true],[["num"],["1484772"],true]]},"identifier":"com.luckymarmot.BodyFormKeyValueDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">Blocage</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z120"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z124"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z124">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z123"></relationship>
     </object>
 </database>

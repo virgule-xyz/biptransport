@@ -5,9 +5,9 @@
   "bundleID": "fr.biptransport.app1",
   "version": "0.38.2",
   "private": true,
-  "story": true,
+  "story": false,
   "noyellow": false,
-  "env": "e2e",
+  "env": "dev",
   "splashtime": 1000,
   "url": "",
   "peerDependencies": {

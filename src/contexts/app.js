@@ -11,6 +11,7 @@ import {
   putSos,
   putWaypoint,
   putGsmNumber,
+  putProof,
   Pool,
 } from '@webservices';
 import openMap from 'react-native-open-maps';
@@ -35,6 +36,7 @@ const defaultAppState = {
   slip: { id: '', code: '', date: '' },
   waypointCollection: [],
   waypointList: [],
+  codeToUnlock: null,
   waypoint: {
     accessDescription: '',
     address: '',
@@ -92,6 +94,7 @@ const AppContextProvider = ({ children }) => {
     waypoint,
     waypointCollection,
     waypointList,
+    codeToUnlock,
   } = appContextState;
 
   const getMyPosition = (timeout = 15000) => {
@@ -163,7 +166,6 @@ const AppContextProvider = ({ children }) => {
 
   // build waypoint from an array
   const getWaypointFromArray = (command, index) => {
-    debugger;
     return {
       accessDescription: command.observations,
       address: `${command.pnt_adr} ${command.pnt_cp} ${command.pnt_ville}`,
@@ -220,7 +222,6 @@ const AppContextProvider = ({ children }) => {
       read()
         .then(rawdatas => {
           const { date, datas } = rawdatas;
-          debugger;
           if (datas && datas.waypointCollection) {
             const wpcoll = datas.waypointCollection.filter(
               item => !(item.done || item.status !== '0'),
@@ -340,14 +341,12 @@ const AppContextProvider = ({ children }) => {
     new Promise((resolve, reject) => {
       getCommands(num)
         .then(value => {
-          debugger;
           const wpcoll =
             (value &&
               value.commandes
                 .filter(item => !(item.done || item.status !== '0'))
                 .map(wp => ({ ...wp, done: false }))) ||
             [];
-          // :(value && value.commandes.map(wp => ({ ...wp, done: false }))) || [],
           setAppContextState(state => ({
             ...state,
             forceWaypointIndex: 0, // firstWaypointIndexNotDone(value && value.commandes),
@@ -407,7 +406,6 @@ const AppContextProvider = ({ children }) => {
   const sendWaypointToServer = wp => {
     return new Promise((resolve, reject) => {
       getMyPosition().then(coords => {
-        debugger;
         const values = {
           num: wp.id,
           bordereau_id: slip.id,
@@ -637,7 +635,6 @@ const AppContextProvider = ({ children }) => {
     setAppContextState(state => ({ ...state, rescueIsSearching: true }));
     return new Promise((resolve, reject) => {
       getMyPosition().then(coords => {
-        debugger;
         putSos({
           bordereau_id: slip.id,
           chauffeur_id: driver.id,
@@ -680,7 +677,6 @@ const AppContextProvider = ({ children }) => {
   };
 
   const setHideCarBarCodeReader = hide => {
-    console.warn('SETHIDECAR', hide);
     setAppContextState(state => ({
       ...state,
       hideCarCodeBar: hide,
@@ -696,39 +692,53 @@ const AppContextProvider = ({ children }) => {
   };
 
   const sendPictureToBeUnblocked = async picture => {
-    // TODO: On travaille ici
-    return true;
-    // throw new Error('Bad');
+    const coords = await getMyPosition();
+    const proof = {
+      picture,
+      lat: coords.lat,
+      lng: coords.long,
+      num: waypoint.id,
+      bordereau_id: slip.id,
+      chauffeur_id: driver.id,
+      vehicule_id: car.id,
+      dt: Date.now(),
+    };
+    const isDatasSent = await putProof(proof);
+
+    if (isDatasSent.result.toLowerCase() === 'ok') {
+      setAppContextState(state => ({
+        ...state,
+        codeToUnlock: isDatasSent.code,
+      }));
+      return true;
+    }
+    return false;
   };
 
   // The renderer
   return (
     <AppContext.Provider
       value={{
-        hideCarCodeBar,
-        hideDriverCodeBar,
-        rescueIsSearching,
         car,
-        clues,
-        conditionCollection,
-        driver,
-        forceWaypointIndex,
-        loadFromStorage,
-        managerCollection,
-        slip,
-        waypoint,
-        waypointCollection,
-        waypointList,
         clear,
+        clues,
+        codeToUnlock,
+        conditionCollection,
         contactAllManagers,
+        driver,
         endTour,
         endWaypoint,
         firstWaypointIndexNotDone,
+        forceWaypointIndex,
         getCarDatas,
         getDriverDatas,
         getWaypointDatas,
+        hideCarCodeBar,
+        hideDriverCodeBar,
         load,
         loadFakeContext,
+        loadFromStorage,
+        managerCollection,
         needAnotherShipmentCode,
         needAnotherWaypointCode,
         needDriverScan,
@@ -736,19 +746,24 @@ const AppContextProvider = ({ children }) => {
         nextShipmentCode,
         nextWaypointCode,
         openMapScreen,
+        rescueIsSearching,
         save,
         saveCurrentWaypointCode,
         selectNextWaypoint,
         selectWaypointById,
         selectWaypointByIndex,
+        sendPictureToBeUnblocked,
         setGSMNumber,
+        setHideCarBarCodeReader,
+        setHideDriverBarCodeReader,
         setPickupCount,
+        slip,
         startNewWaypoint,
         storeClue,
         storePickupPicture,
-        setHideCarBarCodeReader,
-        setHideDriverBarCodeReader,
-        sendPictureToBeUnblocked,
+        waypoint,
+        waypointCollection,
+        waypointList,
       }}
     >
       {children}

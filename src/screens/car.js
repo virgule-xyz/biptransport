@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Alert } from 'react-native';
+import { Alert, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import { CSpace, CContent, CText, CBarCodeReader, DEFAULT_FONT_SIZE } from '@components';
@@ -85,17 +85,19 @@ const ScreenCar = ({ navigation }) => {
       {({ car, hideCarCodeBar, getCarDatas }) => (
         <>
           <CContent title="Code de véhicule" fullscreen pressBackHome={onPressBackHome}>
-            <CText style={{ textAlign: 'center', fontSize: (DEFAULT_FONT_SIZE * 3) / 4 }}>
-              {`Scannez le code barre du véhicule\nque vous utiliserez pour votre tournée.`}
-            </CText>
-            <CSpace />
-            <CBarCodeReader
-              testID="ID_CARBARCODE"
-              verificator={getCarDatas}
-              onSuccess={onBarCodeSuccess}
-              onError={onBarCodeError}
-              hide={hideCarCodeBar}
-            />
+            <View style={{ flex: 1, justifyContent: 'flex-start' }}>
+              <CText style={{ textAlign: 'center', fontSize: (DEFAULT_FONT_SIZE * 3) / 4 }}>
+                {`Scannez le code barre du véhicule\nque vous utiliserez pour votre tournée.`}
+              </CText>
+              <CSpace />
+              <CBarCodeReader
+                testID="ID_CARBARCODE"
+                verificator={getCarDatas}
+                onSuccess={onBarCodeSuccess}
+                onError={onBarCodeError}
+                hide={hideCarCodeBar}
+              />
+            </View>
           </CContent>
           {car && (
             <Dialog.Container visible={showCarConfirm}>

@@ -71,7 +71,8 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
   };
 
   const onPressManager = () => {
-    setHideArrivalBarCodeReaderState(true);
+    navigation.navigate(NAVS.wpcannotscanarrival.current);
+    // setHideArrivalBarCodeReaderState(true);
   };
 
   const onPressCancel = () => {
@@ -107,11 +108,11 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
           <CSpace />
           <Grid>
             <Row>
-              <Col size={9}>
+              <Col size={9} style={{ justifyContent: 'flex-end' }}>
                 <CButton onPress={onPressManager} block icon="bell" label="Responsable" />
               </Col>
               <Col size={1} />
-              <Col size={9}>
+              <Col size={9} style={{ justifyContent: 'flex-end' }}>
                 <CButton danger onPress={onPressCancel} block icon="close-o" label="Annuler" />
               </Col>
             </Row>

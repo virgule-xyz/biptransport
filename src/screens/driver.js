@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Alert } from 'react-native';
+import { Alert, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import { CContent, CBarCodeReader, CSpace, DEFAULT_FONT_SIZE, CText, COLORS } from '@components';
@@ -99,17 +99,19 @@ const ScreenDriver = ({ navigation }) => {
       {({ driver, hideDriverCodeBar, getDriverDatas }) => (
         <>
           <CContent title="Code de tournée" fullscreen pressBackHome={onPressBackHome}>
-            <CText style={{ textAlign: 'center', fontSize: (DEFAULT_FONT_SIZE * 3) / 4 }}>
-              {`Scannez le code barre de votre tournée.`}
-            </CText>
-            <CSpace />
-            <CBarCodeReader
-              testID="ID_BARCODE"
-              verificator={getDriverDatas}
-              onSuccess={onBarCodeSuccess}
-              onError={onBarCodeError}
-              hide={hideDriverCodeBar}
-            />
+            <View style={{ flex: 1, justifyContent: 'flex-start' }}>
+              <CText style={{ textAlign: 'center', fontSize: (DEFAULT_FONT_SIZE * 3) / 4 }}>
+                {`Scannez le code barre de votre tournée.`}
+              </CText>
+              <CSpace />
+              <CBarCodeReader
+                testID="ID_BARCODE"
+                verificator={getDriverDatas}
+                onSuccess={onBarCodeSuccess}
+                onError={onBarCodeError}
+                hide={hideDriverCodeBar}
+              />
+            </View>
           </CContent>
           {driver && (
             <Dialog.Container visible={showGSMInput} testID="ID_GSMCONFIRM">
