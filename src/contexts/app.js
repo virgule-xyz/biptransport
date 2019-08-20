@@ -113,19 +113,19 @@ const AppContextProvider = ({ children }) => {
     });
   };
 
-  const firstWaypointIndexNotDone = origin => {
+  const getFirstWaypointIndexNotDone = origin => {
     const from = origin || waypointCollection;
     const firstIndex = from.findIndex(wp => wp.status === '0');
     return firstIndex;
   };
 
-  const firstWaypointNotDone = origin => {
+  const getFirstWaypointNotDone = origin => {
     const from = origin || waypointCollection;
-    const firstIndex = firstWaypointIndexNotDone(from);
+    const firstIndex = getFirstWaypointIndexNotDone(from);
     return firstIndex >= 0 && from ? from[firstIndex] : from[0];
   };
 
-  const read = () => {
+  const doRead = () => {
     return new Promise((resolve, reject) => {
       AsyncStorage.getItem(STORAGE_NAME)
         .then(rawValues => {
@@ -140,9 +140,9 @@ const AppContextProvider = ({ children }) => {
   };
 
   // test if tour and car datas are still valuable
-  const needDriverScan = () => {
+  const isNeedDriverScan = () => {
     return new Promise((resolve, reject) => {
-      read()
+      doRead()
         .then(values => {
           if (!values) resolve(true);
           else if (!values.date) resolve(true);
@@ -156,7 +156,7 @@ const AppContextProvider = ({ children }) => {
   };
 
   // save all the datas of the current tour
-  const save = params => {
+  const doSave = params => {
     const values = {
       date: Date.now(),
       datas: params || appContextState,
@@ -217,16 +217,16 @@ const AppContextProvider = ({ children }) => {
   };
 
   // load all the datas of the current tour
-  const load = () => {
+  const doLoad = () => {
     return new Promise((resolve, reject) => {
-      read()
+      doRead()
         .then(rawdatas => {
           const { date, datas } = rawdatas;
           if (datas && datas.waypointCollection) {
             const wpcoll = datas.waypointCollection.filter(
               item => !(item.done || item.status !== '0'),
             );
-            const firstIndex = firstWaypointIndexNotDone(wpcoll);
+            const firstIndex = getFirstWaypointIndexNotDone(wpcoll);
             setAppContextState(state => ({
               ...state,
               ...datas,
@@ -247,7 +247,7 @@ const AppContextProvider = ({ children }) => {
     });
   };
 
-  const clear = () => {
+  const doClear = () => {
     return new Promise((resolve, reject) => {
       const values = {
         date: Date.now(),
@@ -349,13 +349,13 @@ const AppContextProvider = ({ children }) => {
             [];
           setAppContextState(state => ({
             ...state,
-            forceWaypointIndex: 0, // firstWaypointIndexNotDone(value && value.commandes),
+            forceWaypointIndex: 0, // getFirstWaypointIndexNotDone(value && value.commandes),
             waypointList: [],
             conditionCollection: (value && value.problemes) || [],
             tourManager: (value && value.tournee) || { nom: '', rel: '' },
             managerCollection: (value && value.responsables) || [],
             waypointCollection: wpcoll,
-            waypoint: getWaypointFromArray(wpcoll[0], 0), // firstWaypointNotDone(value && value.commandes), // getWaypointFromArray(value.commandes[firstIndex], firstIndex),
+            waypoint: getWaypointFromArray(wpcoll[0], 0), // getFirstWaypointNotDone(value && value.commandes), // getWaypointFromArray(value.commandes[firstIndex], firstIndex),
           }));
           resolve(wpcoll);
         })
@@ -365,7 +365,7 @@ const AppContextProvider = ({ children }) => {
   /**
    * Open the map screen/app with desired location
    */
-  const openMapScreen = () => {
+  const doOpenMapScreen = () => {
     const params = {
       zoom: 20,
       query: appContextState.waypoint.address,
@@ -381,7 +381,7 @@ const AppContextProvider = ({ children }) => {
   /**
    * Get a waypoint from the collection by index
    */
-  const selectWaypointByIndex = index => {
+  const setWaypointByIndex = index => {
     const command = appContextState.waypointCollection[index];
     if (command) {
       const wp = getWaypointFromArray(command, index);
@@ -397,13 +397,13 @@ const AppContextProvider = ({ children }) => {
   /**
    * Select a waypoint by id
    */
-  const selectWaypointById = id => {
+  const setWaypointById = id => {
     const index = appContextState.waypointCollection.findIndex(item => item.id === id);
-    selectWaypointByIndex(index);
+    setWaypointByIndex(index);
   };
 
   // send the waypoint datas to the server
-  const sendWaypointToServer = wp => {
+  const doSendWaypointToServer = wp => {
     return new Promise((resolve, reject) => {
       getMyPosition().then(coords => {
         const values = {
@@ -440,7 +440,7 @@ const AppContextProvider = ({ children }) => {
   };
 
   // start a new waypoint
-  const startNewWaypoint = () => {
+  const doStartNewWaypoint = () => {
     let currentState = null;
     return new Promise((resolve, reject) => {
       setAppContextState(state => {
@@ -459,7 +459,7 @@ const AppContextProvider = ({ children }) => {
   };
 
   // Mark the waypoint has ended and send it to server
-  const endWaypoint = comment => {
+  const setEndWaypoint = comment => {
     return new Promise((resolve, reject) => {
       const state = { ...appContextState };
       const newWaypointCollection = [...state.waypointCollection];
@@ -477,9 +477,9 @@ const AppContextProvider = ({ children }) => {
         waypoint: newWaypoint,
       };
 
-      sendWaypointToServer(newWaypoint)
+      doSendWaypointToServer(newWaypoint)
         .then(ret => {
-          save(newOne);
+          doSave(newOne);
           setAppContextState(newOne);
           resolve(newOne);
         })
@@ -490,24 +490,24 @@ const AppContextProvider = ({ children }) => {
   };
 
   // is there any waypoint to visit
-  const needToVisitAnotherWaypoint = () => {
+  const isNeedToVisitAnotherWaypoint = () => {
     if (!waypointCollection || waypointCollection.length === 0) return false;
-    const validWaypoints = firstWaypointIndexNotDone(waypointCollection);
+    const validWaypoints = getFirstWaypointIndexNotDone(waypointCollection);
     return validWaypoints > 0;
   };
 
   // set the current waypoint to the next one
-  const selectNextWaypoint = callback => {
+  const setNextWaypoint = callback => {
     if (!waypointCollection || waypointCollection.length === 0) {
       callback();
     } else {
-      selectWaypointByIndex(firstWaypointIndexNotDone());
+      setWaypointByIndex(getFirstWaypointIndexNotDone());
       callback();
     }
   };
 
   // all the waypoint are done so close the day
-  const endTour = callback => {
+  const doEndTour = callback => {
     callback();
   };
 
@@ -562,16 +562,16 @@ const AppContextProvider = ({ children }) => {
   }, [waypointCollection, waypoint]);
 
   // Load some fake datas
-  const loadFakeContext = () => {
+  const doLoadFakeContext = () => {
     if (isStory()) {
       getDriverDatas('BT00249316');
       // getCarDatas('V0000017');
-      // selectWaypointByIndex(0);
+      // setWaypointByIndex(0);
     }
   };
 
   // store in local storage some datas that should be sent away
-  const storeClue = ({ condition, picture }) => {
+  const setStoreClue = ({ condition, picture }) => {
     return new Promise((resolve, reject) => {
       setAppContextState(state => ({
         ...state,
@@ -585,13 +585,13 @@ const AppContextProvider = ({ children }) => {
   };
 
   // test if the current waypoint barcode index is the last ?
-  const needAnotherWaypointCode = () => {
+  const isNeedAnotherWaypointCode = () => {
     const { waypointCodeIndex, waypointCodes } = waypoint;
     return waypointCodeIndex < waypointCodes.length - 1;
   };
 
   // the next barcode for this waypoint
-  const nextWaypointCode = callback => {
+  const setNextWaypointCode = callback => {
     setAppContextState(state => ({
       ...state,
       waypoint: {
@@ -602,7 +602,7 @@ const AppContextProvider = ({ children }) => {
     callback();
   };
 
-  const saveCurrentWaypointCode = num => {
+  const setCurrentWaypointCode = num => {
     setAppContextState(state => ({
       ...state,
       waypoint: {
@@ -613,13 +613,13 @@ const AppContextProvider = ({ children }) => {
   };
 
   // test if the current shipment barcode index is the last ?
-  const needAnotherShipmentCode = () => {
+  const isNeedAnotherShipmentCode = () => {
     const { shippingCodeIndex, shippingCodes } = waypoint;
     return shippingCodeIndex < shippingCodes.length - 1;
   };
 
   // the next barcode for this waypoint
-  const nextShipmentCode = callback => {
+  const getNextShipmentCode = callback => {
     setAppContextState(state => ({
       ...state,
       waypoint: {
@@ -631,7 +631,7 @@ const AppContextProvider = ({ children }) => {
   };
 
   // make a call to all managers, only managed by the backoffice
-  const contactAllManagers = () => {
+  const doContactAllManagers = () => {
     setAppContextState(state => ({ ...state, rescueIsSearching: true }));
     return new Promise((resolve, reject) => {
       getMyPosition().then(coords => {
@@ -666,7 +666,7 @@ const AppContextProvider = ({ children }) => {
   };
 
   // Set picture of the pickup
-  const storePickupPicture = value => {
+  const setStorePickupPicture = value => {
     setAppContextState(state => ({
       ...state,
       waypoint: {
@@ -691,7 +691,7 @@ const AppContextProvider = ({ children }) => {
     }));
   };
 
-  const sendPictureToBeUnblocked = async picture => {
+  const setCodeToBeUnblocked = async picture => {
     const coords = await getMyPosition();
     const proof = {
       picture,
@@ -720,47 +720,48 @@ const AppContextProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         car,
-        clear,
         clues,
         codeToUnlock,
         conditionCollection,
-        contactAllManagers,
+        doClear,
+        doContactAllManagers,
+        doEndTour,
+        doLoad,
+        doLoadFakeContext,
+        doOpenMapScreen,
+        doSave,
+        doStartNewWaypoint,
         driver,
-        endTour,
-        endWaypoint,
-        firstWaypointIndexNotDone,
         forceWaypointIndex,
         getCarDatas,
         getDriverDatas,
+        getFirstWaypointIndexNotDone,
+        getFirstWaypointNotDone,
+        getNextShipmentCode,
         getWaypointDatas,
         hideCarCodeBar,
         hideDriverCodeBar,
-        load,
-        loadFakeContext,
+        isNeedAnotherShipmentCode,
+        isNeedAnotherWaypointCode,
+        isNeedDriverScan,
+        isNeedToVisitAnotherWaypoint,
         loadFromStorage,
         managerCollection,
-        needAnotherShipmentCode,
-        needAnotherWaypointCode,
-        needDriverScan,
-        needToVisitAnotherWaypoint,
-        nextShipmentCode,
-        nextWaypointCode,
-        openMapScreen,
         rescueIsSearching,
-        save,
-        saveCurrentWaypointCode,
-        selectNextWaypoint,
-        selectWaypointById,
-        selectWaypointByIndex,
-        sendPictureToBeUnblocked,
+        setCodeToBeUnblocked,
+        setCurrentWaypointCode,
+        setEndWaypoint,
         setGSMNumber,
         setHideCarBarCodeReader,
         setHideDriverBarCodeReader,
+        setNextWaypoint,
+        setNextWaypointCode,
         setPickupCount,
+        setStoreClue,
+        setStorePickupPicture,
+        setWaypointById,
+        setWaypointByIndex,
         slip,
-        startNewWaypoint,
-        storeClue,
-        storePickupPicture,
         waypoint,
         waypointCollection,
         waypointList,

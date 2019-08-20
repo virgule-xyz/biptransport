@@ -38,7 +38,7 @@ const ScreenWaypointDashboard = ({ navigation }) => {
     navigation.navigate(NAVS.wpscanarrival.current);
   };
   const onPressTravel = () => {
-    appContext.openMapScreen();
+    appContext.doOpenMapScreen();
   };
   const onPressGalery = () => {
     setShowGaleryState(state => true);
@@ -56,14 +56,14 @@ const ScreenWaypointDashboard = ({ navigation }) => {
     setShowGaleryState(false);
   };
   const onSelectOtherWaypoint = id => {
-    appContext.selectWaypointById(id);
+    appContext.setWaypointById(id);
     setShowCollectionState(state => false);
   };
 
   useEffect(() => {
-    appContext.loadFakeContext();
-    appContext.startNewWaypoint().then(datas => {
-      appContext.save(datas);
+    appContext.doLoadFakeContext();
+    appContext.doStartNewWaypoint().then(datas => {
+      appContext.doSave(datas);
     });
   }, []);
 

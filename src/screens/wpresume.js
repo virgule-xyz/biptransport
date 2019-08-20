@@ -35,20 +35,20 @@ const ScreenWaypointResume = ({ navigation }) => {
   };
 
   useEffect(() => {
-    appContext.loadFakeContext();
+    appContext.doLoadFakeContext();
   }, []);
 
   const onPressNextWaypoint = () => {
     try {
       appContext
-        .endWaypoint(commentState)
+        .setEndWaypoint(commentState)
         .then(() => {
-          if (appContext.needToVisitAnotherWaypoint()) {
-            appContext.selectNextWaypoint(() => {
+          if (appContext.isNeedToVisitAnotherWaypoint()) {
+            appContext.setNextWaypoint(() => {
               navigation.navigate(NAVS.wpdashboard.current);
             });
           } else {
-            appContext.endTour(() => {
+            appContext.doEndTour(() => {
               navigation.navigate(NAVS.wpresume.next);
             });
           }

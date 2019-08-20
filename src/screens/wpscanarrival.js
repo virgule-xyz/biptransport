@@ -23,7 +23,7 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
   const [hideArrivalBarCodeReaderState, setHideArrivalBarCodeReaderState] = useState(false);
 
   useEffect(() => {
-    appContext.loadFakeContext();
+    appContext.doLoadFakeContext();
   }, []);
 
   // Verify code it should be in array of waypoint codes
@@ -40,9 +40,9 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
 
   // if ok and if another code to scan then show again the codebarreader or go to next step
   const onSuccess = () => {
-    if (appContext.needAnotherWaypointCode()) {
+    if (appContext.isNeedAnotherWaypointCode()) {
       setTimeout(
-        () => appContext.nextWaypointCode(() => setHideArrivalBarCodeReaderState(false)),
+        () => appContext.setNextWaypointCode(() => setHideArrivalBarCodeReaderState(false)),
         1000,
       );
     } else {

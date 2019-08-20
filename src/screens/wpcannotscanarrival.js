@@ -22,7 +22,7 @@ const ScreenWaypointCannotScanArrival = ({ navigation }) => {
   const [pictureTaken, setPictureTaken] = useState(null);
 
   useEffect(() => {
-    appContext.loadFakeContext();
+    appContext.doLoadFakeContext();
   }, []);
 
   const onPressCancel = () => {
@@ -36,7 +36,7 @@ const ScreenWaypointCannotScanArrival = ({ navigation }) => {
 
   const onPressAcceptPicture = picture => {
     appContext
-      .sendPictureToBeUnblocked(picture)
+      .setCodeToBeUnblocked(picture)
       .then(() => {
         navigation.navigate(NAVS.wpcannotscanarrival.next);
       })

@@ -32,7 +32,7 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
   const [base64PictureState, setBase64PictureState] = useState(null);
 
   useEffect(() => {
-    appContext.loadFakeContext();
+    appContext.doLoadFakeContext();
     const { width, height } = Dimensions.get('window');
     setScreenSizeState({ width, height });
   }, []);
@@ -140,11 +140,11 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
   };
 
   const onPressValidatePicture = () => {
-    // appContext.storeClue({
+    // appContext.setStoreClue({
     //   condition: conditionState,
     //   picture: base64PictureState,
     // });
-    appContext.storePickupPicture(base64PictureState);
+    appContext.setStorePickupPicture(base64PictureState);
     navigation.navigate(NAVS.wpscanpickupsphotos.next);
   };
 

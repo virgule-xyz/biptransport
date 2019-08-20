@@ -17,7 +17,7 @@ const ScreenSplash = ({ navigation }) => {
   // test if it is needed to load the previous context
   const onPressContinue = async () => {
     appContext
-      .needDriverScan()
+      .isNeedDriverScan()
       .then(needScans => {
         if (needScans) navigation.navigate(NAVS.start.next);
         else {
@@ -28,14 +28,14 @@ const ScreenSplash = ({ navigation }) => {
               {
                 text: 'Oui',
                 onPress: async () => {
-                  await appContext.load();
+                  await appContext.doLoad();
                   navigation.navigate(NAVS.wpdashboard.current);
                 },
               },
               {
                 text: 'Non',
                 onPress: async () => {
-                  await appContext.clear();
+                  await appContext.doClear();
                   navigation.navigate(NAVS.start.next);
                 },
               },

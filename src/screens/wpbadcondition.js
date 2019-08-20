@@ -35,7 +35,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   const [conditionState, setConditionState] = useState(null);
 
   useEffect(() => {
-    appContext.loadFakeContext();
+    appContext.doLoadFakeContext();
     const { width, height } = Dimensions.get('window');
     setScreenSizeState({ width, height });
   }, []);
@@ -166,7 +166,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
     } else {
       setConditionState(cond);
       appContext
-        .storeClue({
+        .setStoreClue({
           condition: cond,
         })
         .then(() => {
@@ -198,7 +198,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   };
 
   const onPressValidatePicture = () => {
-    appContext.storeClue({
+    appContext.setStoreClue({
       condition: conditionState,
       picture: base64PictureState,
     });

@@ -11,10 +11,12 @@ import { webservice, WS, isTest } from '@webservices';
 const putSos = ({ bordereau_id, chauffeur_id, vehicule_id, lat, lng }) => {
   if (isTest()) {
     return new Promise((resolve, reject) => {
-      resolve();
+      resolve({ result: 'ok' });
     });
   }
+
   return webservice({
+    postit: true,
     url: WS.URL.SOS,
     params: { key: WS.KEY, bordereau_id, chauffeur_id, vehicule_id, lat, lng },
   });

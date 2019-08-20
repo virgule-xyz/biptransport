@@ -79,7 +79,7 @@ const ScreenWaypointContactManager = ({ navigation }) => {
   };
 
   useEffect(() => {
-    appContext.loadFakeContext();
+    appContext.doLoadFakeContext();
   }, []);
 
   useEffect(() => {

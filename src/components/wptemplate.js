@@ -29,7 +29,7 @@ const CWaypointTemplate = ({
 
   const onAcceptContactManagers = () => {
     appContext
-      .contactAllManagers()
+      .doContactAllManagers()
       .then(() => {
         Alert.alert(splashname, "Un message vient d'être envoyé à vos responsables");
       })

@@ -21,14 +21,14 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   const appContext = useContext(AppContext);
 
   useEffect(() => {
-    appContext.loadFakeContext();
+    appContext.doLoadFakeContext();
   }, []);
 
   // Verify code it should be in array of waypoint codes
   const onVerificator = num => {
     return new Promise((resolve, reject) => {
       if (appContext.waypoint.shippingCodes[appContext.waypoint.shippingCodeIndex] === num) {
-        appContext.saveCurrentWaypointCode(num);
+        appContext.setCurrentWaypointCode(num);
         resolve(num);
       } else {
         reject({ err: '', message: '' });
@@ -38,8 +38,8 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
 
   // if ok and if another code to scan then show again the codebarreader or go to next step
   const onSuccess = () => {
-    if (appContext.needAnotherShipmentCode()) {
-      setTimeout(() => appContext.nextShipmentCode(() => {}), 1000);
+    if (appContext.isNeedAnotherShipmentCode()) {
+      setTimeout(() => appContext.getNextShipmentCode(() => {}), 1000);
     } else {
       navigation.navigate(NAVS.wpscanshipments.next);
     }

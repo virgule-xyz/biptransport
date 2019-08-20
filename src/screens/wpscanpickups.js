@@ -44,7 +44,7 @@ const ScreenWaypointScanPickups = ({ navigation }) => {
   }, [pickerValueState]);
 
   useEffect(() => {
-    appContext.loadFakeContext();
+    appContext.doLoadFakeContext();
   }, []);
 
   const onPressContinue = () => {

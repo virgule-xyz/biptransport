@@ -93,7 +93,7 @@ const webservice = ({ url, params, postit = false }) => {
 ## 0.25.0
 
 - Add member variable not present, usefull for the `put_passage` webservice
-- Add the `sendWaypointToServer`function
+- Add the `doSendWaypointToServer`function
 - Add start and end time of waypoint's visit
 - fix the `putWaypoint`function
 
@@ -101,7 +101,7 @@ const webservice = ({ url, params, postit = false }) => {
 
 - test if pool or datas are too old. Save appContext also. Propose to load the previous car and driver if less than 4 hours...
 - `"noyellow": true`is finaly the best solution to hide yellow box and get them in some situations
-- `clear, load, save, needDriverScan, read`are the new functions to manage persistent state
+- `clear, load, save, isNeedDriverScan, read`are the new functions to manage persistent state
 
 ## 0.23.0
 
@@ -114,7 +114,7 @@ const webservice = ({ url, params, postit = false }) => {
 
 - Add `ScreenWaypointScanShipments`to get scan of packages
 - Test `ScreenWaypointScanArrival`in E2E
-- Add the managment of packages with `shippingCodes`, `shippingCodeIndex` and `needAnotherShipmentCode` plus `nextShipmentCode`.
+- Add the managment of packages with `shippingCodes`, `shippingCodeIndex` and `isNeedAnotherShipmentCode` plus `getNextShipmentCode`.
 
 ## 0.21.0
 
@@ -173,7 +173,7 @@ const webservice = ({ url, params, postit = false }) => {
 
 - DONE: Add the `ScreenWaypointBadCondition` to the navigator
 - ADD: `CWaypointTemplate` is the template to use to build screens with little header
-- ADD: `loadFakeContext`is a way to load fake datas for stories
+- ADD: `doLoadFakeContext`is a way to load fake datas for stories
 - ADD: `ScreenWaypointBadCondition`
 - FIX: Restore storybook because of AppContext
 - FIX: Now `story===true`remove yellowBox
