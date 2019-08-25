@@ -9,6 +9,7 @@ import React, { useState, useEffect } from 'react';
 import { Alert, Dimensions, View, ScrollView } from 'react-native';
 import { CButton, CSpace, CSpinner, COLORS } from '@components';
 import { RNCamera } from 'react-native-camera';
+import { turnLightOn, turnLightOff } from 'react-native-light';
 import Dialog from 'react-native-dialog';
 import PropTypes from 'prop-types';
 
@@ -38,8 +39,17 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
     useEffectAsync(hide || showBarcodeInput);
   }, [hide, showBarcodeInput]);
 
+  useEffect(() => {
+    if (!hide) turnLightOn();
+
+    return () => {
+      turnLightOff();
+    };
+  }, [hide]);
+
   // Test if barcode is a good number via `verificator`
   const testBarCode = code => {
+    console.warn(code);
     verificator(code.toUpperCase())
       .then(value => {
         setBarcode('');
@@ -62,7 +72,8 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
   const onBarCodeRead = event => {
     isBarCodeRead = true;
     setStopCamera(true);
-    testBarCode(event.data || event.barcodes[0].data);
+    if (event && event.data) testBarCode(event.data);
+    if (event && event.barcodes) testBarCode(event.barcodes[0].data);
   };
 
   // press the button that display the bar code input
@@ -110,7 +121,7 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
         }}
         testID={testID}
       >
-        {!hide && (
+        {!(hide || stopCamera) && (
           <RNCamera
             testID={`${testID}_RNCAMERA`}
             captureAudio={false}
@@ -125,9 +136,9 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
             ]}
             zoom={ZOOM}
             type={RNCamera.Constants.Type.back}
-            onGoogleVisionBarcodesDetected={stopCamera ? null : onBarCodeRead}
-            // onBarCodeRead={stopCamera ? null : onBarCodeRead}
-            flashMode={RNCamera.Constants.FlashMode.torch}
+            // onGoogleVisionBarcodesDetected={stopCamera ? null : onBarCodeRead}
+            onBarCodeRead={stopCamera ? null : onBarCodeRead}
+            // flashMode={RNCamera.Constants.FlashMode.torch}
             autoFocus={RNCamera.Constants.AutoFocus.on}
           >
             {({ camera, status }) => {

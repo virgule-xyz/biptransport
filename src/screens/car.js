@@ -62,10 +62,7 @@ const ScreenCar = ({ navigation }) => {
     setShowCarConfirm(false);
     setHideCarBarCodeReader(true);
     appContext.setHideCarBarCodeReader(true);
-    // setTimeout(() => {
-    // appContext.save();
     navigation.navigate(NAVS.car.next);
-    // }, 500);
   };
 
   // the driver wants another car

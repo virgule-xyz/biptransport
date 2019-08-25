@@ -20,8 +20,36 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   // manage the  context
   const appContext = useContext(AppContext);
 
+  const [showCodebarState, setShowCodebarState] = useState(false);
+
   useEffect(() => {
     appContext.doLoadFakeContext();
+  }, []);
+
+  let timeout = null;
+
+  useEffect(() => {
+    if (showCodebarState === false) {
+      timeout = setTimeout(() => {
+        setShowCodebarState(true);
+      }, 1000);
+    }
+
+    return function cleanUp() {
+      clearTimeout(timeout);
+    };
+  }, [showCodebarState]);
+
+  useEffect(() => {
+    if (showCodebarState === false) {
+      timeout = setTimeout(() => {
+        setShowCodebarState(true);
+      }, 1000);
+    }
+
+    return function cleanUp() {
+      clearTimeout(timeout);
+    };
   }, []);
 
   // Verify code it should be in array of waypoint codes
@@ -31,13 +59,14 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
         appContext.setCurrentWaypointCode(num);
         resolve(num);
       } else {
-        reject({ err: '', message: '' });
+        resolve(false);
       }
     });
   };
 
   // if ok and if another code to scan then show again the codebarreader or go to next step
   const onSuccess = () => {
+    setShowCodebarState(false);
     if (appContext.isNeedAnotherShipmentCode()) {
       setTimeout(() => appContext.getNextShipmentCode(() => {}), 1000);
     } else {
@@ -46,6 +75,7 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   };
 
   const onError = msg => {
+    setShowCodebarState(false);
     if (msg) Alert.alert(splashname, msg);
     else Alert.alert(splashname, 'Ce colis est à livrer chez un autre client..');
   };
@@ -53,10 +83,6 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   const onPressManager = () => {
     navigation.navigate(NAVS.managers.current);
   };
-
-  // const onPressCancel = () => {
-  //   navigation.navigate(NAVS.wpscanarrival.previous);
-  // };
 
   return (
     <AppContext.Consumer>
@@ -76,23 +102,21 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
           }
         >
           <CSpace />
-          <CBarCodeReader
-            testID="ID_BARCODE_SHIP"
-            input
-            verificator={onVerificator}
-            onSuccess={onSuccess}
-            onError={onError}
-          />
+          {showCodebarState && (
+            <CBarCodeReader
+              testID="ID_BARCODE_SHIP"
+              input
+              verificator={onVerificator}
+              onSuccess={onSuccess}
+              onError={onError}
+            />
+          )}
           <CSpace />
           <Grid>
             <Row>
               <Col size={9}>
                 <CButton onPress={onPressManager} block icon="bell" label="Responsable" />
               </Col>
-              {/* <Col size={1} />
-              <Col size={9}>
-                <CButton danger onPress={onPressCancel} block icon="close-o" label="Annuler" />
-              </Col> */}
             </Row>
           </Grid>
         </CWaypointTemplate>

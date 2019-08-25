@@ -115,14 +115,14 @@ const AppContextProvider = ({ children }) => {
 
   const getFirstWaypointIndexNotDone = origin => {
     const from = origin || waypointCollection;
-    const firstIndex = from.findIndex(wp => wp.status === '0');
+    const firstIndex = from.findIndex(wp => wp.status === '0' || wp.done === false);
     return firstIndex;
   };
 
   const getFirstWaypointNotDone = origin => {
     const from = origin || waypointCollection;
-    const firstIndex = getFirstWaypointIndexNotDone(from);
-    return firstIndex >= 0 && from ? from[firstIndex] : from[0];
+    const firstIndex = getFirstWaypointIndexNotDone(origin);
+    return firstIndex >= 0 && from ? from[firstIndex] : null;
   };
 
   const doRead = () => {
@@ -226,23 +226,27 @@ const AppContextProvider = ({ children }) => {
             const wpcoll = datas.waypointCollection.filter(
               item => !(item.done || item.status !== '0'),
             );
-            const firstIndex = getFirstWaypointIndexNotDone(wpcoll);
-            setAppContextState(state => ({
-              ...state,
-              ...datas,
-              loadFromStorage: true,
-              forceWaypointIndex: firstIndex,
-              waypointCollection: wpcoll,
-              waypointList: getWaypointList(wpcoll),
-              waypoint: getWaypointFromArray(wpcoll[firstIndex], firstIndex),
-            }));
-            Pool.flush();
-            resolve(true);
+            if (wpcoll.length > 0) {
+              const firstIndex = getFirstWaypointIndexNotDone(wpcoll);
+              if (firstIndex < 0) throw new Error();
+
+              setAppContextState(state => ({
+                ...state,
+                ...datas,
+                loadFromStorage: true,
+                forceWaypointIndex: firstIndex,
+                waypointCollection: wpcoll,
+                waypointList: getWaypointList(wpcoll),
+                waypoint: getWaypointFromArray(wpcoll[firstIndex], firstIndex),
+              }));
+              Pool.flush();
+              resolve(true);
+            }
           }
-          resolve(false);
         })
         .catch(err => {
-          resolve(false);
+          Alert.alert(splashname, 'Impossible de construire la tournée !');
+          reject(false);
         });
     });
   };
@@ -347,17 +351,33 @@ const AppContextProvider = ({ children }) => {
                 .filter(item => !(item.done || item.status !== '0'))
                 .map(wp => ({ ...wp, done: false }))) ||
             [];
-          setAppContextState(state => ({
-            ...state,
-            forceWaypointIndex: 0, // getFirstWaypointIndexNotDone(value && value.commandes),
-            waypointList: [],
-            conditionCollection: (value && value.problemes) || [],
-            tourManager: (value && value.tournee) || { nom: '', rel: '' },
-            managerCollection: (value && value.responsables) || [],
-            waypointCollection: wpcoll,
-            waypoint: getWaypointFromArray(wpcoll[0], 0), // getFirstWaypointNotDone(value && value.commandes), // getWaypointFromArray(value.commandes[firstIndex], firstIndex),
-          }));
-          resolve(wpcoll);
+          if (wpcoll.length === 0) {
+            setAppContextState(state => ({
+              ...state,
+              forceWaypointIndex: 0, // getFirstWaypointIndexNotDone(value && value.commandes),
+              waypointList: [],
+              conditionCollection: [],
+              tourManager: { nom: '', rel: '' },
+              managerCollection: [],
+              waypointCollection: [],
+              waypoint: null,
+            }));
+            reject(false);
+          } else {
+            setAppContextState(state => ({
+              ...state,
+              forceWaypointIndex: 0, // getFirstWaypointIndexNotDone(value && value.commandes),
+              waypointList: [],
+              conditionCollection: (value && value.problemes) || [],
+              tourManager: (value && value.tournee) || { nom: '', rel: '' },
+              managerCollection: (value && value.responsables) || [],
+              waypointCollection: wpcoll,
+              waypoint: getWaypointFromArray(wpcoll[0], 0),
+              // getFirstWaypointNotDone(value && value.commandes),
+              // getWaypointFromArray(value.commandes[firstIndex], firstIndex),
+            }));
+            resolve(wpcoll);
+          }
         })
         .catch(err => reject(err));
     });
@@ -493,15 +513,17 @@ const AppContextProvider = ({ children }) => {
   const isNeedToVisitAnotherWaypoint = () => {
     if (!waypointCollection || waypointCollection.length === 0) return false;
     const validWaypoints = getFirstWaypointIndexNotDone(waypointCollection);
-    return validWaypoints > 0;
+    return validWaypoints >= 0;
   };
 
   // set the current waypoint to the next one
   const setNextWaypoint = callback => {
     if (!waypointCollection || waypointCollection.length === 0) {
-      callback();
+      throw new Error('No more waypoints');
     } else {
-      setWaypointByIndex(getFirstWaypointIndexNotDone());
+      const firstIndex = getFirstWaypointIndexNotDone(waypointCollection);
+      if (firstIndex < 0) throw new Error('No more waypoints');
+      setWaypointByIndex(firstIndex);
       callback();
     }
   };
@@ -519,7 +541,7 @@ const AppContextProvider = ({ children }) => {
       try {
         if (s && s.id > 0) {
           const value = await getWaypointDatas(s.id);
-          if (value) {
+          if (value && value.length > 0) {
             setAppContextState(state => {
               return {
                 ...state,
@@ -660,7 +682,7 @@ const AppContextProvider = ({ children }) => {
       ...state,
       waypoint: {
         ...state.waypoint,
-        pickupRealCount: value,
+        pickupRealCount: Math.max(0, value),
       },
     }));
   };

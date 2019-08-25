@@ -136,7 +136,7 @@ const CCamera = ({ onTakePicture, hide, testID, ...props }) => {
                 >
                   <View
                     style={{
-                      backgroundColor: 'rgba(255,255,255,0.2)',
+                      backgroundColor: 'rgba(255,255,255,0.4)',
                       justifyContent: 'center',
                       alignItems: 'center',
                       width: '100%',
