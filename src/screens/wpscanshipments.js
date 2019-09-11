@@ -20,35 +20,45 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   // manage the  context
   const appContext = useContext(AppContext);
 
+  // display state for code bar
   const [showCodebarState, setShowCodebarState] = useState(false);
 
+  // load a dev fake context
   useEffect(() => {
     appContext.doLoadFakeContext();
   }, []);
 
+  // timeout of waiting timer
   let timeout = null;
 
-  useEffect(() => {
-    if (showCodebarState === false) {
+  // the routine to show another code bar
+  const routine = () => {
+    if (showCodebarState === false && !timeout) {
       timeout = setTimeout(() => {
         setShowCodebarState(true);
       }, 1000);
     }
+  };
 
+  // stop the above routine
+  const stopRoutine = () => {
+    clearTimeout(timeout);
+    timeout = null;
+  };
+
+  // when codebar change to not shown run the routine above to show it again after 1 sec
+  useEffect(() => {
+    routine();
     return function cleanUp() {
-      clearTimeout(timeout);
+      stopRoutine();
     };
   }, [showCodebarState]);
 
+  // same as above but for the first screen display
   useEffect(() => {
-    if (showCodebarState === false) {
-      timeout = setTimeout(() => {
-        setShowCodebarState(true);
-      }, 1000);
-    }
-
+    routine();
     return function cleanUp() {
-      clearTimeout(timeout);
+      stopRoutine();
     };
   }, []);
 
@@ -56,17 +66,21 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   const onVerificator = num => {
     return new Promise((resolve, reject) => {
       if (appContext.waypoint.shippingCodes[appContext.waypoint.shippingCodeIndex] === num) {
+        setShowCodebarState(null);
+        stopRoutine();
         appContext.setCurrentWaypointCode(num);
         resolve(num);
       } else {
-        resolve(false);
+        stopRoutine();
+        setShowCodebarState(true);
+        reject({ err: 1, message: 'Problème de code barre' });
       }
     });
   };
 
   // if ok and if another code to scan then show again the codebarreader or go to next step
   const onSuccess = () => {
-    setShowCodebarState(false);
+    setShowCodebarState(null);
     if (appContext.isNeedAnotherShipmentCode()) {
       setTimeout(() => appContext.getNextShipmentCode(() => {}), 1000);
     } else {
@@ -75,9 +89,9 @@ const ScreenWaypointScanShipments = ({ navigation }) => {
   };
 
   const onError = msg => {
-    setShowCodebarState(false);
+    // setShowCodebarState(null);
     if (msg) Alert.alert(splashname, msg);
-    else Alert.alert(splashname, 'Ce colis est à livrer chez un autre client..');
+    else Alert.alert(splashname, 'Une erreur est survenue avec ce colis.');
   };
 
   const onPressManager = () => {

@@ -1,0 +1,1673 @@
+  /Users/pierrecanthelou/git/BIP/biptransport/src/app.js:1:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/app.js:2:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/app.js:3:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/app.js:4:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/app.js:8:18: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/app.js:13:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/app.js:15:19: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/badge.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/badge.js:9:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/badge.js:10:29: 'COLORS' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/badge.js:10:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/badge.js:11:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/badge.js:27:31: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/badge.js:34:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/badge.js:35:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/badge.js:38:37: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/badge.js:39:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/badge.js:41:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:8:38: 'useMemo' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:8:60: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:9:10: 'Alert' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:9:35: 'ScrollView' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:9:67: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:10:64: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:11:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:13:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:14:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:16:68: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:21:33: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:22:3: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:24:16: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:25:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:26:17: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:33:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:35:7: 'isBarCodeRead' is assigned a value but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:35:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:37:66: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:38:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:39:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:44:23: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:45:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:47:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:48:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:62:23: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:64:27: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:70:27: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:71:34: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:72:33: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:73:13: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:75:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:76:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:80:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:81:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:82:53: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:83:69: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:84:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:88:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:90:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:91:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:95:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:97:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:98:19: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:99:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:103:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:105:34: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:106:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:107:12: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:108:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:112:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:113:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:117:41: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:118:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:127:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:141:41: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:142:16: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:156:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:162:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:166:15: Expected { after 'if' condition.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:172:38: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:177:18: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:179:38: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:181:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:190:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:193:16: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:202:20: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:205:21: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:225:17: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:233:17: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:239:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:240:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:247:24: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:248:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:251:14: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:252:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:254:38: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/barcodereader.js:256:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:9:49: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:10:51: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:11:50: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:12:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:14:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:20:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:29:43: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:31:14: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:42:45: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:46:43: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:50:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:51:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:54:43: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:55:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/bigheader.js:57:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:9:49: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:10:71: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:11:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:13:68: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:18:33: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:19:3: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:34:25: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:38:33: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:39:6: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:40:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:44:20: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:45:6: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:46:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:53:26: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:54:6: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:55:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:56:60: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:63:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:64:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:69:24: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:70:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:75:15: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:76:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:78:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/button.js:80:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:8:51: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:9:66: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:10:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:17:13: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:18:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:19:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:20:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:22:19: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:28:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:30:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:31:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:32:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:33:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:45:30: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:46:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:48:58: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:49:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:50:33: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:52:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:54:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:59:23: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:60:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:61:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:62:27: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:63:13: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:77:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:78:14: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:87:37: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:93:37: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:97:13: Expected { after 'if' condition.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:102:30: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:107:16: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:109:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:111:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:118:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:123:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:124:25: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:134:30: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:143:37: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:146:32: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:146:64: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:157:32: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:168:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:179:45: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:183:14: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:188:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:189:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:192:43: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:193:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/camera.js:197:23: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:9:49: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:10:70: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:11:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:28:16: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:30:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:36:29: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:37:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:39:3: Expected { after 'if' condition.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:45:31: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:46:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:47:3: Expected { after 'if' condition.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:53:31: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:54:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:55:3: Expected { after 'if' condition.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:59:31: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:60:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:84:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:85:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:98:25: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:99:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:112:11: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:113:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/content.js:115:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/error.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/error.js:9:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/error.js:10:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/error.js:11:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/error.js:26:44: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/error.js:29:17: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/error.js:32:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/error.js:34:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/greybox.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/greybox.js:9:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/greybox.js:10:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/greybox.js:24:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/greybox.js:26:14: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/greybox.js:31:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/greybox.js:32:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/greybox.js:34:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/icon.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/icon.js:9:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/icon.js:10:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/icon.js:11:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/icon.js:18:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/icon.js:21:36: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/icon.js:22:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/icon.js:24:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/image.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/image.js:9:49: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/image.js:10:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/image.js:11:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/image.js:20:16: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/image.js:23:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/image.js:28:38: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/image.js:29:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/image.js:31:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:1:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:2:60: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:3:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:4:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:5:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:6:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:7:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:8:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:9:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:10:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:11:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:12:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:13:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:14:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:15:58: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:16:40: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:17:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:18:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:19:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:20:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:21:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:22:58: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:23:58: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:24:60: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:25:68: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:26:60: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:28:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:29:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:30:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:31:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:32:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:33:34: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:34:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:35:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:36:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:37:69: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:57:21: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:58:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:61:33: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:62:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:63:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:64:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:65:20: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:66:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:69:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:70:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:71:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:72:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:73:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/index.js:74:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/info.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/info.js:9:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/info.js:10:70: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/info.js:25:44: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/info.js:28:17: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/info.js:31:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/info.js:33:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:9:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:10:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:18:20: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:20:25: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:20:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:22:25: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:22:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:24:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:33:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:34:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:41:38: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:42:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:47:17: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:48:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/input.js:50:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:9:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:10:67: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:11:78: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:12:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:14:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:20:69: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:26:68: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:27:47: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:37:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:52:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:53:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:60:47: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:61:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/miniheader.js:63:27: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:8:51: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:9:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:10:53: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:11:56: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:12:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:13:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:21:61: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:25:27: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:26:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:28:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:29:13: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:35:13: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:36:14: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:68:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:69:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:75:26: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:76:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:82:20: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:83:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/modal.js:85:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:8:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:9:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:10:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:11:83: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:12:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:13:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:21:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:25:14: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:39:29: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:44:17: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:47:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:53:16: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:54:16: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:61:31: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:66:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:68:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:69:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:73:37: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:74:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/rescuebutton.js:76:29: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/sep.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/sep.js:9:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/sep.js:10:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/sep.js:27:21: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/sep.js:30:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/sep.js:31:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/sep.js:33:20: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/space.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/space.js:9:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/space.js:10:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/space.js:11:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/space.js:23:20: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/space.js:28:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/space.js:32:23: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/space.js:33:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/space.js:37:14: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/space.js:38:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/space.js:40:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/spinner.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/spinner.js:9:38: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/spinner.js:10:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/spinner.js:15:72: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/spinner.js:17:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/text.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/text.js:9:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/text.js:14:77: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/text.js:16:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:9:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:10:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:11:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:12:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:14:68: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:19:33: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:20:3: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:33:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:34:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:35:34: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:39:38: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:40:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/textinput.js:42:38: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/title.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/title.js:9:33: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/title.js:18:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/title.js:20:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:9:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:10:69: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:11:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:26:20: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:39:26: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:51:29: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:54:22: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:65:31: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:76:44: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:79:22: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:84:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:85:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:92:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:93:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:96:15: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:97:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpaddress.js:99:32: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:9:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:10:65: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:11:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:30:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:36:36: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:37:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:50:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:51:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:52:57: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:59:14: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:67:14: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:75:15: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:76:14: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:83:15: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:84:14: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:90:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:91:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:98:44: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:99:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpbuttons.js:101:32: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:1:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:2:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:3:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:4:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:27:31: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:36:23: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:50:23: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:59:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:60:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:68:35: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:69:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:73:25: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:74:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpcounters.js:76:33: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:9:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:10:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:11:21: 'Col' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:11:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:12:44: 'CSep' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:12:69: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:18:51: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:19:61: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:27:62: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:41:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:42:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:50:37: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:51:3: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:54:43: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:55:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wpotherpassage.js:57:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:8:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:9:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:10:50: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:11:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:12:91: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:13:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:14:32: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:15:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:25:20: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:28:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:34:85: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:37:78: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:38:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:39:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:49:26: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:50:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:52:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:53:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:54:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:56:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:57:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:59:50: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:60:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:86:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:89:34: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:91:22: Closing tag of a multiline JSX expression must be on its own line.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:97:51: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:103:32: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:118:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:121:34: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:123:22: Closing tag of a multiline JSX expression must be on its own line.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:130:53: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:135:32: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:152:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:153:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:156:33: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:157:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:160:20: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:161:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/components/wptemplate.js:163:49: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:3:51: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:4:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:5:65: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:15:7: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:16:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:17:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:18:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:19:68: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:20:49: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:25:33: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:26:3: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:70:22: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:71:4: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:72:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:74:56: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:78:74: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:80:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:84:33: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:85:6: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:86:5: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:104:17: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:105:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:111:16: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:114:33: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:115:72: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:117:16: Expected error to be handled.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:118:11: Expected the Promise rejection reason to be an Error.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:118:38: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:119:11: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:120:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:121:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:124:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:125:84: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:126:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:127:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:130:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:131:60: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:132:61: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:133:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:139:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:140:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:141:53: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:144:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:145:11: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:146:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:147:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:154:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:155:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:156:80: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:157:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:160:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:161:11: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:162:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:163:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:169:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:170:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:171:70: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:172:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:187:29: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:204:37: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:205:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:206:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:218:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:219:10: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:222:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:223:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:224:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:231:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:234:58: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:235:14: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:237:70: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:238:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:247:79: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:248:18: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:249:27: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:250:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:254:16: Expected error to be handled.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:255:75: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:256:11: Expected the Promise rejection reason to be an Error.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:256:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:257:11: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:258:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:259:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:265:20: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:266:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:269:23: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:270:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:273:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:274:11: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:275:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:276:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:290:43: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:291:14: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:292:14: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:293:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:295:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:296:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:311:42: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:317:45: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:318:14: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:319:12: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:320:67: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:321:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:323:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:324:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:332:22: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:339:24: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:340:12: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:341:12: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:344:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:345:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:346:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:360:15: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:370:29: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:371:16: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:372:13: Expected the Promise rejection reason to be an Error.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:372:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:382:59: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:385:16: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:386:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:389:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:390:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:399:64: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:400:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:401:87: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:403:65: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:404:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:405:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:406:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:407:86: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:409:32: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:411:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:417:62: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:419:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:420:56: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:424:21: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:425:10: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:427:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:433:87: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:434:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:435:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:458:35: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:459:10: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:463:27: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:464:19: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:465:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:468:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:469:13: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:470:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:471:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:472:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:476:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:484:46: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:485:12: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:486:10: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:487:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:488:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:489:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:490:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:491:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:496:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:497:66: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:498:56: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:503:19: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:504:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:505:83: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:509:30: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:510:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:514:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:515:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:516:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:519:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:520:11: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:521:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:522:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:526:77: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:527:76: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:528:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:529:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:534:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:536:74: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:537:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:538:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:539:17: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:541:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:545:15: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:546:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:555:53: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:564:90: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:565:16: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:566:15: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:570:73: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:572:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:574:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:575:13: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:586:45: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:587:14: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:590:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:591:75: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:593:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:595:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:596:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:601:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:605:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:614:49: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:615:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:616:10: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:617:16: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:618:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:619:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:623:58: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:624:56: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:625:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:633:64: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:634:8: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:635:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:636:15: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:637:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:644:70: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:645:8: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:646:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:647:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:651:58: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:652:56: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:653:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:661:64: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:662:8: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:663:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:664:15: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:665:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:669:73: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:677:27: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:680:82: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:681:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:684:82: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:685:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:686:13: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:687:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:688:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:689:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:697:44: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:698:8: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:699:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:700:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:708:29: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:709:8: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:710:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:711:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:716:27: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:717:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:718:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:724:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:725:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:726:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:729:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:738:21: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:739:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:740:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:745:39: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:746:10: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:747:18: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:749:17: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:750:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:801:21: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:806:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:807:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:809:34: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:811:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/app.js:812:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/index.js:1:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/contexts/index.js:2:60: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/medias/index.js:4:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:1:99: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:16:34: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:17:18: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:31:22: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:37:19: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:38:6: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:39:4: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:40:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:48:19: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:49:6: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:50:4: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:51:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:53:53: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/navigator.js:55:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:1:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:2:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:3:50: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:5:89: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:6:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:7:32: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:8:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:9:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:17:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:20:62: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:22:10: 'hideCarBarCodeRead' is assigned a value but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:22:72: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:26:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:27:34: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:32:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:33:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:34:12: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:35:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:40:40: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:49:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:50:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:51:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:52:14: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:53:12: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:55:30: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:56:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:57:12: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:58:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:62:29: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:63:34: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:64:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:65:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:66:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:70:29: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:71:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:72:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:76:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:77:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:78:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:84:27: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:87:18: Strings must use singlequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:91:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:101:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:106:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:108:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:110:23: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:118:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:119:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/car.js:121:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:1:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:2:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:3:10: 'withNavigation' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:3:50: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:5:97: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:6:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:7:32: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:8:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:10:68: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:15:33: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:16:3: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:25:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:28:58: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:30:57: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:32:10: 'hideDriverBarCodeReader' is assigned a value but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:32:80: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:38:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:40:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:42:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:43:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:46:61: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:47:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:53:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:54:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:55:12: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:56:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:61:40: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:70:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:71:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:72:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:73:14: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:74:12: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:76:30: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:77:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:78:12: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:79:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:82:58: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:86:27: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:87:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:88:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:89:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:90:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:91:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:94:27: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:95:38: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:96:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:97:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:101:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:102:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:103:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:109:27: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:112:18: Strings must use singlequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:116:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:125:61: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:133:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:140:23: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:142:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:147:23: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:149:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:156:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:157:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:159:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/driver.js:161:40: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:1:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:2:51: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:3:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:4:51: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:5:73: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:6:69: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:7:67: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:8:71: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:9:83: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:10:77: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:11:61: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:12:61: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:13:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:14:75: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:15:71: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:16:83: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:28:40: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:33:41: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:38:40: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:43:42: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:49:42: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:51:75: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/index.js:52:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:1:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:2:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:3:66: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:4:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:5:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:6:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:13:40: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:17:67: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:19:38: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:22:64: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:23:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:32:26: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:33:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:35:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:36:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:37:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:40:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:41:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:44:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:45:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:48:21: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:81:27: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:83:28: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:92:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:93:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/managers.js:95:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:1:17: 'useEffect' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:1:53: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:2:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:3:64: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:4:10: 'Pool' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:4:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:5:32: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:6:57: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:7:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:14:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:21:60: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:30:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:31:64: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:32:18: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:37:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:38:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:39:18: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:40:16: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:42:34: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:43:12: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:46:14: Expected error to be handled.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:47:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:48:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:49:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:52:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:54:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:59:22: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:61:23: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:61:49: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:64:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:65:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/splash.js:67:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:8:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:9:67: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:11:90: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:12:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:13:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:20:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:23:82: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:26:64: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:29:76: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:32:69: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:35:61: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:38:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:39:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:40:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:41:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:56:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:66:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:70:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:71:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:72:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:73:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:81:53: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:83:27: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:83:40: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:85:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:102:33: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:117:16: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:119:17: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:125:16: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:126:17: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:127:18: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:133:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:141:29: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:147:59: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:148:12: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:149:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:151:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:152:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:153:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:156:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:157:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:158:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:159:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:163:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:165:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:167:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:170:26: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:173:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:176:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:177:11: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:179:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:190:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:191:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:193:26: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:194:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:196:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:197:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:198:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:203:34: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:204:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:205:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:206:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:242:22: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:243:23: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:244:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:251:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:252:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpbadcondition.js:254:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:8:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:9:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:10:97: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:11:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:12:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:13:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:19:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:21:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:22:57: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:25:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:26:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:29:59: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:30:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:33:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:34:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:35:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:41:59: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:44:33: Strings must use singlequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:47:47: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:48:12: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:49:11: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:50:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:51:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:54:56: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:55:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:56:29: Strings must use singlequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:60:40: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:61:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:66:43: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:67:8: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:68:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:69:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:83:21: Strings must use singlequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:93:46: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:104:33: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:104:46: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:109:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:110:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcannotscanarrival.js:112:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:9:40: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:10:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:17:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:18:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:24:20: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:29:16: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:33:20: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:39:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:40:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:46:46: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:47:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcollection.js:49:40: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:8:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:9:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:10:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:11:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:12:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:21:12: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:22:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:23:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:29:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:35:21: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:36:5: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:39:40: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:43:67: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:45:67: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:46:38: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:49:64: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:50:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:60:26: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:61:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:63:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:64:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:65:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:68:89: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:69:58: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:73:50: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:74:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:75:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:78:56: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:79:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:82:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:83:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:88:56: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:89:14: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:92:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:93:10: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:97:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:98:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:99:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:113:21: Strings must use singlequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:121:16: Strings must use singlequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:150:34: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:154:30: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:162:31: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:166:33: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:166:46: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:171:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:172:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpcontactmanager.js:174:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:8:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:9:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:17:20: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:18:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:19:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:20:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:21:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:22:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:29:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:32:72: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:35:64: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:38:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:39:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:41:33: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:42:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:44:38: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:45:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:47:53: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:48:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:50:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:51:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:53:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:54:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:56:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:57:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:59:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:60:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:61:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:64:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:66:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:67:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:68:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:81:26: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:91:31: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:96:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:107:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:108:23: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:126:10: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:129:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:130:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpdashboard.js:132:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpend.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpend.js:9:64: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpend.js:10:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpend.js:17:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpend.js:18:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpend.js:25:23: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpend.js:25:50: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpend.js:28:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpend.js:29:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpend.js:31:33: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:8:27: 'useEffect' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:8:51: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:9:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:10:52: 'Alert' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:10:79: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:11:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:13:3: 'CGreyBox' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:17:3: 'CTitle' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:19:3: 'CWaypointAddress' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:20:18: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:21:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:22:57: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:28:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:29:97: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:37:18: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:38:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:39:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:40:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:48:18: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:49:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:50:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:51:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:68:19: Missing "key" prop for element in iterator
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:73:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:78:33: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:80:38: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:92:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:93:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:100:37: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:101:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpgalery.js:103:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:8:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:9:16: 'Alert' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:9:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:19:17: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:20:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:21:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:22:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:29:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:31:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:34:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:35:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:38:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:39:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:48:60: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:49:15: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:52:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:53:15: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:57:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:58:11: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:60:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:62:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:78:26: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:93:89: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:96:89: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:99:78: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:102:78: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:110:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:112:23: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:116:22: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:119:20: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:120:21: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:124:7: Unexpected newline before '{'.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:126:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:127:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpresume.js:129:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:8:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:9:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:10:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:11:88: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:12:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:13:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:14:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:21:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:23:92: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:26:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:27:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:32:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:34:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:36:9: Expected the Promise rejection reason to be an Error.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:36:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:38:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:39:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:46:13: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:47:8: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:49:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:50:99: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:51:59: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:53:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:64:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:65:23: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:66:12: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:67:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:69:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:70:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:71:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:74:58: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:76:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:79:53: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:80:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:91:39: Strings must use singlequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:101:20: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:112:62: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:112:75: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:116:68: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:116:84: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:123:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:124:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanarrival.js:126:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:8:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:9:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:10:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:17:3: 'CSep' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:19:9: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:20:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:21:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:22:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:29:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:31:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:33:75: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:34:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:39:75: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:41:29: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:44:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:47:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:48:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:51:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:53:51: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:55:60: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:57:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:80:29: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:84:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:85:22: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:86:27: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:87:38: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:88:37: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:96:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:96:59: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:97:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:97:59: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:98:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:98:59: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:99:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:99:59: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:100:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:100:59: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:101:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:101:59: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:102:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:102:59: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:103:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:103:59: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:104:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:104:59: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:105:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:105:59: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:106:36: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:106:65: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:118:20: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:119:18: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:122:19: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:131:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:132:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickups.js:134:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:8:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:9:16: 'ScrollView' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:9:67: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:11:90: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:12:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:13:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:14:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:20:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:23:82: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:26:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:29:76: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:32:69: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:35:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:36:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:37:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:38:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:42:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:43:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:44:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:45:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:51:53: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:55:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:70:33: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:85:16: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:87:17: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:93:16: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:94:17: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:95:18: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:101:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:109:29: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:115:67: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:116:12: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:117:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:119:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:120:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:121:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:132:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:133:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:135:26: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:136:10: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:138:28: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:139:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:140:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:147:57: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:148:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:149:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:173:22: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:174:23: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:175:24: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:182:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:183:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanpickupsphotos.js:185:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:8:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:9:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:10:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:11:60: 'CSep' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:11:94: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:12:39: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:13:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:14:48: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:21:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:23:66: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:26:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:27:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:29:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:34:34: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:35:15: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:37:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:40:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:41:19: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:42:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:45:14: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:46:28: Missing space before function parentheses.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:47:20: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:48:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:49:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:52:14: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:53:28: Missing space before function parentheses.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:54:20: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:55:6: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:56:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:62:34: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:63:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:64:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:65:21: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:67:23: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:69:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:70:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:74:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:76:71: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:78:53: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:80:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:83:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:84:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:85:75: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:86:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:89:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:90:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:112:22: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:123:62: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:123:75: Unexpected usage of doublequote.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:130:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:131:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/screens/wpscanshipments.js:133:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/barcode.js:9:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/barcode.js:11:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/constants.js:16:62: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/constants.js:17:4: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/constants.js:18:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/constants.js:20:18: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:8:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:9:20: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:16:8: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:17:4: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:19:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:21:78: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:25:47: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:27:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:29:23: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:33:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:34:20: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:35:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:36:5: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:37:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.js:39:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:1:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:2:29: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:3:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:5:1: 'describe' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:6:3: 'it' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:7:5: 'expect' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:7:25: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:8:5: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:23:3: 'describe' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:34:5: 'it' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:37:29: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:38:11: 'expect' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:38:38: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:40:16: Expected error to be handled.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:41:11: 'expect' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:41:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:42:11: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:43:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:44:5: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/functions.test.js:45:3: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getcommands.js:8:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getcommands.js:9:90: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getcommands.js:15:69: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getcommands.js:17:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getcommands.js:18:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getcommands.js:20:76: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getcommands.js:21:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getcommands.js:23:27: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.js:7:49: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.js:8:73: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.js:14:64: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.js:16:37: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.js:17:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.js:19:72: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.js:20:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.js:22:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:1:42: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:3:1: 'describe' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:4:3: 'it' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:7:9: 'expect' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:7:26: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:8:15: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:11:9: 'expect' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:11:30: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:12:9: 'expect' is not defined.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:12:36: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:13:15: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:14:9: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:15:5: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidenttour.test.js:16:3: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidentvehicle.js:8:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidentvehicle.js:9:93: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidentvehicle.js:15:70: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidentvehicle.js:17:40: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidentvehicle.js:18:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidentvehicle.js:21:75: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidentvehicle.js:22:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/getidentvehicle.js:24:31: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:1:43: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:4:52: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:5:57: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:6:63: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:7:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:8:57: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:9:45: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:10:55: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:11:49: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:12:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:13:44: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:16:41: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:17:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:20:23: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:21:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:24:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/index.js:25:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/pool.js:11:19: Parsing error: Unexpected token =
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putgsmnumber.js:8:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putgsmnumber.js:11:25: Identifier 'chauffeur_id' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putgsmnumber.js:11:39: Identifier 'num_tel' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putgsmnumber.js:14:16: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putgsmnumber.js:15:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putgsmnumber.js:17:56: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putgsmnumber.js:21:11: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putgsmnumber.js:22:5: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putgsmnumber.js:23:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putgsmnumber.js:25:28: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putproof.js:8:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putproof.js:11:35: Identifier 'bordereau_id' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putproof.js:11:49: Identifier 'chauffeur_id' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putproof.js:11:63: Identifier 'vehicule_id' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putproof.js:14:46: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putproof.js:15:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putproof.js:30:29: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putproof.js:31:6: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putproof.js:32:5: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putproof.js:33:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putproof.js:35:24: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putsos.js:8:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putsos.js:11:19: Identifier 'bordereau_id' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putsos.js:11:33: Identifier 'chauffeur_id' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putsos.js:11:47: Identifier 'vehicule_id' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putsos.js:14:32: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putsos.js:15:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putsos.js:21:79: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putsos.js:22:5: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putsos.js:23:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putsos.js:25:22: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:8:54: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:13:3: Identifier 'bordereau_id' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:14:3: Identifier 'chauffeur_id' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:15:3: Identifier 'vehicule_id' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:21:3: Identifier 'nb_liv' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:22:3: Identifier 'nb_enl' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:23:3: Identifier 'cb_liv' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:24:3: Identifier 'cb_enl' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:26:3: Identifier 'photo_condition' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:27:3: Identifier 'photo_blocage' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:28:3: Identifier 'photo_enlevement' is not in camel case.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:28:19: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:32:16: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:33:7: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:56:23: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:57:6: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:58:5: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:59:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/putwaypoint.js:61:27: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:8:10: 'shape' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:8:33: 'oneOf' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:8:57: 'func' is defined but never used.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:8:90: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:11:35: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:18:36: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:19:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:46:33: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:47:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:49:58: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:53:37: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:54:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:63:14: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:64:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:70:26: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:71:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:73:93: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:74:56: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:78:38: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:79:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:89:29: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:90:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:92:86: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:93:50: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:97:37: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:98:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:103:34: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:104:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:109:14: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:110:2: Extra semicolon.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:129:27: Unexpected trailing comma.
+  /Users/pierrecanthelou/git/BIP/biptransport/src/webservices/shapes.js:130:2: Extra semicolon.

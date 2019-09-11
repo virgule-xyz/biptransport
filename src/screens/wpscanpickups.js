@@ -35,7 +35,7 @@ const ScreenWaypointScanPickups = ({ navigation }) => {
 
   useEffect(() => {
     if (pickerValueState > PICKER_DEFAULT) {
-      if (pickerValueState < appContext.waypoint.pickupCount) {
+      if (pickerValueState !== 10 && pickerValueState < appContext.waypoint.pickupCount) {
         setErrorState('Attention, vous allez devoir prendre une photo...');
       } else {
         setErrorState(false);
@@ -103,7 +103,7 @@ const ScreenWaypointScanPickups = ({ navigation }) => {
                 <Picker.Item label="Il y a 7 colis" value="7" />
                 <Picker.Item label="Il y a 8 colis" value="8" />
                 <Picker.Item label="Il y a 9 colis" value="9" />
-                <Picker.Item label="Il y a 10 colis" value="10" />
+                <Picker.Item label="Il y a 10 colis ou +" value="10" />
               </Picker>
             </View>
             {errorState && (

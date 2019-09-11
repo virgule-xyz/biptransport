@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
-import { Alert } from 'react-native';
+import { Alert, Linking } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {
   getCommands,
@@ -16,7 +16,14 @@ import {
 } from '@webservices';
 import openMap from 'react-native-open-maps';
 import GetLocation from 'react-native-get-location';
+import whyDidYouRender from '@welldone-software/why-did-you-render';
 import { splashname, name } from '../../package';
+
+whyDidYouRender(React, {
+  onlyLogs: true,
+  titleColor: 'green',
+  diffNameColor: 'darkturquoise',
+});
 
 /**
  * The whole app context
@@ -387,15 +394,20 @@ const AppContextProvider = ({ children }) => {
    */
   const doOpenMapScreen = () => {
     const params = {
-      zoom: 20,
-      query: appContextState.waypoint.address,
-      end: appContextState.waypoint.address,
+      zoom: 10,
+      query: encodeURIComponent(appContextState.waypoint.address),
+      end: encodeURIComponent(appContextState.waypoint.address),
     };
+    let url = `https://waze.com/ul?q=${params.query}&navigate=yes&zoom=${params.zoom}`;
     if (appContextState.waypoint.gpsCoords.long > 0) {
       params.longitude = appContextState.waypoint.gpsCoords.long;
       params.latitude = appContextState.waypoint.gpsCoords.lat;
+      const lat = parseFloat(params.latitude);
+      const lng = parseFloat(params.longitude);
+      url = `https://waze.com/ul?ll=${lat}%2C${lng}&navigate=yes&zoom=${params.zoom}`;
     }
-    openMap(params);
+    return Linking.openURL(url);
+    // openMap(params);
   };
 
   /**
@@ -793,6 +805,8 @@ const AppContextProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
+
+AppContext.whyDidYouRender = true;
 
 export default AppContext;
 export { defaultAppState, AppContextProvider };

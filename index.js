@@ -1,15 +1,18 @@
 /**
  * @format
  */
-
+import React from 'react';
 import { AppRegistry } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { getStorybookUI, configure } from '@storybook/react-native';
+import whyDidYouRender from '@welldone-software/why-did-you-render';
 import './storybook/rn-addons';
 import App from './src/app';
 import { story, version, env, name as appName, noyellow } from './package.json';
 
 console.warn(`** ${appName} version ${version}`);
+
+whyDidYouRender(React);
 
 // eslint-disable-next-line import/no-mutable-exports
 let TheApp = null;

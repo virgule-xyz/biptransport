@@ -117,8 +117,8 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         missingDimensionStrategy 'react-native-camera', 'general'
-        versionCode 3800
-        versionName "0.39.0"
+        versionCode 4200
+        versionName "0.42.0"
     }
     splits {
         abi {
@@ -151,7 +151,6 @@ android {
 }
 
 dependencies {
-    implementation project(':react-native-light')
     implementation project(':react-native-get-location')
     implementation project(':react-native-exit-app')
     implementation project(':react-native-camera')

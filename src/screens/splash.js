@@ -1,6 +1,5 @@
 import React, { useEffect, useContext } from 'react';
 import { Alert } from 'react-native';
-import { withNavigation } from 'react-navigation';
 import { CContent, CSpace, CTitle, CButton } from '@components';
 import { Pool } from '@webservices';
 import { NAVS } from '@screens';
@@ -65,4 +64,4 @@ const ScreenSplash = ({ navigation }) => {
   );
 };
 
-export default withNavigation(ScreenSplash);
+export default ScreenSplash;

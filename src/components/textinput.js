@@ -11,6 +11,14 @@ import { DEFAULT_FONT_SIZE } from '@components';
 import { Textarea, Label } from 'native-base';
 import PropTypes from 'prop-types';
 
+import whyDidYouRender from '@welldone-software/why-did-you-render';
+
+whyDidYouRender(React, {
+  onlyLogs: true,
+  titleColor: 'green',
+  diffNameColor: 'darkturquoise',
+});
+
 /**
  * Wrap a Native Base input with a label for multiline text.
  * Provide the onChange to get the text entered
@@ -24,10 +32,11 @@ const CTextInput = ({ label, onChange, ...props }) => {
     </View>
   );
 };
+CTextInput.whyDidYouRender = true;
 
 CTextInput.propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default CTextInput;
+export default React.memo(CTextInput);

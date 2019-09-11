@@ -3,7 +3,7 @@
   "displayName": "biptransport",
   "splashname": "Application BIP-LIV",
   "bundleID": "fr.biptransport.app1",
-  "version": "0.40.0",
+  "version": "0.42.0",
   "private": true,
   "story": false,
   "noyellow": false,
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "clean": "watchman watch-del-all; rm -rf /tmp/haste-map-react-native-packager-*; rm -rf /tmp/metro-bundler-cache-*; node node_modules/react-native/local-cli/cli.js start --reset-cache",
+    "clean": "watchman watch-del-all; rm -rf /tmp/haste-map-react-native-packager-* && rm -rf ios/build && rm -rf android/build && rm -rf /tmp/metro-bundler-cache-*; node node_modules/react-native/local-cli/cli.js start --reset-cache",
     "iphone": "react-native run-ios --simulator='iPhone 6'",
     "bigphone": "react-native run-ios --simulator='iPhone X'",
     "android": "adb reverse tcp:8081 tcp:8081; react-native run-android",
@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.4.2",
+    "@welldone-software/why-did-you-render": "^3.3.3",
     "axios": "^0.19.0",
     "core-js": "2.6.5",
     "native-base": "2.12.1",
@@ -48,7 +49,6 @@
     "react-native-gesture-handler": "^1.1.0",
     "react-native-get-location": "^1.2.0",
     "react-native-image-zoom-viewer": "^2.2.26",
-    "react-native-light": "^1.0.8",
     "react-native-open-maps": "0.3.3",
     "react-native-permissions": "^1.1.1",
     "react-native-vector-icons": "6.4.2",
@@ -86,7 +86,8 @@
     "react-dom": "16.8.6",
     "react-native-storybook-loader": "^1.8.0",
     "react-test-renderer": "16.8.3",
-    "webpack": "4.30.0"
+    "webpack": "4.30.0",
+    "webpack-cli": "^3.3.8"
   },
   "config": {
     "react-native-storybook-loader": {

@@ -7,6 +7,14 @@ import { AppContext } from '@contexts';
 import { NAVS } from '@screens';
 import Dialog from 'react-native-dialog';
 
+import whyDidYouRender from '@welldone-software/why-did-you-render';
+
+whyDidYouRender(React, {
+  onlyLogs: true,
+  titleColor: 'green',
+  diffNameColor: 'darkturquoise',
+});
+
 /**
  * Should display a barcode reader to get driver infos
  * Display an Dialog Input to validate driver GMS
@@ -148,4 +156,6 @@ const ScreenDriver = ({ navigation }) => {
   );
 };
 
-export default withNavigation(ScreenDriver);
+ScreenDriver.whyDidYouRender = true;
+
+export default React.memo(ScreenDriver);
