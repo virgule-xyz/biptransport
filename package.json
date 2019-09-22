@@ -5,7 +5,7 @@
   "bundleID": "fr.biptransport.app1",
   "version": "0.42.0",
   "private": true,
-  "story": false,
+  "story": true,
   "noyellow": false,
   "env": "prod",
   "splashtime": 1000,
@@ -52,7 +52,8 @@
     "react-native-open-maps": "0.3.3",
     "react-native-permissions": "^1.1.1",
     "react-native-vector-icons": "6.4.2",
-    "react-navigation": "^3.9.1"
+    "react-navigation": "^3.9.1",
+    "rn-fetch-blob": "^0.10.16"
   },
   "devDependencies": {
     "@babel/core": "7.4.3",

@@ -7,6 +7,7 @@ import './geoloc';
 import './icon';
 import './input';
 import './modal';
+import './moviedownload';
 import './space';
 import './spinner';
 import './text';

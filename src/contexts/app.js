@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Alert, Linking } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {
@@ -392,13 +392,14 @@ const AppContextProvider = ({ children }) => {
   /**
    * Open the map screen/app with desired location
    */
-  const doOpenMapScreen = () => {
+  const doOpenMapScreen = useCallback(() => {
     const params = {
       zoom: 10,
       query: encodeURIComponent(appContextState.waypoint.address),
       end: encodeURIComponent(appContextState.waypoint.address),
     };
     let url = `https://waze.com/ul?q=${params.query}&navigate=yes&zoom=${params.zoom}`;
+
     if (appContextState.waypoint.gpsCoords.long > 0) {
       params.longitude = appContextState.waypoint.gpsCoords.long;
       params.latitude = appContextState.waypoint.gpsCoords.lat;
@@ -408,7 +409,7 @@ const AppContextProvider = ({ children }) => {
     }
     return Linking.openURL(url);
     // openMap(params);
-  };
+  }, [appContextState.waypoint.address]);
 
   /**
    * Get a waypoint from the collection by index
@@ -749,60 +750,61 @@ const AppContextProvider = ({ children }) => {
     return false;
   };
 
+  const notMemoized = {
+    car,
+    clues,
+    codeToUnlock,
+    conditionCollection,
+    driver,
+    forceWaypointIndex,
+    hideCarCodeBar,
+    hideDriverCodeBar,
+    loadFromStorage,
+    managerCollection,
+    rescueIsSearching,
+    slip,
+    waypoint,
+    waypointCollection,
+    waypointList,
+  };
+
+  const memoized = useMemo(() => ({
+    doClear,
+    doContactAllManagers,
+    doEndTour,
+    doLoad,
+    doLoadFakeContext,
+    doOpenMapScreen,
+    doSave,
+    doStartNewWaypoint,
+    getCarDatas,
+    getDriverDatas,
+    getFirstWaypointIndexNotDone,
+    getFirstWaypointNotDone,
+    getNextShipmentCode,
+    getWaypointDatas,
+    isNeedAnotherShipmentCode,
+    isNeedAnotherWaypointCode,
+    isNeedDriverScan,
+    isNeedToVisitAnotherWaypoint,
+    setCodeToBeUnblocked,
+    setCurrentWaypointCode,
+    setEndWaypoint,
+    setGSMNumber,
+    setHideCarBarCodeReader,
+    setHideDriverBarCodeReader,
+    setNextWaypoint,
+    setNextWaypointCode,
+    setPickupCount,
+    setStoreClue,
+    setStorePickupPicture,
+    setWaypointById,
+    setWaypointByIndex,
+  }));
+
   // The renderer
   return (
-    <AppContext.Provider
-      value={{
-        car,
-        clues,
-        codeToUnlock,
-        conditionCollection,
-        doClear,
-        doContactAllManagers,
-        doEndTour,
-        doLoad,
-        doLoadFakeContext,
-        doOpenMapScreen,
-        doSave,
-        doStartNewWaypoint,
-        driver,
-        forceWaypointIndex,
-        getCarDatas,
-        getDriverDatas,
-        getFirstWaypointIndexNotDone,
-        getFirstWaypointNotDone,
-        getNextShipmentCode,
-        getWaypointDatas,
-        hideCarCodeBar,
-        hideDriverCodeBar,
-        isNeedAnotherShipmentCode,
-        isNeedAnotherWaypointCode,
-        isNeedDriverScan,
-        isNeedToVisitAnotherWaypoint,
-        loadFromStorage,
-        managerCollection,
-        rescueIsSearching,
-        setCodeToBeUnblocked,
-        setCurrentWaypointCode,
-        setEndWaypoint,
-        setGSMNumber,
-        setHideCarBarCodeReader,
-        setHideDriverBarCodeReader,
-        setNextWaypoint,
-        setNextWaypointCode,
-        setPickupCount,
-        setStoreClue,
-        setStorePickupPicture,
-        setWaypointById,
-        setWaypointByIndex,
-        slip,
-        waypoint,
-        waypointCollection,
-        waypointList,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={{ ...memoized, ...notMemoized }}>{children}</AppContext.Provider>
   );
 };
 

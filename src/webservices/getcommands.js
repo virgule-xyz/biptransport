@@ -17,7 +17,9 @@ const getCommands = num => {
       else reject(COMMANDS_SAMPLE_ERROR);
     });
   }
-  return webservice({ url: WS.URL.COMMANDS, params: { key: WS.KEY, num } });
+
+  const commands = webservice({ url: WS.URL.COMMANDS, params: { key: WS.KEY, num } });
+  return commands;
 };
 
 export default getCommands;

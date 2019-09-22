@@ -5,7 +5,7 @@
  *
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Dimensions, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { Grid, Row, Col } from 'native-base';
@@ -28,18 +28,21 @@ const ScreenWaypointGalery = ({ show, datas, name, address, onClose }) => {
   const { height } = Dimensions.get('window');
   const [showZoomGalery, setShowZoomGalery] = useState({ show: false, index: -1, images: null });
 
-  const switchToZoom = index => {
-    setShowZoomGalery({
-      show: true,
-      index,
-      images: datas.map(pict => ({
-        url: pict.file,
-        props: {},
-      })),
-    });
-  };
+  const switchToZoom = useCallback(
+    index => {
+      setShowZoomGalery({
+        show: true,
+        index,
+        images: datas.map(pict => ({
+          url: pict.file,
+          props: {},
+        })),
+      });
+    },
+    [datas, name],
+  );
 
-  const switchToGalery = () => {
+  const switchToGalery = useCallback(() => {
     setShowZoomGalery({
       show: false,
       index: 0,
@@ -48,42 +51,49 @@ const ScreenWaypointGalery = ({ show, datas, name, address, onClose }) => {
         props: {},
       })),
     });
-  };
+  }, [datas, name]);
+
+  const outer = useMemo(() => (
+    <ImageViewer
+      imageUrls={showZoomGalery.images}
+      index={showZoomGalery.index}
+      enableImageZoom
+      onClick={switchToGalery}
+    />
+  ));
+
+  const inner = useMemo(
+    () =>
+      datas &&
+      datas.map((pict, index) => (
+        <Row>
+          <Col>
+            <CSep />
+            <TouchableOpacity
+              onPress={() => {
+                switchToZoom(index);
+              }}
+            >
+              <CImage image={pict.file} width="100%" height={height * 0.33} resizeMode="contain" />
+            </TouchableOpacity>
+          </Col>
+        </Row>
+      )),
+  );
+
+  const doOnClose = useCallback(() => {
+    switchToGalery();
+    onClose();
+  });
 
   return (
-    <CModal onClose={onClose} show={show}>
+    <CModal onClose={doOnClose} show={show}>
       {showZoomGalery.show ? (
-        <ImageViewer
-          imageUrls={showZoomGalery.images}
-          index={showZoomGalery.index}
-          enableImageZoom
-          onClick={switchToGalery}
-        />
+        outer
       ) : (
         <>
           <ScrollView>
-            <Grid>
-              {datas &&
-                datas.map((pict, index) => (
-                  <Row>
-                    <Col>
-                      <CSep />
-                      <TouchableOpacity
-                        onPress={() => {
-                          switchToZoom(index);
-                        }}
-                      >
-                        <CImage
-                          image={pict.file}
-                          width="100%"
-                          height={height * 0.33}
-                          resizeMode="contain"
-                        />
-                      </TouchableOpacity>
-                    </Col>
-                  </Row>
-                ))}
-            </Grid>
+            <Grid>{inner}</Grid>
           </ScrollView>
           <CSpace />
         </>
