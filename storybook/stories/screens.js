@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react-native';
 import ScreenSplash from '@screens/splash';
 import ScreenDriver from '@screens/driver';
 import ScreenCar from '@screens/car';
+import ScreenVideosDownload from '@screens/videosdwn';
 import ScreenManagers from '@screens/managers';
 import ScreenWaypointDashboard from '@screens/wpdashboard';
 import ScreenWaypointCollection from '@screens/wpcollection';
@@ -99,6 +100,11 @@ storiesOf('Screens', module)
   .add('Car', () => (
     <AppContextProvider>
       <ScreenCar />
+    </AppContextProvider>
+  ))
+  .add('Videos Download', () => (
+    <AppContextProvider>
+      <ScreenVideosDownload />
     </AppContextProvider>
   ))
   .add('Managers', () => (

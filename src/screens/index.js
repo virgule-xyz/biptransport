@@ -1,4 +1,5 @@
 export { default as ScreenCar } from './car';
+export { default as ScreenVideosDownload } from './videosdwn';
 export { default as ScreenDriver } from './driver';
 export { default as ScreenManagers } from './managers';
 export { default as ScreenSplash } from './splash';
@@ -17,7 +18,8 @@ export { default as ScreenWaypointScanPickupsPhotos } from './wpscanpickupsphoto
 
 export const NAVS = {
   start: { current: 'ScreenSplash', next: 'ScreenDriver' },
-  driver: { current: 'ScreenDriver', previous: 'ScreenSplash', next: 'ScreenCar' },
+  driver: { current: 'ScreenDriver', previous: 'ScreenSplash', next: 'ScreenVideosDownload' },
+  videosdwn: { current: 'ScreenVideosDownload', previous: 'ScreenDriver', next: 'ScreenCar' },
   car: { current: 'ScreenCar', previous: 'ScreenDriver', next: 'ScreenWaypointDashboard' },
   managers: { current: 'ScreenManagers' },
   wpdashboard: { current: 'ScreenWaypointDashboard', previous: 'ScreenCar' },

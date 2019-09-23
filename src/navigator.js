@@ -2,6 +2,7 @@ import { createSwitchNavigator, createStackNavigator, createAppContainer } from 
 import {
   ScreenSplash,
   ScreenDriver,
+  ScreenVideosDownload,
   ScreenCar,
   ScreenManagers,
   ScreenWaypointDashboard,
@@ -40,7 +41,7 @@ const WaypointStack = createStackNavigator(
 );
 
 const StartSwitch = createSwitchNavigator(
-  { ScreenSplash, WaypointStack, ScreenDriver, ScreenCar },
+  { ScreenSplash, WaypointStack, ScreenDriver, ScreenCar, ScreenVideosDownload },
   {
     initialRouteName: 'ScreenSplash',
     headerMode: 'none',

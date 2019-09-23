@@ -25,6 +25,8 @@ export { default as CWaypointCounters } from './wpcounters';
 export { default as CWaypointOtherPassage } from './wpotherpassage';
 export { default as CWaypointTemplate } from './wptemplate';
 
+export { default as useMovieDownload } from './usemoviedownload';
+
 export const DEFAULT_FONT_SIZE = 15;
 export const SPACE_HEIGHT = 20;
 export const PICTURE_REPORT = 4 / 3;
