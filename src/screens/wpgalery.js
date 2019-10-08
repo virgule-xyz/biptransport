@@ -9,22 +9,14 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Dimensions, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { Grid, Row, Col } from 'native-base';
-import {
-  CGreyBox,
-  CModal,
-  CImage,
-  CSpace,
-  CTitle,
-  CSep,
-  CWaypointAddress,
-  AttachmentShape,
-} from '@components';
+import { CModal, CImage, CSpace, CButton, CSep, AttachmentShape } from '@components';
 import ImageViewer from 'react-native-image-zoom-viewer';
+import Video from 'react-native-video';
 
 /**
  * Show the pictures of the waypoint, how to get there and other infos
  */
-const ScreenWaypointGalery = ({ show, datas, name, address, onClose }) => {
+const ScreenWaypointGalery = ({ show, datas, video, name, address, onClose }) => {
   const { height } = Dimensions.get('window');
   const [showZoomGalery, setShowZoomGalery] = useState({ show: false, index: -1, images: null });
 
@@ -86,6 +78,10 @@ const ScreenWaypointGalery = ({ show, datas, name, address, onClose }) => {
     onClose();
   });
 
+  const onPressVideoPlayer = () => {
+    return <Video source={{ uri: this.props.video }} />;
+  };
+
   return (
     <CModal onClose={doOnClose} show={show}>
       {showZoomGalery.show ? (
@@ -93,6 +89,11 @@ const ScreenWaypointGalery = ({ show, datas, name, address, onClose }) => {
       ) : (
         <>
           <ScrollView>
+            <Grid>
+              <Row>
+                <CButton label="Afficher la vidéo" onPress={onPressVideoPlayer} />
+              </Row>
+            </Grid>
             <Grid>{inner}</Grid>
           </ScrollView>
           <CSpace />
@@ -106,6 +107,7 @@ ScreenWaypointGalery.propTypes = {
   show: PropTypes.bool.isRequired,
   datas: PropTypes.arrayOf(AttachmentShape).isRequired,
   name: PropTypes.string.isRequired,
+  video: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 };

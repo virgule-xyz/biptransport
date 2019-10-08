@@ -122,14 +122,20 @@ const AppContextProvider = ({ children }) => {
 
   const getFirstWaypointIndexNotDone = origin => {
     const from = origin || waypointCollection;
-    const firstIndex = from.findIndex(wp => wp.status === '0' || wp.done === false);
-    return firstIndex;
+    if (from) {
+      const firstIndex = from.findIndex(wp => wp.status === '0' || wp.done === false);
+      return firstIndex;
+    }
+    return -1;
   };
 
   const getFirstWaypointNotDone = origin => {
     const from = origin || waypointCollection;
-    const firstIndex = getFirstWaypointIndexNotDone(origin);
-    return firstIndex >= 0 && from ? from[firstIndex] : null;
+    if (from) {
+      const firstIndex = getFirstWaypointIndexNotDone(origin);
+      return firstIndex >= 0 && from ? from[firstIndex] : null;
+    }
+    return false;
   };
 
   const doRead = () => {

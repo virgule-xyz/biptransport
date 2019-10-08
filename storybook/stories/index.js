@@ -1,5 +1,6 @@
 import './screens';
 import './barcodescanner';
+import './camera';
 import './button';
 import './content';
 import './error';

@@ -71,18 +71,19 @@ const ModalScreenWaypointGalery = () => {
   });
   const [pictureCollectionState, setPictureCollectionState] = useState([]);
 
-  useEffect(() => {
-    if (dataCollectionState && dataCollectionState.commandes) {
-      setPictureCollectionState(
-        dataCollectionState.commandes.filter(item => item.id === '129042')[0].pnt_pj,
-      );
-    }
-  }, [dataCollectionState]);
+  // useEffect(() => {
+  //   if (dataCollectionState && dataCollectionState.commandes) {
+  //     setPictureCollectionState(
+  //       dataCollectionState.commandes.filter(item => item.id === '129042')[0].pnt_pj,
+  //     );
+  //   }
+  // }, [dataCollectionState]);
 
   return (
     <ScreenWaypointGalery
       show={showState}
       datas={pictureCollectionState}
+      video={1}
       onClose={() => {
         setShowState(false);
       }}
@@ -92,26 +93,26 @@ const ModalScreenWaypointGalery = () => {
 
 storiesOf('Screens', module)
   .add('Splash', () => <ScreenSplash />)
-  .add('Driver', () => (
-    <AppContextProvider>
-      <ScreenDriver />
-    </AppContextProvider>
-  ))
-  .add('Car', () => (
-    <AppContextProvider>
-      <ScreenCar />
-    </AppContextProvider>
-  ))
+  // .add('Driver', () => (
+  //   <AppContextProvider>
+  //     <ScreenDriver />
+  //   </AppContextProvider>
+  // ))
+  // .add('Car', () => (
+  //   <AppContextProvider>
+  //     <ScreenCar />
+  //   </AppContextProvider>
+  // ))
   .add('Videos Download', () => (
     <AppContextProvider>
       <ScreenVideosDownload />
     </AppContextProvider>
   ))
-  .add('Managers', () => (
-    <AppContextProvider>
-      <ScreenManagers />
-    </AppContextProvider>
-  ))
+  // .add('Managers', () => (
+  //   <AppContextProvider>
+  //     <ScreenManagers />
+  //   </AppContextProvider>
+  // ))
   // .add('Waypoint Dashboard', () => (
   //   <AppContextProvider>
   //     <ScreenWaypointDashboard />
@@ -122,41 +123,41 @@ storiesOf('Screens', module)
   //     <ModalScreenWaypointCollection />
   //   </AppContextProvider>
   // ))
-  // .add('Waypoint Galery', () => (
-  //   <AppContextProvider>
-  //     <ModalScreenWaypointGalery />
-  //   </AppContextProvider>
-  // ))
-  // .add('Waypoint Conditions', () => (
-  //   <AppContextProvider>
-  //     <ScreenWaypointBadCondition />
-  //   </AppContextProvider>
-  // ))
-  // .add('Waypoint Resume', () => (
-  //   <AppContextProvider>
-  //     <ScreenWaypointResume />
-  //   </AppContextProvider>
-  // ))
-  // .add('Waypoint End', () => (
-  //   <AppContextProvider>
-  //     <ScreenWaypointEnd />
-  //   </AppContextProvider>
-  // ))
-  .add('Waypoint Scan arrival', () => (
+  .add('Waypoint Galery', () => (
     <AppContextProvider>
-      <ScreenWaypointScanArrival />
-    </AppContextProvider>
-  ))
-  .add('Waypoint Cannot Scan Arrival', () => (
-    <AppContextProvider>
-      <ScreenWaypointCannotScanArrival />
-    </AppContextProvider>
-  ))
-  .add('Waypoint Contact Manager', () => (
-    <AppContextProvider>
-      <ScreenWaypointContactManager />
+      <ModalScreenWaypointGalery />
     </AppContextProvider>
   ));
+// .add('Waypoint Conditions', () => (
+//   <AppContextProvider>
+//     <ScreenWaypointBadCondition />
+//   </AppContextProvider>
+// ))
+// .add('Waypoint Resume', () => (
+//   <AppContextProvider>
+//     <ScreenWaypointResume />
+//   </AppContextProvider>
+// ))
+// .add('Waypoint End', () => (
+//   <AppContextProvider>
+//     <ScreenWaypointEnd />
+//   </AppContextProvider>
+// ))
+// .add('Waypoint Scan arrival', () => (
+//   <AppContextProvider>
+//     <ScreenWaypointScanArrival />
+//   </AppContextProvider>
+// ))
+// .add('Waypoint Cannot Scan Arrival', () => (
+//   <AppContextProvider>
+//     <ScreenWaypointCannotScanArrival />
+//   </AppContextProvider>
+// ))
+// .add('Waypoint Contact Manager', () => (
+//   <AppContextProvider>
+//     <ScreenWaypointContactManager />
+//   </AppContextProvider>
+// ));
 // .add('Waypoint Scan shipments', () => (
 //   <AppContextProvider>
 //     <ScreenWaypointScanShipments />

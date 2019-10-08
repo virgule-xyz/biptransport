@@ -1,0 +1,6 @@
+`wpscanpickups` (component)
+===========================
+
+
+
+

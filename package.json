@@ -3,9 +3,9 @@
   "displayName": "biptransport",
   "splashname": "Application BIP-LIV",
   "bundleID": "fr.biptransport.app1",
-  "version": "0.43.1",
+  "version": "0.43.3",
   "private": true,
-  "story": false,
+  "story": true,
   "noyellow": false,
   "env": "dev",
   "splashtime": 1000,
@@ -31,7 +31,8 @@
     "e2e:android": "detox test -c android.emu.debug",
     "e2e:retest": "detox test -reuse -c ios.sim.debug",
     "e2e:build": "detox build -c ios.sim.debug",
-    "e2e:buildandroid": "detox build -c android.emu.debug"
+    "e2e:buildandroid": "detox build -c android.emu.debug",
+    "docgen": "cd docs; react-docgen ../src/* | ../buildDocs.sh"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.4.2",
@@ -85,6 +86,7 @@
     "metro-react-native-babel-preset": "0.53.1",
     "prettier": "^1.17.0",
     "prop-types": "15.7.2",
+    "react-docgen": "^4.1.1",
     "react-dom": "16.8.6",
     "react-native-storybook-loader": "^1.8.0",
     "react-test-renderer": "16.8.3",
