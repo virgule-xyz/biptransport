@@ -3,6 +3,7 @@ package com.biptransport;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.realm.react.RealmReactPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.github.douglasjunior.reactNativeGetLocation.ReactNativeGetLocationPackage;
 import com.github.wumke.RNExitApp.RNExitAppPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RealmReactPackage(),
             new RNFetchBlobPackage(),
             new ReactNativeGetLocationPackage(),
             new RNExitAppPackage(),

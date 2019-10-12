@@ -10,8 +10,10 @@ import { View, ScrollView, Alert, Dimensions } from 'react-native';
 
 import { CButton, CSpace, CWaypointTemplate, CError, CCamera, CImage } from '@components';
 import { AppContext } from '@contexts';
+import queueFactory from 'react-native-queue';
 import { splashname } from '../../package.json';
 import { NAVS } from './index';
+
 /**
  * L'écran affiche les données du point de passage ainsi que les boutons d'action liés
  */
@@ -31,6 +33,9 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
   // the picture data
   const [base64PictureState, setBase64PictureState] = useState(null);
 
+  // is ti a video
+  const [isVideo, setIsVideo] = useState(false);
+
   useEffect(() => {
     appContext.doLoadFakeContext();
     const { width, height } = Dimensions.get('window');
@@ -39,7 +44,16 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
 
   // Step one take the picture
   const onTakePicture = picture => {
+    setIsVideo(false);
     setBase64PictureState(picture);
+    setShowCameraState(false);
+    setShowPictureTakenState(true);
+  };
+
+  // Or a video
+  const onRecord = ({ uri, codec = 'mp4' }) => {
+    setIsVideo(true);
+    setBase64PictureState(uri);
     setShowCameraState(false);
     setShowPictureTakenState(true);
   };
@@ -48,7 +62,7 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
     <View style={{ flex: 0, alignItems: 'center' }}>
       <CError style={{ textAlign: 'center' }}>Prenez une photo des colis...</CError>
       <CSpace />
-      <CCamera onTakePicture={onTakePicture} testID="ID_TOUR_CAMERA" />
+      <CCamera onTakePicture={onTakePicture} onRecord={onRecord} testID="ID_TOUR_CAMERA" />
       <CSpace />
       {/* <CButton block icon="undo" label="Changer de raison..." onPress={onPressChangeCondition} /> */}
     </View>
@@ -59,7 +73,7 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
     <>
       <CError style={{ textAlign: 'center' }}>Confirmez la photo...</CError>
       <CSpace n={0.5} />
-      {base64PictureState && (
+      {base64PictureState && isVideo ? null : (
         <View
           style={{
             flex: 0,
@@ -129,6 +143,7 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
         {
           text: 'Recommencer la photo',
           onPress: () => {
+            setIsVideo(false);
             setShowCameraState(true);
             setShowPictureTakenState(false);
           },
@@ -144,8 +159,20 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
     //   condition: conditionState,
     //   picture: base64PictureState,
     // });
-    appContext.setStorePickupPicture(base64PictureState);
-    navigation.navigate(NAVS.wpscanpickupsphotos.next);
+    if (isVideo) {
+      queueFactory().then(queue => {
+        queue.createJob('upload-video', {
+          wp: appContext.waypoint,
+          type: 'pickup',
+          base64PictureState,
+        });
+        // TODO: do a kind of appContext.setStorePickupVideo(...);
+        navigation.navigate(NAVS.wpscanpickupsphotos.next);
+      });
+    } else {
+      appContext.setStorePickupPicture(base64PictureState);
+      navigation.navigate(NAVS.wpscanpickupsphotos.next);
+    }
   };
 
   return (

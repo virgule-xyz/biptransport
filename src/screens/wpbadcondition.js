@@ -10,6 +10,7 @@ import { View, ScrollView, Alert, Dimensions } from 'react-native';
 
 import { CButton, CSpace, CWaypointTemplate, CError, CCamera, CImage } from '@components';
 import { AppContext } from '@contexts';
+import queueFactory from 'react-native-queue';
 import { splashname } from '../../package.json';
 
 /**
@@ -33,6 +34,9 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
 
   // le locale selected condition
   const [conditionState, setConditionState] = useState(null);
+
+  // is ti a video
+  const [isVideo, setIsVideo] = useState(false);
 
   useEffect(() => {
     appContext.doLoadFakeContext();
@@ -71,6 +75,12 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
     setShowCameraState(false);
     setShowPictureTakenState(true);
   };
+  const onRecord = ({ uri }) => {
+    setIsVideo(true);
+    setBase64PictureState(uri);
+    setShowCameraState(false);
+    setShowPictureTakenState(true);
+  };
 
   const CStep2 = ({ conditionState, onPressChangeCondition }) => (
     <View style={{ flex: 0, alignItems: 'center' }}>
@@ -78,7 +88,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
         Passage non traité pour raison de "{conditionState.nom}" : prenez une photo du problème...
       </CError>
       <CSpace />
-      <CCamera onTakePicture={onTakePicture} testID="ID_TOUR_CAMERA" />
+      <CCamera onTakePicture={onTakePicture} onRecord={onRecord} testID="ID_TOUR_CAMERA" />
       <CSpace />
       <CButton block icon="undo" label="Changer de raison..." onPress={onPressChangeCondition} />
     </View>
@@ -91,7 +101,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
         Passage non traité pour raison de "{conditionState.nom}" : confirmez la photo...
       </CError>
       <CSpace n={0.5} />
-      {base64PictureState && (
+      {base64PictureState && isVideo ? null : (
         <View
           style={{
             flex: 0,
@@ -187,6 +197,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
         {
           text: 'Recommencer la photo',
           onPress: () => {
+            setIsVideo(false);
             setShowCameraState(true);
             setShowPictureTakenState(false);
           },
@@ -198,11 +209,24 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   };
 
   const onPressValidatePicture = () => {
-    appContext.setStoreClue({
-      condition: conditionState,
-      picture: base64PictureState,
-    });
-    navigation.navigate('ScreenWaypointResume');
+    if (isVideo) {
+      queueFactory().then(queue => {
+        debugger;
+        queue.createJob('upload-video', {
+          wp: appContext.waypoint,
+          type: 'clue',
+          base64PictureState,
+        });
+        // TODO: do a kind of appContext.setStorePickupVideo(...);
+        navigation.navigate('ScreenWaypointResume');
+      });
+    } else {
+      appContext.setStoreClue({
+        condition: conditionState,
+        picture: base64PictureState,
+      });
+      navigation.navigate('ScreenWaypointResume');
+    }
   };
 
   return (

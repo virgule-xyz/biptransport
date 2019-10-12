@@ -24,7 +24,7 @@ const REPORT = 0.9;
 /**
  * Launch the camera
  */
-const CCamera = ({ onTakePicture, hide, testID, ...props }) => {
+const CCamera = ({ onTakePicture, onRecord, hide, testID, ...props }) => {
   const [stopCamera, setStopCamera] = useState(false);
   const [startRecording, setStartRecording] = useState(false);
   const [stopRecording, setStopRecording] = useState(false);
@@ -150,18 +150,20 @@ const CCamera = ({ onTakePicture, hide, testID, ...props }) => {
   );
 
   const onPressCameraButton = async camera => {
+    let record = null;
     const RECORD_OPTIONS = {
       maxDuration: 60,
       mirrorVideo: false,
     };
     if (!startRecording && !stopRecording) {
       setStartRecording(true);
-      const { uri, codec = 'mp4' } = await camera.recordAsync();
+      record = await camera.recordAsync();
     } else if (startRecording && !stopRecording) {
       setStopRecording(true);
-      await camera.stopRecording();
+      camera.stopRecording();
       setStopRecording(false);
       setStartRecording(false);
+      onRecord(record);
     }
   };
 
@@ -239,7 +241,7 @@ const CCamera = ({ onTakePicture, hide, testID, ...props }) => {
                   position: 'relative',
                 }}
               >
-                <CCameraButton onPress={() => onPressCameraButton(camera)} />
+                {onRecord && <CCameraButton onPress={() => onPressCameraButton(camera)} />}
                 <CPictureButton onPress={() => onPressPictureButton(camera)} />
                 <CameraGrid />
               </View>

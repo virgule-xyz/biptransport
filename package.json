@@ -3,7 +3,7 @@
   "displayName": "biptransport",
   "splashname": "Application BIP-LIV",
   "bundleID": "fr.biptransport.app1",
-  "version": "0.43.3",
+  "version": "0.43.4",
   "private": true,
   "story": true,
   "noyellow": false,
@@ -52,9 +52,11 @@
     "react-native-image-zoom-viewer": "^2.2.26",
     "react-native-open-maps": "0.3.3",
     "react-native-permissions": "^1.1.1",
+    "react-native-queue": "^1.2.1",
     "react-native-vector-icons": "6.4.2",
     "react-native-video": "^5.0.2",
     "react-navigation": "^3.9.1",
+    "realm": "^3.2.0",
     "rn-fetch-blob": "^0.10.16"
   },
   "devDependencies": {
