@@ -11,8 +11,12 @@ import { NAVS } from '@screens';
 const ScreenVideosDownload = ({ navigation }) => {
   // manage the context
   const appContext = useContext(AppContext);
+  const coll = appContext.getVideosToDownload();
   const [start, setStart] = useState(false);
-  const { index, percent, card, duration, downloadEnd, startDownload } = useMovieDownload(start);
+  const { index, percent, card, duration, downloadEnd, startDownload } = useMovieDownload(
+    coll,
+    start,
+  );
 
   // speed return to home
   const onPressBackHome = () => {
@@ -26,6 +30,7 @@ const ScreenVideosDownload = ({ navigation }) => {
     startDownload();
   };
   const doGoForward = () => {
+    appContext.setVideosCache(coll);
     navigation.navigate(NAVS.videosdwn.next);
   };
 
@@ -34,8 +39,7 @@ const ScreenVideosDownload = ({ navigation }) => {
       {!downloadEnd && !start && (
         <>
           <CText style={{ textAlign: 'center' }}>
-            Un certain nombre de vidéos doivent être téléchargées pour vous aider dans votre
-            tournée.
+            {card} vidéos doivent être téléchargées pour vous aider dans votre tournée.
           </CText>
           <CSpace />
           <CButton label="Télécharger" icon="arrow-down" block onPress={doStartDownload} />
@@ -60,7 +64,7 @@ const ScreenVideosDownload = ({ navigation }) => {
         <>
           <CText>Téléchargement terminé</CText>
           <CSpace />
-          <CButton block label="Poursuirve" icon="check" onPress={doGoForward} />
+          <CButton block label="Poursuivre" icon="check" onPress={doGoForward} />
         </>
       )}
     </CContent>

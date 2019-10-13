@@ -3,6 +3,7 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Alert, Linking } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import path from 'react-native-path';
 import {
   getCommands,
   getIdentTour,
@@ -44,6 +45,7 @@ const defaultAppState = {
   waypointCollection: [],
   waypointList: [],
   codeToUnlock: null,
+  videosCache: [],
   waypoint: {
     accessDescription: '',
     address: '',
@@ -61,6 +63,7 @@ const defaultAppState = {
     pickupPicture: '',
     pickupRealCount: 0,
     pictureCollection: [],
+    videos: [],
     realGpsCoord: { long: 0, lat: 0 },
     shippingCodeIndex: 0,
     shippingCodes: [],
@@ -73,7 +76,7 @@ const defaultAppState = {
 
 const AppContext = React.createContext(defaultAppState);
 
-const AppContextProvider = ({ children }) => {
+const AppContextProvider = ({ children, command = null }) => {
   // The app access context
   const [appContextState, setAppContextState] = useState(defaultAppState);
 
@@ -98,6 +101,7 @@ const AppContextProvider = ({ children }) => {
     loadFromStorage,
     managerCollection,
     slip,
+    videosCache,
     waypoint,
     waypointCollection,
     waypointList,
@@ -201,6 +205,8 @@ const AppContextProvider = ({ children }) => {
       pickupPicture: '',
       pickupRealCount: 0,
       pictureCollection: command.pnt_pj,
+      videos: [...command.pnt_videos, 'http://www.virgule.xyz/big_buck_bunny.mp4'],
+      videosCache: [],
       realGpsCoord: { long: 0, lat: 0 },
       shippingCodeIndex: 0,
       shippingCodes: command.cab_liv,
@@ -611,6 +617,10 @@ const AppContextProvider = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    doLoadFakeContext();
+  }, []);
+
   // store in local storage some datas that should be sent away
   const setStoreClue = ({ condition, picture }) => {
     return new Promise((resolve, reject) => {
@@ -756,6 +766,29 @@ const AppContextProvider = ({ children }) => {
     return false;
   };
 
+  const getVideosToDownload = () => {
+    const wpAll = waypointCollection.map((wp, wpIndex) => getWaypointFromArray(wp, wpIndex));
+    const wpWithMovies = wpAll.length > 0 ? wpAll.filter(movs => movs.videos.length > 0) : [];
+    const urlToDownload = [];
+    wpWithMovies.forEach(movs =>
+      movs.videos.map(mov =>
+        urlToDownload.push({
+          url: mov,
+          name: `${movs.id}_${path.basename(mov)}`,
+          wp: movs.id,
+        }),
+      ),
+    );
+    return urlToDownload;
+  };
+
+  const setVideosCache = videos => {
+    setAppContextState(state => ({
+      ...state,
+      videosCache: videos,
+    }));
+  };
+
   const notMemoized = {
     car,
     clues,
@@ -769,6 +802,7 @@ const AppContextProvider = ({ children }) => {
     managerCollection,
     rescueIsSearching,
     slip,
+    videosCache,
     waypoint,
     waypointCollection,
     waypointList,
@@ -787,8 +821,11 @@ const AppContextProvider = ({ children }) => {
     getDriverDatas,
     getFirstWaypointIndexNotDone,
     getFirstWaypointNotDone,
+    getVideosToDownload,
+    setVideosCache,
     getNextShipmentCode,
     getWaypointDatas,
+    getWaypointFromArray,
     isNeedAnotherShipmentCode,
     isNeedAnotherWaypointCode,
     isNeedDriverScan,

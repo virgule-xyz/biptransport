@@ -5,15 +5,18 @@ import RNFetchBlob from 'rn-fetch-blob';
 let stopDownloading = false;
 let downloadingTask = null;
 
-const useMovieDownload = (start = false) => {
+// listOfMovies = {url:string,name:string}[]
+
+const useMovieDownload = (listOfMovies = [], start = false) => {
   const [fileIndex, setFileIndex] = useState(null);
-  const [fileCard, setFileCard] = useState(0);
   const [percent, setPercent] = useState(0);
   const [duration, setDuration] = useState(0);
   const [file, setFile] = useState(null);
   const [downloadEnd, setDownloadEnd] = useState(false);
   const [startDownloading, setStartDownloading] = useState(start);
   const [startClock, setStartClock] = useState(null);
+
+  const fileCard = listOfMovies.length;
 
   const { dirs } = RNFetchBlob.fs;
   const LOCAL_PATH = `${dirs.DocumentDir}/bip`;
@@ -75,10 +78,10 @@ const useMovieDownload = (start = false) => {
               stopMovieDownload(downloadingTask);
               reject();
             } else {
-              const path = resp.path();
+              const apath = resp.path();
               setPercent(100);
-              setFile(prevFile => ({ ...prevFile, path }));
-              resolve(path);
+              setFile(prevFile => ({ ...prevFile, apath }));
+              resolve(apath);
             }
           })
           .catch(err => {
@@ -111,7 +114,8 @@ const useMovieDownload = (start = false) => {
 
       setFileIndex(index);
       doDownloadMovie(url, name)
-        .then(path => {
+        .then(apath => {
+          console.warn(apath);
           if (!stopDownloading) processDownloadOfMovies(restOfMovies);
         })
         .catch(err => {});
@@ -134,8 +138,6 @@ const useMovieDownload = (start = false) => {
   useEffect(() => {
     // process the whole thing
     const doDownloadMovies = async () => {
-      const listOfMovies = await doDownloadMovieList();
-      setFileCard(listOfMovies.length);
       await doRemoveAllMovies();
       await doCreateDownloadDir();
       setStartClock(Date.now());

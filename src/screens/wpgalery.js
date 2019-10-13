@@ -5,20 +5,28 @@
  *
  */
 
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useContext, useEffect, useRef, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Dimensions, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import RNFetchBlob from 'rn-fetch-blob';
+import { Dimensions, ScrollView, View, TouchableOpacity, Alert } from 'react-native';
 import { Grid, Row, Col } from 'native-base';
 import { CModal, CImage, CSpace, CButton, CSep, AttachmentShape } from '@components';
+import { AppContext } from '@contexts';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import Video from 'react-native-video';
 
 /**
  * Show the pictures of the waypoint, how to get there and other infos
  */
-const ScreenWaypointGalery = ({ show, datas, video, name, address, onClose }) => {
+const ScreenWaypointGalery = ({ show, datas, videos, name, address, onClose }) => {
+  const appContext = useContext(AppContext);
   const { height } = Dimensions.get('window');
   const [showZoomGalery, setShowZoomGalery] = useState({ show: false, index: -1, images: null });
+  const [videoToPlay, setVideoToPlay] = useState(null);
+  const [localPath, setLocalPath] = useState(() => {
+    const { dirs } = RNFetchBlob.fs;
+    return `${dirs.DocumentDir}/bip`;
+  });
 
   const switchToZoom = useCallback(
     index => {
@@ -78,28 +86,68 @@ const ScreenWaypointGalery = ({ show, datas, video, name, address, onClose }) =>
     onClose();
   });
 
-  const onPressVideoPlayer = () => {
-    return <Video source={{ uri: this.props.video }} />;
-  };
+  const onPressVideoPlayer = useCallback(video => {
+    setVideoToPlay(video.name);
+  }, videos);
+
+  const onPressVideo = useCallback(() => {
+    setVideoToPlay(null);
+  });
+
+  const videosJsx = useMemo(() =>
+    videos.map((video, index) => (
+      <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <CButton
+          label={`Afficher la vidéo ${index}`}
+          onPress={() => {
+            onPressVideoPlayer(video);
+          }}
+        />
+      </Row>
+    )),
+  );
 
   return (
-    <CModal onClose={doOnClose} show={show}>
-      {showZoomGalery.show ? (
-        outer
-      ) : (
-        <>
-          <ScrollView>
-            <Grid>
-              <Row>
-                <CButton label="Afficher la vidéo" onPress={onPressVideoPlayer} />
-              </Row>
-            </Grid>
-            <Grid>{inner}</Grid>
-          </ScrollView>
-          <CSpace />
-        </>
+    <>
+      {!videoToPlay && (
+        <CModal onClose={doOnClose} show={show}>
+          {showZoomGalery.show ? (
+            outer
+          ) : (
+            <>
+              <ScrollView>
+                {videos && <Grid>{videosJsx}</Grid>}
+                <Grid>{inner}</Grid>
+              </ScrollView>
+              <CSpace />
+            </>
+          )}
+        </CModal>
       )}
-    </CModal>
+      {videoToPlay && (
+        <TouchableOpacity
+          onPress={onPressVideo}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            backgroundColor: 'black',
+          }}
+        >
+          <Video
+            repeat
+            fullscreen
+            fullscreenAutorotate
+            fullscreenOrientation="landscape"
+            resizeMode="contain"
+            source={{ uri: `${localPath}/${videoToPlay}` }}
+            style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }}
+          />
+        </TouchableOpacity>
+      )}
+    </>
   );
 };
 
@@ -107,7 +155,7 @@ ScreenWaypointGalery.propTypes = {
   show: PropTypes.bool.isRequired,
   datas: PropTypes.arrayOf(AttachmentShape).isRequired,
   name: PropTypes.string.isRequired,
-  video: PropTypes.string.isRequired,
+  videos: PropTypes.arrayOf(PropTypes.string).isRequired,
   address: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 };

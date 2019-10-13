@@ -211,7 +211,6 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   const onPressValidatePicture = () => {
     if (isVideo) {
       queueFactory().then(queue => {
-        debugger;
         queue.createJob('upload-video', {
           wp: appContext.waypoint,
           type: 'clue',

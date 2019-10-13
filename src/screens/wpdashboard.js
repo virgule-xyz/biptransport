@@ -28,6 +28,9 @@ const ScreenWaypointDashboard = ({ navigation }) => {
   // Driver context to get tour id
   const appContext = useContext(AppContext);
 
+  // the videos of the wp
+  const [wpVideos, setWpVideos] = useState([]);
+
   // Manage the Wapoint Collection modal
   const [showCollectionState, setShowCollectionState] = useState(false);
 
@@ -64,6 +67,7 @@ const ScreenWaypointDashboard = ({ navigation }) => {
     appContext.doLoadFakeContext();
     appContext.doStartNewWaypoint().then(datas => {
       appContext.doSave(datas);
+      setWpVideos(datas.videosCache.filter(vid => vid.wp === datas.waypoint.id));
     });
   }, []);
 
@@ -94,7 +98,7 @@ const ScreenWaypointDashboard = ({ navigation }) => {
               <CSpace />
               <CWaypointButtons
                 testID="ID_WPDASHBOARD_BUTTONS"
-                pictureCard={waypoint.pictureCollection && waypoint.pictureCollection.length}
+                pictureCard={waypoint.pictureCollection.length + waypoint.videos.length}
                 onPressTravel={onPressTravel}
                 onPressGalery={onPressGalery}
                 onPressBroken={onPressBroken}
@@ -118,6 +122,7 @@ const ScreenWaypointDashboard = ({ navigation }) => {
             <ScreenWaypointGalery
               show={!!showGaleryState}
               datas={waypoint.pictureCollection}
+              videos={wpVideos}
               name={waypoint.name}
               address={waypoint.address}
               onClose={onCloseScreenWaypointGalery}

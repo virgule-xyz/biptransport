@@ -2,8 +2,8 @@
   "result": "OK",
   "commandes": [
     {
-      "status": "0",
       "id": "1482698",
+      "status": 2,
       "id_ord": "1388",
       "id_pnt": "2814",
       "cab_pnt": ["00002814"],
@@ -14,12 +14,12 @@
       "nbr_liv": "0",
       "nbr_enl": "1",
       "ord_nom": "QUALITE DENTALE",
-      "pnt_nom": "CABINET DENTAIRE DE LA SILIC 1 \nNIZARD GREGORY\nNIZARD MIKAEL",
+      "pnt_nom": "CABINET DENTAIRE DE LA SILIC\nNIZARD GREGORY\nNIZARD MIKAEL",
       "pnt_adr": "AVENUE DE LA GARE EN FACE DU N°16",
       "pnt_cp": "94150",
       "pnt_ville": "RUNGIS",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.742043",
+      "pnt_lng": "2.3527102",
       "observations": "BIP QUI RESSEMBLE A UNE CARTE DE CRÉDIT BLANCHE + BADGER AVEC LA CARTE POUR L'OUVERTURE DE LA PORTE DU GARAGE + ECHANGES DANS LA BOITE AUX LETTRES PTT QUI SE TROUVE A GAUCHE.ATTENTION SI ACCES IMPOSSIBLE PAR LA PORTE DU GARAGE, IL FAUT PASSER PAR LE 13 RUE DE VILLENEUVE ET ENTRE LES 2 PORTES VITREE SE TROUVE UN INTERPHONE IL FAUT SONNER SUR LE BOUTON QUI APPELLERA LE PC SECURITE + IL FAUDRA LUI PRECISER QUE VOUS VENEZ LIVRER LES BOITES DE PROTHESES + UNE FOIS LA PORTE OUVERTE SE DIRIGER VERS LA PORTE EN BOIS A DROITE APRES LA VITRINE ET BADGER AVEC LA CARTE + AU BOUT DU COULOIR PRENDRE LA DERNIERE PORTE EN FACE ISSUE DE SECOURS ET LES ECHANGES SE FERONT DANS LA BOITE AUX LETTRES PTT HABITUEL. \nCF PHOTO.",
       "pnt_cles": "2814",
       "pnt_trousseau": "",
@@ -27,35 +27,39 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/42d662d3-1c3f-11e6-9555-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1301822"
         },
         {
           "file": "https://www.biptransport.com/pj/800/e8b98879-bb0f-11e7-894e-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2163102"
         },
         {
           "file": "https://www.biptransport.com/pj/800/e8bb6426-bb0f-11e7-894e-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1573814"
         },
         {
           "file": "https://www.biptransport.com/pj/800/e8bb7baa-bb0f-11e7-894e-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "920640"
         }
+      ],
+      "pnt_videos": [
+        "http://www.virgule.xyz/big_buck_bunny.mp4",
+        "http://www.virgule.xyz/big_buck_bunny.mp4"
       ],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483772",
+      "status": "1",
       "id_ord": "1258",
       "id_pnt": "2814",
       "cab_pnt": ["00002814"],
@@ -63,15 +67,15 @@
       "essai": "0",
       "ord_difficile": "0",
       "pnt_difficile": "0",
-      "nbr_liv": "2",
+      "nbr_liv": "1",
       "nbr_enl": "1",
-      "ord_nom": "SMILE  ",
-      "pnt_nom": "CABINET DENTAIRE DE LA SILIC 2\nNIZARD GREGORY\nNIZARD MIKAEL\nFARES EMILE\nBELLHASEN NATHANAEL",
+      "ord_nom": "SMILE  \nNEW DENTAL CONCEPT",
+      "pnt_nom": "CABINET DENTAIRE DE LA SILIC\nNIZARD GREGORY\nNIZARD MIKAEL\nFARES EMILE\nBELLHASEN NATHANAEL",
       "pnt_adr": "AVENUE DE LA GARE EN FACE DU N°16",
       "pnt_cp": "94150",
       "pnt_ville": "RUNGIS",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.742043",
+      "pnt_lng": "2.3527102",
       "observations": "BIP QUI RESSEMBLE A UNE CARTE DE CRÉDIT BLANCHE + BADGER AVEC LA CARTE POUR L'OUVERTURE DE LA PORTE DU GARAGE + ECHANGES DANS LA BOITE AUX LETTRES PTT QUI SE TROUVE A GAUCHE.ATTENTION SI ACCES IMPOSSIBLE PAR LA PORTE DU GARAGE, IL FAUT PASSER PAR LE 13 RUE DE VILLENEUVE ET ENTRE LES 2 PORTES VITREE SE TROUVE UN INTERPHONE IL FAUT SONNER SUR LE BOUTON QUI APPELLERA LE PC SECURITE + IL FAUDRA LUI PRECISER QUE VOUS VENEZ LIVRER LES BOITES DE PROTHESES + UNE FOIS LA PORTE OUVERTE SE DIRIGER VERS LA PORTE EN BOIS A DROITE APRES LA VITRINE ET BADGER AVEC LA CARTE + AU BOUT DU COULOIR PRENDRE LA DERNIERE PORTE EN FACE ISSUE DE SECOURS ET LES ECHANGES SE FERONT DANS LA BOITE AUX LETTRES PTT HABITUEL. \nCF PHOTO.",
       "pnt_cles": "2814",
       "pnt_trousseau": "",
@@ -79,35 +83,36 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/42d662d3-1c3f-11e6-9555-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1301822"
         },
         {
           "file": "https://www.biptransport.com/pj/800/e8b98879-bb0f-11e7-894e-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2163102"
         },
         {
           "file": "https://www.biptransport.com/pj/800/e8bb6426-bb0f-11e7-894e-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1573814"
         },
         {
           "file": "https://www.biptransport.com/pj/800/e8bb7baa-bb0f-11e7-894e-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "920640"
         }
       ],
-      "cab_liv": ["201483772012580281419050201002", "201483262014630481619050201002"],
+      "pnt_videos": [],
+      "cab_liv": ["201483772012580281419050201002"],
       "cab_enl": ["101483772012580281400000001002"]
     },
     {
-      "status": "0",
       "id": "1483904",
+      "status": "1",
       "id_ord": "1463",
       "id_pnt": "2411",
       "cab_pnt": ["00002411"],
@@ -122,19 +127,20 @@
       "pnt_adr": "12 RUE SEMINAIRE(RUNGIS COMPLEXE)",
       "pnt_cp": "94550",
       "pnt_ville": "CHEVILLY-LARUE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.7629584",
+      "pnt_lng": "2.3608689",
       "observations": "BIP (QUI EST UNE CARTE MAGNÉTIQUE) POUR LA PORTE DE L'IMMEUBLE  ET LA LIVRAISON SE FAIT DANS LA BOITE AUX LETTRES NUM 16 A L'AIDE D'UNE CLE.\nELEMENT POUR LE LABO ALD.BIP( C'EST UNE CARTE BLANCHE COMME UNE CARTE BLEU) +CLES + 4ÉME ÉTAGE EN SORTANT DE L'ASCENSEUR EN FACE LÉGÈREMENT A DROITE IL Y A UNE PETITE GAINE ELECTRIQUE ET LA LIVRAISON SE FAIT PAR TERRE.",
       "pnt_cles": "2411",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483790",
+      "status": "1",
       "id_ord": "1309",
       "id_pnt": "3996",
       "cab_pnt": ["00003996"],
@@ -149,8 +155,8 @@
       "pnt_adr": "61 AV. VICTOR HUGO",
       "pnt_cp": "91550",
       "pnt_ville": "PARAY-VIEILLE-POSTE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.7112613",
+      "pnt_lng": "2.3628171",
       "observations": "ECHANGES DANS LA BOITE AUX LETTRES PTT EXTERIEUR DE GAUCHE\nCF PHOTO.",
       "pnt_cles": "",
       "pnt_trousseau": "",
@@ -158,17 +164,18 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/eb0cc6fe-8cbf-11e3-ab8f-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2796925"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483238",
+      "status": "1",
       "id_ord": "1586",
       "id_pnt": "2413",
       "cab_pnt": ["00002413"],
@@ -183,19 +190,20 @@
       "pnt_adr": "1 RUE HENRI DUGRES",
       "pnt_cp": "91550",
       "pnt_ville": "PARAY-VIEILLE-POSTE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.7129957",
+      "pnt_lng": "2.3607376",
       "observations": "BOITE AUX LETTRES PTT DU BAS",
       "pnt_cles": "",
       "pnt_trousseau": "",
       "pnt_ptt": 1,
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": ["201483238015860241319050201022"],
       "cab_enl": []
     },
     {
-      "status": "0",
       "id": "1482965",
+      "status": "1",
       "id_ord": "1249",
       "id_pnt": "2417",
       "cab_pnt": ["00002417"],
@@ -210,19 +218,20 @@
       "pnt_adr": "175 AVENUE JULES VALLES",
       "pnt_cp": "91200",
       "pnt_ville": "ATHIS-MONS",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.7059324",
+      "pnt_lng": "2.3842776",
       "observations": "ECHANGES DANS LA BOITE AUX LETTRES EXT. A L'AIDE D'UNE CLE AU NOM DE WITTENBERGER.",
       "pnt_cles": "2417",
       "pnt_trousseau": "",
       "pnt_ptt": 1,
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483580",
+      "status": "1",
       "id_ord": "1444",
       "id_pnt": "2419",
       "cab_pnt": ["00002419"],
@@ -237,26 +246,27 @@
       "pnt_adr": "15 AVENUE MARYSE BASTIE",
       "pnt_cp": "91200",
       "pnt_ville": "ATHIS-MONS",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
-      "observations": "LE CABINET SE TROUVE DERRIÈRE L'IMMEUBLE.IL FAUT SE GARER PRES DE LA BARRIÈRE ET ALLER AU CABINET QUI EST DANS LE FOND + CLE DU CABINET + CODE ALARME 6867+CADENAS OUVERT POUR RENTRER ET POUR SORTIR CODE 6867 CADENAS FERMER  ET LES ECHANGES SE FONT SUR LE BUREAU.\nCF PHOTO.\nCode : 6867 OK",
+      "pnt_lat": "48.7048386",
+      "pnt_lng": "2.3566139",
+      "observations": "Code : 6867 OK\nLE CABINET SE TROUVE DERRIÈRE L'IMMEUBLE.IL FAUT SE GARER PRES DE LA BARRIÈRE ET ALLER AU CABINET QUI EST DANS LE FOND + CLE DU CABINET + CODE ALARME 6867+CADENAS OUVERT POUR RENTRER ET POUR SORTIR CODE 6867 CADENAS FERMER  ET LES ECHANGES SE FONT SUR LE BUREAU.\nCF PHOTO.",
       "pnt_cles": "2419",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/f06b8cc9-68f8-11e4-981f-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "3125367"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1482997",
+      "status": "1",
       "id_ord": "1290",
       "id_pnt": "5085",
       "cab_pnt": ["00005085"],
@@ -266,24 +276,25 @@
       "pnt_difficile": "0",
       "nbr_liv": "1",
       "nbr_enl": "1",
-      "ord_nom": "JIMENEZ",
+      "ord_nom": "J FOR LAB\nJIMENEZ",
       "pnt_nom": "CHARGE LAURA\nANGIBAULT\nLOPEZ CARLOTA",
       "pnt_adr": "37 AVENUE DU 18 AVRIL",
       "pnt_cp": "91200",
       "pnt_ville": "ATHIS-MONS",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6985313",
+      "pnt_lng": "2.3817765",
       "observations": "ECHANGES DANS LA BOITE AUX LETTRES PTT SUR RUE\nPHOTOS INTROUVABLE SUR GOOGLE MAPS",
       "pnt_cles": "",
       "pnt_trousseau": "",
       "pnt_ptt": 1,
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": ["201482997012900508519050201002"],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483262",
+      "status": "1",
       "id_ord": "1463",
       "id_pnt": "4816",
       "cab_pnt": ["00004816"],
@@ -298,8 +309,8 @@
       "pnt_adr": "8 BIS RUE BOUCHERAT",
       "pnt_cp": "91200",
       "pnt_ville": "ATHIS-MONS",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.7137877",
+      "pnt_lng": "2.399394",
       "observations": "PASSER LE PORTAIL QUI RESTE OUVERT + PRENDRE  A DROITE ET LES ECHANGES SE FAIT TOUT DE SUITE SUR LA GAUCHE SOUS ESCALIER\nCF PHOTO.",
       "pnt_cles": "",
       "pnt_trousseau": "",
@@ -307,29 +318,30 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/0502cf84-70e4-11e5-8545-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "3116217"
         },
         {
           "file": "https://www.biptransport.com/pj/800/94b898a2-71a7-11e5-8545-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "691174"
         },
         {
           "file": "https://www.biptransport.com/pj/800/94b8b9ad-71a7-11e5-8545-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "785306"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": ["201483262014630481619050201002"],
       "cab_enl": []
     },
     {
-      "status": "0",
       "id": "1483408",
+      "status": "1",
       "id_ord": "1414",
       "id_pnt": "4240",
       "cab_pnt": ["00004240"],
@@ -344,56 +356,57 @@
       "pnt_adr": "22 RUE PASTEUR",
       "pnt_cp": "91260",
       "pnt_ville": "JUVISY-SUR-ORGE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
-      "observations": "BIP PORTE 1 ET 2 + PRENDRE LA PORTE DE DROITE QUI SE TROUVE A COTE DU MIROIR ET MONTER AU 1ER ETAGE, LE CABINET SE TROUVE AU BOUT DU COULOIR A DROITE + CODE ALARME ET CLE DU CABINET + OUVRIR LA PORTE DU LOCAL PRIVEE SANS CLE ET LES ENLEVEMENTS SE FONT DANS LE FRIGO.ATTENTION LES LIVRAISONS SE FONT SUR LE PLAN DE TRAVAIL\nCF PHOTO.\nCode : ALARME 2002",
+      "pnt_lat": "48.6859347",
+      "pnt_lng": "2.3790795",
+      "observations": "Code : ALARME 2002\nBIP PORTE 1 ET 2 + PRENDRE LA PORTE DE DROITE QUI SE TROUVE A COTE DU MIROIR ET MONTER AU 1ER ETAGE, LE CABINET SE TROUVE AU BOUT DU COULOIR A DROITE + CODE ALARME ET CLE DU CABINET + OUVRIR LA PORTE DU LOCAL PRIVEE SANS CLE ET LES ENLEVEMENTS SE FONT DANS LE FRIGO.ATTENTION LES LIVRAISONS SE FONT SUR LE PLAN DE TRAVAIL\nCF PHOTO.",
       "pnt_cles": "4240",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/deed7297-2f7e-11e4-86d6-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2393127"
         },
         {
           "file": "https://www.biptransport.com/pj/800/deedba71-2f7e-11e4-86d6-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1743062"
         },
         {
           "file": "https://www.biptransport.com/pj/800/deedcf71-2f7e-11e4-86d6-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1777905"
         },
         {
           "file": "https://www.biptransport.com/pj/800/deede50a-2f7e-11e4-86d6-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1876924"
         },
         {
           "file": "https://www.biptransport.com/pj/800/009fcc69-2f7f-11e4-86d6-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1569385"
         },
         {
           "file": "https://www.biptransport.com/pj/800/009fe988-2f7f-11e4-86d6-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1598873"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": ["201483408014140424019050201002"],
       "cab_enl": ["101483408014140424000000001002"]
     },
     {
-      "status": "0",
       "id": "1483182",
+      "status": "1",
       "id_ord": "1405",
       "id_pnt": "4181",
       "cab_pnt": ["00004181"],
@@ -408,26 +421,27 @@
       "pnt_adr": "37 BIS RUE GAULOIS",
       "pnt_cp": "91260",
       "pnt_ville": "JUVISY-SUR-ORGE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
-      "observations": "CODE + CLE DE BOITE AUX LETTRES\nCF PHOTO.\nCode : 26 091",
+      "pnt_lat": "48.6905057",
+      "pnt_lng": "2.3813355",
+      "observations": "Codes :\n48 190\n22 500 JOUR\nCODE + CLE DE BOITE AUX LETTRES\nCF PHOTO.",
       "pnt_cles": "4181",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/c499377c-ed4d-11e3-9907-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2837033"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483013",
+      "status": "1",
       "id_ord": "1578",
       "id_pnt": "5737",
       "cab_pnt": ["00005737"],
@@ -442,8 +456,8 @@
       "pnt_adr": "3 AVENUE ETIENNE D'ORVES",
       "pnt_cp": "91260",
       "pnt_ville": "JUVISY-SUR-ORGE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6903018",
+      "pnt_lng": "2.380988",
       "observations": "BIP + CLE DE BOITE AUX LETTRES\nCF PHOTO.",
       "pnt_cles": "5737",
       "pnt_trousseau": "",
@@ -451,23 +465,24 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/825bca7c-d5e2-11e7-894e-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1722625"
         },
         {
           "file": "https://www.biptransport.com/pj/800/825bf2cc-d5e2-11e7-894e-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1324722"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": ["201483013015780573719050201002"],
       "cab_enl": []
     },
     {
-      "status": "0",
       "id": "1482771",
+      "status": "1",
       "id_ord": "1651",
       "id_pnt": "4671",
       "cab_pnt": ["00004671"],
@@ -482,8 +497,8 @@
       "pnt_adr": "5 PLACE DAVOUT",
       "pnt_cp": "91600",
       "pnt_ville": "SAVIGNY-SUR-ORGE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6759731",
+      "pnt_lng": "2.3531076",
       "observations": "CLE DU GRILLAGE  + CLE DE PORTE D'ENTREE DU CABINET + PRENDRE TOUT DE SUITE LES ESCALIERS QUI SE TROUVE SUR LA DROITE ET LES ECHANGES SE FONT EN BAS DES ESCALIERS AU SOL.\nCF PHOTO.",
       "pnt_cles": "4671",
       "pnt_trousseau": "",
@@ -491,23 +506,24 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/c958f308-2942-11e9-a8d8-0007cb03ef2f.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2461523"
         },
         {
           "file": "https://www.biptransport.com/pj/800/c95a8367-2942-11e9-a8d8-0007cb03ef2f.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "781716"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": ["201482771016510467119050201002"],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483883",
+      "status": "1",
       "id_ord": "1205",
       "id_pnt": "5004",
       "cab_pnt": ["00005004"],
@@ -522,8 +538,8 @@
       "pnt_adr": "26 RUE ALBERT PREMIER ",
       "pnt_cp": "91600",
       "pnt_ville": "SAVIGNY-SUR-ORGE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6781594",
+      "pnt_lng": "2.3472297",
       "observations": "ECHANGES DANS LA BOITE AUX LETTRES EN BAS A DROITE\nCF PHOTO.",
       "pnt_cles": "",
       "pnt_trousseau": "",
@@ -531,17 +547,18 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/55135ec4-3906-11e9-a8d8-0007cb03ef2f.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "810633"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": ["201483883012050500419050201002"],
       "cab_enl": ["101483883012050500400000001002"]
     },
     {
-      "status": "0",
       "id": "1482693",
+      "status": "1",
       "id_ord": "1387",
       "id_pnt": "3444",
       "cab_pnt": ["00003444"],
@@ -556,8 +573,8 @@
       "pnt_adr": "105 BOULEVARD ARISTIDE BRIAND",
       "pnt_cp": "91600",
       "pnt_ville": "SAVIGNY-SUR-ORGE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6861427",
+      "pnt_lng": "2.3490272",
       "observations": "CLE DE BAL EXTERIEURE\nATTENTION LE DR N'EST PLUS AU 54 MAIS AU 105 DE LA RUE\nCF PHOTO.",
       "pnt_cles": "3444",
       "pnt_trousseau": "",
@@ -565,23 +582,24 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/a9769e8e-2577-11e5-89ab-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2975846"
         },
         {
           "file": "https://www.biptransport.com/pj/800/a976bdba-2577-11e5-89ab-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2975574"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": ["", "", ""]
     },
     {
-      "status": "0",
       "id": "1483994",
+      "status": "1",
       "id_ord": "1319",
       "id_pnt": "2283",
       "cab_pnt": ["00002283"],
@@ -596,19 +614,20 @@
       "pnt_adr": "11 AVENUE GAMBETTA",
       "pnt_cp": "91600",
       "pnt_ville": "SAVIGNY-SUR-ORGE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6739896",
+      "pnt_lng": "2.3463629",
       "observations": "LA PORTE DE L'IMMEUBLE S'OUVRE AVEC LA CLE PTT OU APPUYER SUR LE BOUTON CABINET DENTAIRE ENSUITE IL FAUT MONTER AU 1ERE ETAGE DANS LA LOCAL VIDE ORDURE QUI EST A GAUCHE DE LA PORTE DU CABINET ET LA LIVRAISON SE FAIT AU SOL A COTE DU CONDUIT.",
       "pnt_cles": "",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": ["", ""]
     },
     {
-      "status": "0",
       "id": "1482493",
+      "status": "1",
       "id_ord": "1223",
       "id_pnt": "6817",
       "cab_pnt": ["00006817"],
@@ -623,8 +642,8 @@
       "pnt_adr": "28 ROUTE DE GRINGY",
       "pnt_cp": "91170",
       "pnt_ville": "VIRY-CHÂTILLON",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6629565",
+      "pnt_lng": "2.3761641",
       "observations": "ECHANGES DANS LA BOITE AUX LETTRES PTT AU NOM DE ASCDM\nCF PHOTO.",
       "pnt_cles": "",
       "pnt_trousseau": "",
@@ -632,17 +651,18 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/88795ccd-627c-11e9-a8d8-0007cb03ef2f.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1719438"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": ["201482493012230681719050201002"],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483368",
+      "status": "1",
       "id_ord": "1387",
       "id_pnt": "4083",
       "cab_pnt": ["00004083"],
@@ -657,32 +677,33 @@
       "pnt_adr": "68 AVENUE GENERAL DE GAULLE",
       "pnt_cp": "91170",
       "pnt_ville": "VIRY-CHÂTILLON",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
-      "observations": "ATTENTION : IL FAUT SE STATIONNER A COTE DE L'ENTRER DE LA GARE. IL FAUT PRENDRE LE PETIT PORTILLON POUR SE DIRIGER VERS LE HALL A GAUCHE DE \"ASSU 2000\"ENSUITE IL FAUT UTILISER LE BIP POUR LA PORTE DE L'IMMEUBLE ET LA LIVRAISON SE FAIT DANS LA BOITE AUX LETTRE EN HAUT A DROITE OU EST INSCRIT \"LCI LIOR\"\nCF PHOTO.\nCode : 0345 A",
+      "pnt_lat": "48.6756906",
+      "pnt_lng": "2.3860132",
+      "observations": "Code : 0345 A\nATTENTION : IL FAUT SE STATIONNER A COTE DE L'ENTRER DE LA GARE. IL FAUT PRENDRE LE PETIT PORTILLON POUR SE DIRIGER VERS LE HALL A GAUCHE DE \"ASSU 2000\"ENSUITE IL FAUT UTILISER LE BIP POUR LA PORTE DE L'IMMEUBLE ET LA LIVRAISON SE FAIT DANS LA BOITE AUX LETTRE EN HAUT A DROITE OU EST INSCRIT \"LCI LIOR\"\nCF PHOTO.",
       "pnt_cles": "4083",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/b0385ebd-b98c-11e3-ab8f-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1531030"
         },
         {
           "file": "https://www.biptransport.com/pj/800/18837cbb-433b-11e4-86d6-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2071170"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483370",
+      "status": "1",
       "id_ord": "1395",
       "id_pnt": "4083",
       "cab_pnt": ["00004083"],
@@ -697,32 +718,33 @@
       "pnt_adr": "68 AVENUE GENERAL DE GAULLE",
       "pnt_cp": "91170",
       "pnt_ville": "VIRY-CHÂTILLON",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
-      "observations": "ATTENTION : IL FAUT SE STATIONNER A COTE DE L'ENTRER DE LA GARE. IL FAUT PRENDRE LE PETIT PORTILLON POUR SE DIRIGER VERS LE HALL A GAUCHE DE \"ASSU 2000\"ENSUITE IL FAUT UTILISER LE BIP POUR LA PORTE DE L'IMMEUBLE ET LA LIVRAISON SE FAIT DANS LA BOITE AUX LETTRE EN HAUT A DROITE OU EST INSCRIT \"LCI LIOR\"\nCF PHOTO.\nCode : 0345 A",
+      "pnt_lat": "48.6756906",
+      "pnt_lng": "2.3860132",
+      "observations": "Code : 0345 A\nATTENTION : IL FAUT SE STATIONNER A COTE DE L'ENTRER DE LA GARE. IL FAUT PRENDRE LE PETIT PORTILLON POUR SE DIRIGER VERS LE HALL A GAUCHE DE \"ASSU 2000\"ENSUITE IL FAUT UTILISER LE BIP POUR LA PORTE DE L'IMMEUBLE ET LA LIVRAISON SE FAIT DANS LA BOITE AUX LETTRE EN HAUT A DROITE OU EST INSCRIT \"LCI LIOR\"\nCF PHOTO.",
       "pnt_cles": "4083",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/b0385ebd-b98c-11e3-ab8f-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1531030"
         },
         {
           "file": "https://www.biptransport.com/pj/800/18837cbb-433b-11e4-86d6-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2071170"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483674",
+      "status": "1",
       "id_ord": "1388",
       "id_pnt": "4083",
       "cab_pnt": ["00004083"],
@@ -737,32 +759,33 @@
       "pnt_adr": "68 AVENUE GENERAL DE GAULLE",
       "pnt_cp": "91170",
       "pnt_ville": "VIRY-CHÂTILLON",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
-      "observations": "ATTENTION : IL FAUT SE STATIONNER A COTE DE L'ENTRER DE LA GARE. IL FAUT PRENDRE LE PETIT PORTILLON POUR SE DIRIGER VERS LE HALL A GAUCHE DE \"ASSU 2000\"ENSUITE IL FAUT UTILISER LE BIP POUR LA PORTE DE L'IMMEUBLE ET LA LIVRAISON SE FAIT DANS LA BOITE AUX LETTRE EN HAUT A DROITE OU EST INSCRIT \"LCI LIOR\"\nCF PHOTO.\nCode : 0345 A",
+      "pnt_lat": "48.6756906",
+      "pnt_lng": "2.3860132",
+      "observations": "Code : 0345 A\nATTENTION : IL FAUT SE STATIONNER A COTE DE L'ENTRER DE LA GARE. IL FAUT PRENDRE LE PETIT PORTILLON POUR SE DIRIGER VERS LE HALL A GAUCHE DE \"ASSU 2000\"ENSUITE IL FAUT UTILISER LE BIP POUR LA PORTE DE L'IMMEUBLE ET LA LIVRAISON SE FAIT DANS LA BOITE AUX LETTRE EN HAUT A DROITE OU EST INSCRIT \"LCI LIOR\"\nCF PHOTO.",
       "pnt_cles": "4083",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/b0385ebd-b98c-11e3-ab8f-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1531030"
         },
         {
           "file": "https://www.biptransport.com/pj/800/18837cbb-433b-11e4-86d6-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2071170"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483971",
+      "status": "1",
       "id_ord": "1364",
       "id_pnt": "3691",
       "cab_pnt": ["00003691"],
@@ -777,19 +800,20 @@
       "pnt_adr": "39 BIS GRANDE RUE",
       "pnt_cp": "91360",
       "pnt_ville": "EPINAY-SUR-ORGE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6750327",
+      "pnt_lng": "2.3233988",
       "observations": "CLÉ D'IMMEUBLE ET LA LIVRAISON SE FAIT AU 1ER ÉTAGE DANS LE PETIT PLACARD DE GAUCHE ET PAS CELUI DE DROITE .",
       "pnt_cles": "3691",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483107",
+      "status": "1",
       "id_ord": "1389",
       "id_pnt": "2284",
       "cab_pnt": ["00002284"],
@@ -804,8 +828,8 @@
       "pnt_adr": "86 GRANDE RUE",
       "pnt_cp": "91360",
       "pnt_ville": "EPINAY-SUR-ORGE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.676233",
+      "pnt_lng": "2.3223532",
       "observations": "LES ECHANGES SE FONT DANS LES BOITES AUX LETTRES N° 5 ET 15 QUI S'OUVRENT AVEC CLÉS.TOUJOURS REGARDER DANS LES 2 BOITES AUX LETTRES.\nCF PHOTO.",
       "pnt_cles": "2284",
       "pnt_trousseau": "",
@@ -813,17 +837,18 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/7b80c86f-3137-11e5-8545-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2886206"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": ["201483107013890228419050201002"],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1484002",
+      "status": "1",
       "id_ord": "1592",
       "id_pnt": "2284",
       "cab_pnt": ["00002284"],
@@ -838,8 +863,8 @@
       "pnt_adr": "86 GRANDE RUE",
       "pnt_cp": "91360",
       "pnt_ville": "EPINAY-SUR-ORGE",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.676233",
+      "pnt_lng": "2.3223532",
       "observations": "LES ECHANGES SE FONT DANS LES BOITES AUX LETTRES N° 5 ET 15 QUI S'OUVRENT AVEC CLÉS.TOUJOURS REGARDER DANS LES 2 BOITES AUX LETTRES.\nCF PHOTO.",
       "pnt_cles": "2284",
       "pnt_trousseau": "",
@@ -847,17 +872,18 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/7b80c86f-3137-11e5-8545-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2886206"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483387",
+      "status": "1",
       "id_ord": "1464",
       "id_pnt": "2273",
       "cab_pnt": ["00002273"],
@@ -872,19 +898,20 @@
       "pnt_adr": "8 RUE DES ECOLES",
       "pnt_cp": "91160",
       "pnt_ville": "LONGJUMEAU",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6955232",
+      "pnt_lng": "2.2959797",
       "observations": "IL FAUT ENTRER DANS LA COUR ET TOUT DE SUITE A DROITE EN DESSOUS DES BUISSONS + ECHANGES DANS LES 2 BOITE AU LETTRE PTT.TOUJOURS REGARDER DANS TOUTES LES BOITES AUX LETTRES.",
       "pnt_cles": "",
       "pnt_trousseau": "",
       "pnt_ptt": 1,
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": ["201483387014640227319050201002", "201483387014640227319050202002"],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483590",
+      "status": "1",
       "id_ord": "1258",
       "id_pnt": "2273",
       "cab_pnt": ["00002273"],
@@ -894,24 +921,25 @@
       "pnt_difficile": "0",
       "nbr_liv": "1",
       "nbr_enl": "1",
-      "ord_nom": "SMILE  ",
+      "ord_nom": "SMILE  \nNEW DENTAL CONCEPT",
       "pnt_nom": "IFERGAN DAVID\nOLIEL DANIEL\nSAMUEL HENRI\nSIMON  BERNARD\nMALKA YONATAN",
       "pnt_adr": "8 RUE DES ECOLES",
       "pnt_cp": "91160",
       "pnt_ville": "LONGJUMEAU",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6955232",
+      "pnt_lng": "2.2959797",
       "observations": "IL FAUT ENTRER DANS LA COUR ET TOUT DE SUITE A DROITE EN DESSOUS DES BUISSONS + ECHANGES DANS LES 2 BOITE AU LETTRE PTT.TOUJOURS REGARDER DANS TOUTES LES BOITES AUX LETTRES.",
       "pnt_cles": "",
       "pnt_trousseau": "",
       "pnt_ptt": 1,
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": ["201483590012580227319050201002"],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1482980",
+      "status": "1",
       "id_ord": "1377",
       "id_pnt": "2269",
       "cab_pnt": ["00002269"],
@@ -926,19 +954,20 @@
       "pnt_adr": "24 RUE YVETTE",
       "pnt_cp": "91160",
       "pnt_ville": "LONGJUMEAUX",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6938252",
+      "pnt_lng": "2.2915227",
       "observations": "BIP (PB D'ETANCHEITE : EN CAS DE PLUIE, ESSUYER LA PARTIE QUI SERA EN CONNEXION AVEC LE BIP ) + CLE DU CABINET + ECHANGE SUR LA PETITE TABLE TOUT DE SUITE EN FACE EN ENTRANT",
       "pnt_cles": "2269",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": ["201482980013770226919050201002"],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483630",
+      "status": "1",
       "id_ord": "1382",
       "id_pnt": "2269",
       "cab_pnt": ["00002269"],
@@ -948,24 +977,25 @@
       "pnt_difficile": "0",
       "nbr_liv": "0",
       "nbr_enl": "1",
-      "ord_nom": "NEW DENTAL CONCEPT (SAS)",
+      "ord_nom": "NEW DENTAL CONCEPT (SAS)\nSMILE",
       "pnt_nom": "BISMUTH MICHEL",
       "pnt_adr": "24 RUE YVETTE",
       "pnt_cp": "91160",
       "pnt_ville": "LONGJUMEAUX",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6938252",
+      "pnt_lng": "2.2915227",
       "observations": "BIP (PB D'ETANCHEITE : EN CAS DE PLUIE, ESSUYER LA PARTIE QUI SERA EN CONNEXION AVEC LE BIP ) + CLE DU CABINET + ECHANGE SUR LA PETITE TABLE TOUT DE SUITE EN FACE EN ENTRANT",
       "pnt_cles": "2269",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483854",
+      "status": "1",
       "id_ord": "1205",
       "id_pnt": "2269",
       "cab_pnt": ["00002269"],
@@ -980,19 +1010,20 @@
       "pnt_adr": "24 RUE YVETTE",
       "pnt_cp": "91160",
       "pnt_ville": "LONGJUMEAUX",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6938252",
+      "pnt_lng": "2.2915227",
       "observations": "BIP (PB D'ETANCHEITE : EN CAS DE PLUIE, ESSUYER LA PARTIE QUI SERA EN CONNEXION AVEC LE BIP ) + CLE DU CABINET + ECHANGE SUR LA PETITE TABLE TOUT DE SUITE EN FACE EN ENTRANT",
       "pnt_cles": "2269",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": ["201483854012050226919050201002"],
       "cab_enl": ["101483854012050226900000001002"]
     },
     {
-      "status": "0",
       "id": "1483224",
+      "status": "1",
       "id_ord": "1507",
       "id_pnt": "5433",
       "cab_pnt": ["00005433"],
@@ -1002,13 +1033,13 @@
       "pnt_difficile": "0",
       "nbr_liv": "0",
       "nbr_enl": "1",
-      "ord_nom": "LABORATOIRE D'ORTHONDONTIE DE JONGE",
+      "ord_nom": "LABORATOIRE D'ORTHONDONTIE DE JONGE\nLABORATOIRE 3J",
       "pnt_nom": "TROGNEUX MARTINE",
       "pnt_adr": "21 PLACE DE BRETTEN",
       "pnt_cp": "91160",
       "pnt_ville": "LONGJUMEAU",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6968216",
+      "pnt_lng": "2.2933919",
       "observations": "BIP + CLE DE BOITE AUX LETTRES AU NOM DU DR\nCF PHOTO.",
       "pnt_cles": "5433",
       "pnt_trousseau": "",
@@ -1016,17 +1047,18 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/5aff6fcb-e89b-11e6-8836-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2827409"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483941",
+      "status": "1",
       "id_ord": "1395",
       "id_pnt": "3994",
       "cab_pnt": ["00003994"],
@@ -1041,19 +1073,20 @@
       "pnt_adr": "8 BOULEVARD LIEVAIN\t",
       "pnt_cp": "91160",
       "pnt_ville": "LONGJUMEAU",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6933697",
+      "pnt_lng": "2.2963728",
       "observations": "PASSER LA MAIN A TRAVERS LA GRILLE ET ECHANGES DANS LA BOITE AUX LETTRES VERTE.",
       "pnt_cles": "",
       "pnt_trousseau": "",
       "pnt_ptt": 1,
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": ["201483941013950399419050201002"],
       "cab_enl": []
     },
     {
-      "status": "0",
       "id": "1483992",
+      "status": "0",
       "id_ord": "1319",
       "id_pnt": "3994",
       "cab_pnt": ["00003994"],
@@ -1068,19 +1101,20 @@
       "pnt_adr": "8 BOULEVARD LIEVAIN\t",
       "pnt_cp": "91160",
       "pnt_ville": "LONGJUMEAU",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6933697",
+      "pnt_lng": "2.2963728",
       "observations": "PASSER LA MAIN A TRAVERS LA GRILLE ET ECHANGES DANS LA BOITE AUX LETTRES VERTE.",
       "pnt_cles": "",
       "pnt_trousseau": "",
       "pnt_ptt": 1,
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": ["201483992013190399419050201002"],
       "cab_enl": []
     },
     {
-      "status": "0",
       "id": "1483217",
+      "status": "0",
       "id_ord": "1250",
       "id_pnt": "2275",
       "cab_pnt": ["00002275"],
@@ -1095,19 +1129,20 @@
       "pnt_adr": "7 ALLEE CHARLES LEBRUN",
       "pnt_cp": "91380",
       "pnt_ville": "CHILLY-MAZARIN",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6939633",
+      "pnt_lng": "2.3104889",
       "observations": "BIP BLEU  + CLE DE BOITE AUX LETTRES.",
       "pnt_cles": "2275",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": ["201483217012500227519050201002"],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483218",
+      "status": "0",
       "id_ord": "1250",
       "id_pnt": "6769",
       "cab_pnt": ["00006769"],
@@ -1122,8 +1157,8 @@
       "pnt_adr": "101 RUE DE GRAVIGNY",
       "pnt_cp": "91380",
       "pnt_ville": "CHILLY-MAZARIN",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6939087",
+      "pnt_lng": "2.3123618",
       "observations": "ECHANGE DANS LES 2 BOITES AUX LETTRES PTT GRISES\nCF PHOTO.",
       "pnt_cles": "",
       "pnt_trousseau": "",
@@ -1131,17 +1166,18 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/121aa256-4025-11e9-a8d8-0007cb03ef2f.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1811809"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": ["201483218012500676919050201002"],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483993",
+      "status": "0",
       "id_ord": "1319",
       "id_pnt": "6769",
       "cab_pnt": ["00006769"],
@@ -1156,8 +1192,8 @@
       "pnt_adr": "101 RUE DE GRAVIGNY",
       "pnt_cp": "91380",
       "pnt_ville": "CHILLY-MAZARIN",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.6939087",
+      "pnt_lng": "2.3123618",
       "observations": "ECHANGE DANS LES 2 BOITES AUX LETTRES PTT GRISES\nCF PHOTO.",
       "pnt_cles": "",
       "pnt_trousseau": "",
@@ -1165,17 +1201,18 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/121aa256-4025-11e9-a8d8-0007cb03ef2f.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1811809"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483809",
+      "status": "0",
       "id_ord": "1387",
       "id_pnt": "2280",
       "cab_pnt": ["00002280"],
@@ -1190,19 +1227,20 @@
       "pnt_adr": "17 AVENUE MAZARIN",
       "pnt_cp": "91380",
       "pnt_ville": "CHILLY-MAZARIN",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.7032632",
+      "pnt_lng": "2.318867",
       "observations": "BOITE AU LETTRE PTT SUR RUE\nCF PHOTO.",
       "pnt_cles": "",
       "pnt_trousseau": "",
       "pnt_ptt": 1,
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1482636",
+      "status": "0",
       "id_ord": "1299",
       "id_pnt": "2276",
       "cab_pnt": ["00002276"],
@@ -1217,22 +1255,23 @@
       "pnt_adr": "36 AVENUE PIERRE BROSSOLETTE",
       "pnt_cp": "91380",
       "pnt_ville": "CHILLY-MAZARIN",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.7029966",
+      "pnt_lng": "2.3213994",
       "observations": "BIP + CLÉ DE BOITE AUX LETTRES.",
       "pnt_cles": "2276",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": ["201482636012990227619050201002"],
       "cab_enl": []
     },
     {
-      "status": "0",
       "id": "1483863",
+      "status": "0",
       "id_ord": "1259",
       "id_pnt": "2277",
-      "cab_pnt": ["00002277"],
+      "cab_pnt": ["47900712"],
       "domicile": "0",
       "essai": "0",
       "ord_difficile": "0",
@@ -1244,29 +1283,30 @@
       "pnt_adr": "48 AVENUE JEAN JAURES",
       "pnt_cp": "91420",
       "pnt_ville": "MORANGIS",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
-      "observations": "BOITE AUX LETTRES PTT SUR RUE.\nCF PHOTO.",
+      "pnt_lat": "48.7007497",
+      "pnt_lng": "2.3264815",
+      "observations": "ECHANGES DANS LA BOITE AUX LETTRES PTT DU HAUT AU NOM DU DR BLANC\nCF PHOTO.",
       "pnt_cles": "",
       "pnt_trousseau": "",
       "pnt_ptt": 1,
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/567b545b-43d4-11e4-86d6-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2410613"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": ["201483863012590227719050201002"],
       "cab_enl": ["101483863012590227700000001002"]
     },
     {
-      "status": "0",
       "id": "1483397",
+      "status": "0",
       "id_ord": "1248",
       "id_pnt": "2278",
-      "cab_pnt": ["00002278"],
+      "cab_pnt": ["47900713"],
       "domicile": "0",
       "essai": "0",
       "ord_difficile": "0",
@@ -1278,19 +1318,20 @@
       "pnt_adr": "48 AVENUE JEAN JAURES",
       "pnt_cp": "91420",
       "pnt_ville": "MORANGIS",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
-      "observations": "BOITE AUX LETTRES PTT SUR RUE AU NOM DE DE SANTIS",
+      "pnt_lat": "48.7007497",
+      "pnt_lng": "2.3264815",
+      "observations": "ECHANGES DANS LA BOITE AUX LETTRES PTT DU BAS AU NOM DU DR DE SANTIS",
       "pnt_cles": "",
       "pnt_trousseau": "",
       "pnt_ptt": 1,
       "pnt_pj": [],
+      "pnt_videos": [],
       "cab_liv": ["201483397012480227819050201002"],
       "cab_enl": ["101483397012480227800000001002"]
     },
     {
-      "status": "0",
       "id": "1484005",
+      "status": "0",
       "id_ord": "1592",
       "id_pnt": "5485",
       "cab_pnt": ["00005485"],
@@ -1305,32 +1346,33 @@
       "pnt_adr": "101 PARC DES EAUX DE VIVES <DIV>(GPS) 27 RUE LEON BOURGEOIS</DIV>",
       "pnt_cp": "91120",
       "pnt_ville": "PALAISEAU",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
-      "observations": "SE GARER PRES DU FRANPRIX + LONGER LE MUR ET DESCENDRE LES ESCALIERS + TOURNER A DROITE.UNE FOIS DANS LE HALL DE L'IMMEUBLE DERRIERE LA STRUCTURE SE TROUVE 2 PORTES. IL FAUT ALLER VERS LA PORTE DE GAUCHE ET LES ECHANGES SE FONT DANS LE SUPPORT POUR REVU QUI SE TROUVE ACCROCHE A GAUCHE DE LA PORTE EN BOIS.\nCF PHOTO.",
+      "pnt_lat": "48.7042702",
+      "pnt_lng": "2.237917",
+      "observations": "SE GARER PRES DU FRANPRIX + LONGER LE MUR ET DESCENDRE LES ESCALIERS + TOURNER A DROITE.UNE FOIS DANS LE HALL DE L'IMMEUBLE DERRIERE LA STRUCTURE SE TROUVE 2 PORTES. BIP SUR LA PORTE DE GAUCHE + ET LES ECHANGES SES FONT SUR LE PETIT MEUBLE EN BOIS TOUT DE SUIT E EN ENTRANT DANS LE LOCAL\nCF PHOTO.",
       "pnt_cles": "5485",
       "pnt_trousseau": "",
       "pnt_ptt": "0",
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/62f72b8b-72d8-11e7-b68e-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1896379"
         },
         {
           "file": "https://www.biptransport.com/pj/800/62f75458-72d8-11e7-b68e-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "639892"
         }
       ],
+      "pnt_videos": [],
       "cab_liv": [],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1482638",
+      "status": "1",
       "id_ord": "1299",
       "id_pnt": "3209",
       "cab_pnt": ["00003209"],
@@ -1345,8 +1387,8 @@
       "pnt_adr": "173 RUE DE PARIS ",
       "pnt_cp": "91120",
       "pnt_ville": "PALAISEAU",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.711241",
+      "pnt_lng": "2.2426314",
       "observations": "ECHANGES DANS LA BOITE AUX LETTRES PTT EXTERIEUR.\nCF PHOTO.",
       "pnt_cles": "3209",
       "pnt_trousseau": "",
@@ -1354,17 +1396,21 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/f47c3eca-4247-11e4-86d6-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2854806"
         }
+      ],
+      "pnt_videos": [
+        "http://www.virgule.xyz/big_buck_bunny.mp4",
+        "http://www.virgule.xyz/big_buck_bunny.mp4"
       ],
       "cab_liv": ["201482638012990320919050201002"],
       "cab_enl": [""]
     },
     {
-      "status": "0",
       "id": "1483244",
+      "status": "0",
       "id_ord": "1254",
       "id_pnt": "3208",
       "cab_pnt": ["00003208"],
@@ -1379,8 +1425,8 @@
       "pnt_adr": "75 AVENUE STALINGRAD RÉSIDENCE JULES VERNE (A L'ANGLE DU 75 AVENUE STALINGRAD)",
       "pnt_cp": "91120",
       "pnt_ville": "PALAISEAU",
-      "pnt_lat": 0,
-      "pnt_lng": 0,
+      "pnt_lat": "48.714177",
+      "pnt_lng": "2.25968",
       "observations": "ATTENTION : IL FAUT SE GARER EN FACE DU 7 RUE JULES VERNE !!!EN FACE DU 7 RUE JULES VERNE IL Y A UN PARKING PRIVE ! IL FAUT ENTRER DANS CE PARKING ET FAIRE UNE VINGTAINE DE MÈTRE ET PRENDRE SUR LA DROITE POUR SE DIRIGER VERS LE BÂTIMENT 3. CLE DE BOITE AUX LETTRES OU SI BOITE TROP VOLUMINEUSE UTILISER LA CLE DE LA PORTE DE L'IMMEUBLE PUIS DANS LE HALL PRENDRE A GAUCHE PUIS A DROITE ET LES ECHANGES SE FONT DANS LA GAINE ELECTRIQUE.ATTENTION TOUJOURS PRECISER SUR LA TOURNEE QUAND LA BOITE NE RENTRE PAS DANS LA BOITE AUX LETTRES ET QU'ELLE A ETE DEPOSEE DANS LA GAINE ELECTRIQUE.\nCF PHOTO.",
       "pnt_cles": "3208",
       "pnt_trousseau": "",
@@ -1388,28 +1434,32 @@
       "pnt_pj": [
         {
           "file": "https://www.biptransport.com/pj/800/a15dc82a-177e-11e6-9555-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1851922"
         },
         {
           "file": "https://www.biptransport.com/pj/800/a15dec1e-177e-11e6-9555-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2086048"
         },
         {
           "file": "https://www.biptransport.com/pj/800/a15e0782-177e-11e6-9555-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "2409949"
         },
         {
           "file": "https://www.biptransport.com/pj/800/a15e227b-177e-11e6-9555-d4ae52c82579.jpg",
-          "type": "image/png",
-          "extension": "png",
+          "type": "image/jpg",
+          "extension": "jpg",
           "size": "1924070"
         }
+      ],
+      "pnt_videos": [
+        "http://www.virgule.xyz/big_buck_bunny.mp4",
+        "http://www.virgule.xyz/big_buck_bunny.mp4"
       ],
       "cab_liv": [],
       "cab_enl": [""]
@@ -1421,19 +1471,16 @@
   },
   "responsables": [
     {
-      "status": "0",
       "id": 1,
       "nom": "Responsable 1",
       "tel": "0606060606"
     },
     {
-      "status": "0",
       "id": 2,
       "nom": "Responsable 2",
       "tel": "0607080910"
     },
     {
-      "status": "0",
       "id": 3,
       "nom": "Responsable 3",
       "tel": "0611223344"
@@ -1441,22 +1488,19 @@
   ],
   "problemes": [
     {
-      "status": "0",
       "id": 1,
       "nom": "Conditions climatiques",
       "photo": 1
     },
     {
-      "status": "0",
       "id": 2,
       "nom": "Rue bloquée",
       "photo": 1
     },
     {
-      "status": "0",
       "id": 3,
       "nom": "Problème code d'accès",
-      "photo": 0
+      "photo": 1
     }
   ]
 }

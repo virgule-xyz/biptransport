@@ -83,7 +83,6 @@ const ModalScreenWaypointGalery = () => {
     <ScreenWaypointGalery
       show={showState}
       datas={pictureCollectionState}
-      video={1}
       onClose={() => {
         setShowState(false);
       }}
