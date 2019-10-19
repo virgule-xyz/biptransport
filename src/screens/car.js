@@ -11,6 +11,9 @@ import { splashname } from '../../package.json';
 /**
  * Should display a barcode reader to get car infos displayed in a dialog input
  * For tests use code V0000017
+ *
+ * @param {*} { navigation }
+ * @returns ReactNode
  */
 const ScreenCar = ({ navigation }) => {
   // manage the context
@@ -26,7 +29,11 @@ const ScreenCar = ({ navigation }) => {
     setHideCarBarCodeReader(appContext.hideCarCodeBar);
   }, [appContext.hideCarCodeBar]);
 
-  // vehicle barcode is suitable for a car
+  /**
+   * vehicle barcode is suitable for a car
+   *
+   * @param {*} value
+   */
   const onBarCodeSuccess = value => {
     setTimeout(() => {
       setHideCarBarCodeReader(true);

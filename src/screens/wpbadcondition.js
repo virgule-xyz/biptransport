@@ -10,7 +10,6 @@ import { View, ScrollView, Alert, Dimensions } from 'react-native';
 
 import { CButton, CSpace, CWaypointTemplate, CError, CCamera, CImage } from '@components';
 import { AppContext } from '@contexts';
-import queueFactory from 'react-native-queue';
 import { splashname } from '../../package.json';
 
 /**
@@ -85,7 +84,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   const CStep2 = ({ conditionState, onPressChangeCondition }) => (
     <View style={{ flex: 0, alignItems: 'center' }}>
       <CError style={{ textAlign: 'center' }}>
-        Passage non traité pour raison de "{conditionState.nom}" : prenez une photo du problème...
+        Passage non traité pour raison de "{conditionState.nom}" : prenez une photo/video du problème...
       </CError>
       <CSpace />
       <CCamera onTakePicture={onTakePicture} onRecord={onRecord} testID="ID_TOUR_CAMERA" />
@@ -98,10 +97,10 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   const CStep3 = ({ conditionState, onPressTakeAnotherPicture, onPressValidatePicture }) => (
     <>
       <CError style={{ textAlign: 'center' }}>
-        Passage non traité pour raison de "{conditionState.nom}" : confirmez la photo...
+        Passage non traité pour raison de "{conditionState.nom}" : confirmez la photo/video...
       </CError>
       <CSpace n={0.5} />
-      {base64PictureState && isVideo ? null : (
+      {base64PictureState && (
         <View
           style={{
             flex: 0,
@@ -126,7 +125,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
           style={{ width: '45%' }}
           icon="undo"
           danger
-          label="Reprendre la photo"
+          label="Reprendre"
           onPress={onPressTakeAnotherPicture}
         />
         <CButton
@@ -145,7 +144,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   const onPressQuitScreen = () => {
     Alert.alert(
       splashname,
-      'Êtes-vous sûr de vouloir quitter cet écran ? (les photos prises seront perdues...)',
+      'Êtes-vous sûr de vouloir quitter cet écran ? (les photos/vidéos prises seront perdues...)',
       [
         {
           text: 'Rester ici',
@@ -191,11 +190,11 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   const onPressTakeAnotherPicture = () => {
     Alert.alert(
       splashname,
-      'ATTENTION !\nLa photo actuelle ne sera pas gardée !',
+      'ATTENTION !\nLa photo/vidéo actuelle ne sera pas gardée !',
       [
-        { text: 'Garder la photo', onPress: () => console.log('Ask me later pressed') },
+        { text: 'Garder', onPress: () => console.log('Ask me later pressed') },
         {
-          text: 'Recommencer la photo',
+          text: 'Recommencer',
           onPress: () => {
             setIsVideo(false);
             setShowCameraState(true);
@@ -209,23 +208,12 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   };
 
   const onPressValidatePicture = () => {
-    if (isVideo) {
-      queueFactory().then(queue => {
-        queue.createJob('upload-video', {
-          wp: appContext.waypoint,
-          type: 'clue',
-          base64PictureState,
-        });
-        // TODO: do a kind of appContext.setStorePickupVideo(...);
-        navigation.navigate('ScreenWaypointResume');
-      });
-    } else {
-      appContext.setStoreClue({
-        condition: conditionState,
-        picture: base64PictureState,
-      });
-      navigation.navigate('ScreenWaypointResume');
-    }
+    appContext.setStoreClue({
+      video: isVideo,
+      condition: conditionState,
+      picture: base64PictureState,
+    });
+    navigation.navigate('ScreenWaypointResume');
   };
 
   return (

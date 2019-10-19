@@ -6,11 +6,10 @@
  */
 
 import React, { useState, useContext, useEffect } from 'react';
-import { View, ScrollView, Alert, Dimensions } from 'react-native';
+import { View, Alert, Dimensions } from 'react-native';
 
 import { CButton, CSpace, CWaypointTemplate, CError, CCamera, CImage } from '@components';
 import { AppContext } from '@contexts';
-import queueFactory from 'react-native-queue';
 import { splashname } from '../../package.json';
 import { NAVS } from './index';
 
@@ -60,7 +59,7 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
 
   const CStep1 = () => (
     <View style={{ flex: 0, alignItems: 'center' }}>
-      <CError style={{ textAlign: 'center' }}>Prenez une photo des colis...</CError>
+      <CError style={{ textAlign: 'center' }}>Prenez une photo/vidéo des colis...</CError>
       <CSpace />
       <CCamera onTakePicture={onTakePicture} onRecord={onRecord} testID="ID_TOUR_CAMERA" />
       <CSpace />
@@ -71,9 +70,9 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
   // Step 2 ios to confirm the picture
   const CStep2 = ({ onPressTakeAnotherPicture, onPressValidatePicture }) => (
     <>
-      <CError style={{ textAlign: 'center' }}>Confirmez la photo...</CError>
+      <CError style={{ textAlign: 'center' }}>Confirmez la photo/vidéo...</CError>
       <CSpace n={0.5} />
-      {base64PictureState && isVideo ? null : (
+      {base64PictureState && (
         <View
           style={{
             flex: 0,
@@ -98,7 +97,7 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
           style={{ width: '45%' }}
           icon="undo"
           danger
-          label="Reprendre la photo"
+          label="Reprendre"
           onPress={onPressTakeAnotherPicture}
         />
         <CButton
@@ -117,7 +116,7 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
   const onPressQuitScreen = () => {
     Alert.alert(
       splashname,
-      'Êtes-vous sûr de vouloir quitter cet écran ? (les photos prises seront perdues...)',
+      'Êtes-vous sûr de vouloir quitter cet écran ? (les photos/vidéos prises seront perdues...)',
       [
         {
           text: 'Rester ici',
@@ -137,11 +136,11 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
   const onPressTakeAnotherPicture = () => {
     Alert.alert(
       splashname,
-      'ATTENTION !\nLa photo actuelle ne sera pas gardée !',
+      'ATTENTION !\nLa photo/vidéo actuelle ne sera pas gardée !',
       [
-        { text: 'Garder la photo', onPress: () => console.log('Ask me later pressed') },
+        { text: 'Garder', onPress: () => console.log('Ask me later pressed') },
         {
-          text: 'Recommencer la photo',
+          text: 'Recommencer',
           onPress: () => {
             setIsVideo(false);
             setShowCameraState(true);
@@ -155,24 +154,8 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
   };
 
   const onPressValidatePicture = () => {
-    // appContext.setStoreClue({
-    //   condition: conditionState,
-    //   picture: base64PictureState,
-    // });
-    if (isVideo) {
-      queueFactory().then(queue => {
-        queue.createJob('upload-video', {
-          wp: appContext.waypoint,
-          type: 'pickup',
-          base64PictureState,
-        });
-        // TODO: do a kind of appContext.setStorePickupVideo(...);
-        navigation.navigate(NAVS.wpscanpickupsphotos.next);
-      });
-    } else {
-      appContext.setStorePickupPicture(base64PictureState);
+      appContext.setStorePickupPicture(base64PictureState,isVideo);
       navigation.navigate(NAVS.wpscanpickupsphotos.next);
-    }
   };
 
   return (

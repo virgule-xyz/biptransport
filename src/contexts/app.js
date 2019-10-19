@@ -466,8 +466,10 @@ const AppContextProvider = ({ children, command = null }) => {
           cb_liv: wp.shippingRealCodes,
           cb_enl: [''],
           photo_condition: wp.error.picture,
+          condition_is_video: wp.error.video,
           photo_blocage: '',
           photo_enlevement: wp.pickupPicture,
+          enlevement_is_video: wp.pickupIsVideo,
           observations: wp.comment,
         };
         Pool.add(values, 'putwaypoint')
@@ -622,13 +624,13 @@ const AppContextProvider = ({ children, command = null }) => {
   }, []);
 
   // store in local storage some datas that should be sent away
-  const setStoreClue = ({ condition, picture }) => {
+  const setStoreClue = ({ condition, picture, video }) => {
     return new Promise((resolve, reject) => {
       setAppContextState(state => ({
         ...state,
         waypoint: {
           ...state.waypoint,
-          error: { code: condition.id, picture },
+          error: { code: condition.id, picture, video },
         },
       }));
       resolve();
@@ -717,12 +719,13 @@ const AppContextProvider = ({ children, command = null }) => {
   };
 
   // Set picture of the pickup
-  const setStorePickupPicture = value => {
+  const setStorePickupPicture = (value, video) => {
     setAppContextState(state => ({
       ...state,
       waypoint: {
         ...state.waypoint,
         pickupPicture: value,
+        pickupIsVideo: video,
       },
     }));
   };
