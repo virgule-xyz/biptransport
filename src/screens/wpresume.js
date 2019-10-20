@@ -53,12 +53,8 @@ const ScreenWaypointResume = ({ navigation }) => {
             });
           }
         })
-        .catch(err => {
-          console.warn('ERR', err);
-        });
-    } catch (e) {
-      console.warn(e);
-    }
+        .catch(err => {});
+    } catch (e) {}
   };
 
   return (
@@ -88,7 +84,7 @@ const ScreenWaypointResume = ({ navigation }) => {
                 <CWaypointCounters
                   results
                   shipping={waypoint.shippingRealCodes.length}
-                  pickup={waypoint.pickupRealCount || 0}
+                  pickup={waypoint.pickupRealCount > 0 ? waypoint.pickupRealCount : 0}
                   colorShip={ColorsByNumber(
                     Math.abs(waypoint.shippingCount - waypoint.shippingRealCodes.length),
                   )}
@@ -96,10 +92,16 @@ const ScreenWaypointResume = ({ navigation }) => {
                     Math.abs(waypoint.shippingCount - waypoint.shippingRealCodes.length),
                   )}
                   colorPick={ColorsByNumber(
-                    Math.abs(waypoint.pickupCount - waypoint.pickupRealCount),
+                    Math.abs(
+                      waypoint.pickupCount -
+                        (waypoint.pickupRealCount > 0 ? waypoint.pickupRealCount : 0),
+                    ),
                   )}
                   frontColorPick={FrontColorsByNumber(
-                    Math.abs(waypoint.pickupCount - waypoint.pickupRealCount),
+                    Math.abs(
+                      waypoint.pickupCount -
+                        (waypoint.pickupRealCount > 0 ? waypoint.pickupRealCount : 0),
+                    ),
                   )}
                 />
               </View>

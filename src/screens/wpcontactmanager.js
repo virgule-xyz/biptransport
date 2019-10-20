@@ -66,7 +66,6 @@ const ScreenWaypointContactManager = ({ navigation }) => {
 
   const onChangeCode = text => {
     const correctCode = appContext.codeToUnlock && appContext.codeToUnlock.toLowerCase();
-    console.warn('Correct code', appContext.codeToUnlock);
     setScreenState(state => ({
       ...state,
       codeEntered: text.length > 0,

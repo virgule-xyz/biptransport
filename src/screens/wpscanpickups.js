@@ -28,14 +28,18 @@ const ScreenWaypointScanPickups = ({ navigation }) => {
   // manage the  context
   const appContext = useContext(AppContext);
 
-  const PICKER_DEFAULT = -1;
+  const PICKER_DEFAULT = appContext.waypoint.pickupCount;
 
   const [pickerValueState, setPickerValueState] = useState(PICKER_DEFAULT);
   const [errorState, setErrorState] = useState(false);
 
   useEffect(() => {
     if (pickerValueState > PICKER_DEFAULT) {
-      if (pickerValueState !== 10 && pickerValueState < appContext.waypoint.pickupCount) {
+      if (
+        pickerValueState !== 10 &&
+        pickerValueState < appContext.waypoint.pickupCount &&
+        pickerValueState < 0
+      ) {
         setErrorState('Attention, vous allez devoir prendre une photo...');
       } else {
         setErrorState(false);
@@ -93,6 +97,9 @@ const ScreenWaypointScanPickups = ({ navigation }) => {
                 selectedValue={pickerValueState}
                 onValueChange={setPickerValueState}
               >
+                <Picker.Item label="Manque d'informations sur la boite !" value="-3" />
+                <Picker.Item label="Boite cerclée !" value="-2" />
+                <Picker.Item label="Pas de boite !" value="-1" />
                 <Picker.Item label="Il y a 0 colis" value="0" />
                 <Picker.Item label="Il y a 1 colis" value="1" />
                 <Picker.Item label="Il y a 2 colis" value="2" />
@@ -122,7 +129,6 @@ const ScreenWaypointScanPickups = ({ navigation }) => {
             label="Valider"
             danger={errorState}
             primary={!errorState}
-            disabled={pickerValueState === PICKER_DEFAULT && appContext.waypoint.pickupCount > 0}
             onPress={onPressContinue}
           />
         </CWaypointTemplate>

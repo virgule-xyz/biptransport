@@ -138,7 +138,7 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
       splashname,
       'ATTENTION !\nLa photo/vidéo actuelle ne sera pas gardée !',
       [
-        { text: 'Garder', onPress: () => console.log('Ask me later pressed') },
+        { text: 'Garder', onPress: () => {} },
         {
           text: 'Recommencer',
           onPress: () => {
@@ -154,8 +154,8 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
   };
 
   const onPressValidatePicture = () => {
-      appContext.setStorePickupPicture(base64PictureState,isVideo);
-      navigation.navigate(NAVS.wpscanpickupsphotos.next);
+    appContext.setStorePickupPicture(base64PictureState, isVideo);
+    navigation.navigate(NAVS.wpscanpickupsphotos.next);
   };
 
   return (

@@ -16,13 +16,10 @@ const webservice = ({ url, params, postit = false }) => {
     url,
   };
 
-  console.warn('webservice:OPTIONS', options);
-
   const sender = () => (postit ? axios(options) : axios.get(url, { params }));
   return new Promise((resolve, reject) => {
     sender()
       .then(({ data, status }) => {
-        console.warn('webservice:DATAS', data);
         if (status === 200 && data.result === 'OK') {
           resolve(data);
         } else {
@@ -30,7 +27,6 @@ const webservice = ({ url, params, postit = false }) => {
         }
       })
       .catch(err => {
-        console.warn('webservice:ERROR', err);
         reject(err);
       });
   });

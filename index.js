@@ -10,8 +10,6 @@ import './storybook/rn-addons';
 import App from './src/app';
 import { story, version, env, name as appName, noyellow } from './package.json';
 
-console.warn(`** ${appName} version ${version}`);
-
 whyDidYouRender(React);
 
 // eslint-disable-next-line import/no-mutable-exports

@@ -40,6 +40,11 @@ const ScreenWaypointScanArrival = ({ navigation }) => {
 
   // if ok and if another code to scan then show again the codebarreader or go to next step
   const onSuccess = () => {
+    try {
+      appContext.doSetLocation();
+    } catch (e) {
+      // do nothing
+    }
     if (appContext.isNeedAnotherWaypointCode()) {
       setTimeout(
         () => appContext.setNextWaypointCode(() => setHideArrivalBarCodeReaderState(false)),

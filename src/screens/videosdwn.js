@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useMemo, useContext } from 'react';
 import { withNavigation } from 'react-navigation';
 
 import { CSpace, CContent, CText, useMovieDownload, CButton, CSpinner } from '@components';
@@ -11,7 +11,7 @@ import { NAVS } from '@screens';
 const ScreenVideosDownload = ({ navigation }) => {
   // manage the context
   const appContext = useContext(AppContext);
-  const coll = appContext.getVideosToDownload();
+  const coll = useMemo(() => appContext.getVideosToDownload(), []);
   const [start, setStart] = useState(false);
   const { index, percent, card, duration, downloadEnd, startDownload } = useMovieDownload(
     coll,

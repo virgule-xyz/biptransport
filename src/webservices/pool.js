@@ -47,7 +47,6 @@ class Pool {
   // use the WS of the datas to send it to the server
   // return a promise with the values sent has return
   tryToSendDatas = ({ values, sendCallbackId, tries = 1 }) => {
-    // console.warn('sending -> ', values, sendCallbackId, tries);
     if (sendCallbackId && Pool.SENDERS && Pool.SENDERS[sendCallbackId]) {
       return new Promise((resolve, reject) => {
         try {
@@ -153,7 +152,6 @@ class Pool {
       this.unpersistDatas()
         .then(datas => {
           this.toSendCollection = datas || [];
-          console.warn('ON LOAD', datas);
           resolve(datas);
         })
         .catch(() => {
@@ -236,9 +234,7 @@ class Pool {
       .then(pool => {
         pool.makeOneFlush();
       })
-      .catch(err => {
-        console.warn(err);
-      });
+      .catch(err => {});
   }
 
   // clear the whole pool

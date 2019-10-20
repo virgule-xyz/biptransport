@@ -115,7 +115,6 @@ const AppContextProvider = ({ children, command = null }) => {
         timeout,
       })
         .then(location => {
-          console.warn(location);
           resolve({ lat: location.latitude, long: location.longitude });
         })
         .catch(error => {
@@ -205,7 +204,7 @@ const AppContextProvider = ({ children, command = null }) => {
       pickupPicture: '',
       pickupRealCount: 0,
       pictureCollection: command.pnt_pj,
-      videos: [...command.pnt_videos, 'http://www.virgule.xyz/big_buck_bunny.mp4'],
+      videos: [...command.pnt_videos],
       videosCache: [],
       realGpsCoord: { long: 0, lat: 0 },
       shippingCodeIndex: 0,
@@ -352,9 +351,7 @@ const AppContextProvider = ({ children, command = null }) => {
           },
         }));
       })
-      .catch(err => {
-        console.warn('setGSMNumber', err);
-      });
+      .catch(err => {});
   };
 
   /**
@@ -450,58 +447,75 @@ const AppContextProvider = ({ children, command = null }) => {
   // send the waypoint datas to the server
   const doSendWaypointToServer = wp => {
     return new Promise((resolve, reject) => {
-      getMyPosition().then(coords => {
-        const values = {
-          num: wp.id,
-          bordereau_id: slip.id,
-          chauffeur_id: driver.id,
-          vehicule_id: car.id,
-          dt1: wp.arrivedAt,
-          dt2: wp.finishedAt,
-          lat: coords.lat,
-          lng: coords.long,
-          erreur: wp.error.code,
-          nb_liv: wp.shippingRealCodes.length,
-          nb_enl: wp.pickupRealCount,
-          cb_liv: wp.shippingRealCodes,
-          cb_enl: [''],
-          photo_condition: wp.error.picture,
-          condition_is_video: wp.error.video,
-          photo_blocage: '',
-          photo_enlevement: wp.pickupPicture,
-          enlevement_is_video: wp.pickupIsVideo,
-          observations: wp.comment,
-        };
-        Pool.add(values, 'putwaypoint')
-          .then(() => {
-            setTimeout(() => {
-              Pool.flush();
-            }, 25);
-            resolve();
-          })
-          .catch(err => {
-            reject(err);
-          });
-      });
+      const values = {
+        num: wp.id,
+        bordereau_id: slip.id,
+        chauffeur_id: driver.id,
+        vehicule_id: car.id,
+        dt1: wp.arrivedAt,
+        dt2: wp.finishedAt,
+        lat: wp.realGpsCoord.lat,
+        lng: wp.realGpsCoord.long,
+        erreur: wp.error.code,
+        nb_liv: wp.shippingRealCodes.length,
+        nb_enl: wp.pickupRealCount,
+        cb_liv: wp.shippingRealCodes,
+        cb_enl: [''],
+        photo_condition: wp.error.picture,
+        condition_is_video: wp.error.video,
+        photo_blocage: '',
+        photo_enlevement: wp.pickupPicture,
+        enlevement_is_video: wp.pickupIsVideo,
+        observations: wp.comment,
+      };
+      Pool.add(values, 'putwaypoint')
+        .then(() => {
+          setTimeout(() => {
+            Pool.flush();
+          }, 25);
+          resolve();
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
+  };
+
+  const doSetLocation = async () => {
+    try {
+      const coords = await getMyPosition();
+      setAppContextState(state => ({
+        ...state,
+        waypoint: {
+          ...state.waypoint,
+          realGpsCoord: { long: coords.long, lat: coords.lat },
+        },
+      }));
+    } catch (err) {
+      setAppContextState(state => ({
+        ...state,
+        waypoint: {
+          ...state.waypoint,
+          realGpsCoord: {
+            long: 0,
+            lat: 0,
+          },
+        },
+      }));
+    }
   };
 
   // start a new waypoint
   const doStartNewWaypoint = () => {
-    let currentState = null;
     return new Promise((resolve, reject) => {
-      setAppContextState(state => {
-        currentState = {
-          ...state,
-          waypoint: {
-            ...state.waypoint,
-            arrivedAt: Date.now(),
-            realGpsCoord: { long: 0, lat: 0 },
-          },
-        };
-        return currentState;
-      });
-      resolve(currentState);
+      setAppContextState(state => ({
+        ...state,
+        waypoint: {
+          ...state.waypoint,
+          arrivedAt: Date.now(),
+        },
+      }));
+      resolve();
     });
   };
 
@@ -602,7 +616,6 @@ const AppContextProvider = ({ children, command = null }) => {
           }));
         }
       } catch (err) {
-        console.warn(err);
         Alert.alert(splashname, 'Impossible de reconstruire la tournée !');
       }
     };
@@ -713,7 +726,7 @@ const AppContextProvider = ({ children, command = null }) => {
       ...state,
       waypoint: {
         ...state.waypoint,
-        pickupRealCount: Math.max(0, value),
+        pickupRealCount: value,
       },
     }));
   };
@@ -776,8 +789,8 @@ const AppContextProvider = ({ children, command = null }) => {
     wpWithMovies.forEach(movs =>
       movs.videos.map(mov =>
         urlToDownload.push({
-          url: mov,
-          name: `${movs.id}_${path.basename(mov)}`,
+          url: mov.file,
+          name: `${movs.id}_${path.basename(mov.file)}`,
           wp: movs.id,
         }),
       ),
@@ -820,6 +833,7 @@ const AppContextProvider = ({ children, command = null }) => {
     doOpenMapScreen,
     doSave,
     doStartNewWaypoint,
+    doSetLocation,
     getCarDatas,
     getDriverDatas,
     getFirstWaypointIndexNotDone,

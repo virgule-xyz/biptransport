@@ -151,10 +151,6 @@ const CCamera = ({ onTakePicture, onRecord, hide, testID, ...props }) => {
 
   const onPressCameraButton = async camera => {
     let record = null;
-    const RECORD_OPTIONS = {
-      maxDuration: 60,
-      mirrorVideo: false,
-    };
     if (!startRecording && !stopRecording) {
       setStartRecording(true);
       record = await camera.recordAsync();
@@ -194,7 +190,6 @@ const CCamera = ({ onTakePicture, onRecord, hide, testID, ...props }) => {
       setStopCamera(v);
     };
     useEffectAsync(hide);
-    console.warn('CHANGE');
   }, [hide]);
 
   return (

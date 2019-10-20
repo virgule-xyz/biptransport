@@ -55,7 +55,6 @@ const ModalScreenWaypointCollection = () => {
         setShowState(false);
       }}
       onSelectWaypoint={id => {
-        console.warn(id);
         setShowState(false);
       }}
     />
@@ -66,7 +65,6 @@ const ModalScreenWaypointGalery = () => {
   const [showState, setShowState] = useState(true);
   const [dataCollectionState, setDataCollectionState] = useState(() => {
     const read = require('../../src/webservices/commands.json');
-    console.warn('READ', read);
     return read;
   });
   const [pictureCollectionState, setPictureCollectionState] = useState([]);

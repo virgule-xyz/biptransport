@@ -59,7 +59,6 @@ const CCamera = ({ onTakePicture, hide, testID, ...props }) => {
       setStopCamera(v);
     };
     useEffectAsync(hide);
-    console.warn('CHANGE');
   }, [hide]);
 
   return (

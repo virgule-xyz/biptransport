@@ -84,7 +84,8 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
   const CStep2 = ({ conditionState, onPressChangeCondition }) => (
     <View style={{ flex: 0, alignItems: 'center' }}>
       <CError style={{ textAlign: 'center' }}>
-        Passage non traité pour raison de "{conditionState.nom}" : prenez une photo/video du problème...
+        Passage non traité pour raison de "{conditionState.nom}" : prenez une photo/video du
+        problème...
       </CError>
       <CSpace />
       <CCamera onTakePicture={onTakePicture} onRecord={onRecord} testID="ID_TOUR_CAMERA" />
@@ -192,7 +193,7 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
       splashname,
       'ATTENTION !\nLa photo/vidéo actuelle ne sera pas gardée !',
       [
-        { text: 'Garder', onPress: () => console.log('Ask me later pressed') },
+        { text: 'Garder', onPress: () => {} },
         {
           text: 'Recommencer',
           onPress: () => {

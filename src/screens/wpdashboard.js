@@ -44,36 +44,41 @@ const ScreenWaypointDashboard = ({ navigation }) => {
     appContext.doOpenMapScreen();
   };
   const onPressGalery = () => {
-    setShowGaleryState(state => true);
+    setShowGaleryState(true);
   };
   const onPressBroken = () => {
     navigation.navigate(NAVS.wpbadcondition.current);
   };
   const onPressOtherWaypoint = () => {
-    setShowCollectionState(state => true);
+    setShowCollectionState(true);
   };
   const onCloseScreenWaypointCollection = () => {
-    setShowCollectionState(state => false);
+    setShowCollectionState(false);
   };
   const onCloseScreenWaypointGalery = () => {
     setShowGaleryState(false);
   };
   const onSelectOtherWaypoint = id => {
     appContext.setWaypointById(id);
-    setShowCollectionState(state => false);
+    setShowCollectionState(false);
   };
 
   useEffect(() => {
-    appContext.doLoadFakeContext();
-    appContext.doStartNewWaypoint().then(datas => {
-      appContext.doSave(datas);
-      setWpVideos(datas.videosCache.filter(vid => vid.wp === datas.waypoint.id));
-    });
-  }, []);
+    const runIt = async ctx => {
+      try {
+        ctx.doLoadFakeContext();
+        ctx.doStartNewWaypoint().then(() => {
+          ctx.doSave();
+          setWpVideos(ctx.videosCache.filter(vid => vid.wp === ctx.waypoint.id));
+        });
+      } catch (e) {}
+    };
+    runIt(appContext);
+  }, [appContext.waypointCollection]);
 
   return (
     <AppContext.Consumer>
-      {({ waypoint, waypointList, waypointCollection }) => {
+      {({ waypoint, waypointList }) => {
         return (
           <CWaypointTemplate
             greyContent={

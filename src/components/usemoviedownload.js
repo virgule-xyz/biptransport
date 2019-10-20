@@ -115,7 +115,6 @@ const useMovieDownload = (listOfMovies = [], start = false) => {
       setFileIndex(index);
       doDownloadMovie(url, name)
         .then(apath => {
-          console.warn(apath);
           if (!stopDownloading) processDownloadOfMovies(restOfMovies);
         })
         .catch(err => {});
