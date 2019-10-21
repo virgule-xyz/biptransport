@@ -24,16 +24,147 @@ const REPORT = 0.9;
 /**
  * Launch the camera
  */
-const CCamera = ({ onTakePicture, hide, testID, ...props }) => {
+const CCamera = ({ onTakePicture, onRecord, hide, testID, ...props }) => {
   const [stopCamera, setStopCamera] = useState(false);
+  const [startRecording, setStartRecording] = useState(false);
+  const [stopRecording, setStopRecording] = useState(false);
 
   const { width } = Dimensions.get('window');
   const SCREEN_REPORT = width / BASE_WIDTH;
   const W = width * REPORT * SCREEN_REPORT;
   const H = W / PICTURE_REPORT;
 
-  // Ok we press the UI button to take the picture
+  const CPictureButton = ({ onPress }) => (
+    <TouchableOpacity
+      testID={`${testID}_BUTTON`}
+      icon="camera"
+      label=" "
+      onPress={onPress}
+      style={{
+        position: 'absolute',
+        bottom: 20 * SCREEN_REPORT,
+        right: 20 * SCREEN_REPORT,
+        width: 44 * SCREEN_REPORT,
+        height: 44 * SCREEN_REPORT,
+        borderRadius: 200 * SCREEN_REPORT,
+        overflow: 'hidden',
+        zIndex: 9,
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: 'rgba(255,255,255,0.4)',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          height: '100%',
+        }}
+      >
+        <Icon name="camera" type={ICON_TYPE} color="#fff" />
+      </View>
+    </TouchableOpacity>
+  );
+
+  const CCameraButton = ({ onPress }) => (
+    <TouchableOpacity
+      testID={`${testID}_BUTTON`}
+      icon="camera"
+      label=" "
+      onPress={onPress}
+      style={{
+        position: 'absolute',
+        bottom: 20 * SCREEN_REPORT,
+        right: 20 * SCREEN_REPORT + 44 * SCREEN_REPORT + 20,
+        width: 44 * SCREEN_REPORT,
+        height: 44 * SCREEN_REPORT,
+        borderRadius: 200 * SCREEN_REPORT,
+        overflow: 'hidden',
+        zIndex: 9,
+      }}
+    >
+      {!stopRecording && (
+        <View
+          style={{
+            backgroundColor: 'rgba(255,0,0,0.4)',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            height: '100%',
+          }}
+        >
+          {startRecording && <Icon name="close" type={ICON_TYPE} color="#fff" />}
+        </View>
+      )}
+      {stopRecording && (
+        <View
+          style={{
+            backgroundColor: 'rgba(255,255,255,0.9)',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            height: '100%',
+          }}
+        >
+          <CSpinner />
+        </View>
+      )}
+    </TouchableOpacity>
+  );
+
+  const CameraGrid = () => (
+    <>
+      <View
+        style={{
+          width: 1,
+          height: H,
+          borderWidth: 1,
+          borderColor: COLORS.DANGER,
+          position: 'absolute',
+          top: 0,
+          left: W / 2,
+        }}
+      />
+      <View
+        style={{
+          width: W,
+          height: 1,
+          borderWidth: 1,
+          borderColor: COLORS.DANGER,
+          position: 'absolute',
+          top: H / 2,
+          left: 0,
+        }}
+      />
+      <View
+        style={{
+          width: W - 20 * SCREEN_REPORT,
+          height: H - 20 * SCREEN_REPORT,
+          borderWidth: 1,
+          borderColor: COLORS.DANGER,
+          position: 'absolute',
+          top: 10 * SCREEN_REPORT,
+          left: 10 * SCREEN_REPORT,
+        }}
+      />
+    </>
+  );
+
   const onPressCameraButton = async camera => {
+    let record = null;
+    if (!startRecording && !stopRecording) {
+      setStartRecording(true);
+      record = await camera.recordAsync();
+    } else if (startRecording && !stopRecording) {
+      setStopRecording(true);
+      camera.stopRecording();
+      setStopRecording(false);
+      setStartRecording(false);
+      onRecord(record);
+    }
+  };
+
+  // Ok we press the UI button to take the picture
+  const onPressPictureButton = async camera => {
     const options = {
       quality: 0.5,
       base64: true,
@@ -117,67 +248,9 @@ const CCamera = ({ onTakePicture, hide, testID, ...props }) => {
                   position: 'relative',
                 }}
               >
-                <TouchableOpacity
-                  testID={`${testID}_BUTTON`}
-                  icon="camera"
-                  label=" "
-                  onPress={() => onPressCameraButton(camera)}
-                  style={{
-                    position: 'absolute',
-                    bottom: 20 * SCREEN_REPORT,
-                    right: 20 * SCREEN_REPORT,
-                    width: 60 * SCREEN_REPORT,
-                    height: 60 * SCREEN_REPORT,
-                    borderRadius: 200 * SCREEN_REPORT,
-                    overflow: 'hidden',
-                    zIndex: 9,
-                  }}
-                >
-                  <View
-                    style={{
-                      backgroundColor: 'rgba(255,255,255,0.4)',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      width: '100%',
-                      height: '100%',
-                    }}
-                  >
-                    <Icon name="camera" type={ICON_TYPE} color="#fff" />
-                  </View>
-                </TouchableOpacity>
-                <View
-                  style={{
-                    width: 1,
-                    height: H,
-                    borderWidth: 1,
-                    borderColor: COLORS.DANGER,
-                    position: 'absolute',
-                    top: 0,
-                    left: W / 2,
-                  }}
-                />
-                <View
-                  style={{
-                    width: W,
-                    height: 1,
-                    borderWidth: 1,
-                    borderColor: COLORS.DANGER,
-                    position: 'absolute',
-                    top: H / 2,
-                    left: 0,
-                  }}
-                />
-                <View
-                  style={{
-                    width: W - 20 * SCREEN_REPORT,
-                    height: H - 20 * SCREEN_REPORT,
-                    borderWidth: 1,
-                    borderColor: COLORS.DANGER,
-                    position: 'absolute',
-                    top: 10 * SCREEN_REPORT,
-                    left: 10 * SCREEN_REPORT,
-                  }}
-                />
+                {onRecord && <CCameraButton onPress={() => onPressCameraButton(camera)} />}
+                <CPictureButton onPress={() => onPressPictureButton(camera)} />
+                <CameraGrid />
               </View>
             );
           }}
