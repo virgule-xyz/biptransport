@@ -5,6 +5,7 @@ import {
   ScreenVideosDownload,
   ScreenCar,
   ScreenManagers,
+  ScreenDeliveryScans,
   ScreenWaypointDashboard,
   ScreenWaypointBadCondition,
   ScreenWaypointResume,
@@ -41,7 +42,14 @@ const WaypointStack = createStackNavigator(
 );
 
 const StartSwitch = createSwitchNavigator(
-  { ScreenSplash, WaypointStack, ScreenDriver, ScreenCar, ScreenVideosDownload },
+  {
+    ScreenSplash,
+    WaypointStack,
+    ScreenDriver,
+    ScreenCar,
+    ScreenVideosDownload,
+    ScreenDeliveryScans,
+  },
   {
     initialRouteName: 'ScreenSplash',
     headerMode: 'none',

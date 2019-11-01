@@ -1,5 +1,6 @@
 export { default as ScreenCar } from './car';
 export { default as ScreenVideosDownload } from './videosdwn';
+export { default as ScreenDeliveryScans } from './videosdwn';
 export { default as ScreenDriver } from './driver';
 export { default as ScreenManagers } from './managers';
 export { default as ScreenSplash } from './splash';
@@ -18,12 +19,35 @@ export { default as ScreenWaypointScanPickupsPhotos } from './wpscanpickupsphoto
 
 export const NAVS = {
   start: { current: 'ScreenSplash', next: 'ScreenDriver' },
-  driver: { current: 'ScreenDriver', previous: 'ScreenSplash', next: 'ScreenVideosDownload' },
-  videosdwn: { current: 'ScreenVideosDownload', previous: 'ScreenDriver', next: 'ScreenCar' },
-  car: { current: 'ScreenCar', previous: 'ScreenDriver', next: 'ScreenWaypointDashboard' },
+  driver: {
+    current: 'ScreenDriver',
+    previous: 'ScreenSplash',
+    next: 'ScreenVideosDownload',
+  },
+  videosdwn: {
+    current: 'ScreenVideosDownload',
+    previous: 'ScreenDriver',
+    next: 'ScreenCar',
+  },
+  car: {
+    current: 'ScreenCar',
+    previous: 'ScreenDriver',
+    next: 'ScreenDeliveryScans',
+  },
+  deliveryscans: {
+    current: 'ScreenDeliveryScans',
+    previous: 'ScreenCar',
+    next: 'ScreenWaypointDashboard',
+  },
   managers: { current: 'ScreenManagers' },
-  wpdashboard: { current: 'ScreenWaypointDashboard', previous: 'ScreenCar' },
-  wpbadcondition: { current: 'ScreenWaypointBadCondition', next: 'ScreenWaypointResume' },
+  wpdashboard: {
+    current: 'ScreenWaypointDashboard',
+    previous: 'ScreenDeliveryScans',
+  },
+  wpbadcondition: {
+    current: 'ScreenWaypointBadCondition',
+    next: 'ScreenWaypointResume',
+  },
   wpscanarrival: {
     current: 'ScreenWaypointScanArrival',
     previous: 'ScreenWaypointDashboard',
@@ -44,7 +68,10 @@ export const NAVS = {
     next: 'ScreenWaypointScanPickups',
     previous: 'ScreenWaypointScanArrival',
   },
-  wpscanpickups: { current: 'ScreenWaypointScanPickups', next: 'ScreenWaypointResume' },
+  wpscanpickups: {
+    current: 'ScreenWaypointScanPickups',
+    next: 'ScreenWaypointResume',
+  },
   wpscanpickupsphotos: {
     current: 'ScreenWaypointScanPickupsPhotos',
     next: 'ScreenWaypointResume',

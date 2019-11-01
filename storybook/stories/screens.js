@@ -4,6 +4,7 @@ import ScreenSplash from '@screens/splash';
 import ScreenDriver from '@screens/driver';
 import ScreenCar from '@screens/car';
 import ScreenVideosDownload from '@screens/videosdwn';
+import ScreenDeliveryScans from '@screens/deliveryscans';
 import ScreenManagers from '@screens/managers';
 import ScreenWaypointDashboard from '@screens/wpdashboard';
 import ScreenWaypointCollection from '@screens/wpcollection';
@@ -123,6 +124,11 @@ storiesOf('Screens', module)
   .add('Waypoint Galery', () => (
     <AppContextProvider>
       <ModalScreenWaypointGalery />
+    </AppContextProvider>
+  ))
+  .add('Deliver scanner', () => (
+    <AppContextProvider>
+      <ScreenDeliveryScans />
     </AppContextProvider>
   ));
 // .add('Waypoint Conditions', () => (
