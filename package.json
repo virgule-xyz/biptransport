@@ -3,7 +3,7 @@
   "displayName": "biptransport",
   "splashname": "Application BIP-LIV",
   "bundleID": "fr.biptransport.app1",
-  "version": "0.44.0",
+  "version": "0.45.4",
   "private": true,
   "story": false,
   "noyellow": false,

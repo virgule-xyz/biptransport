@@ -16,6 +16,7 @@ import {
   PICTURE_WIDTH,
   BASE_WIDTH,
 } from '@components';
+import RNFetchBlob from 'rn-fetch-blob';
 import { RNCamera } from 'react-native-camera';
 import PropTypes from 'prop-types';
 
@@ -28,6 +29,9 @@ const CCamera = ({ onTakePicture, onRecord, hide, testID, ...props }) => {
   const [stopCamera, setStopCamera] = useState(false);
   const [startRecording, setStartRecording] = useState(false);
   const [stopRecording, setStopRecording] = useState(false);
+  const [record, setRecord] = useState(null);
+
+  const videoCamera = null;
 
   const { width } = Dimensions.get('window');
   const SCREEN_REPORT = width / BASE_WIDTH;
@@ -150,16 +154,45 @@ const CCamera = ({ onTakePicture, onRecord, hide, testID, ...props }) => {
   );
 
   const onPressCameraButton = async camera => {
-    let record = null;
-    if (!startRecording && !stopRecording) {
-      setStartRecording(true);
-      record = await camera.recordAsync();
-    } else if (startRecording && !stopRecording) {
-      setStopRecording(true);
-      camera.stopRecording();
-      setStopRecording(false);
+    const options = {
+      quality: RNCamera.Constants.VideoQuality['480p'],
+      width: PICTURE_WIDTH,
+      exif: true,
+      fixOrientation: true,
+      orientation: 'portrait',
+      maxDuration: 60,
+    };
+    try {
+      if (startRecording && !stopRecording) {
+        camera.stopRecording();
+        setStartRecording(false);
+        setStopRecording(false);
+      } else {
+        const promise = camera.recordAsync(options);
+        if (promise) {
+          setStartRecording(true);
+          setStopRecording(false);
+
+          const data = await promise;
+
+          setStartRecording(false);
+          setStopRecording(true);
+          setStopCamera(true);
+
+          const data64 = await RNFetchBlob.fs.readFile(data.uri, 'base64');
+
+          setStopCamera(false);
+          setStopRecording(false);
+
+          setTimeout(() => {
+            onRecord && onRecord(data64);
+          }, 500);
+        }
+      }
+    } catch (e) {
       setStartRecording(false);
-      onRecord(record);
+      setStopRecording(false);
+      setStopCamera(true);
     }
   };
 
@@ -196,7 +229,7 @@ const CCamera = ({ onTakePicture, onRecord, hide, testID, ...props }) => {
     <View>
       {!hide && (
         <RNCamera
-          captureAudio={false}
+          captureAudio
           style={[
             {
               height: H,

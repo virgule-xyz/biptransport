@@ -6,10 +6,16 @@ const onSuccess = value => {};
 
 const onError = value => {};
 
-const onTakePicture = picture => {};
+const onTakePicture = picture => {
+  console.log(picture);
+};
+
+const onRecord = data => {
+  console.warn('RETOUR', data);
+};
 
 storiesOf('Camera', module).add('Camera', () => (
   <CContent>
-    <CCamera onTakePicture={onTakePicture} />
+    <CCamera onTakePicture={onTakePicture} onRecord={onRecord} />
   </CContent>
 ));

@@ -63,7 +63,6 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
             <CSpace n={0.1} />
           </>
         ))}
-        <CSpace n={2} />
       </ScrollView>
     </>
   );
@@ -74,9 +73,10 @@ const ScreenWaypointBadCondition = ({ navigation }) => {
     setShowCameraState(false);
     setShowPictureTakenState(true);
   };
-  const onRecord = ({ uri }) => {
+
+  const onRecord = base64 => {
     setIsVideo(true);
-    setBase64PictureState(uri);
+    setBase64PictureState(base64);
     setShowCameraState(false);
     setShowPictureTakenState(true);
   };

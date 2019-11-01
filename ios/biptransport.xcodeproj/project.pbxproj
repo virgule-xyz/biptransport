@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -51,8 +52,6 @@
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		EEFCF859EC57454DAE7FC069 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDDDC08EF61D467C97C3D070 /* FontAwesome5_Brands.ttf */; };
 		F24306EDE39F4159BE70EDC3 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B9CC8674CE4ED59F307CFC /* libRNFetchBlob.a */; };
-		E914AA28C4924D81825CA982 /* libGCDWebServers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6646178BFF142EF8533F0CA /* libGCDWebServers.a */; };
-		0E33CD9D79BB487484017C17 /* libRealmJS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F555FF7EC1544838993C6DC /* libRealmJS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -308,6 +307,27 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNCAsyncStorage;
 		};
+		D754BCB32360D92600626F3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00F19C04847C4D98959B8CB0 /* RealmJS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F63FF2F01C16405C00B3B8E0;
+			remoteInfo = GCDWebServers;
+		};
+		D754BCB52360D92600626F3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00F19C04847C4D98959B8CB0 /* RealmJS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F63FF2B11C1241E500B3B8E0;
+			remoteInfo = RealmJS;
+		};
+		D754BCB72360D92600626F3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00F19C04847C4D98959B8CB0 /* RealmJS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 02B58CBC1AE99CEC009B348C;
+			remoteInfo = RealmJSTests;
+		};
 		D762709D235206900090F408 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D7627098235206900090F408 /* RealmReact.xcodeproj */;
@@ -417,6 +437,7 @@
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* biptransportTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = biptransportTests.m; sourceTree = "<group>"; };
+		00F19C04847C4D98959B8CB0 /* RealmJS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RealmJS.xcodeproj; path = ../node_modules/realm/src/RealmJS.xcodeproj; sourceTree = "<group>"; };
 		03F8B9381EE24E13B9E566EE /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		06164CA6EB7044E383C47F52 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		0746E14CCE324FF09CFC15DC /* libRNExitApp.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNExitApp.a; sourceTree = "<group>"; };
@@ -473,9 +494,6 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F60A529A4E86434CB08E7D80 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		FE13B85E0B274F819D90C516 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
-		00F19C04847C4D98959B8CB0 /* RealmJS.xcodeproj */ = {isa = PBXFileReference; name = "RealmJS.xcodeproj"; path = "../node_modules/realm/src/RealmJS.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		E6646178BFF142EF8533F0CA /* libGCDWebServers.a */ = {isa = PBXFileReference; name = "libGCDWebServers.a"; path = "libGCDWebServers.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		2F555FF7EC1544838993C6DC /* libRealmJS.a */ = {isa = PBXFileReference; name = "libRealmJS.a"; path = "libRealmJS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,8 +524,6 @@
 				D762709F235206AF0090F408 /* libRealmReact.a in Frameworks */,
 				F24306EDE39F4159BE70EDC3 /* libRNFetchBlob.a in Frameworks */,
 				4192ADA7F625467C81134F8C /* libRCTVideo.a in Frameworks */,
-				E914AA28C4924D81825CA982 /* libGCDWebServers.a in Frameworks */,
-				0E33CD9D79BB487484017C17 /* libRealmJS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +770,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D754BCAE2360D92600626F3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D754BCB42360D92600626F3C /* libGCDWebServers.a */,
+				D754BCB62360D92600626F3C /* libRealmJS.a */,
+				D754BCB82360D92600626F3C /* RealmJSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D7627099235206900090F408 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -963,6 +989,10 @@
 				{
 					ProductGroup = D77417D422E77DAC00A6A979 /* Products */;
 					ProjectRef = 20EC79017D39411A814EEABC /* ReactNativePermissions.xcodeproj */;
+				},
+				{
+					ProductGroup = D754BCAE2360D92600626F3C /* Products */;
+					ProjectRef = 00F19C04847C4D98959B8CB0 /* RealmJS.xcodeproj */;
 				},
 				{
 					ProductGroup = D7627099235206900090F408 /* Products */;
@@ -1251,6 +1281,27 @@
 			fileType = archive.ar;
 			path = libRNCAsyncStorage.a;
 			remoteRef = D727804522B25F78008141BA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D754BCB42360D92600626F3C /* libGCDWebServers.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGCDWebServers.a;
+			remoteRef = D754BCB32360D92600626F3C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D754BCB62360D92600626F3C /* libRealmJS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRealmJS.a;
+			remoteRef = D754BCB52360D92600626F3C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D754BCB82360D92600626F3C /* RealmJSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RealmJSTests.xctest;
+			remoteRef = D754BCB72360D92600626F3C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		D762709E235206900090F408 /* libRealmReact.a */ = {

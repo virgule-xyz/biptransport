@@ -50,9 +50,9 @@ const ScreenWaypointScanPickupsPhotos = ({ navigation }) => {
   };
 
   // Or a video
-  const onRecord = ({ uri, codec = 'mp4' }) => {
+  const onRecord = base64 => {
     setIsVideo(true);
-    setBase64PictureState(uri);
+    setBase64PictureState(base64);
     setShowCameraState(false);
     setShowPictureTakenState(true);
   };

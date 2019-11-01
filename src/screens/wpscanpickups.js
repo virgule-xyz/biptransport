@@ -34,16 +34,14 @@ const ScreenWaypointScanPickups = ({ navigation }) => {
   const [errorState, setErrorState] = useState(false);
 
   useEffect(() => {
-    if (pickerValueState > PICKER_DEFAULT) {
-      if (
-        pickerValueState !== 10 &&
-        pickerValueState < appContext.waypoint.pickupCount &&
-        pickerValueState < 0
-      ) {
+    if (pickerValueState < PICKER_DEFAULT) {
+      if (pickerValueState !== 10) {
         setErrorState('Attention, vous allez devoir prendre une photo...');
       } else {
         setErrorState(false);
       }
+    } else {
+      setErrorState(false);
     }
   }, [pickerValueState]);
 
