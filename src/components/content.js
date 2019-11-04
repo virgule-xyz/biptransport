@@ -54,7 +54,7 @@ const CContent = ({
     };
   if (stretch)
     ccStyle = {
-      flex: 1,
+      flex: 0,
       justifyContent: 'space-between',
       backgroundColor: 'white',
     };

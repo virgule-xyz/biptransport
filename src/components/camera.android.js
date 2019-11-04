@@ -155,7 +155,7 @@ const CCamera = ({ onTakePicture, onRecord, hide, testID, ...props }) => {
 
   const onPressCameraButton = async camera => {
     const options = {
-      quality: RNCamera.Constants.VideoQuality['480p'],
+      quality: RNCamera.Constants.VideoQuality['1080p'],
       width: PICTURE_WIDTH,
       exif: true,
       fixOrientation: true,
@@ -199,7 +199,7 @@ const CCamera = ({ onTakePicture, onRecord, hide, testID, ...props }) => {
   // Ok we press the UI button to take the picture
   const onPressPictureButton = async camera => {
     const options = {
-      quality: 0.5,
+      quality: 1,
       base64: true,
       doNotSave: true,
       width: PICTURE_WIDTH,

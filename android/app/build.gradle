@@ -75,8 +75,11 @@ import com.android.build.OutputFile
 project.ext.react = [
     entryFile: "index.js",
     bundleAssetName: "index.android.bundle",
-                          bundleInAlpha: true,
-                          bundleInBeta: true
+    bundleInAlpha: true,
+    bundleInBeta: true,
+    bundleInDebug: true,
+    bundleInRelease: true,
+    root: "../../"
 ]
 
  apply from: "../../node_modules/react-native/react.gradle"
@@ -117,8 +120,8 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         missingDimensionStrategy 'react-native-camera', 'general'
-        versionCode 4600
-        versionName "0.46.0"
+        versionCode 4700
+        versionName "0.47.0"
     }
     splits {
         abi {

@@ -805,6 +805,17 @@ const AppContextProvider = ({ children, command = null }) => {
     }));
   };
 
+  const getAllShippingCodes = () => {
+    const wpAll = waypointCollection.map((wp, wpIndex) => getWaypointFromArray(wp, wpIndex));
+    const allCodes = [];
+    for (let i = 0, max = wpAll.length; i < max; i++) {
+      wpAll[i].shippingCodes.forEach(code => {
+        allCodes.push(code);
+      });
+    }
+    return allCodes;
+  };
+
   const notMemoized = {
     car,
     clues,
@@ -834,6 +845,7 @@ const AppContextProvider = ({ children, command = null }) => {
     doSave,
     doStartNewWaypoint,
     doSetLocation,
+    getAllShippingCodes,
     getCarDatas,
     getDriverDatas,
     getFirstWaypointIndexNotDone,
