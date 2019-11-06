@@ -1,6 +1,6 @@
-import React, { useState, useMemo, useContext } from 'react';
+import React, { useState, useMemo, useContext, useCallback } from 'react';
 import { withNavigation } from 'react-navigation';
-
+import { Grid, Row, Col } from 'native-base';
 import { CSpace, CContent, CText, useMovieDownload, CButton, CSpinner } from '@components';
 import { AppContext } from '@contexts';
 import { NAVS } from '@screens';
@@ -13,36 +13,54 @@ const ScreenVideosDownload = ({ navigation }) => {
   const appContext = useContext(AppContext);
   const coll = useMemo(() => appContext.getVideosToDownload(), []);
   const [start, setStart] = useState(false);
+
   const { index, percent, card, duration, downloadEnd, startDownload } = useMovieDownload(
     coll,
     start,
   );
 
   // speed return to home
-  const onPressBackHome = () => {
+  const onPressBackHome = useCallback(() => {
     appContext.setHideCarBarCodeReader(false);
     navigation.navigate(NAVS.videosdwn.previous);
-  };
+  }, []);
 
   // start the download
-  const doStartDownload = () => {
+  const onPressStart = useCallback(() => {
     setStart(true);
     startDownload();
-  };
-  const doGoForward = () => {
+  }, []);
+
+  // Normal go forward, with videos cached
+  const onPressContinue = useCallback(() => {
     appContext.setVideosCache(coll);
     navigation.navigate(NAVS.videosdwn.next);
-  };
+  }, []);
+
+  // Force, no download
+  const onPressWithout = useCallback(() => {
+    navigation.navigate(NAVS.videosdwn.next);
+  }, []);
 
   return (
     <CContent title="Téléchargement des vidéos" fullscreen pressBackHome={onPressBackHome}>
       {!downloadEnd && !start && (
         <>
           <CText style={{ textAlign: 'center' }}>
-            {card} vidéos doivent être téléchargées pour vous aider dans votre tournée.
+            {card} vidéos peuvent être téléchargées pour vous aider dans votre tournée. Voulez-vous les télécharger ?
           </CText>
           <CSpace />
-          <CButton label="Télécharger" icon="arrow-down" block onPress={doStartDownload} />
+          <Grid style={{ flex: 0 }}>
+            <Col size={4}>
+              <CButton label="Oui" block icon="check" onPress={onPressStart} />
+            </Col>
+            <Col size={1} style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <CText>Ou</CText>
+            </Col>
+            <Col size={4}>
+              <CButton label="Non" block icon="close-o" onPress={onPressWithout} />
+            </Col>
+          </Grid>
         </>
       )}
       {!downloadEnd && start && (
@@ -64,7 +82,7 @@ const ScreenVideosDownload = ({ navigation }) => {
         <>
           <CText>Téléchargement terminé</CText>
           <CSpace />
-          <CButton block label="Poursuivre" icon="check" onPress={doGoForward} />
+          <CButton block label="Poursuivre" icon="check" onPress={onPressContinue} />
         </>
       )}
     </CContent>

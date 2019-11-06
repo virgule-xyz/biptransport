@@ -7,6 +7,7 @@
 
 import React, { useEffect, useContext, useState, useCallback } from 'react';
 import { View } from 'react-native';
+import { Grid, Row, Col } from 'native-base';
 import { CContent, CText, CSpace, CButton } from '@components';
 import { AppContext } from '@contexts';
 import { NAVS } from './index';
@@ -62,7 +63,7 @@ const ScreenTourInfo = ({ navigation }) => {
               waypointCollection.length
             } points de passages`}</CText>
             <CSpace />
-            <CButton block label="Continuer" onPress={onPressContinue} />
+            <CButton label="Continuer" block onPress={onPressContinue} />
           </View>
         </CContent>
       )}

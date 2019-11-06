@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { Alert } from 'react-native';
-import { CContent, CSpace, CTitle, CButton } from '@components';
+import { Grid, Row, Col } from 'native-base';
+import { CContent, CSpace, CTitle, CButton, CText } from '@components';
 import { Pool } from '@webservices';
 import { NAVS } from '@screens';
 import { splashname, version } from '../../package.json';
@@ -57,6 +58,7 @@ const ScreenSplash = ({ navigation }) => {
     <CContent fullscreen center pressBackHome={onPressBackHome}>
       <CSpace />
       <CTitle testID="ID_TITLE">{title}</CTitle>
+
       <CSpace />
       <CButton testID="ID_CONTINUE" block label="Continuer" onPress={onPressContinue} />
       <CSpace />
