@@ -34,6 +34,7 @@ const ScreenDeliveryScans = ({ navigation }) => {
   const getInitialCodesToScan = useCallback(() => {
     return new Promise((resolve, reject) => {
       const whatToScan = appContext.getAllShippingCodes();
+      // array of {code, waypoint}
       setInitialToScan(whatToScan);
       resolve(whatToScan);
     });
@@ -52,7 +53,7 @@ const ScreenDeliveryScans = ({ navigation }) => {
     };
 
     const runIt = async () => {
-      const needed = await checkIfScanIsNeeded();
+      const needed = appContext.needPreScan && (await checkIfScanIsNeeded());
       if (needed) {
         setAlreadyDone(false);
         const whatToScan = await getInitialCodesToScan();
@@ -76,7 +77,7 @@ const ScreenDeliveryScans = ({ navigation }) => {
       } else {
         setShowToScan(count > 0 && count <= 5);
         initialToScan && setCanGoForward(initialToScan.length > 0 && count === 0);
-        setShowScanner(count > 0);
+        // setShowScanner(count > 0);
       }
     };
     runIt(toScan.length);
@@ -109,10 +110,10 @@ const ScreenDeliveryScans = ({ navigation }) => {
 
   const onBarCodeVerificator = code => {
     return new Promise((resolve, reject) => {
-      if (toScan.indexOf(code) > -1) {
+      if (itContains(code, toScan)) {
         setToScan(state => state.filter(elt => elt !== code));
         resolve(code);
-      } else if (initialToScan.indexOf(code) > -1) {
+      } else if (itContains(code, initialToScan)) {
         setScanErrors(state => [...state, `${code} déjà scanné`]);
         resolve(code);
       } else {
@@ -120,6 +121,20 @@ const ScreenDeliveryScans = ({ navigation }) => {
         resolve(code);
       }
     });
+  };
+
+  const itContains = useCallback((what, whole) => whole.findIndex(elt => what === elt.code), []);
+
+  const ShowWhatToScan = ({ what }) => {
+    return (
+      <CText style={{ fontWeight: 'bold' }}>
+        {`Colis ${what.code}
+de ${what.waypoint.labo}
+pour ${what.waypoint.name}
+
+`}
+      </CText>
+    );
   };
 
   return (
@@ -155,17 +170,12 @@ const ScreenDeliveryScans = ({ navigation }) => {
               colis à scanner
             </CText>
           </View>
-          {showScanner && (
-            <>
-              <CBarCodeReader
-                verificator={onBarCodeVerificator}
-                onSuccess={onBarCodeSuccess}
-                onError={onBarCodeError}
-                hide={!showScanner}
-              />
-              <CSpace />
-            </>
-          )}
+          <CBarCodeReader
+            verificator={onBarCodeVerificator}
+            onSuccess={onBarCodeSuccess}
+            onError={onBarCodeError}
+          />
+          <CSpace />
           {showToScan && (
             <View
               style={{
@@ -180,7 +190,7 @@ const ScreenDeliveryScans = ({ navigation }) => {
               <CTitle>Reste à scanner...</CTitle>
 
               {toScan.map(item => (
-                <CText style={{ fontWeight: 'bold' }}>{item}</CText>
+                <ShowWhatToScan what={item} />
               ))}
             </View>
           )}

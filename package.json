@@ -3,7 +3,7 @@
   "displayName": "biptransport",
   "splashname": "Application BIP-LIV",
   "bundleID": "fr.biptransport.app1",
-  "version": "0.48.0",
+  "version": "0.50.0",
   "private": true,
   "story": false,
   "noyellow": false,
@@ -172,7 +172,7 @@
     "configurations": {
       "ios.sim.debug": {
         "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/biptransport.app",
-        "build": "xcodebuild -project ios/biptransport.xcodeproj -scheme biptransport -configuration Debug -derivedDataPath ios/build -destination 'platform=iOS Simulator,name=iPhone X,OS=12.2'",
+        "build": "xcodebuild -project ios/biptransport.xcodeproj -scheme biptransport -configuration Debug -derivedDataPath ios/build -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1'",
         "type": "ios.simulator",
         "id": "7DC6485A-63F0-4932-9404-9FDBE7836EDB",
         "name": "iPhone X"

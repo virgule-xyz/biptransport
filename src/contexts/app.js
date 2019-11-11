@@ -46,6 +46,9 @@ const defaultAppState = {
   waypointList: [],
   codeToUnlock: null,
   videosCache: [],
+  waypointCard: 0,
+  shippingCard: 0,
+  needPreScan: false,
   waypoint: {
     accessDescription: '',
     address: '',
@@ -95,6 +98,8 @@ const AppContextProvider = ({ children, command = null }) => {
     rescueIsSearching,
     car,
     clues,
+    waypointCard,
+    shippingCard,
     conditionCollection,
     driver,
     forceWaypointIndex,
@@ -106,6 +111,7 @@ const AppContextProvider = ({ children, command = null }) => {
     waypointCollection,
     waypointList,
     codeToUnlock,
+    needPreScan,
   } = appContextState;
 
   const getMyPosition = (timeout = 15000) => {
@@ -371,6 +377,9 @@ const AppContextProvider = ({ children, command = null }) => {
             setAppContextState(state => ({
               ...state,
               forceWaypointIndex: 0, // getFirstWaypointIndexNotDone(value && value.commandes),
+              waypointCard: value.total_pnt,
+              shippingCard: value.total_liv,
+              needPreScan: false,
               waypointList: [],
               conditionCollection: [],
               tourManager: { nom: '', rel: '' },
@@ -380,14 +389,18 @@ const AppContextProvider = ({ children, command = null }) => {
             }));
             reject(false);
           } else {
+            debugger;
             setAppContextState(state => ({
               ...state,
               forceWaypointIndex: 0, // getFirstWaypointIndexNotDone(value && value.commandes),
               waypointList: [],
+              waypointCard: value.total_pnt,
+              shippingCard: value.total_liv,
               conditionCollection: (value && value.problemes) || [],
               tourManager: (value && value.tournee) || { nom: '', rel: '' },
               managerCollection: (value && value.responsables) || [],
               waypointCollection: wpcoll,
+              needPreScan: 1 * value.lecture_depart === 1,
               waypoint: getWaypointFromArray(wpcoll[0], 0),
               // getFirstWaypointNotDone(value && value.commandes),
               // getWaypointFromArray(value.commandes[firstIndex], firstIndex),
@@ -810,7 +823,7 @@ const AppContextProvider = ({ children, command = null }) => {
     const allCodes = [];
     for (let i = 0, max = wpAll.length; i < max; i++) {
       wpAll[i].shippingCodes.forEach(code => {
-        allCodes.push(code);
+        allCodes.push({ code, waypoint: wpAll[i] });
       });
     }
     return allCodes;
@@ -827,6 +840,9 @@ const AppContextProvider = ({ children, command = null }) => {
     hideDriverCodeBar,
     loadFromStorage,
     managerCollection,
+    needPreScan,
+    waypointCard,
+    shippingCard,
     rescueIsSearching,
     slip,
     videosCache,

@@ -43,8 +43,8 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
       setStopCamera(v);
     };
 
-    useEffectAsync(hide || showBarcodeInput);
-  }, [hide, showBarcodeInput]);
+    useEffectAsync(hide/* || showBarcodeInput*/);
+  }, [hide/*, showBarcodeInput*/]);
 
   // useEffect(() => {
   //   if (!hide) turnLightOn();
@@ -59,6 +59,8 @@ const CBarCodeReader = ({ verificator, onSuccess, onError, hide, input, testID }
     verificator(code.toUpperCase())
       .then(value => {
         setBarcode('');
+        setStopCamera(false);
+        isBarCodeRead = false;
         if (onSuccess) {
           onSuccess(value);
         }

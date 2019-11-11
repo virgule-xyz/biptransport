@@ -19,24 +19,6 @@ const ScreenTourInfo = ({ navigation }) => {
   // Driver context to get tour id
   const appContext = useContext(AppContext);
 
-  const [shippingTotal, setShippingTotal] = useState(0);
-  const [pickupTotal, setPickupTotal] = useState(0);
-
-  useEffect(() => {
-    appContext.doLoadFakeContext();
-    const { waypointCollection } = appContext;
-    setPickupTotal(
-      waypointCollection.reduce((prev, cur, ind) => {
-        return prev + 1 * cur.nbr_enl;
-      }, 0),
-    );
-    setShippingTotal(
-      waypointCollection.reduce((prev, cur, ind) => {
-        return prev + 1 * cur.nbr_liv;
-      }, 0),
-    );
-  }, []);
-
   const onPressBackHome = useCallback(() => {
     appContext.setHideCarBarCodeReader(false);
     navigation.navigate(NAVS.driver.previous);
@@ -48,7 +30,7 @@ const ScreenTourInfo = ({ navigation }) => {
 
   return (
     <AppContext.Consumer>
-      {({ slip, waypointCollection }) => (
+      {({ slip, shippingCard, waypointCard }) => (
         <CContent title="Aperçu de la tournée" fullscreen pressBackHome={onPressBackHome}>
           <View
             style={{
@@ -59,9 +41,7 @@ const ScreenTourInfo = ({ navigation }) => {
             <CSpace />
             <CText>{`Tournée ${slip.code} du ${slip.date}`}</CText>
             <CSpace />
-            <CText>{`Faire ${pickupTotal} enlèvement(s) et ${shippingTotal} livraison(s) sur ${
-              waypointCollection.length
-            } points de passages`}</CText>
+            <CText>{`Faire ${shippingCard} livraison(s) sur ${waypointCard} points de passages`}</CText>
             <CSpace />
             <CButton label="Continuer" block onPress={onPressContinue} />
           </View>
