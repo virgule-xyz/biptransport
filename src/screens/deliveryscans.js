@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useContext, useCallback } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import { withNavigation } from 'react-navigation';
 import { View } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -7,6 +7,8 @@ import { AppContext } from '@contexts';
 import { NAVS } from '@screens';
 
 const STORAGE_KEY = 'BIP_TRANSPORT_TOUR';
+
+const itContains = (what, whole) => whole.findIndex(elt => what === elt.code);
 
 /**
  * Should display all the delivery packages code to scan before going in the course
@@ -20,6 +22,8 @@ const STORAGE_KEY = 'BIP_TRANSPORT_TOUR';
  * - If all parcel are scanned, even with errors, then the driver can go forward
  */
 const ScreenDeliveryScans = ({ navigation }) => {
+  const MAX_ERRORS = 3;
+
   // manage the context
   const appContext = useContext(AppContext);
   const tourKey = appContext.slip.id;
@@ -28,66 +32,76 @@ const ScreenDeliveryScans = ({ navigation }) => {
   const [canGoForward, setCanGoForward] = useState(false);
   const [scanErrors, setScanErrors] = useState([]);
   const [showToScan, setShowToScan] = useState(false);
-  const [toScan, setToScan] = useState([]);
-  const [showScanner, setShowScanner] = useState(false);
+  // const [showScanner, setShowScanner] = useState(false);
 
-  const getInitialCodesToScan = useCallback(() => {
-    return new Promise((resolve, reject) => {
-      const whatToScan = appContext.getAllShippingCodes();
-      // array of {code, waypoint}
-      setInitialToScan(whatToScan);
-      resolve(whatToScan);
-    });
-  }, [tourKey]);
+  const [toScan, setToScan] = useState(null);
 
-  // first run
+  // change views in the UI based on states
   useEffect(() => {
-    const checkIfScanIsNeeded = () => {
-      return new Promise(resolve => {
-        AsyncStorage.getItem(STORAGE_KEY, false)
-          .then(value => {
-            resolve(value !== tourKey);
-          })
-          .catch(() => resolve(true));
-      });
+    const runIt = collection => {
+      const count = collection.length;
+      AsyncStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ tourId: tourKey, whatToScan: collection }),
+      );
+      setShowToScan((count > 0 && count <= 5) || scanErrors.length >= MAX_ERRORS);
+      if (initialToScan)
+        setCanGoForward(initialToScan.length > 0 && count <= 0);
     };
+    if (toScan !== null) runIt(toScan);
+  }, [toScan]);
 
-    const runIt = async () => {
-      const needed = appContext.needPreScan && (await checkIfScanIsNeeded());
-      if (needed) {
-        setAlreadyDone(false);
-        const whatToScan = await getInitialCodesToScan();
-        setToScan(whatToScan);
+  /**
+   * search for the tourkey in the localstorage. if it exist then it contains the remaining of scans to do if
+   * it was aborted on a previous session
+   */
+  useEffect(() => {
+    const runIt = t => {
+      if (appContext.needPreScan) {
+        AsyncStorage.getItem(STORAGE_KEY, false)
+          .then(async value => {
+            setInitialToScan(appContext.getAllShippingCodes());
+            const { tourId, whatToScan } = JSON.parse(value);
+            if (tourId === t && whatToScan.length > 0) {
+              setToScan(whatToScan);
+            } else {
+              setToScan(appContext.getAllShippingCodes());
+            }
+          })
+          .catch(async () => {
+            setToScan(appContext.getAllShippingCodes());
+          });
       } else {
         setAlreadyDone(true);
         navigation.navigate(NAVS.deliveryscans.next);
       }
     };
 
-    runIt();
+    runIt(tourKey);
   }, [tourKey]);
 
   // change views in the UI based on states
   useEffect(() => {
-    const runIt = count => {
-      if (alreadyDone) {
-        setShowToScan(false);
+    const runIt = done => {
+      if (done) {
         setCanGoForward(true);
-        setShowScanner(false);
-      } else {
-        setShowToScan(count > 0 && count <= 5);
-        initialToScan && setCanGoForward(initialToScan.length > 0 && count === 0);
-        // setShowScanner(count > 0);
       }
     };
-    runIt(toScan.length);
-  }, [alreadyDone, toScan]);
+
+    runIt(alreadyDone);
+  }, [alreadyDone]);
 
   useEffect(() => {
     if (canGoForward) {
-      AsyncStorage.setItem(STORAGE_KEY, tourKey);
+      navigation.navigate(NAVS.deliveryscans.next);
     }
   }, [canGoForward]);
+
+  useEffect(() => {
+    if (scanErrors.length >= MAX_ERRORS) {
+      setShowToScan(true);
+    }
+  }, [scanErrors]);
 
   // speed return to home
   const onPressBackHome = () => {
@@ -100,20 +114,25 @@ const ScreenDeliveryScans = ({ navigation }) => {
   };
 
   // Bar Code management
-  const onBarCodeSuccess = value => {
+  const onBarCodeSuccess = () => {
     // setToScan(state => state.filter(elt => elt !== value));
   };
 
-  const onBarCodeError = (value, cb) => {
+  const onBarCodeError = () => {
     // setScanErrors(state => [...state, value]);
   };
 
   const onBarCodeVerificator = code => {
-    return new Promise((resolve, reject) => {
-      if (itContains(code, toScan)) {
-        setToScan(state => state.filter(elt => elt !== code));
+    return new Promise(resolve => {
+      if (itContains(code, toScan) >= 0) {
+        setToScan(state => {
+          const filtered = state.filter(elt => {
+            return elt.code !== code;
+          });
+          return filtered;
+        });
         resolve(code);
-      } else if (itContains(code, initialToScan)) {
+      } else if (itContains(code, initialToScan) >= 0) {
         setScanErrors(state => [...state, `${code} déjà scanné`]);
         resolve(code);
       } else {
@@ -123,8 +142,10 @@ const ScreenDeliveryScans = ({ navigation }) => {
     });
   };
 
-  const itContains = useCallback((what, whole) => whole.findIndex(elt => what === elt.code), []);
-
+  /**
+   *
+   * @param {object} what - {code,waypoint}
+   */
   const ShowWhatToScan = ({ what }) => {
     return (
       <CText style={{ fontWeight: 'bold' }}>
@@ -164,7 +185,7 @@ pour ${what.waypoint.name}
                 marginTop: 10,
               }}
             >
-              {toScan.length}
+              {toScan ? toScan.length : 0}
             </CText>
             <CText style={{ fontSize: 12, lineHeight: 12, margin: 0, marginBottom: 10 }}>
               colis à scanner
@@ -189,9 +210,7 @@ pour ${what.waypoint.name}
             >
               <CTitle>Reste à scanner...</CTitle>
 
-              {toScan.map(item => (
-                <ShowWhatToScan what={item} />
-              ))}
+              {toScan ? toScan.map(item => <ShowWhatToScan what={item} />) : null}
             </View>
           )}
           {scanErrors.length > 0 && (

@@ -79,6 +79,7 @@ const ScreenWaypointGalery = ({ show, datas, videos, name, address, onClose }) =
           </Col>
         </Row>
       )),
+    [datas],
   );
 
   const doOnClose = useCallback(() => {
@@ -86,25 +87,30 @@ const ScreenWaypointGalery = ({ show, datas, videos, name, address, onClose }) =
     onClose();
   });
 
-  const onPressVideoPlayer = useCallback(video => {
-    setVideoToPlay(video.name);
-  }, videos);
+  const onPressVideoPlayer = useCallback(
+    video => {
+      setVideoToPlay(video.name);
+    },
+    [videos],
+  );
 
   const onPressVideo = useCallback(() => {
     setVideoToPlay(null);
-  });
+  }, [videos]);
 
-  const videosJsx = useMemo(() =>
-    videos.map((video, index) => (
-      <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <CButton
-          label={`Afficher la vidéo ${index}`}
-          onPress={() => {
-            onPressVideoPlayer(video);
-          }}
-        />
-      </Row>
-    )),
+  const videosJsx = useMemo(
+    () =>
+      videos.map((video, index) => (
+        <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <CButton
+            label={`Afficher la vidéo ${index + 1}`}
+            onPress={() => {
+              onPressVideoPlayer(video);
+            }}
+          />
+        </Row>
+      )),
+    [videos],
   );
 
   return (

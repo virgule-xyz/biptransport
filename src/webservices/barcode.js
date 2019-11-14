@@ -5,7 +5,6 @@
  *
  */
 
-const checkBarcode = ({ codebar, ws, setContextState }) => {
-};
+const checkBarcode = ({ codebar, ws, setContextState }) => {};
 
 export default checkBarcode;

@@ -389,7 +389,6 @@ const AppContextProvider = ({ children, command = null }) => {
             }));
             reject(false);
           } else {
-            debugger;
             setAppContextState(state => ({
               ...state,
               forceWaypointIndex: 0, // getFirstWaypointIndexNotDone(value && value.commandes),

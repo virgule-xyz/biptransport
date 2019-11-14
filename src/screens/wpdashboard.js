@@ -71,10 +71,12 @@ const ScreenWaypointDashboard = ({ navigation }) => {
           ctx.doSave();
           setWpVideos(ctx.videosCache.filter(vid => vid.wp === ctx.waypoint.id));
         });
-      } catch (e) {}
+      } catch (e) {
+        console.log(e);
+      }
     };
     runIt(appContext);
-  }, [appContext.waypointCollection]);
+  }, [appContext.waypointCollection, appContext.waypoint.id]);
 
   return (
     <AppContext.Consumer>

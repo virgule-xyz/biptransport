@@ -47,7 +47,8 @@ const ScreenVideosDownload = ({ navigation }) => {
       {!downloadEnd && !start && (
         <>
           <CText style={{ textAlign: 'center' }}>
-            {card} vidéos peuvent être téléchargées pour vous aider dans votre tournée. Voulez-vous les télécharger ?
+            {card} vidéos peuvent être téléchargées pour vous aider dans votre tournée. Voulez-vous
+            les télécharger ?
           </CText>
           <CSpace />
           <Grid style={{ flex: 0 }}>
