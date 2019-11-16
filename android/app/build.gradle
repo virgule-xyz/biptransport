@@ -120,8 +120,8 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         missingDimensionStrategy 'react-native-camera', 'general'
-        versionCode 5100
-        versionName "0.51.0"
+        versionCode 5200
+        versionName "0.52.0"
     }
     splits {
         abi {
